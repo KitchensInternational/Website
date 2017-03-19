@@ -1,0 +1,10 @@
+{
+  "name": "kitchens-international",
+  "dependencies": {
+    "ember": "~2.7.0",
+    "ember-cli-shims": "0.1.1",
+    "ember-qunit-notifications": "0.1.0",
+    "bootstrap": "v4.0.0-alpha.6",
+    "showdown": "^1.6.4"
+  }
+}

@@ -1,0 +1,17 @@
+<button class="btn btn-secondary mr-3">Get in touch</button>
+<button {{action "toggleMainMenu"}} class="btn btn-secondary">{{fa-icon "navicon" fixedWidth=true}}</button>
+<nav>
+    <ul>
+        <li>{{#link-to}}Home{{/link-to}}</li>
+        <li>{{#link-to}}Kitchens{{/link-to}}</li>
+        <li>{{#link-to}}Design{{/link-to}} Service</li>
+        <li>{{#link-to}}Projects{{/link-to}}</li>
+        <li>{{#link-to}}People{{/link-to}}</li>
+        <li>{{#link-to}}Endorsements{{/link-to}}</li>
+        <li>{{#link-to}}Stories{{/link-to}}</li>
+        <li>{{#link-to}}Commercial{{/link-to}}</li>
+        <li>{{#link-to}}Contact{{/link-to}}</li>
+        <li><hr></li>
+    </ul>
+</nav>
+{{yield}}
