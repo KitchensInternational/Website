@@ -20,6 +20,7 @@ export default Ember.Component.extend({
             let component = this;
             component.startSpinMenuButtonIcon();
             if ( component.get('mainMenuVisible') === false ) {
+                component.$('.btn-outline-secondary').removeClass('btn-outline-secondary').addClass('btn-secondary');
                 component.$('nav').animate({ width: '100%', height: '100%' }, 400, function () {
                     component.$('nav ul').fadeIn(250, function () {
                         component.stopSpinMenuButtonIcon();
@@ -28,6 +29,7 @@ export default Ember.Component.extend({
                     });
                 });
             } else {
+                component.$('.btn-secondary').removeClass('btn-secondary').addClass('btn-outline-secondary');
                 component.$('nav ul').fadeOut(250, function () {
                     component.$('nav').animate({ height: '0%', width: '0%' }, 400, function () {
                         component.stopSpinMenuButtonIcon();

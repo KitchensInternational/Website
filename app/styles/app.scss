@@ -7,9 +7,10 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: $spacer;
+    padding: $spacer / 2;
     text-align: right;
     z-index: 100;
+    background: rgba(0, 0, 0, .7);
 
     nav {
         position: fixed;
@@ -17,17 +18,24 @@ header {
         top: 0;
         right: 0;
         width: 0; // animates to 100%
-        max-width: 300px;
+        max-width: 100%;
         height: 0;  // animates to 100%
         z-index: 200;
         text-align: left;
         text-transform: uppercase;
         font-size: $font-size-lg;
 
+        @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+            nav {
+                width: 0; // animates to 100%
+                max-width: 100%;
+            }
+        }
+
         ul {
             margin: 80px 40px 0;
             list-style: none; // displays after parent animation
-            padding-left: 0;
+            padding-left: 50%;
             display: none;
 
             li {
@@ -201,10 +209,15 @@ card {
     }
 
     .introduction {
-        text-align: center;
-        position: absolute;
-        top: 210px;
-        left: 0;
+        background: url(/assets/images/ki-home-0003.jpg) no-repeat center center fixed;
+        background-size: cover;
         width: 100%;
+        height: 700px;
+        height: 100vh;
+        text-align: center;
+
+        h1 {
+            padding-top: 45vh;
+        }
     }
 }
