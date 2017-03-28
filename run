@@ -2,33 +2,33 @@
 
 docker stop $(docker ps -q)
 
-docker kill ki
-docker rm ki
+docker kill kitchens
+docker rm kitchens
 
-docker build -t ki .
+docker build -t kitchens .
 
 if [ -z "$APP_ENV" ]; then
     APP_ENV="prod"
 fi
 
 # if [ $APP_ENV == "dev" ]; then
-#     docker run --name ki -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-#         -v /Users/matthewdavies/Sites/ki/:/var/www/html \
+#     docker run --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
+#         -v /Users/matthewdavies/Sites/kitchens-international/:/var/www/html \
 #         -v /var/www/letsencrypt-well-known:/var/www/letsencrypt-well-known \
-#         ki
+#         kitchens
 # else
-#     docker run -d --name ki -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-#         -v /home/ubuntu/ki/:/var/www/html \
+#     docker run -d --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
+#         -v /home/ubuntu/kitchens/:/var/www/html \
 #         -v /var/www/letsencrypt-well-known:/var/www/letsencrypt-well-known \
-#         ki
+#         kitchens
 # fi
 
 if [ $APP_ENV == "dev" ]; then
-    docker run --name ki -p 0.0.0.0:80:80 \
+    docker run --name kitchens -p 0.0.0.0:80:80 \
         -v /Users/matthewdavies/Sites/kitchens-international/:/var/www/html \
-        ki
+        kitchens
 else
-    docker run -d --name ki -p 0.0.0.0:80:80 \
+    docker run -d --name kitchens -p 0.0.0.0:80:80 \
         -v /home/ubuntu/ki/:/var/www/html \
-        ki
+        kitchens
 fi
