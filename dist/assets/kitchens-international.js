@@ -2846,7 +2846,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("kitchens-international/app")["default"].create({"name":"kitchens-international","version":"1.0.0+0b7ad003"});
+  require("kitchens-international/app")["default"].create({"name":"kitchens-international","version":"1.0.0+e143ff65"});
 }
 
 /* jshint ignore:end */
