@@ -1744,11 +1744,11 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
           "loc": {
             "source": null,
             "start": {
-              "line": 153,
+              "line": 170,
               "column": 20
             },
             "end": {
-              "line": 153,
+              "line": 170,
               "column": 49
             }
           },
@@ -1779,11 +1779,11 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
           "loc": {
             "source": null,
             "start": {
-              "line": 158,
+              "line": 175,
               "column": 20
             },
             "end": {
-              "line": 158,
+              "line": 175,
               "column": 45
             }
           },
@@ -1814,11 +1814,11 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
           "loc": {
             "source": null,
             "start": {
-              "line": 163,
+              "line": 180,
               "column": 20
             },
             "end": {
-              "line": 163,
+              "line": 180,
               "column": 45
             }
           },
@@ -1849,11 +1849,11 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
           "loc": {
             "source": null,
             "start": {
-              "line": 168,
+              "line": 185,
               "column": 20
             },
             "end": {
-              "line": 168,
+              "line": 185,
               "column": 52
             }
           },
@@ -1884,11 +1884,11 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
           "loc": {
             "source": null,
             "start": {
-              "line": 173,
+              "line": 190,
               "column": 20
             },
             "end": {
-              "line": 173,
+              "line": 190,
               "column": 48
             }
           },
@@ -1919,11 +1919,11 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
           "loc": {
             "source": null,
             "start": {
-              "line": 178,
+              "line": 195,
               "column": 20
             },
             "end": {
-              "line": 178,
+              "line": 195,
               "column": 47
             }
           },
@@ -1957,7 +1957,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
             "column": 0
           },
           "end": {
-            "line": 183,
+            "line": 200,
             "column": 0
           }
         },
@@ -2581,6 +2581,79 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         dom.setAttribute(el1, "class", "container");
         var el2 = dom.createTextNode("\n    ");
         dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "row mb-5");
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "col");
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("img");
+        dom.setAttribute(el4, "class", "img-fluid");
+        dom.setAttribute(el4, "src", "/assets/images/ki-home-0009.jpg");
+        dom.setAttribute(el4, "alt", "");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n            ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4, "class", "image-overlay");
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("div");
+        dom.setAttribute(el5, "class", "row justify-content-center");
+        var el6 = dom.createTextNode("\n                    ");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("div");
+        dom.setAttribute(el6, "class", "col-8 text-white text-center pt-5 mt-4");
+        var el7 = dom.createTextNode("\n                        ");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("h3");
+        var el8 = dom.createTextNode("Building trust");
+        dom.appendChild(el7, el8);
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n                        ");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("hr");
+        dom.setAttribute(el7, "class", "hr-white");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n                        ");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("p");
+        var el8 = dom.createTextNode("Learn about what we have done for our clients and their businesses.");
+        dom.appendChild(el7, el8);
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n                        ");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("button");
+        dom.setAttribute(el7, "class", "btn btn-outline-secondary");
+        var el8 = dom.createTextNode("Commerical");
+        dom.appendChild(el7, el8);
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n                    ");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n                ");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n            ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("section");
+        dom.setAttribute(el1, "class", "container");
+        var el2 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n    ");
@@ -2719,7 +2792,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [6, 1, 1]);
-        var element1 = dom.childAt(fragment, [8]);
+        var element1 = dom.childAt(fragment, [10]);
         var element2 = dom.childAt(element1, [3]);
         var morphs = new Array(11);
         morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 6, 6);
@@ -2735,7 +2808,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         morphs[10] = dom.createMorphAt(dom.childAt(element2, [11, 1, 1]), 0, 0);
         return morphs;
       },
-      statements: [["inline", "fa-icon", ["chevron-down"], ["size", "lg"], ["loc", [null, [4, 4], [4, 40]]], 0, 0], ["block", "link-to", ["home"], [], 0, null, ["loc", [null, [108, 28], [108, 68]]]], ["block", "link-to", ["home"], [], 1, null, ["loc", [null, [122, 28], [122, 68]]]], ["block", "link-to", ["home"], [], 2, null, ["loc", [null, [136, 28], [136, 68]]]], ["inline", "store-locations", [], ["stores", ["subexpr", "@mut", [["get", "stores", ["loc", [null, [149, 29], [149, 35]]], 0, 0, 0, 0]], [], [], 0, 0]], ["loc", [null, [149, 4], [149, 37]]], 0, 0], ["block", "link-to", ["home"], [], 3, null, ["loc", [null, [153, 20], [153, 61]]]], ["block", "link-to", ["home"], [], 4, null, ["loc", [null, [158, 20], [158, 57]]]], ["block", "link-to", ["home"], [], 5, null, ["loc", [null, [163, 20], [163, 57]]]], ["block", "link-to", ["home"], [], 6, null, ["loc", [null, [168, 20], [168, 64]]]], ["block", "link-to", ["home"], [], 7, null, ["loc", [null, [173, 20], [173, 60]]]], ["block", "link-to", ["home"], [], 8, null, ["loc", [null, [178, 20], [178, 59]]]]],
+      statements: [["inline", "fa-icon", ["chevron-down"], ["size", "lg"], ["loc", [null, [4, 4], [4, 40]]], 0, 0], ["block", "link-to", ["home"], [], 0, null, ["loc", [null, [108, 28], [108, 68]]]], ["block", "link-to", ["home"], [], 1, null, ["loc", [null, [122, 28], [122, 68]]]], ["block", "link-to", ["home"], [], 2, null, ["loc", [null, [136, 28], [136, 68]]]], ["inline", "store-locations", [], ["stores", ["subexpr", "@mut", [["get", "stores", ["loc", [null, [166, 29], [166, 35]]], 0, 0, 0, 0]], [], [], 0, 0]], ["loc", [null, [166, 4], [166, 37]]], 0, 0], ["block", "link-to", ["home"], [], 3, null, ["loc", [null, [170, 20], [170, 61]]]], ["block", "link-to", ["home"], [], 4, null, ["loc", [null, [175, 20], [175, 57]]]], ["block", "link-to", ["home"], [], 5, null, ["loc", [null, [180, 20], [180, 57]]]], ["block", "link-to", ["home"], [], 6, null, ["loc", [null, [185, 20], [185, 64]]]], ["block", "link-to", ["home"], [], 7, null, ["loc", [null, [190, 20], [190, 60]]]], ["block", "link-to", ["home"], [], 8, null, ["loc", [null, [195, 20], [195, 59]]]]],
       locals: [],
       templates: [child0, child1, child2, child3, child4, child5, child6, child7, child8]
     };
@@ -2773,7 +2846,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("kitchens-international/app")["default"].create({"name":"kitchens-international","version":"1.0.0+4e091c40"});
+  require("kitchens-international/app")["default"].create({"name":"kitchens-international","version":"1.0.0+0b7ad003"});
 }
 
 /* jshint ignore:end */
