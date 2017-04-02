@@ -1,7 +1,9 @@
+<img class="logo logo-nav" src="/assets/images/ki-logo-white-small.svg" alt="Kitchens International Logo">
+<img class="logo logo-menu" src="/assets/images/ki-logo-grey-small.svg" alt="Kitchens International Logo">
 <button class="btn btn-outline-secondary mr-3">Get in touch</button>
 <button {{action "toggleMainMenu"}} class="btn btn-outline-secondary">{{fa-icon "navicon" fixedWidth=true}}</button>
 <nav>
-    <ul>
+    <ul class="page-links">
         <li>{{#link-to}}Home{{/link-to}}</li>
         <li>{{#link-to}}Kitchens{{/link-to}}</li>
         <li>{{#link-to}}Design{{/link-to}} Service</li>
@@ -11,6 +13,8 @@
         <li>{{#link-to}}Stories{{/link-to}}</li>
         <li>{{#link-to}}Commercial{{/link-to}}</li>
         <li>{{#link-to}}Contact{{/link-to}}</li>
+    </ul>
+    <ul class="menu-break">
         <li><hr></li>
     </ul>
 </nav>
