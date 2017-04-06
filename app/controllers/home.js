@@ -1,6 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    images: [
+        Ember.Object.create({
+            url: '/assets/images/ki-home-0001.jpg',
+            title: ''
+        }),
+        Ember.Object.create({
+            url: '/assets/images/ki-home-0002.jpg',
+            title: ''
+        }),
+        Ember.Object.create({
+            url: '/assets/images/ki-home-0003.jpg',
+            title: ''
+        }),
+    ],
     stores: [
         Ember.Object.create({
             town: 'Edinburgh',

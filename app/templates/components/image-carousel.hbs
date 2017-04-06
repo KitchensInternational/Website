@@ -1,0 +1,24 @@
+{{#if showIndicators}}
+<ol class="carousel-indicators">
+    {{#each images as |image index|}}
+    <li class="{{if (eq index 0) 'active'}}" data-target="#carousel" data-slide-to="{{index}}"></li>
+    {{/each}}
+</ol>
+{{/if}}
+<div class="carousel-inner" role="listbox">
+    {{#each images as |image index|}}
+    <div class="carousel-item {{if (eq index 0) 'active'}}">
+        <img class="card-img-top img-fluid" src="{{image.url}}" alt="{{image.title}}" property="image">
+    </div>
+    {{/each}}
+</div>
+{{#if showControls}}
+<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>
+{{/if}}

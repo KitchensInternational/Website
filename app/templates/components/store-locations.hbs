@@ -1,57 +1,55 @@
-<div class="row">
-{{#each stores as |store index|}}
-    <div class="col-xs-6 col-sm-3 col-md-2">
-        <div {{action "selectStore" index}} class="py-2">
-            <h4>{{store.town}}<br>
-                {{#if store.name}}<small>({{store.name}})</small>{{/if}}
-            </h4>
-            <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
-        </div>
-    </div>
-{{/each}}
-</div>
-<div class="row">
-    <div class="col">
-        <div class="map-container">
-            <div class="map"></div>
-            <div class="store-location text-white">
-                <table class="opening-hours">
-                    <tr>
-                        <td>Mon</td>
-                        <td>10 - 7 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Tue</td>
-                        <td>10 - 5.30 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Wed</td>
-                        <td>10 - 5.30 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Thu</td>
-                        <td>10 - 7 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Fri</td>
-                        <td>10.30 - 5.30 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Sat</td>
-                        <td>10 - 5.30 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Sun</td>
-                        <td>11 - 5.30 pm</td>
-                    </tr>
-                </table>
-                <div class="address">
-                    {{activeStore.address}}<br>
-                    {{activeStore.postcode}}<br>
-                    T: {{activeStore.telephone}}<br>
-                    {{#link-to 'home'}}view store {{fa-icon "caret-right"}}{{/link-to}}
-                </div>
+<div class="container">
+    <div class="row">        
+        {{#each stores as |store index|}}
+        <div class="col-xs-6 col-sm-3 col-md-2">
+            <div {{action "selectStore" index}} class="py-2">
+                <h4>{{store.town}}<br>
+                    {{#if store.name}}<small>({{store.name}})</small>{{/if}}
+                </h4>
+                <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
             </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<div class="map-container">
+    <div class="map"></div>
+    <div class="store-location text-white">
+        <table class="opening-hours">
+            <tr>
+                <td>Mon</td>
+                <td>10 - 7 pm</td>
+            </tr>
+            <tr>
+                <td>Tue</td>
+                <td>10 - 5.30 pm</td>
+            </tr>
+            <tr>
+                <td>Wed</td>
+                <td>10 - 5.30 pm</td>
+            </tr>
+            <tr>
+                <td>Thu</td>
+                <td>10 - 7 pm</td>
+            </tr>
+            <tr>
+                <td>Fri</td>
+                <td>10.30 - 5.30 pm</td>
+            </tr>
+            <tr>
+                <td>Sat</td>
+                <td>10 - 5.30 pm</td>
+            </tr>
+            <tr>
+                <td>Sun</td>
+                <td>11 - 5.30 pm</td>
+            </tr>
+        </table>
+        <div class="address">
+            {{activeStore.address}}<br>
+            {{activeStore.postcode}}<br>
+            T: {{activeStore.telephone}}<br>
+            {{#link-to 'home'}}view store {{fa-icon "caret-right"}}{{/link-to}}
         </div>
     </div>
 </div>

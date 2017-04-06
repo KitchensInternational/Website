@@ -1,107 +1,119 @@
 <div class="introduction text-white">
-    <h1>The art of the contemporary</h1>
+    <h1>The art of the kitchen</h1>
     <button class="btn btn-outline-secondary my-3">Discover our kitchens</button><br>
     {{fa-icon "chevron-down" size="lg"}}
 </div>
 <section class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 py-5 text-center text-lg">
-            <p class="mb-0">At Kitchens International we know that your kitchen is more than a room for cooking.<br>
-                It's a place to be with the ones you love. A space to gather, to talk, to eat.</p>
-            <p class="mb-0">We can make it the heart of your home.</p>
+            <p>At Kitchens International we know that your kitchen is more than a room for cooking. It’s a place to be with the ones you love. A space to socialise, to entertain, to relax – the heart of your home.</p>
+            <p class="mb-0"><strong>Discover the art of the kitchen.</strong></p>
         </div>
     </div>
 </section>
-
-            <div class="card mb-5">
-                <div class="carousel carousel-home" data-ride="carousel">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img class="card-img-top img-fluid" src="/assets/images/ki-home-0000.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="card-img-top img-fluid" src="/assets/images/ki-home-0001.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="card-img-top img-fluid" src="/assets/images/ki-home-0002.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                </div>
-                <div class="card-block row justify-content-center">
-                    <div class="col-8 text-center py-3">
-                        <h3 class="card-title">A sense of style</h3>
-                        <hr>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <button class="btn btn-outline-primary">Discover our kitchens</button>
-                    </div>
-                </div>
-            </div>
-
-<section class="container-fluid">
-    <div class="row mb-5">
-        <div class="col">
-            <div class="p-4">
-                <h3>Form meets function</h3>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <button class="btn btn-outline-primary">Find out about our design service</button>
-            </div>
-        </div>
-        <div class="col">
-            <img class="img-fluid" src="/assets/images/ki-home-0004.jpg" alt="">
+<div class="card mb-5">
+    {{image-carousel images=images class="carousel-home"}}
+    <div class="card-block d-flex justify-content-center">
+        <div class="col-8 text-center py-3">
+            <h3 class="card-title">A sense of style</h3>
+            <hr>
+            <p class="card-text">It starts with a single idea. Or a single image.
+                And it builds, layer upon layer until you’ve imagined your perfect kitchen.
+                Here are just a few of the kitchen designs we’ve created. Go on, be inspired.</p>
+            <button class="btn btn-outline-primary">Discover our kitchens</button>
         </div>
     </div>
-    <div class="row mb-5">
-        <div class="col">
-            <img class="img-fluid" src="/assets/images/ki-home-0005.jpg" alt="">
-            <div class="image-overlay">
-                <div class="row justify-content-center">
-                    <div class="col-8 text-white text-center pt-5 mt-4">
-                        <h3>Building relations</h3>
-                        <hr class="hr-white">
-                        <p>Learn about what we have done for our clients,<br>
-                            their homes and their lives.</p>
-                        <button class="btn btn-outline-secondary">Projects</button>
+</div>
+<div class="background-taupe mb-5">
+    <section class="container-fluid">
+        <div class="row mb-5">
+            <div class="col">
+                {{#slide-in-wrapper position="left"}}
+                <div class="p-4">
+                    <h3>Craft &amp; proficiency</h3>
+                    <hr>
+                    <p>We are passionate about design.
+                        And we’re equally passionate about detail,
+                        every kitchen is processed through our unique project management system E.S.T &copy;,
+                        ensuring everything fits. With your space, with your life.</p>
+                    <button class="btn btn-outline-primary">Our team &amp; service</button>
+                </div>
+                {{/slide-in-wrapper}}
+            </div>
+            <div class="col">
+                {{#slide-in-wrapper position="right"}}
+                <img class="img-fluid" src="/assets/images/ki-home-0004.jpg" alt="">
+                {{/slide-in-wrapper}}
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col">
+                <img class="img-fluid" src="/assets/images/ki-home-0005.jpg" alt="">
+                <div class="image-overlay">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-8 text-white text-center pt-5 mt-4">
+                            <h3>Building relations</h3>
+                            <hr class="hr-white">
+                            <p>Learn about what we have done for our clients,<br>
+                                their homes and their lives.</p>
+                            <button class="btn btn-outline-secondary">Projects</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mb-5">
-        <div class="col pr-0">
-            <div class="p-4">
-                <h3>Affirmation</h3>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat.</p>
-                <button class="btn btn-outline-primary">Endorsements</button>
+    </section>
+</div>
+<div class="background-taupe">
+    <section class="container-fluid">
+        <div class="row mb-5">
+            <div class="col pr-0">
+                {{#slide-in-wrapper position="left"}}
+                <div class="p-4">
+                    <h3>Affirmation</h3>
+                    <hr>
+                    <p>It’s not what we say that counts.
+                        At KI we believe that our reputation is our most important asset.
+                        It is said that "self-praise is no recommendation", so we have let
+                        others do the talking for us!</p>
+                    <button class="btn btn-outline-primary">Endorsements</button>
+                </div>
+                {{/slide-in-wrapper}}
+            </div>
+            <div class="col pl-0">
+                {{#slide-in-wrapper position="right"}}
+                <img class="card-img-top img-fluid" src="/assets/images/ki-home-0010.jpg" alt="">
+                {{/slide-in-wrapper}}
             </div>
         </div>
-        <div class="col pl-0">
-            <img class="card-img-top img-fluid" src="/assets/images/ki-home-0010.jpg" alt="">
-        </div>
-    </div>
-</section>
-<section class="container-fluid">
-    <div class="row mb-5">
-        <div class="col">
-            <div class="hr-title h2">
-                <span class="hr-title-content">Stories</span>
+        <div class="row mb-5">
+            <div class="col">
+                <img class="img-fluid" src="/assets/images/ki-home-0009.jpg" alt="">
+                <div class="image-overlay">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-8 text-white text-center pt-5 mt-4">
+                            <h3>The professionals the professionals choose</h3>
+                            <hr class="hr-white">
+                            <p>We work with some of the country’s largest and
+                                most prestigious property developers and house builders.
+                                Our experience, skill and sophisticated systems ensure
+                                that every installation is on time, on budget.
+                                In terms of planning, specification, design and installation,
+                                we believe we offer the best commercial kitchen team in the business.
+                                Our clients would agree.</p>
+                            <button class="btn btn-outline-secondary">Contracts</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 <div class="background-taupe">
     <section class="container-fluid">
         <div class="row mb-5">
             <div class="col">
-                <div class="card">
+                <div class="card card-no-border">
                     <img class="card-img-top img-fluid" src="/assets/images/ki-home-0006.jpg" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title"><small>01/04/2017</small><br>
@@ -114,8 +126,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
+            <div class="col background-white">
+                <div class="card card-no-border background-white">
                     <img class="card-img-top img-fluid" src="/assets/images/ki-home-0007.jpg" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title"><small>19/03/2017</small><br>
@@ -129,7 +141,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card">
+                <div class="card card-no-border">
                     <img class="card-img-top img-fluid" src="/assets/images/ki-home-0008.jpg" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title"><small>10/02/2017</small><br>
@@ -145,55 +157,4 @@
         </div>
     </section>
 </div>
-<section class="container-fluid">
-    <div class="row mb-5">
-        <div class="col">
-            <img class="img-fluid" src="/assets/images/ki-home-0009.jpg" alt="">
-            <div class="image-overlay">
-                <div class="row justify-content-center">
-                    <div class="col-8 text-white text-center pt-5 mt-4">
-                        <h3>Building trust</h3>
-                        <hr class="hr-white">
-                        <p>Learn about what we have done for our clients and their businesses.</p>
-                        <button class="btn btn-outline-secondary">Commerical</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="container-fluid">
-    {{store-locations stores=stores}}
-    <div class="row text-center">
-        <div class="col-xs-6 col-sm-2">
-            <div class="py-5">
-                <h5>{{#link-to 'home'}}Poggenpohl{{/link-to}}</h5>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-2">
-            <div class="py-5">
-                <h5>{{#link-to 'home'}}Leicht{{/link-to}}</h5>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-2">
-            <div class="py-5">
-                <h5>{{#link-to 'home'}}Mowlem{{/link-to}}</h5>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-2">
-            <div class="py-5">
-                <h5>{{#link-to 'home'}}KI collection{{/link-to}}</h5>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-2">
-            <div class="py-5">
-                <h5>{{#link-to 'home'}}Callerton{{/link-to}}</h5>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-2">
-            <div class="py-5">
-                <h5>{{#link-to 'home'}}Stoneham{{/link-to}}</h5>
-            </div>
-        </div>
-    </div>
-</section>
+{{store-locations stores=stores}}

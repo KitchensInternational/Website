@@ -74,7 +74,6 @@ footer {
 
     .footer-logo {
         float: left;
-        width: 80px;
     }
 
     .fa {
@@ -84,6 +83,14 @@ footer {
 
 .background-taupe {
     background-color: $taupe;
+}
+
+.background-white {
+    background-color: $white;
+}
+
+.card-no-border {
+    border-width: 0;
 }
 
 $i: 1;
@@ -183,6 +190,21 @@ card {
 
 // components
 
+.below-the-fold {
+    transition: all 1s;
+
+    &.left {
+        transform: translate(-40px);
+    }
+    &.right {
+        transform: translate(40px);
+    }
+}
+
+.above-the-fold {
+    transition: all 1s;
+}
+
 .store-locations {
 
     h4 {
@@ -248,7 +270,7 @@ card {
     }
 
     .introduction {
-        background: url("/assets/images/ki-home-0003.jpg") no-repeat center center fixed;
+        background: url("/assets/images/ki-home-0000.jpg") no-repeat center center fixed;
         background-size: cover;
         width: 100%;
         height: 700px;
