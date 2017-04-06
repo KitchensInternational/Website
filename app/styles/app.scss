@@ -46,7 +46,8 @@ header {
             }
 
             li {
-                margin-bottom: 10px;
+                font-size: 150%;
+                margin-bottom: 15px;
             }
         }
     }
@@ -74,6 +75,7 @@ footer {
 
     .footer-logo {
         float: left;
+        height: 100px;
     }
 
     .fa {
