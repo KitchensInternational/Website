@@ -1,8 +1,63 @@
 import Ember from 'ember';
 
-const BREAK_FADE_SPEED = 300;
+const ANIMATION_DELAY = 800;
 const NAV_ANIMATION_SPEED = 600;
-const PAGE_LINK_SLIDE_SPEED = 700;
+
+function toggleMainMenuHandler() {
+    let navElement = this.$('nav'),
+        timeoutsArray = this.get('timeouts');
+
+    this.clearTimeouts();
+    this.startSpinMenuButtonIcon();
+
+    if ( this.get('mainMenuVisible') === false ) {
+
+        navElement.addClass('nav-visible');
+
+        let menuItems = navElement.find('li');
+
+        let showNavTimeout = Ember.run.later(this, function() {
+            menuItems.each(function ( index ) {
+                let menuItemTimeout = Ember.run.later(this, function() {
+                    Ember.$(this).addClass('item-visible');
+                }, index * NAV_ANIMATION_SPEED);
+                timeoutsArray.push(menuItemTimeout);
+            });
+        }, ANIMATION_DELAY);
+        timeoutsArray.push(showNavTimeout);
+
+        let showNavButtonsTimeout = Ember.run.later(this, function () {
+            this.$('.btn-outline-secondary').removeClass('btn-outline-secondary').addClass('btn-secondary');
+            this.$('.logo-nav').hide();
+            this.$('.logo-menu').show();
+            this.stopSpinMenuButtonIcon();
+            this.showMenuButtonClose();
+        }, ANIMATION_DELAY);
+        timeoutsArray.push(showNavButtonsTimeout);
+
+        this.set('mainMenuVisible', true);
+
+    } else {
+
+        navElement.find('li').removeClass('item-visible');
+        let hideNavTimeout = Ember.run.later(this, function() {
+            navElement.removeClass('nav-visible');
+        }, ANIMATION_DELAY);
+        timeoutsArray.push(hideNavTimeout);
+
+        let hideMenuButtonTimeout = Ember.run.later(this, function () {
+            this.$('.btn-secondary').removeClass('btn-secondary').addClass('btn-outline-secondary');
+            this.$('.logo-nav').show();
+            this.$('.logo-menu').hide();
+            this.stopSpinMenuButtonIcon();
+            this.hideMenuButtonClose();
+        }, ANIMATION_DELAY);
+        timeoutsArray.push(hideMenuButtonTimeout);
+
+        this.set('mainMenuVisible', false);
+
+    }
+}
 
 export default Ember.Component.extend({
     tagName: 'header',
@@ -19,37 +74,15 @@ export default Ember.Component.extend({
         this.$('i.fa').removeClass('fa-close').addClass('fa-navicon');
     },
     mainMenuVisible: false,
+    timeouts: Ember.A(),
+    clearTimeouts() {
+        this.get('timeouts').forEach(( timeout ) => {
+            Ember.run.cancel(timeout);
+        });
+    },
     actions: {
         toggleMainMenu() {
-            let component = this;
-            component.startSpinMenuButtonIcon();
-            if ( component.get('mainMenuVisible') === false ) {
-                component.$('.btn-outline-secondary').removeClass('btn-outline-secondary').addClass('btn-secondary');
-                component.$('nav').animate({ width: '100%', height: '100%' }, NAV_ANIMATION_SPEED, function () {
-                    component.$('.logo-nav').hide();
-                    component.$('.logo-menu').show();
-                    component.$('nav ul.menu-break').fadeIn(BREAK_FADE_SPEED, function () {
-                        component.$('nav ul.page-links').slideDown(PAGE_LINK_SLIDE_SPEED, function () {
-                            component.stopSpinMenuButtonIcon();
-                            component.showMenuButtonClose();
-                            component.set('mainMenuVisible', true);
-                        });
-                    });
-                });
-            } else {
-                component.$('.btn-secondary').removeClass('btn-secondary').addClass('btn-outline-secondary');
-                component.$('nav ul.page-links').slideUp(PAGE_LINK_SLIDE_SPEED, function () {
-                    component.$('nav ul.menu-break').fadeOut(BREAK_FADE_SPEED, function () {
-                        component.$('.logo-nav').show();
-                        component.$('.logo-menu').hide();
-                        component.$('nav').animate({ height: '0%', width: '0%' }, NAV_ANIMATION_SPEED, function () {
-                            component.stopSpinMenuButtonIcon();
-                            component.hideMenuButtonClose();
-                            component.set('mainMenuVisible', false);
-                        });
-                    });
-                });
-            }
+            Ember.run.debounce(this, toggleMainMenuHandler, 300);
         }
     }
 });

@@ -17,25 +17,14 @@ export default Ember.Controller.extend({
     ],
     stores: [
         Ember.Object.create({
-            town: 'Edinburgh',
-            name: 'Westfield',
-            address: '24 Westfield Road, Murrayfield, Edinburgh',
-            postcode: 'EH11 2QB',
-            telephone: '0131 337 3434',
+            town: 'Aberdeen',
+            name: null,
+            address: 'Denmore Road, Bridge of Don, Aberdeen',
+            postcode: 'AB23 8JW',
+            telephone: '0122 482 4300',
             location: {
-                lat: 55.9396122,
-                lng: -3.2431527
-            }
-        }),
-        Ember.Object.create({
-            town: 'Edinburgh',
-            name: 'Dundas',
-            address: '117 Dundas Street, Edinburgh',
-            postcode: 'EH3 5EF',
-            telephone: '0131 523 0477',
-            location: {
-                lat: 55.9604924,
-                lng: -3.2024972
+                lat: 57.1962574,
+                lng: -2.0961151
             }
         }),
         Ember.Object.create({
@@ -50,14 +39,25 @@ export default Ember.Controller.extend({
             }
         }),
         Ember.Object.create({
-            town: 'Aberdeen',
-            name: null,
-            address: 'Denmore Road, Bridge of Don, Aberdeen',
-            postcode: 'AB23 8JW',
-            telephone: '0122 482 4300',
+            town: 'Edinburgh',
+            name: 'Dundas',
+            address: '117 Dundas Street, Edinburgh',
+            postcode: 'EH3 5EF',
+            telephone: '0131 523 0477',
             location: {
-                lat: 57.1962574,
-                lng: -2.0961151
+                lat: 55.9604924,
+                lng: -3.2024972
+            }
+        }),
+        Ember.Object.create({
+            town: 'Edinburgh',
+            name: 'Westfield',
+            address: '24 Westfield Road, Murrayfield, Edinburgh',
+            postcode: 'EH11 2QB',
+            telephone: '0131 337 3434',
+            location: {
+                lat: 55.9396122,
+                lng: -3.2431527
             }
         }),
         Ember.Object.create({

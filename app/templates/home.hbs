@@ -14,7 +14,7 @@
 <div class="card mb-5">
     {{image-carousel images=images class="carousel-home"}}
     <div class="card-block d-flex justify-content-center">
-        <div class="col-8 text-center py-3">
+        <div class="col col-sm-8 text-center py-3">
             <h3 class="card-title">A sense of style</h3>
             <hr>
             <p class="card-text">It starts with a single idea. Or a single image.
@@ -27,7 +27,7 @@
 <div class="background-taupe mb-5">
     <section class="container-fluid">
         <div class="row mb-5">
-            <div class="col">
+            <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-4">
                     <h3>Craft &amp; proficiency</h3>
@@ -40,7 +40,7 @@
                 </div>
                 {{/slide-in-wrapper}}
             </div>
-            <div class="col">
+            <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
                 <img class="img-fluid" src="/assets/images/ki-home-0004.jpg" alt="">
                 {{/slide-in-wrapper}}
@@ -48,16 +48,13 @@
         </div>
         <div class="row mb-5">
             <div class="col">
-                <img class="img-fluid" src="/assets/images/ki-home-0005.jpg" alt="">
-                <div class="image-overlay">
-                    <div class="d-flex justify-content-center">
-                        <div class="col-8 text-white text-center pt-5 mt-4">
-                            <h3>Building relations</h3>
-                            <hr class="hr-white">
-                            <p>Learn about what we have done for our clients,<br>
-                                their homes and their lives.</p>
-                            <button class="btn btn-outline-secondary">Projects</button>
-                        </div>
+                <div class="d-flex justify-content-center image-overlay" style="background-image: url('/assets/images/ki-home-0005.jpg')">
+                    <div class="col-10 text-white text-center py-4">
+                        <h3>Building relations</h3>
+                        <hr class="hr-white hidden-sm-down">
+                        <p>Learn about what we have done for our clients,<br>
+                            their homes and their lives.</p>
+                        <button class="btn btn-outline-secondary">Projects</button>
                     </div>
                 </div>
             </div>
@@ -67,7 +64,7 @@
 <div class="background-taupe">
     <section class="container-fluid">
         <div class="row mb-5">
-            <div class="col pr-0">
+            <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-4">
                     <h3>Affirmation</h3>
@@ -80,7 +77,7 @@
                 </div>
                 {{/slide-in-wrapper}}
             </div>
-            <div class="col pl-0">
+            <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
                 <img class="card-img-top img-fluid" src="/assets/images/ki-home-0010.jpg" alt="">
                 {{/slide-in-wrapper}}
@@ -88,21 +85,15 @@
         </div>
         <div class="row mb-5">
             <div class="col">
-                <img class="img-fluid" src="/assets/images/ki-home-0009.jpg" alt="">
-                <div class="image-overlay">
-                    <div class="d-flex justify-content-center">
-                        <div class="col-8 text-white text-center pt-5 mt-4">
-                            <h3>The professionals the professionals choose</h3>
-                            <hr class="hr-white">
-                            <p>We work with some of the country’s largest and
-                                most prestigious property developers and house builders.
-                                Our experience, skill and sophisticated systems ensure
-                                that every installation is on time, on budget.
-                                In terms of planning, specification, design and installation,
-                                we believe we offer the best commercial kitchen team in the business.
-                                Our clients would agree.</p>
-                            <button class="btn btn-outline-secondary">Contracts</button>
-                        </div>
+                <div class="d-flex justify-content-center image-overlay" style="background-image: url('/assets/images/ki-home-0009.jpg')">
+                    <div class="col-10 text-white text-center py-4">
+                        <h3>The professionals the professionals choose</h3>
+                        <hr class="hr-white hidden-sm-down">
+                        <p>We work with some of the country’s largest and
+                            most prestigious property developers and house builders.
+                            Our experience, skill and sophisticated systems ensure
+                            that every installation is on time, on budget.</p>
+                        <button class="btn btn-outline-secondary">Contracts</button>
                     </div>
                 </div>
             </div>
