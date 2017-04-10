@@ -178,16 +178,17 @@ define('kitchens-international/tests/components/slide-in-wrapper', ['exports', '
         displayCenter: _ember['default'].computed('position', function () {
             return this.get('position') === 'center';
         }),
-        componentOffset: 0,
         didInsertElement: function didInsertElement() {
-            var component = this;
-            var elementOffset = component.$().offset();
-            component.set('componentOffset', elementOffset.top);
-            _ember['default'].$(window).on('scroll', function () {
-                var componentOffset = component.get('componentOffset'),
-                    scrollTop = _ember['default'].$(this).scrollTop(),
-                    fold = scrollTop - LEADING_EDGE_ALLOWANCE;
-                component.set('belowTheFold', componentOffset > fold);
+            _ember['default'].run.once(this, function () {
+                var component = this;
+                _ember['default'].$(window).on('scroll', function () {
+                    var windowElement = _ember['default'].$(this),
+                        componentOffset = component.$().offset().top,
+                        scrollTop = windowElement.scrollTop(),
+                        windowHeight = windowElement.scrollTop(),
+                        fold = scrollTop + windowHeight - LEADING_EDGE_ALLOWANCE;
+                    component.set('belowTheFold', componentOffset > fold);
+                });
             });
         }
     });

@@ -193,16 +193,17 @@ define('kitchens-international/components/slide-in-wrapper', ['exports', 'ember'
         displayCenter: _ember['default'].computed('position', function () {
             return this.get('position') === 'center';
         }),
-        componentOffset: 0,
         didInsertElement: function didInsertElement() {
-            var component = this;
-            var elementOffset = component.$().offset();
-            component.set('componentOffset', elementOffset.top);
-            _ember['default'].$(window).on('scroll', function () {
-                var componentOffset = component.get('componentOffset'),
-                    scrollTop = _ember['default'].$(this).scrollTop(),
-                    fold = scrollTop - LEADING_EDGE_ALLOWANCE;
-                component.set('belowTheFold', componentOffset > fold);
+            _ember['default'].run.once(this, function () {
+                var component = this;
+                _ember['default'].$(window).on('scroll', function () {
+                    var windowElement = _ember['default'].$(this),
+                        componentOffset = component.$().offset().top,
+                        scrollTop = windowElement.scrollTop(),
+                        windowHeight = windowElement.scrollTop(),
+                        fold = scrollTop + windowHeight - LEADING_EDGE_ALLOWANCE;
+                    component.set('belowTheFold', componentOffset > fold);
+                });
             });
         }
     });
@@ -2955,7 +2956,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         morphs[9] = dom.createMorphAt(fragment, 12, 12, contextualElement);
         return morphs;
       },
-      statements: [["inline", "fa-icon", ["chevron-down"], ["size", "lg"], ["loc", [null, [4, 4], [4, 40]]], 0, 0], ["inline", "image-carousel", [], ["images", ["subexpr", "@mut", [["get", "images", ["loc", [null, [15, 28], [15, 34]]], 0, 0, 0, 0]], [], [], 0, 0], "class", "carousel-home"], ["loc", [null, [15, 4], [15, 58]]], 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 0, null, ["loc", [null, [31, 16], [41, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 1, null, ["loc", [null, [44, 16], [46, 37]]]], ["block", "slide-in-wrapper", [], ["position", "left"], 2, null, ["loc", [null, [68, 16], [78, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 3, null, ["loc", [null, [81, 16], [83, 37]]]], ["block", "link-to", ["home"], [], 4, null, ["loc", [null, [111, 28], [111, 68]]]], ["block", "link-to", ["home"], [], 5, null, ["loc", [null, [125, 28], [125, 68]]]], ["block", "link-to", ["home"], [], 6, null, ["loc", [null, [139, 28], [139, 68]]]], ["inline", "store-locations", [], ["stores", ["subexpr", "@mut", [["get", "stores", ["loc", [null, [151, 25], [151, 31]]], 0, 0, 0, 0]], [], [], 0, 0]], ["loc", [null, [151, 0], [151, 33]]], 0, 0]],
+      statements: [["inline", "fa-icon", ["chevron-down"], ["size", "lg"], ["loc", [null, [4, 4], [4, 40]]], 0, 0], ["inline", "image-carousel", [], ["id", "carousel", "images", ["subexpr", "@mut", [["get", "images", ["loc", [null, [15, 42], [15, 48]]], 0, 0, 0, 0]], [], [], 0, 0], "class", "carousel-home"], ["loc", [null, [15, 4], [15, 72]]], 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 0, null, ["loc", [null, [31, 16], [41, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 1, null, ["loc", [null, [44, 16], [46, 37]]]], ["block", "slide-in-wrapper", [], ["position", "left"], 2, null, ["loc", [null, [68, 16], [78, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 3, null, ["loc", [null, [81, 16], [83, 37]]]], ["block", "link-to", ["home"], [], 4, null, ["loc", [null, [111, 28], [111, 68]]]], ["block", "link-to", ["home"], [], 5, null, ["loc", [null, [125, 28], [125, 68]]]], ["block", "link-to", ["home"], [], 6, null, ["loc", [null, [139, 28], [139, 68]]]], ["inline", "store-locations", [], ["stores", ["subexpr", "@mut", [["get", "stores", ["loc", [null, [151, 25], [151, 31]]], 0, 0, 0, 0]], [], [], 0, 0]], ["loc", [null, [151, 0], [151, 33]]], 0, 0]],
       locals: [],
       templates: [child0, child1, child2, child3, child4, child5, child6]
     };

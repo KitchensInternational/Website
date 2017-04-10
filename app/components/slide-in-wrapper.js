@@ -15,16 +15,17 @@ export default Ember.Component.extend({
     displayCenter: Ember.computed('position', function () {
         return this.get('position') === 'center';
     }),
-    componentOffset: 0,
     didInsertElement() {
-        let component = this;
-        let elementOffset = component.$().offset();
-        component.set('componentOffset', elementOffset.top);
-        Ember.$(window).on('scroll', function () {
-            let componentOffset = component.get('componentOffset'),
-                scrollTop = Ember.$(this).scrollTop(),
-                fold = scrollTop - LEADING_EDGE_ALLOWANCE;
-            component.set('belowTheFold', componentOffset > fold);
+        Ember.run.once(this, function () {
+            let component = this;
+            Ember.$(window).on('scroll', function () {
+                let windowElement = Ember.$(this),
+                componentOffset = component.$().offset().top,
+                scrollTop = windowElement.scrollTop(),
+                windowHeight = windowElement.scrollTop(),
+                fold = scrollTop + windowHeight - LEADING_EDGE_ALLOWANCE;
+                component.set('belowTheFold', componentOffset > fold);
+            });
         });
     }
 });
