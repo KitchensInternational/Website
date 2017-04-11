@@ -3,15 +3,23 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
     images: [
         Ember.Object.create({
-            url: '/assets/images/ki-home-0001.jpg',
+            url: '/assets/images/ki-carousel-0001.jpg',
             title: ''
         }),
         Ember.Object.create({
-            url: '/assets/images/ki-home-0002.jpg',
+            url: '/assets/images/ki-carousel-0002.jpg',
             title: ''
         }),
         Ember.Object.create({
-            url: '/assets/images/ki-home-0003.jpg',
+            url: '/assets/images/ki-carousel-0003.jpg',
+            title: ''
+        }),
+        Ember.Object.create({
+            url: '/assets/images/ki-carousel-0004.jpg',
+            title: ''
+        }),
+        Ember.Object.create({
+            url: '/assets/images/ki-carousel-0005.jpg',
             title: ''
         }),
     ],

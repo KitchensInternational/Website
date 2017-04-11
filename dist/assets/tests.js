@@ -309,13 +309,19 @@ define('kitchens-international/tests/controllers/home', ['exports', 'ember'], fu
 
     exports['default'] = _ember['default'].Controller.extend({
         images: [_ember['default'].Object.create({
-            url: '/assets/images/ki-home-0001.jpg',
+            url: '/assets/images/ki-carousel-0001.jpg',
             title: ''
         }), _ember['default'].Object.create({
-            url: '/assets/images/ki-home-0002.jpg',
+            url: '/assets/images/ki-carousel-0002.jpg',
             title: ''
         }), _ember['default'].Object.create({
-            url: '/assets/images/ki-home-0003.jpg',
+            url: '/assets/images/ki-carousel-0003.jpg',
+            title: ''
+        }), _ember['default'].Object.create({
+            url: '/assets/images/ki-carousel-0004.jpg',
+            title: ''
+        }), _ember['default'].Object.create({
+            url: '/assets/images/ki-carousel-0005.jpg',
             title: ''
         })],
         stores: [_ember['default'].Object.create({

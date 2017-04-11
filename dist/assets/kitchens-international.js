@@ -269,13 +269,19 @@ define('kitchens-international/controllers/application', ['exports', 'ember'], f
 define('kitchens-international/controllers/home', ['exports', 'ember'], function (exports, _ember) {
     exports['default'] = _ember['default'].Controller.extend({
         images: [_ember['default'].Object.create({
-            url: '/assets/images/ki-home-0001.jpg',
+            url: '/assets/images/ki-carousel-0001.jpg',
             title: ''
         }), _ember['default'].Object.create({
-            url: '/assets/images/ki-home-0002.jpg',
+            url: '/assets/images/ki-carousel-0002.jpg',
             title: ''
         }), _ember['default'].Object.create({
-            url: '/assets/images/ki-home-0003.jpg',
+            url: '/assets/images/ki-carousel-0003.jpg',
+            title: ''
+        }), _ember['default'].Object.create({
+            url: '/assets/images/ki-carousel-0004.jpg',
+            title: ''
+        }), _ember['default'].Object.create({
+            url: '/assets/images/ki-carousel-0005.jpg',
             title: ''
         })],
         stores: [_ember['default'].Object.create({
@@ -3324,7 +3330,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("kitchens-international/app")["default"].create({"name":"kitchens-international","version":"1.0.0+b89908d2"});
+  require("kitchens-international/app")["default"].create({"name":"kitchens-international","version":"1.0.0+d2be5278"});
 }
 
 /* jshint ignore:end */
