@@ -22,14 +22,7 @@ module.exports = function(defaults) {
 
   app.import('bower_components/bootstrap/js/dist/util.js');
   app.import('bower_components/bootstrap/js/dist/carousel.js');
-
-  //app.import('vendor/bootstrap3-transition.js');
-
-  // app.import('bower_components/bootstrap/js/dist/util.js');
-  // app.import('bower_components/bootstrap/js/dist/carousel.js');
-  app.import('bower_components/bootstrap/js/dist/collapse.js');
-
-  //app.import('bower_components/zoom.js/dist/zoom.min.js');
+  app.import('bower_components/bootstrap/js/dist/modal.js');
 
   return app.toTree();
 };

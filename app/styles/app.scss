@@ -233,7 +233,50 @@ card {
 
 }
 
+.form-control {
+    font-family: $font-family-base;
+    font-weight: 200;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url("/assets/images/ki-social-sprite.png") no-repeat 0 0;
+    background-size: 120px 30px;
+
+    &.social-icon-facebook {
+        background-position: 0 0;
+    }
+
+    &.social-icon-twitter {
+        background-position: -30px 0;
+    }
+
+    &.social-icon-youtube {
+        background-position: -60px 0;
+    }
+}
+
 // components
+
+.contact-form {
+
+    .form-control {
+        text-align: center;
+    }
+
+    textarea {
+        min-height: 120px;
+    }
+
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+
+        .modal-body {
+            padding: 0;
+        }
+    }
+}
 
 .store-locations {
 

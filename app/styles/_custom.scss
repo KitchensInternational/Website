@@ -203,7 +203,17 @@ $grid-gutter-widths: (
 //
 // Font,  line-height,  and color for body text,  headings,  and more.
 
-$font-family-sans-serif: 'Open Sans Condensed',  Helvetica,  Arial,  sans-serif;
+// fonts
+
+@font-face {
+    font-family: 'oswaldextralight';
+    src: url('/fonts/oswald-extralight-webfont.woff2') format('woff2'),
+    url('/fonts/oswald-extralight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-family-sans-serif: 'oswaldextralight',  Helvetica,  Arial,  sans-serif;
 $font-family-serif: Georgia,  "Times New Roman",  Times,  serif;
 $font-family-monospace: Menlo,  Monaco,  Consolas,  "Liberation Mono",  "Courier New",  monospace;
 $font-family-base: Helvetica,  Arial,  sans-serif;

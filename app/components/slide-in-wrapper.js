@@ -22,7 +22,7 @@ export default Ember.Component.extend({
                 let windowElement = Ember.$(this),
                 componentOffset = component.$().offset().top,
                 scrollTop = windowElement.scrollTop(),
-                windowHeight = windowElement.scrollTop(),
+                windowHeight = windowElement.height(),
                 fold = scrollTop + windowHeight - LEADING_EDGE_ALLOWANCE;
                 component.set('belowTheFold', componentOffset > fold);
             });

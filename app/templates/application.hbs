@@ -9,14 +9,16 @@
                 <img class="footer-logo my-4" src="/assets/images/ki-logo-white-full.svg" alt="Kitchens International Logo">
             </div>
             <div class="col col-sm-6 text-center">
-                <button class="btn btn-outline-secondary mt-4">Request a consultation</button>
+                {{#contact-form-button class="mt-4" form-id="contact-form"}}Request a consultation{{/contact-form-button}}
             </div>
             <div class="col col-sm-3 text-right">
                 <p class="text-white mb-4 mt-4">
-                    <a href="https://www.facebook.com/kitchensinternational/" target="_blank">{{fa-icon "facebook-square" size=2}}</a>
-                    <a href="https://twitter.com/kitchensint" target="_blank">{{fa-icon "twitter-square" size=2}}</a>
+                    <a class="social-icon social-icon-facebook" href="https://facebook.com/kitchensinternational/" target="_blank"></a>
+                    <a class="social-icon social-icon-twitter" href="https://twitter.com/kitchensint" target="_blank"></a>
+                    <a class="social-icon social-icon-youtube" href="https://youtube.com/channel/UC023IsBhqHfnU7W61SL--Ng" target="_blank"></a>
                 </p>
             </div>
         </div>
     </div>
 </footer>
+{{contact-form id="contact-form"}}
