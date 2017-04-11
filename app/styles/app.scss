@@ -9,7 +9,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: $spacer / 2;
+    padding: $spacer / 2 $spacer;
     text-align: right;
     z-index: 100;
     background: $nav-bg;
@@ -27,7 +27,7 @@ header {
         text-transform: uppercase;
         font-size: $font-size-lg;
         padding-top: 80px;
-        transition: all 1s;
+        transition: all .6s;
         transition-timing-function: ease-out;
 
         ul {
@@ -44,7 +44,7 @@ header {
                 margin-bottom: 15px;
                 opacity: 0;
                 transform: translate(-40px);
-                transition: all 1.4s;
+                transition: all .8s;
 
                 &.item-visible {
                     opacity: 1;

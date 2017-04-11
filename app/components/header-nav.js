@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
-const ANIMATION_DELAY = 800;
-const NAV_ANIMATION_SPEED = 600;
+const ANIMATION_DELAY = 600;
+const NAV_ANIMATION_SPEED = 400;
 
 function toggleMainMenuHandler() {
     let navElement = this.$('nav'),
