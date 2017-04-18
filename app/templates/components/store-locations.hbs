@@ -2,17 +2,17 @@
     <div class="row mb-4">
         {{#each stores as |store index|}}
         <div class="col-6 col-sm-4 col-md-2">
-            <div {{action "selectStore" index}} class="py-2 hidden-xs-down">
-                <h4>{{store.town}}<br>
+            <div {{action "selectStore" index}} class="py-2 hidden-xs-down select-store">
+                <h5 class="store-title">{{store.town}}<br>
                     {{#if store.name}}<small>({{store.name}})</small>{{/if}}
-                </h4>
+                </h5>
                 <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
             </div>
             <div class="py-2 hidden-sm-up">
                 {{#link-to 'home'}}
-                    <h4>{{store.town}}<br>
+                    <h5 class="store-title">{{store.town}}<br>
                         {{#if store.name}}<small>({{store.name}})</small>{{/if}}
-                    </h4>
+                    </h5>
                     view store {{fa-icon "caret-right"}}
                 {{/link-to}}
             </div>

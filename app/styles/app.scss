@@ -40,7 +40,7 @@ header {
             }
 
             li {
-                font-size: 150%;
+                font-size: 116%;
                 margin-bottom: 15px;
                 opacity: 0;
                 transform: translate(-40px);
@@ -143,7 +143,11 @@ $i: 1;
     }
 }
 
+$trans-white: rgba(255, 255, 255, .6);
+
 .btn-outline-secondary {
+
+    border-color: $trans-white;
 
     &:hover {
         color: $gray;
@@ -245,6 +249,14 @@ card {
     background: url("/assets/images/ki-social-sprite.png") no-repeat 0 0;
     background-size: 120px 30px;
 
+    &:hover {
+        opacity: .8;
+    }
+
+    &.social-icon-grey {
+        background-image: url("/assets/images/ki-social-sprite-grey.png");
+    }
+
     &.social-icon-facebook {
         background-position: 0 0;
     }
@@ -256,6 +268,10 @@ card {
     &.social-icon-youtube {
         background-position: -60px 0;
     }
+}
+
+.houzz-logo {
+    width: 120px;
 }
 
 // components
@@ -280,7 +296,7 @@ card {
 
 .store-locations {
 
-    h4 {
+    .store-title {
         min-height: 52px;
 
         &:hover {
