@@ -2,11 +2,12 @@
 <div class="{{routing.currentRouteName}}">
     {{outlet}}
 </div>
+{{store-locations stores=stores}}
 <footer>
     <div class="container-fluid">
         <div class="row">
             <div class="col col-sm-3">
-                <img class="footer-logo my-4" src="/assets/images/ki-logo-white-full.svg" alt="Kitchens International Logo">
+                {{#link-to 'home'}}<img class="footer-logo my-4" src="/assets/images/ki-logo-white-full.svg" alt="Kitchens International Logo">{{/link-to}}
             </div>
             <div class="col col-sm-6 text-center">
                 {{#contact-form-button class="mt-4" form-id="contact-form"}}Request a consultation{{/contact-form-button}}
@@ -16,6 +17,7 @@
                     <a class="social-icon social-icon-facebook" href="https://facebook.com/kitchensinternational/" target="_blank"></a>
                     <a class="social-icon social-icon-twitter" href="https://twitter.com/kitchensint" target="_blank"></a>
                     <a class="social-icon social-icon-youtube" href="https://youtube.com/channel/UC023IsBhqHfnU7W61SL--Ng" target="_blank"></a>
+                    <a class="social-icon social-icon-houzz" href="https://youtube.com/channel/UC023IsBhqHfnU7W61SL--Ng" target="_blank"></a>
                 </p>
             </div>
         </div>

@@ -1,26 +1,23 @@
 <div class="introduction text-white">
-    <h1>The art of the kitchen</h1>
-    <button class="btn btn-outline-secondary my-3">Discover our kitchens</button><br>
+    <h1>{{model.content.heading}}</h1>
+    <button class="btn btn-outline-secondary my-3">{{model.content.callToAction}}</button><br>
     {{fa-icon "chevron-down" size="lg"}}
 </div>
 <section class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 py-5 text-center text-lg">
-            <p>At Kitchens International we know that your kitchen is more than a room for cooking. It’s a place to be with the ones you love. A space to socialise, to entertain, to relax – the heart of your home.</p>
-            <p class="mb-0"><strong>Discover the art of the kitchen.</strong></p>
+            {{markdown-to-html model.content.introduction}}
         </div>
     </div>
 </section>
 <div class="card mb-5">
-    {{image-carousel id="carousel" images=images class="carousel-home"}}
+    {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-home"}}
     <div class="card-block d-flex justify-content-center">
         <div class="col col-sm-8 text-center py-3">
-            <h3 class="card-title">A sense of style</h3>
+            <h3 class="card-title">{{model.content.splashHeading}}</h3>
             <hr>
-            <p class="card-text">It starts with a single idea. Or a single image.
-                And it builds, layer upon layer until you’ve imagined your perfect kitchen.
-                Here are just a few of the kitchen designs we’ve created. Go on, be inspired.</p>
-            <button class="btn btn-outline-primary">Discover our kitchens</button>
+            {{markdown-to-html model.content.splashContent class="card-text"}}
+            <a href="{{model.content.splashActionLink}}" class="btn btn-outline-primary">{{model.content.splashActionTitle}}</a>
         </div>
     </div>
 </div>
@@ -30,33 +27,25 @@
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-4">
-                    <h3>Craft &amp; proficiency</h3>
+                    <h3>{{model.content.textLeftHeading}}</h3>
                     <hr>
-                    <p>We are passionate about design.
-                        And we’re equally passionate about detail,
-                        every kitchen is processed through our unique project management system E.S.T &copy;,
-                        ensuring everything fits. With your space, with your life.</p>
-                    <button class="btn btn-outline-primary">Our team &amp; service</button>
+                    {{markdown-to-html model.content.textLeftContent}}
+                    <a href="{{model.content.textLeftActionLink}}" class="btn btn-outline-primary">{{model.content.textLeftActionTitle}}</a>
                 </div>
                 {{/slide-in-wrapper}}
             </div>
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
-                <img class="img-fluid" src="/assets/images/ki-home-0004.jpg" alt="">
+                <img class="img-fluid" src="{{model.content.textLeftImage.file.url}}" alt="{{model.content.textLeftImage.title}}">
                 {{/slide-in-wrapper}}
             </div>
         </div>
-        <div class="row mb-5">
-            <div class="col">
-                <div class="d-flex justify-content-center image-overlay" style="background-image: url('/assets/images/ki-home-0005.jpg')">
-                    <div class="col-10 text-white text-center py-5">
-                        <h3>Building relations</h3>
-                        <hr class="hr-white hidden-sm-down">
-                        <p>Learn about what we have done for our clients,<br>
-                            their homes and their lives.</p>
-                        <button class="btn btn-outline-secondary">Projects</button>
-                    </div>
-                </div>
+        <div class="row d-flex justify-content-center image-overlay mb-5" style={{background-image model.content.imageOverlayTop.file.url}}>
+            <div class="col-10 col-sm-8 text-white text-center py-5">
+                <h3>{{model.content.imageOverlayTopHeading}}</h3>
+                <hr class="hr-white hidden-sm-down">
+                {{markdown-to-html model.content.imageOverlayTopContent}}
+                <a href="{{model.content.imageOverlayTopActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayTopActionTitle}}</a>
             </div>
         </div>
     </section>
@@ -67,35 +56,25 @@
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-4">
-                    <h3>Affirmation</h3>
+                    <h3>{{model.content.textRightHeading}}</h3>
                     <hr>
-                    <p>It’s not what we say that counts.
-                        At KI we believe that our reputation is our most important asset.
-                        It is said that "self-praise is no recommendation", so we have let
-                        others do the talking for us!</p>
-                    <button class="btn btn-outline-primary">Endorsements</button>
+                    {{markdown-to-html model.content.textRightContent}}
+                    <a href="{{model.content.textRightActionLink}}" class="btn btn-outline-primary">{{model.content.textRightActionTitle}}</a>
                 </div>
                 {{/slide-in-wrapper}}
             </div>
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
-                <img class="card-img-top img-fluid" src="/assets/images/ki-home-0010.jpg" alt="">
+                <img class="img-fluid" src="{{model.content.textRightImage.file.url}}" alt="{{model.content.textRightImage.title}}">
                 {{/slide-in-wrapper}}
             </div>
         </div>
-        <div class="row mb-5">
-            <div class="col">
-                <div class="d-flex justify-content-center image-overlay" style="background-image: url('/assets/images/ki-home-0009.jpg')">
-                    <div class="col-10 text-white text-center py-5">
-                        <h3>The professionals the professionals choose</h3>
-                        <hr class="hr-white hidden-sm-down">
-                        <p>We work with some of the country’s largest and
-                            most prestigious property developers and house builders.
-                            Our experience, skill and sophisticated systems ensure
-                            that every installation is on time, on budget.</p>
-                        <button class="btn btn-outline-secondary">Contracts</button>
-                    </div>
-                </div>
+        <div class="row justify-content-center image-overlay mb-5" style={{background-image model.content.imageOverlayBottom.file.url}}>
+            <div class="col-10 col-sm-8 text-white text-center py-5">
+                <h3>{{model.content.imageOverlayBottomHeading}}</h3>
+                <hr class="hr-white hidden-sm-down">
+                {{markdown-to-html model.content.imageOverlayBottomContent}}
+                <a href="{{model.content.imageOverlayBottomActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayBottomActionTitle}}</a>
             </div>
         </div>
     </section>
@@ -124,14 +103,12 @@
                     <div class="card-block">
                         <h4>Stories</h4>
                         <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="/assets/images/ki-home-0007.jpg" alt="Card image cap">
-                        <h4 class="card-title"><small>19/03/2017</small><br>
-                            {{#link-to 'home'}}Article Title{{/link-to}}</h4>
+                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{leadArticle.featuredImage.file.url}}" alt="{{leadArticle.featuredImage.title}}">
+                        <h4 class="card-title"><small>{{moment-format leadArticle.publicationDate 'MM/DD/YYYY'}}</small><br>
+                            {{#link-to 'story' leadArticle.slug}}{{leadArticle.title}}{{/link-to}}</h4>
                         <hr>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip...</p>
-                        <button class="btn btn-outline-primary">Read more</button>
+                        <p class="card-text">{{leadArticle.excerpt}}</p>
+                        {{#link-to 'story' leadArticle.slug class="btn btn-outline-primary"}}Read more{{/link-to}}
                     </div>
                 </div>
             </div>
@@ -140,17 +117,14 @@
                     <div class="card-block">
                         <h4>Houzz</h4>
                         <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="/assets/images/ki-home-0008.jpg" alt="Card image cap">
-                        <a target="_blank" href="https://www.houzz.co.uk/pro/kitchensint/kitchens-international"><img class="houzz-logo mb-2" src="/assets/images/houzz-logo.png" alt="Houzz logo link to Kitchens International"></a><br>
+                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.houzzImage.file.url}}" alt="{{model.content.houzzImage.title}}">
+                        <a target="_blank" href="{{model.content.houzzProfileLink}}"><img class="houzz-logo mb-2" src="/assets/images/houzz-logo.png" alt="Houzz logo link to Kitchens International"></a><br>
                         <hr>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip...</p>
-                        <a target="_blank" href="https://www.houzz.co.uk/pro/kitchensint/kitchens-international" class="btn btn-outline-primary">Go to Houzz</a>
+                        {{markdown-to-html model.content.houzzIntroduction class="card-text"}}
+                        <a target="_blank" href="{{model.content.houzzProfileLink}}" class="btn btn-outline-primary">{{model.content.houzzCallToAction}}</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
-{{store-locations stores=stores}}

@@ -247,7 +247,7 @@ card {
     width: 30px;
     height: 30px;
     background: url("/assets/images/ki-social-sprite.png") no-repeat 0 0;
-    background-size: 120px 30px;
+    background-size: 150px 30px;
 
     &:hover {
         opacity: .8;
@@ -267,6 +267,14 @@ card {
 
     &.social-icon-youtube {
         background-position: -60px 0;
+    }
+
+    &.social-icon-instagram {
+        background-position: -90px 0;
+    }
+
+    &.social-icon-houzz {
+        background-position: -120px 0;
     }
 }
 
