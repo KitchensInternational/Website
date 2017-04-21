@@ -1,2 +1,40 @@
-{{outlet}}
-hello
+<div class="introduction text-white">
+    <h1>Our news</h1>
+</div>
+<div class="background-taupe mb-3">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            {{blog-control class="col-11"}}
+        </div>
+    </div>
+</div>
+{{#each model as |article index|}}
+<div class="background-taupe mb-3">
+    <div class="container-fluid">
+        <div class="row">
+            {{#if (odd index)}}
+            <div class="col-12 col-sm-6 img-container">
+                <img class="img-fluid" src="{{article.featuredImage.file.url}}" alt="{{article.featuredImage.title}}">
+            </div>
+            {{/if}}
+            <div class="col-12 col-sm-6 py-4">
+                <p><small>{{moment-format article.publicationDate 'MMMM DD, YYYY'}}</small></p>
+                <h3>{{article.title}}</h3>
+                {{markdown-to-html article.excerpt}}
+                {{#link-to 'story' article.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br>
+                <hr>
+            </div>
+            {{#unless (odd index)}}
+            <div class="col-12 col-sm-6 img-container">
+                <img class="img-fluid" src="{{article.featuredImage.file.url}}" alt="{{article.featuredImage.title}}">
+            </div>
+            {{/unless}}
+        </div>
+    </div>
+</div>
+{{/each}}
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        {{pagination-control}}
+    </div>
+</div>

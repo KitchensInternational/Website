@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('home', { path: '/' });
   this.route('stories');
   this.route('story', { path: 'stories/:slug' });
+  this.route('design-service');
 });
 
 export default Router;

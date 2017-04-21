@@ -313,7 +313,7 @@ card {
 
         &:hover {
             cursor: pointer;
-            text-decoration: underline;
+            opacity: .8;
         }
     }
 
@@ -397,6 +397,106 @@ card {
 
         h1 {
             padding-top: 45vh;
+        }
+    }
+}
+
+.stories {
+
+    .introduction {
+        background: url("/assets/images/ki-news-0000.jpg") no-repeat center center;
+        background-size: cover;
+        width: 100%;
+        height: 300px;
+        text-align: center;
+
+        h1 {
+            padding-top: 150px;
+        }
+    }
+
+    .blog-control {
+        padding-top: $spacer * 2;
+        padding-bottom: $spacer;
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+
+            li {
+                display: inline-block;
+                text-transform: uppercase;
+                margin-right: $spacer*2;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: .8;
+                }
+            }
+        }
+    }
+
+    .img-container {
+        max-height: 345px;
+        overflow: hidden;
+    }
+}
+
+.story {
+
+    .introduction {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        width: 100%;
+        height: 300px;
+        text-align: center;
+
+        h1 {
+            padding-top: 150px;
+        }
+    }
+
+    article {
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.design-service {
+
+    .introduction {
+        background: url("/assets/images/ki-about-0000.jpg") no-repeat center center;
+        background-size: cover;
+        width: 100%;
+        height: 300px;
+        text-align: center;
+
+        h1 {
+            padding-top: 150px;
+        }
+    }
+
+    .slide-in-wrapper {
+        height: 100%;
+
+        & > div {
+            height: 100%;
+        }
+    }
+
+    .background-image {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: 100%;
+
+        hr {
+            margin-bottom: 75%;
         }
     }
 }

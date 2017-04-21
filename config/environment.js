@@ -12,6 +12,9 @@ module.exports = function(environment) {
         previewAccessToken: '38f04962024d568a5983861e7cb3ae999eeed095d8b8f28867e70730c84aa3ad',
         usePreviewApi: false
     },
+    disqus: {
+        shortname: 'kitchens-international'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

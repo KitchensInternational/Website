@@ -38,6 +38,23 @@ define('kitchens-international/tests/app.jshint', ['exports'], function (exports
     assert.ok(true, 'app.js should pass jshint.');
   });
 });
+define('kitchens-international/tests/components/blog-control', ['exports', 'ember'], function (exports, _ember) {
+    'use strict';
+
+    exports['default'] = _ember['default'].Component.extend({
+        tagName: 'nav',
+        classNames: ['blog-control']
+    });
+});
+define('kitchens-international/tests/components/blog-control.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/blog-control.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/blog-control.js should pass jshint.');
+  });
+});
 define('kitchens-international/tests/components/contact-form-button', ['exports', 'ember'], function (exports, _ember) {
     'use strict';
 
@@ -84,8 +101,8 @@ define('kitchens-international/tests/components/contact-form.jshint', ['exports'
 define('kitchens-international/tests/components/header-nav', ['exports', 'ember'], function (exports, _ember) {
     'use strict';
 
-    var ANIMATION_DELAY = 600;
-    var NAV_ANIMATION_SPEED = 400;
+    var ANIMATION_DELAY = 400;
+    var NAV_ANIMATION_SPEED = 200;
 
     function toggleMainMenuHandler() {
         var _this = this;
@@ -203,6 +220,56 @@ define('kitchens-international/tests/components/image-carousel.jshint', ['export
     assert.ok(true, 'components/image-carousel.js should pass jshint.');
   });
 });
+define('kitchens-international/tests/components/pagination-control', ['exports', 'ember'], function (exports, _ember) {
+    'use strict';
+
+    exports['default'] = _ember['default'].Component.extend({
+        tagName: 'nav',
+        classNames: ['pagination-control'],
+        currentPage: 1,
+        pageCount: 1,
+        pages: _ember['default'].computed('pageCount', function () {
+            var pages = [],
+                n = 0,
+                pageCount = this.get('pageCount');
+            for (n; n < pageCount; n++) {
+                pages.push(n + 1);
+            }
+            return pages;
+        }),
+        canGoBack: _ember['default'].computed('currentPage', function () {
+            return this.get('currentPage') > 1;
+        }),
+        canGoForward: _ember['default'].computed('currentPage', 'pageCount', function () {
+            return this.get('currentPage') < this.get('pageCount');
+        }),
+        onChangePage: null,
+        actions: {
+            goToPrevious: function goToPrevious() {
+                if (this.get('canGoBack')) {
+                    this.send('goToPage', this.get('currentPage') - 1);
+                }
+            },
+            goToPage: function goToPage(page) {
+                this.sendAction('onChangePage', page);
+            },
+            goToNext: function goToNext() {
+                if (this.get('canGoForward')) {
+                    this.send('goToPage', this.get('currentPage') + 1);
+                }
+            }
+        }
+    });
+});
+define('kitchens-international/tests/components/pagination-control.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/pagination-control.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/pagination-control.js should pass jshint.');
+  });
+});
 define('kitchens-international/tests/components/slide-in-wrapper', ['exports', 'ember'], function (exports, _ember) {
     'use strict';
 
@@ -226,13 +293,17 @@ define('kitchens-international/tests/components/slide-in-wrapper', ['exports', '
                 var component = this;
                 _ember['default'].$(window).on('scroll', function () {
                     var windowElement = _ember['default'].$(this),
-                        componentOffset = component.$().offset().top,
+                        componentElement = component.$(),
+                        componentOffset = componentElement === undefined ? 0 : componentElement.offset().top,
                         scrollTop = windowElement.scrollTop(),
                         windowHeight = windowElement.height(),
                         fold = scrollTop + windowHeight - LEADING_EDGE_ALLOWANCE;
                     component.set('belowTheFold', componentOffset > fold);
                 });
             });
+        },
+        willDestroyElement: function willDestroyElement() {
+            _ember['default'].$(window).off('scroll');
         }
     });
 });
@@ -243,6 +314,23 @@ define('kitchens-international/tests/components/slide-in-wrapper.jshint', ['expo
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/slide-in-wrapper.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/components/social-icons', ['exports', 'ember'], function (exports, _ember) {
+    'use strict';
+
+    exports['default'] = _ember['default'].Component.extend({
+        tagName: 'p',
+        greyIcons: false
+    });
+});
+define('kitchens-international/tests/components/social-icons.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | components/social-icons.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/social-icons.js should pass jshint.');
   });
 });
 define('kitchens-international/tests/components/store-locations', ['exports', 'ember'], function (exports, _ember) {
@@ -496,6 +584,26 @@ define('kitchens-international/tests/helpers/module-for-acceptance.jshint', ['ex
     assert.ok(true, 'helpers/module-for-acceptance.js should pass jshint.');
   });
 });
+define('kitchens-international/tests/helpers/odd', ['exports', 'ember'], function (exports, _ember) {
+    'use strict';
+
+    exports.odd = odd;
+
+    function odd(params) {
+        return params[0] % 2;
+    }
+
+    exports['default'] = _ember['default'].Helper.helper(odd);
+});
+define('kitchens-international/tests/helpers/odd.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | helpers/odd.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'helpers/odd.js should pass jshint.');
+  });
+});
 define('kitchens-international/tests/helpers/resolver', ['exports', 'kitchens-international/resolver', 'kitchens-international/config/environment'], function (exports, _kitchensInternationalResolver, _kitchensInternationalConfigEnvironment) {
   'use strict';
 
@@ -544,6 +652,148 @@ define('kitchens-international/tests/helpers/start-app.jshint', ['exports'], fun
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'helpers/start-app.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/integration/components/blog-control-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+  'use strict';
+
+  (0, _emberQunit.moduleForComponent)('blog-control', 'Integration | Component | blog control', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template((function () {
+      return {
+        meta: {
+          'revision': 'Ember@2.7.3',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 1,
+              'column': 16
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [['content', 'blog-control', ['loc', [null, [1, 0], [1, 16]]], 0, 0, 0, 0]],
+        locals: [],
+        templates: []
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template((function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            'revision': 'Ember@2.7.3',
+            'loc': {
+              'source': null,
+              'start': {
+                'line': 2,
+                'column': 4
+              },
+              'end': {
+                'line': 4,
+                'column': 4
+              }
+            }
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode('      template block text\n');
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+
+      return {
+        meta: {
+          'revision': 'Ember@2.7.3',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 5,
+              'column': 2
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode('\n');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode('  ');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [['block', 'blog-control', [], [], 0, null, ['loc', [null, [2, 4], [4, 21]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('kitchens-international/tests/integration/components/blog-control-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | integration/components/blog-control-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/blog-control-test.js should pass jshint.');
   });
 });
 define('kitchens-international/tests/integration/components/contact-form-button-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -1114,6 +1364,148 @@ define('kitchens-international/tests/integration/components/slide-in-wrapper-tes
     assert.ok(true, 'integration/components/slide-in-wrapper-test.js should pass jshint.');
   });
 });
+define('kitchens-international/tests/integration/components/social-icons-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+  'use strict';
+
+  (0, _emberQunit.moduleForComponent)('social-icons', 'Integration | Component | social icons', {
+    integration: true
+  });
+
+  (0, _emberQunit.test)('it renders', function (assert) {
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.render(Ember.HTMLBars.template((function () {
+      return {
+        meta: {
+          'revision': 'Ember@2.7.3',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 1,
+              'column': 16
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [['content', 'social-icons', ['loc', [null, [1, 0], [1, 16]]], 0, 0, 0, 0]],
+        locals: [],
+        templates: []
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), '');
+
+    // Template block usage:
+    this.render(Ember.HTMLBars.template((function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            'revision': 'Ember@2.7.3',
+            'loc': {
+              'source': null,
+              'start': {
+                'line': 2,
+                'column': 4
+              },
+              'end': {
+                'line': 4,
+                'column': 4
+              }
+            }
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode('      template block text\n');
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+
+      return {
+        meta: {
+          'revision': 'Ember@2.7.3',
+          'loc': {
+            'source': null,
+            'start': {
+              'line': 1,
+              'column': 0
+            },
+            'end': {
+              'line': 5,
+              'column': 2
+            }
+          }
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode('\n');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment('');
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode('  ');
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [['block', 'social-icons', [], [], 0, null, ['loc', [null, [2, 4], [4, 21]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })()));
+
+    assert.equal(this.$().text().trim(), 'template block text');
+  });
+});
+define('kitchens-international/tests/integration/components/social-icons-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | integration/components/social-icons-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/social-icons-test.js should pass jshint.');
+  });
+});
 define('kitchens-international/tests/integration/components/store-locations-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
   'use strict';
 
@@ -1355,6 +1747,7 @@ define('kitchens-international/tests/router', ['exports', 'ember', 'kitchens-int
     this.route('home', { path: '/' });
     this.route('stories');
     this.route('story', { path: 'stories/:slug' });
+    this.route('design-service');
   });
 
   exports['default'] = Router;
@@ -1366,6 +1759,20 @@ define('kitchens-international/tests/router.jshint', ['exports'], function (expo
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'router.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/routes/design-service', ['exports', 'ember'], function (exports, _ember) {
+  'use strict';
+
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define('kitchens-international/tests/routes/design-service.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/design-service.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/design-service.js should pass jshint.');
   });
 });
 define('kitchens-international/tests/routes/home', ['exports', 'ember'], function (exports, _ember) {
@@ -1390,9 +1797,13 @@ define('kitchens-international/tests/routes/home.jshint', ['exports'], function 
   });
 });
 define('kitchens-international/tests/routes/stories', ['exports', 'ember'], function (exports, _ember) {
-  'use strict';
+    'use strict';
 
-  exports['default'] = _ember['default'].Route.extend({});
+    exports['default'] = _ember['default'].Route.extend({
+        model: function model() {
+            return this.get('store').query('article', { limit: 10 });
+        }
+    });
 });
 define('kitchens-international/tests/routes/stories.jshint', ['exports'], function (exports) {
   'use strict';
@@ -1404,9 +1815,13 @@ define('kitchens-international/tests/routes/stories.jshint', ['exports'], functi
   });
 });
 define('kitchens-international/tests/routes/story', ['exports', 'ember'], function (exports, _ember) {
-  'use strict';
+    'use strict';
 
-  exports['default'] = _ember['default'].Route.extend({});
+    exports['default'] = _ember['default'].Route.extend({
+        model: function model(params) {
+            return this.get('store').queryRecord('article', { 'fields.slug': params.slug });
+        }
+    });
 });
 define('kitchens-international/tests/routes/story.jshint', ['exports'], function (exports) {
   'use strict';
@@ -1571,7 +1986,7 @@ define('kitchens-international/tests/styles/app.sass-lint-test', ['exports'], fu
   QUnit.module('SCSS Lint | styles/app.scss');
   QUnit.test('should pass sass-lint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'styles/app.scss should pass sass-lint\n\n');
+    assert.ok(true, 'styles/app.scss should pass sass-lint\n\n430:38 - Space expected around operator (space-around-operator)');
   });
 });
 define('kitchens-international/tests/test-helper', ['exports', 'kitchens-international/tests/helpers/resolver', 'ember-qunit'], function (exports, _kitchensInternationalTestsHelpersResolver, _emberQunit) {
@@ -1692,6 +2107,48 @@ define('kitchens-international/tests/unit/helpers/escape-test.jshint', ['exports
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/helpers/escape-test.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/unit/helpers/odd-test', ['exports', 'kitchens-international/helpers/odd', 'qunit'], function (exports, _kitchensInternationalHelpersOdd, _qunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Helper | odd');
+
+  // Replace this with your real tests.
+  (0, _qunit.test)('it works', function (assert) {
+    var result = (0, _kitchensInternationalHelpersOdd.odd)([42]);
+    assert.ok(result);
+  });
+});
+define('kitchens-international/tests/unit/helpers/odd-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/helpers/odd-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/helpers/odd-test.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/unit/routes/design-service-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+  'use strict';
+
+  (0, _emberQunit.moduleFor)('route:design-service', 'Unit | Route | design service', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('kitchens-international/tests/unit/routes/design-service-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/design-service-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/design-service-test.js should pass jshint.');
   });
 });
 define('kitchens-international/tests/unit/routes/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
