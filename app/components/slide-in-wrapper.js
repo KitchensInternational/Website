@@ -21,7 +21,7 @@ export default Ember.Component.extend({
             Ember.$(window).on('scroll', function () {
                 let windowElement = Ember.$(this),
                 componentElement = component.$(),
-                componentOffset = componentElement === undefined ? 0 : componentElement.offset().top,
+                componentOffset = typeof componentElement === 'undefined' ? 0 : componentElement.offset().top,
                 scrollTop = windowElement.scrollTop(),
                 windowHeight = windowElement.height(),
                 fold = scrollTop + windowHeight - LEADING_EDGE_ALLOWANCE;

@@ -3,4 +3,4 @@ stories (blog/news) pagination
 stories (blog/news) filter control
 story back to all stories button
 story author field?
-design service needs contentful
+design service page needs contentful

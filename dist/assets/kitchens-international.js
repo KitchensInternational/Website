@@ -281,7 +281,7 @@ define('kitchens-international/components/slide-in-wrapper', ['exports', 'ember'
                 _ember['default'].$(window).on('scroll', function () {
                     var windowElement = _ember['default'].$(this),
                         componentElement = component.$(),
-                        componentOffset = componentElement === undefined ? 0 : componentElement.offset().top,
+                        componentOffset = typeof componentElement === 'undefined' ? 0 : componentElement.offset().top,
                         scrollTop = windowElement.scrollTop(),
                         windowHeight = windowElement.height(),
                         fold = scrollTop + windowHeight - LEADING_EDGE_ALLOWANCE;
@@ -704,6 +704,68 @@ define('kitchens-international/initializers/injectStore', ['exports', 'ember'], 
     before: 'store',
     initialize: function initialize() {}
   };
+});
+define('kitchens-international/initializers/reopen-route', ['exports', 'ember'], function (exports, _ember) {
+	exports.initialize = initialize;
+
+	function initialize() {
+
+		var BASE_TITLE = 'Kitchens International';
+
+		_ember['default'].Route.reopen({
+
+			setPageTitle: function setPageTitle(model) {
+
+				var title = BASE_TITLE;
+
+				if (typeof model !== 'undefined' && model && typeof model.get !== 'undefined' && typeof model.get('title') !== 'undefined') {
+					title = model.get('title') + ' | ' + BASE_TITLE;
+				}
+
+				$(document).attr('title', title);
+			},
+
+			enter: function enter() {
+				this._super.apply(this, arguments);
+				this.setPageTitle();
+			},
+
+			setupController: function setupController(controller, model) {
+				this._super.apply(this, arguments);
+				this.setPageTitle(model);
+				$(window).scrollTop(0);
+			}
+
+		});
+	}
+
+	exports['default'] = {
+		name: 'reopen-route',
+		initialize: initialize
+	};
+});
+define('kitchens-international/initializers/reopen-router', ['exports', 'ember'], function (exports, _ember) {
+    exports.initialize = initialize;
+
+    function initialize() {
+
+        _ember['default'].Router.reopen({
+            notifyGoogleAnalytics: (function () {
+                if (typeof ga === 'undefined') {
+                    return;
+                }
+                return ga('send', 'pageview', {
+                    'page': this.get('url'),
+                    'title': this.get('url')
+                });
+            }).on('didTransition')
+        });
+    }
+
+    exports['default'] = {
+        name: 'reopen-router',
+        initialize: initialize
+    };
 });
 define('kitchens-international/initializers/store', ['exports', 'ember'], function (exports, _ember) {
 

@@ -294,7 +294,7 @@ define('kitchens-international/tests/components/slide-in-wrapper', ['exports', '
                 _ember['default'].$(window).on('scroll', function () {
                     var windowElement = _ember['default'].$(this),
                         componentElement = component.$(),
-                        componentOffset = componentElement === undefined ? 0 : componentElement.offset().top,
+                        componentOffset = typeof componentElement === 'undefined' ? 0 : componentElement.offset().top,
                         scrollTop = windowElement.scrollTop(),
                         windowHeight = windowElement.height(),
                         fold = scrollTop + windowHeight - LEADING_EDGE_ALLOWANCE;
@@ -652,6 +652,90 @@ define('kitchens-international/tests/helpers/start-app.jshint', ['exports'], fun
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'helpers/start-app.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/initializers/reopen-route', ['exports', 'ember'], function (exports, _ember) {
+	'use strict';
+
+	exports.initialize = initialize;
+
+	function initialize() {
+
+		var BASE_TITLE = 'Kitchens International';
+
+		_ember['default'].Route.reopen({
+
+			setPageTitle: function setPageTitle(model) {
+
+				var title = BASE_TITLE;
+
+				if (typeof model !== 'undefined' && model && typeof model.get !== 'undefined' && typeof model.get('title') !== 'undefined') {
+					title = model.get('title') + ' | ' + BASE_TITLE;
+				}
+
+				$(document).attr('title', title);
+			},
+
+			enter: function enter() {
+				this._super.apply(this, arguments);
+				this.setPageTitle();
+			},
+
+			setupController: function setupController(controller, model) {
+				this._super.apply(this, arguments);
+				this.setPageTitle(model);
+				$(window).scrollTop(0);
+			}
+
+		});
+	}
+
+	exports['default'] = {
+		name: 'reopen-route',
+		initialize: initialize
+	};
+});
+define('kitchens-international/tests/initializers/reopen-route.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | initializers/reopen-route.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'initializers/reopen-route.js should pass jshint.\ninitializers/reopen-route.js: line 17, col 13, \'$\' is not defined.\ninitializers/reopen-route.js: line 28, col 13, \'$\' is not defined.\n\n2 errors');
+  });
+});
+define('kitchens-international/tests/initializers/reopen-router', ['exports', 'ember'], function (exports, _ember) {
+    'use strict';
+
+    exports.initialize = initialize;
+
+    function initialize() {
+
+        _ember['default'].Router.reopen({
+            notifyGoogleAnalytics: (function () {
+                if (typeof ga === 'undefined') {
+                    return;
+                }
+                return ga('send', 'pageview', {
+                    'page': this.get('url'),
+                    'title': this.get('url')
+                });
+            }).on('didTransition')
+        });
+    }
+
+    exports['default'] = {
+        name: 'reopen-router',
+        initialize: initialize
+    };
+});
+define('kitchens-international/tests/initializers/reopen-router.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | initializers/reopen-router.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'initializers/reopen-router.js should pass jshint.\ninitializers/reopen-router.js: line 10, col 20, \'ga\' is not defined.\n\n1 error');
   });
 });
 define('kitchens-international/tests/integration/components/blog-control-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
