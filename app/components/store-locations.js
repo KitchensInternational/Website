@@ -7,6 +7,7 @@ export default Ember.Component.extend({
     _zoom: 16,
     _map: null,
     stores: Ember.A(),
+    activeStoreSlug: null,
     activeStoreIndex: 0,
     activeStore: Ember.computed('stores', 'stores.[]', 'activeStoreIndex', function () {
         let stores = this.get('stores'),
@@ -14,9 +15,23 @@ export default Ember.Component.extend({
             index  = this.get('activeStoreIndex');
         if ( count > 0 ) {
             index = index >= 0 && index <= count ? index : 0;
-            return stores[index];
+            return stores.objectAt(index);
         }
         return Ember.K();
+    }),
+    setActiveStore: Ember.observer('stores', 'activeStoreSlug', function () {
+        let storeSlug = this.get('activeStoreSlug');
+        if ( storeSlug ) {
+            let storeIndex = 0;
+            this.get('stores').find(function (store, index) {
+                if ( store.get('slug') === storeSlug ) {
+                    storeIndex = index;
+                    return true;
+                }
+                return false;
+            });
+            this.set('activeStoreIndex', storeIndex);
+        }
     }),
     updateMapLocationAfterStoreSelect: Ember.observer('activeStore', function () {
         this.get('_map').setCenter( this.get('activeStore.location') );

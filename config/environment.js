@@ -15,6 +15,11 @@ module.exports = function(environment) {
     disqus: {
         shortname: 'kitchens-international'
     },
+    showdown: {
+        simplifiedAutoLink: true,
+        tables: true,
+        simpleLineBreaks: true
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

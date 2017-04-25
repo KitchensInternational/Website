@@ -22,42 +22,12 @@
 </div>
 <div class="map-container">
     <div class="map"></div>
-    <div class="store-location text-white">
-        <table class="opening-hours">
-            <tr>
-                <td>Mon</td>
-                <td>10 - 7 pm</td>
-            </tr>
-            <tr>
-                <td>Tue</td>
-                <td>10 - 5.30 pm</td>
-            </tr>
-            <tr>
-                <td>Wed</td>
-                <td>10 - 5.30 pm</td>
-            </tr>
-            <tr>
-                <td>Thu</td>
-                <td>10 - 7 pm</td>
-            </tr>
-            <tr>
-                <td>Fri</td>
-                <td>10.30 - 5.30 pm</td>
-            </tr>
-            <tr>
-                <td>Sat</td>
-                <td>10 - 5.30 pm</td>
-            </tr>
-            <tr>
-                <td>Sun</td>
-                <td>11 - 5.30 pm</td>
-            </tr>
-        </table>
+    <div class="store-location">
+        {{markdown-to-html activeStore.openingHours class="opening-hours text-white"}}
         <div class="address">
-            {{activeStore.address}}<br>
-            {{activeStore.postcode}}<br>
-            T: {{activeStore.telephone}}<br>
-            {{#link-to 'home'}}view store {{fa-icon "caret-right"}}{{/link-to}}
+            {{markdown-to-html activeStore.address class="text-white"}}
+            <p class="text-white">T: {{activeStore.telephone}}</p>
+            {{#link-to 'store' activeStore.slug class="btn btn-secondary btn-sm"}}view store{{/link-to}}
         </div>
     </div>
 </div>

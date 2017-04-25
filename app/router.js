@@ -11,6 +11,10 @@ Router.map(function() {
   this.route('stories');
   this.route('story', { path: 'stories/:slug' });
   this.route('design-service');
+  this.route('store', { path: 'store/:slug' });
+  this.route('projects', { path: 'projects' });
+  this.route('kitchens', { path: 'kitchens' });
+  this.route('commerical', { path: 'commerical' });
 });
 
 export default Router;

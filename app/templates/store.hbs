@@ -1,0 +1,28 @@
+<div class="introduction text-white">
+    <h1>{{model.town}}</h1>
+    {{#if model.name}}
+        <h2>{{model.name}}</h2>
+    {{/if}}
+</div>
+<div class="container-fluid pt-5 pb-4">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10">
+            {{markdown-to-html model.description class="text-center"}}
+        </div>
+    </div>
+</div>
+<div class="background-taupe mb-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <img src="/assets/images/placeholder.png" class="img-fluid">
+            </div>
+            <div class="col">
+                <img src="/assets/images/placeholder.png" class="img-fluid">
+            </div>
+            <div class="col">
+                <img src="/assets/images/placeholder.png" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
