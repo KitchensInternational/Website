@@ -14,15 +14,11 @@
 <div class="background-taupe mb-5">
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                <img src="/assets/images/placeholder.png" class="img-fluid">
+            {{#each model.images as |image|}}
+            <div class="col-4">
+                <img src="{{image.file.url}}" class="img-fluid">
             </div>
-            <div class="col">
-                <img src="/assets/images/placeholder.png" class="img-fluid">
-            </div>
-            <div class="col">
-                <img src="/assets/images/placeholder.png" class="img-fluid">
-            </div>
+            {{/each}}
         </div>
     </div>
 </div>

@@ -1801,7 +1801,7 @@ define('kitchens-international/tests/models/project.jshint', ['exports'], functi
     assert.ok(true, 'models/project.js should pass jshint.');
   });
 });
-define('kitchens-international/tests/models/store', ['exports', 'ember-data-contentful/models/contentful', 'ember-data/attr'], function (exports, _emberDataContentfulModelsContentful, _emberDataAttr) {
+define('kitchens-international/tests/models/store', ['exports', 'ember-data-contentful/models/contentful', 'ember-data/attr', 'ember-data/relationships'], function (exports, _emberDataContentfulModelsContentful, _emberDataAttr, _emberDataRelationships) {
     'use strict';
 
     exports['default'] = _emberDataContentfulModelsContentful['default'].extend({
@@ -1812,7 +1812,8 @@ define('kitchens-international/tests/models/store', ['exports', 'ember-data-cont
         telephone: (0, _emberDataAttr['default'])('string'),
         openingHours: (0, _emberDataAttr['default'])('string'),
         location: (0, _emberDataAttr['default'])('json'),
-        description: (0, _emberDataAttr['default'])('string')
+        description: (0, _emberDataAttr['default'])('string'),
+        images: (0, _emberDataRelationships.hasMany)('contentful-asset')
     });
 });
 define('kitchens-international/tests/models/store.jshint', ['exports'], function (exports) {
@@ -1855,6 +1856,9 @@ define('kitchens-international/tests/router', ['exports', 'ember', 'kitchens-int
     this.route('projects', { path: 'projects' });
     this.route('kitchens', { path: 'kitchens' });
     this.route('commerical', { path: 'commerical' });
+    this.route('endorsements');
+    this.route('events');
+    this.route('event');
   });
 
   exports['default'] = Router;
@@ -1894,6 +1898,48 @@ define('kitchens-international/tests/routes/design-service.jshint', ['exports'],
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/design-service.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/routes/endorsements', ['exports', 'ember'], function (exports, _ember) {
+  'use strict';
+
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define('kitchens-international/tests/routes/endorsements.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/endorsements.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/endorsements.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/routes/event', ['exports', 'ember'], function (exports, _ember) {
+  'use strict';
+
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define('kitchens-international/tests/routes/event.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/event.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/event.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/routes/events', ['exports', 'ember'], function (exports, _ember) {
+  'use strict';
+
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define('kitchens-international/tests/routes/events.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | routes/events.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/events.js should pass jshint.');
   });
 });
 define('kitchens-international/tests/routes/home', ['exports', 'ember'], function (exports, _ember) {
@@ -2465,6 +2511,72 @@ define('kitchens-international/tests/unit/routes/design-service-test.jshint', ['
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/design-service-test.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/unit/routes/endorsements-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+  'use strict';
+
+  (0, _emberQunit.moduleFor)('route:endorsements', 'Unit | Route | endorsements', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('kitchens-international/tests/unit/routes/endorsements-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/endorsements-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/endorsements-test.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/unit/routes/event-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+  'use strict';
+
+  (0, _emberQunit.moduleFor)('route:event', 'Unit | Route | event', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('kitchens-international/tests/unit/routes/event-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/event-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/event-test.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/unit/routes/events-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+  'use strict';
+
+  (0, _emberQunit.moduleFor)('route:events', 'Unit | Route | events', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('kitchens-international/tests/unit/routes/events-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/routes/events-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/events-test.js should pass jshint.');
   });
 });
 define('kitchens-international/tests/unit/routes/home-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {

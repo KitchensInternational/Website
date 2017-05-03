@@ -5,8 +5,9 @@
     <div class="container">
         <div class="row">
             <article class="col py-5">
-                <p><small>{{moment-format model.publicationDate 'MMMM DD, YYYY'}}</small></p>
+                <p>{{#link-to 'stories' class="btn btn-outline-primary btn-sm"}}view all stories{{/link-to}}</p>
                 <h3>{{model.title}}</h3>
+                <p>{{moment-format model.publicationDate 'MMMM DD, YYYY'}}</p>
                 {{markdown-to-html model.content}}
                 {{disqus-comments identifier=model.slug title=model.title class="mt-5"}}
             </article>

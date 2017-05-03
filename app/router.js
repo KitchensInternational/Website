@@ -15,6 +15,9 @@ Router.map(function() {
   this.route('projects', { path: 'projects' });
   this.route('kitchens', { path: 'kitchens' });
   this.route('commerical', { path: 'commerical' });
+  this.route('endorsements');
+  this.route('events');
+  this.route('event');
 });
 
 export default Router;

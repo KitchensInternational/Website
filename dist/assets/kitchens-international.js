@@ -844,7 +844,7 @@ define('kitchens-international/models/project', ['exports', 'ember-data-contentf
         description: (0, _emberDataAttr['default'])('string')
     });
 });
-define('kitchens-international/models/store', ['exports', 'ember-data-contentful/models/contentful', 'ember-data/attr'], function (exports, _emberDataContentfulModelsContentful, _emberDataAttr) {
+define('kitchens-international/models/store', ['exports', 'ember-data-contentful/models/contentful', 'ember-data/attr', 'ember-data/relationships'], function (exports, _emberDataContentfulModelsContentful, _emberDataAttr, _emberDataRelationships) {
     exports['default'] = _emberDataContentfulModelsContentful['default'].extend({
         town: (0, _emberDataAttr['default'])('string'),
         name: (0, _emberDataAttr['default'])('string'),
@@ -853,7 +853,8 @@ define('kitchens-international/models/store', ['exports', 'ember-data-contentful
         telephone: (0, _emberDataAttr['default'])('string'),
         openingHours: (0, _emberDataAttr['default'])('string'),
         location: (0, _emberDataAttr['default'])('json'),
-        description: (0, _emberDataAttr['default'])('string')
+        description: (0, _emberDataAttr['default'])('string'),
+        images: (0, _emberDataRelationships.hasMany)('contentful-asset')
     });
 });
 define('kitchens-international/resolver', ['exports', 'ember-resolver'], function (exports, _emberResolver) {
@@ -875,6 +876,9 @@ define('kitchens-international/router', ['exports', 'ember', 'kitchens-internati
     this.route('projects', { path: 'projects' });
     this.route('kitchens', { path: 'kitchens' });
     this.route('commerical', { path: 'commerical' });
+    this.route('endorsements');
+    this.route('events');
+    this.route('event');
   });
 
   exports['default'] = Router;
@@ -883,6 +887,15 @@ define('kitchens-international/routes/commerical', ['exports', 'ember'], functio
   exports['default'] = _ember['default'].Route.extend({});
 });
 define('kitchens-international/routes/design-service', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define('kitchens-international/routes/endorsements', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define('kitchens-international/routes/event', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Route.extend({});
+});
+define('kitchens-international/routes/events', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({});
 });
 define('kitchens-international/routes/home', ['exports', 'ember'], function (exports, _ember) {
@@ -4502,6 +4515,132 @@ define("kitchens-international/templates/design-service", ["exports"], function 
     };
   })());
 });
+define("kitchens-international/templates/endorsements", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "revision": "Ember@2.7.3",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 0
+          }
+        },
+        "moduleName": "kitchens-international/templates/endorsements.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]], 0, 0, 0, 0]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("kitchens-international/templates/event", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "revision": "Ember@2.7.3",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 0
+          }
+        },
+        "moduleName": "kitchens-international/templates/event.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]], 0, 0, 0, 0]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("kitchens-international/templates/events", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "revision": "Ember@2.7.3",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 0
+          }
+        },
+        "moduleName": "kitchens-international/templates/events.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "outlet", ["loc", [null, [1, 0], [1, 10]]], 0, 0, 0, 0]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define("kitchens-international/templates/home", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
@@ -4739,12 +4878,47 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
           "loc": {
             "source": null,
             "start": {
+              "line": 88,
+              "column": 28
+            },
+            "end": {
+              "line": 88,
+              "column": 55
+            }
+          },
+          "moduleName": "kitchens-international/templates/home.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("Events");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child5 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@2.7.3",
+          "loc": {
+            "source": null,
+            "start": {
               "line": 92,
               "column": 28
             },
             "end": {
               "line": 92,
-              "column": 57
+              "column": 58
             }
           },
           "moduleName": "kitchens-international/templates/home.hbs"
@@ -4767,7 +4941,77 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         templates: []
       };
     })();
-    var child5 = (function () {
+    var child6 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@2.7.3",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 97,
+              "column": 24
+            },
+            "end": {
+              "line": 97,
+              "column": 86
+            }
+          },
+          "moduleName": "kitchens-international/templates/home.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("View event");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child7 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@2.7.3",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 104,
+              "column": 28
+            },
+            "end": {
+              "line": 104,
+              "column": 57
+            }
+          },
+          "moduleName": "kitchens-international/templates/home.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("Stories");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child8 = (function () {
       return {
         meta: {
           "revision": "Ember@2.7.3",
@@ -4806,7 +5050,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         templates: []
       };
     })();
-    var child6 = (function () {
+    var child9 = (function () {
       return {
         meta: {
           "revision": "Ember@2.7.3",
@@ -5144,7 +5388,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         var el7 = dom.createTextNode("\n                        ");
         dom.appendChild(el6, el7);
         var el7 = dom.createElement("h4");
-        var el8 = dom.createTextNode("Events");
+        var el8 = dom.createComment("");
         dom.appendChild(el7, el8);
         dom.appendChild(el6, el7);
         var el7 = dom.createTextNode("\n                        ");
@@ -5185,10 +5429,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         dom.appendChild(el6, el7);
         var el7 = dom.createTextNode("\n                        ");
         dom.appendChild(el6, el7);
-        var el7 = dom.createElement("button");
-        dom.setAttribute(el7, "class", "btn btn-outline-primary");
-        var el8 = dom.createTextNode("View event");
-        dom.appendChild(el7, el8);
+        var el7 = dom.createComment("");
         dom.appendChild(el6, el7);
         var el7 = dom.createTextNode("\n                    ");
         dom.appendChild(el6, el7);
@@ -5214,7 +5455,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         var el7 = dom.createTextNode("\n                        ");
         dom.appendChild(el6, el7);
         var el7 = dom.createElement("h4");
-        var el8 = dom.createTextNode("Stories");
+        var el8 = dom.createComment("");
         dom.appendChild(el7, el8);
         dom.appendChild(el6, el7);
         var el7 = dom.createTextNode("\n                        ");
@@ -5280,7 +5521,10 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         var el7 = dom.createTextNode("\n                        ");
         dom.appendChild(el6, el7);
         var el7 = dom.createElement("h4");
-        var el8 = dom.createTextNode("Houzz");
+        var el8 = dom.createElement("a");
+        dom.setAttribute(el8, "target", "_blank");
+        var el9 = dom.createTextNode("Houzz");
+        dom.appendChild(el8, el9);
         dom.appendChild(el7, el8);
         dom.appendChild(el6, el7);
         var el7 = dom.createTextNode("\n                        ");
@@ -5358,14 +5602,16 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         var element18 = dom.childAt(element17, [1]);
         var element19 = dom.childAt(element18, [7]);
         var element20 = dom.childAt(fragment, [10, 1, 1]);
-        var element21 = dom.childAt(element20, [3, 1, 1]);
-        var element22 = dom.childAt(element21, [5]);
-        var element23 = dom.childAt(element21, [7]);
-        var element24 = dom.childAt(element20, [5, 1, 1]);
-        var element25 = dom.childAt(element24, [5]);
-        var element26 = dom.childAt(element24, [7]);
-        var element27 = dom.childAt(element24, [14]);
-        var morphs = new Array(36);
+        var element21 = dom.childAt(element20, [1, 1, 1]);
+        var element22 = dom.childAt(element20, [3, 1, 1]);
+        var element23 = dom.childAt(element22, [5]);
+        var element24 = dom.childAt(element22, [7]);
+        var element25 = dom.childAt(element20, [5, 1, 1]);
+        var element26 = dom.childAt(element25, [1, 0]);
+        var element27 = dom.childAt(element25, [5]);
+        var element28 = dom.childAt(element25, [7]);
+        var element29 = dom.childAt(element25, [14]);
+        var morphs = new Array(40);
         morphs[0] = dom.createMorphAt(dom.childAt(element6, [1]), 0, 0);
         morphs[1] = dom.createMorphAt(dom.childAt(element6, [3]), 0, 0);
         morphs[2] = dom.createMorphAt(element6, 6, 6);
@@ -5389,24 +5635,28 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         morphs[20] = dom.createMorphAt(element18, 5, 5);
         morphs[21] = dom.createAttrMorph(element19, 'href');
         morphs[22] = dom.createMorphAt(element19, 0, 0);
-        morphs[23] = dom.createMorphAt(dom.childAt(element20, [1, 1, 1, 7]), 3, 3);
-        morphs[24] = dom.createAttrMorph(element22, 'src');
-        morphs[25] = dom.createAttrMorph(element22, 'alt');
-        morphs[26] = dom.createMorphAt(dom.childAt(element23, [0]), 0, 0);
-        morphs[27] = dom.createMorphAt(element23, 3, 3);
-        morphs[28] = dom.createMorphAt(dom.childAt(element21, [11]), 0, 0);
-        morphs[29] = dom.createMorphAt(element21, 13, 13);
-        morphs[30] = dom.createAttrMorph(element25, 'src');
-        morphs[31] = dom.createAttrMorph(element25, 'alt');
-        morphs[32] = dom.createAttrMorph(element26, 'href');
-        morphs[33] = dom.createMorphAt(element24, 12, 12);
-        morphs[34] = dom.createAttrMorph(element27, 'href');
-        morphs[35] = dom.createMorphAt(element27, 0, 0);
+        morphs[23] = dom.createMorphAt(dom.childAt(element21, [1]), 0, 0);
+        morphs[24] = dom.createMorphAt(dom.childAt(element21, [7]), 3, 3);
+        morphs[25] = dom.createMorphAt(element21, 13, 13);
+        morphs[26] = dom.createMorphAt(dom.childAt(element22, [1]), 0, 0);
+        morphs[27] = dom.createAttrMorph(element23, 'src');
+        morphs[28] = dom.createAttrMorph(element23, 'alt');
+        morphs[29] = dom.createMorphAt(dom.childAt(element24, [0]), 0, 0);
+        morphs[30] = dom.createMorphAt(element24, 3, 3);
+        morphs[31] = dom.createMorphAt(dom.childAt(element22, [11]), 0, 0);
+        morphs[32] = dom.createMorphAt(element22, 13, 13);
+        morphs[33] = dom.createAttrMorph(element26, 'href');
+        morphs[34] = dom.createAttrMorph(element27, 'src');
+        morphs[35] = dom.createAttrMorph(element27, 'alt');
+        morphs[36] = dom.createAttrMorph(element28, 'href');
+        morphs[37] = dom.createMorphAt(element25, 12, 12);
+        morphs[38] = dom.createAttrMorph(element29, 'href');
+        morphs[39] = dom.createMorphAt(element29, 0, 0);
         return morphs;
       },
-      statements: [["content", "model.content.heading", ["loc", [null, [2, 8], [2, 33]]], 0, 0, 0, 0], ["content", "model.content.callToAction", ["loc", [null, [3, 51], [3, 81]]], 0, 0, 0, 0], ["inline", "fa-icon", ["chevron-down"], ["size", "lg"], ["loc", [null, [4, 4], [4, 40]]], 0, 0], ["inline", "markdown-to-html", [["get", "model.content.introduction", ["loc", [null, [9, 31], [9, 57]]], 0, 0, 0, 0]], [], ["loc", [null, [9, 12], [9, 59]]], 0, 0], ["inline", "image-carousel", [], ["id", "carousel", "images", ["subexpr", "@mut", [["get", "model.content.carouselImages", ["loc", [null, [14, 42], [14, 70]]], 0, 0, 0, 0]], [], [], 0, 0], "class", "carousel-home"], ["loc", [null, [14, 4], [14, 94]]], 0, 0], ["content", "model.content.splashHeading", ["loc", [null, [17, 35], [17, 66]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.splashContent", ["loc", [null, [19, 31], [19, 58]]], 0, 0, 0, 0]], ["class", "card-text"], ["loc", [null, [19, 12], [19, 78]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.splashActionLink", ["loc", [null, [20, 23], [20, 53]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.splashActionTitle", ["loc", [null, [20, 89], [20, 124]]], 0, 0, 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 0, null, ["loc", [null, [28, 16], [35, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 1, null, ["loc", [null, [38, 16], [40, 37]]]], ["attribute", "style", ["subexpr", "background-image", [["get", "model.content.imageOverlayTop.file.url", ["loc", [null, [43, 99], [43, 137]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [43, 139]]], 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayTopHeading", ["loc", [null, [45, 20], [45, 60]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.imageOverlayTopContent", ["loc", [null, [47, 35], [47, 71]]], 0, 0, 0, 0]], [], ["loc", [null, [47, 16], [47, 73]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.imageOverlayTopActionLink", ["loc", [null, [48, 27], [48, 66]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayTopActionTitle", ["loc", [null, [48, 104], [48, 148]]], 0, 0, 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 2, null, ["loc", [null, [57, 16], [64, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 3, null, ["loc", [null, [67, 16], [69, 37]]]], ["attribute", "style", ["subexpr", "background-image", [["get", "model.content.imageOverlayBottom.file.url", ["loc", [null, [72, 92], [72, 133]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [72, 135]]], 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayBottomHeading", ["loc", [null, [74, 20], [74, 63]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.imageOverlayBottomContent", ["loc", [null, [76, 35], [76, 74]]], 0, 0, 0, 0]], [], ["loc", [null, [76, 16], [76, 76]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.imageOverlayBottomActionLink", ["loc", [null, [77, 27], [77, 69]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayBottomActionTitle", ["loc", [null, [77, 107], [77, 154]]], 0, 0, 0, 0], ["block", "link-to", ["home"], [], 4, null, ["loc", [null, [92, 28], [92, 69]]]], ["attribute", "src", ["concat", [["get", "leadArticle.featuredImage.file.url", ["loc", [null, [106, 77], [106, 111]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "alt", ["concat", [["get", "leadArticle.featuredImage.title", ["loc", [null, [106, 122], [106, 153]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["inline", "moment-format", [["get", "leadArticle.publicationDate", ["loc", [null, [107, 70], [107, 97]]], 0, 0, 0, 0], "MM/DD/YYYY"], [], ["loc", [null, [107, 54], [107, 112]]], 0, 0], ["block", "link-to", ["story", ["get", "leadArticle.slug", ["loc", [null, [108, 47], [108, 63]]], 0, 0, 0, 0]], [], 5, null, ["loc", [null, [108, 28], [108, 98]]]], ["content", "leadArticle.excerpt", ["loc", [null, [110, 45], [110, 68]]], 0, 0, 0, 0], ["block", "link-to", ["story", ["get", "leadArticle.slug", ["loc", [null, [111, 43], [111, 59]]], 0, 0, 0, 0]], ["class", "btn btn-outline-primary"], 6, null, ["loc", [null, [111, 24], [111, 114]]]], ["attribute", "src", ["concat", [["get", "model.content.houzzImage.file.url", ["loc", [null, [120, 77], [120, 110]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "alt", ["concat", [["get", "model.content.houzzImage.title", ["loc", [null, [120, 121], [120, 151]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [121, 51], [121, 81]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.houzzIntroduction", ["loc", [null, [123, 43], [123, 74]]], 0, 0, 0, 0]], ["class", "card-text"], ["loc", [null, [123, 24], [123, 94]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [124, 51], [124, 81]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.houzzCallToAction", ["loc", [null, [124, 117], [124, 152]]], 0, 0, 0, 0]],
+      statements: [["content", "model.content.heading", ["loc", [null, [2, 8], [2, 33]]], 0, 0, 0, 0], ["content", "model.content.callToAction", ["loc", [null, [3, 51], [3, 81]]], 0, 0, 0, 0], ["inline", "fa-icon", ["chevron-down"], ["size", "lg"], ["loc", [null, [4, 4], [4, 40]]], 0, 0], ["inline", "markdown-to-html", [["get", "model.content.introduction", ["loc", [null, [9, 31], [9, 57]]], 0, 0, 0, 0]], [], ["loc", [null, [9, 12], [9, 59]]], 0, 0], ["inline", "image-carousel", [], ["id", "carousel", "images", ["subexpr", "@mut", [["get", "model.content.carouselImages", ["loc", [null, [14, 42], [14, 70]]], 0, 0, 0, 0]], [], [], 0, 0], "class", "carousel-home"], ["loc", [null, [14, 4], [14, 94]]], 0, 0], ["content", "model.content.splashHeading", ["loc", [null, [17, 35], [17, 66]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.splashContent", ["loc", [null, [19, 31], [19, 58]]], 0, 0, 0, 0]], ["class", "card-text"], ["loc", [null, [19, 12], [19, 78]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.splashActionLink", ["loc", [null, [20, 23], [20, 53]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.splashActionTitle", ["loc", [null, [20, 89], [20, 124]]], 0, 0, 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 0, null, ["loc", [null, [28, 16], [35, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 1, null, ["loc", [null, [38, 16], [40, 37]]]], ["attribute", "style", ["subexpr", "background-image", [["get", "model.content.imageOverlayTop.file.url", ["loc", [null, [43, 99], [43, 137]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [43, 139]]], 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayTopHeading", ["loc", [null, [45, 20], [45, 60]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.imageOverlayTopContent", ["loc", [null, [47, 35], [47, 71]]], 0, 0, 0, 0]], [], ["loc", [null, [47, 16], [47, 73]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.imageOverlayTopActionLink", ["loc", [null, [48, 27], [48, 66]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayTopActionTitle", ["loc", [null, [48, 104], [48, 148]]], 0, 0, 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 2, null, ["loc", [null, [57, 16], [64, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 3, null, ["loc", [null, [67, 16], [69, 37]]]], ["attribute", "style", ["subexpr", "background-image", [["get", "model.content.imageOverlayBottom.file.url", ["loc", [null, [72, 92], [72, 133]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [72, 135]]], 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayBottomHeading", ["loc", [null, [74, 20], [74, 63]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.imageOverlayBottomContent", ["loc", [null, [76, 35], [76, 74]]], 0, 0, 0, 0]], [], ["loc", [null, [76, 16], [76, 76]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.imageOverlayBottomActionLink", ["loc", [null, [77, 27], [77, 69]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayBottomActionTitle", ["loc", [null, [77, 107], [77, 154]]], 0, 0, 0, 0], ["block", "link-to", ["events"], [], 4, null, ["loc", [null, [88, 28], [88, 67]]]], ["block", "link-to", ["event"], [], 5, null, ["loc", [null, [92, 28], [92, 70]]]], ["block", "link-to", ["event"], ["class", "btn btn-outline-primary"], 6, null, ["loc", [null, [97, 24], [97, 98]]]], ["block", "link-to", ["stories"], [], 7, null, ["loc", [null, [104, 28], [104, 69]]]], ["attribute", "src", ["concat", [["get", "leadArticle.featuredImage.file.url", ["loc", [null, [106, 77], [106, 111]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "alt", ["concat", [["get", "leadArticle.featuredImage.title", ["loc", [null, [106, 122], [106, 153]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["inline", "moment-format", [["get", "leadArticle.publicationDate", ["loc", [null, [107, 70], [107, 97]]], 0, 0, 0, 0], "MM/DD/YYYY"], [], ["loc", [null, [107, 54], [107, 112]]], 0, 0], ["block", "link-to", ["story", ["get", "leadArticle.slug", ["loc", [null, [108, 47], [108, 63]]], 0, 0, 0, 0]], [], 8, null, ["loc", [null, [108, 28], [108, 98]]]], ["content", "leadArticle.excerpt", ["loc", [null, [110, 45], [110, 68]]], 0, 0, 0, 0], ["block", "link-to", ["story", ["get", "leadArticle.slug", ["loc", [null, [111, 43], [111, 59]]], 0, 0, 0, 0]], ["class", "btn btn-outline-primary"], 9, null, ["loc", [null, [111, 24], [111, 114]]]], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [118, 55], [118, 85]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "src", ["concat", [["get", "model.content.houzzImage.file.url", ["loc", [null, [120, 77], [120, 110]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "alt", ["concat", [["get", "model.content.houzzImage.title", ["loc", [null, [120, 121], [120, 151]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [121, 51], [121, 81]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.houzzIntroduction", ["loc", [null, [123, 43], [123, 74]]], 0, 0, 0, 0]], ["class", "card-text"], ["loc", [null, [123, 24], [123, 94]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [124, 51], [124, 81]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.houzzCallToAction", ["loc", [null, [124, 117], [124, 152]]], 0, 0, 0, 0]],
       locals: [],
-      templates: [child0, child1, child2, child3, child4, child5, child6]
+      templates: [child0, child1, child2, child3, child4, child5, child6, child7, child8, child9]
     };
   })());
 });
@@ -5579,6 +5829,56 @@ define("kitchens-international/templates/store", ["exports"], function (exports)
         templates: []
       };
     })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@2.7.3",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 17,
+              "column": 12
+            },
+            "end": {
+              "line": 21,
+              "column": 12
+            }
+          },
+          "moduleName": "kitchens-international/templates/store.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("            ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "col-4");
+          var el2 = dom.createTextNode("\n                ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("img");
+          dom.setAttribute(el2, "class", "img-fluid");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n            ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1, 1]);
+          var morphs = new Array(1);
+          morphs[0] = dom.createAttrMorph(element0, 'src');
+          return morphs;
+        },
+        statements: [["attribute", "src", ["concat", [["get", "image.file.url", ["loc", [null, [19, 28], [19, 42]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0]],
+        locals: ["image"],
+        templates: []
+      };
+    })();
     return {
       meta: {
         "revision": "Ember@2.7.3",
@@ -5589,7 +5889,7 @@ define("kitchens-international/templates/store", ["exports"], function (exports)
             "column": 0
           },
           "end": {
-            "line": 29,
+            "line": 25,
             "column": 0
           }
         },
@@ -5651,46 +5951,11 @@ define("kitchens-international/templates/store", ["exports"], function (exports)
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "row");
-        var el4 = dom.createTextNode("\n            ");
+        var el4 = dom.createTextNode("\n");
         dom.appendChild(el3, el4);
-        var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "col");
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("img");
-        dom.setAttribute(el5, "src", "/assets/images/placeholder.png");
-        dom.setAttribute(el5, "class", "img-fluid");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n            ");
-        dom.appendChild(el4, el5);
+        var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n            ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "col");
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("img");
-        dom.setAttribute(el5, "src", "/assets/images/placeholder.png");
-        dom.setAttribute(el5, "class", "img-fluid");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n            ");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n            ");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "col");
-        var el5 = dom.createTextNode("\n                ");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("img");
-        dom.setAttribute(el5, "src", "/assets/images/placeholder.png");
-        dom.setAttribute(el5, "class", "img-fluid");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n            ");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n        ");
+        var el4 = dom.createTextNode("        ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n    ");
@@ -5704,16 +5969,17 @@ define("kitchens-international/templates/store", ["exports"], function (exports)
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0]);
-        var morphs = new Array(3);
-        morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
-        morphs[1] = dom.createMorphAt(element0, 3, 3);
+        var element1 = dom.childAt(fragment, [0]);
+        var morphs = new Array(4);
+        morphs[0] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
+        morphs[1] = dom.createMorphAt(element1, 3, 3);
         morphs[2] = dom.createMorphAt(dom.childAt(fragment, [2, 1, 1]), 1, 1);
+        morphs[3] = dom.createMorphAt(dom.childAt(fragment, [4, 1, 1]), 1, 1);
         return morphs;
       },
-      statements: [["content", "model.town", ["loc", [null, [2, 8], [2, 22]]], 0, 0, 0, 0], ["block", "if", [["get", "model.name", ["loc", [null, [3, 10], [3, 20]]], 0, 0, 0, 0]], [], 0, null, ["loc", [null, [3, 4], [5, 11]]]], ["inline", "markdown-to-html", [["get", "model.description", ["loc", [null, [10, 31], [10, 48]]], 0, 0, 0, 0]], ["class", "text-center"], ["loc", [null, [10, 12], [10, 70]]], 0, 0]],
+      statements: [["content", "model.town", ["loc", [null, [2, 8], [2, 22]]], 0, 0, 0, 0], ["block", "if", [["get", "model.name", ["loc", [null, [3, 10], [3, 20]]], 0, 0, 0, 0]], [], 0, null, ["loc", [null, [3, 4], [5, 11]]]], ["inline", "markdown-to-html", [["get", "model.description", ["loc", [null, [10, 31], [10, 48]]], 0, 0, 0, 0]], ["class", "text-center"], ["loc", [null, [10, 12], [10, 70]]], 0, 0], ["block", "each", [["get", "model.images", ["loc", [null, [17, 20], [17, 32]]], 0, 0, 0, 0]], [], 1, null, ["loc", [null, [17, 12], [21, 21]]]]],
       locals: [],
-      templates: [child0]
+      templates: [child0, child1]
     };
   })());
 });
@@ -6059,6 +6325,41 @@ define("kitchens-international/templates/stories", ["exports"], function (export
 });
 define("kitchens-international/templates/story", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "revision": "Ember@2.7.3",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 8,
+              "column": 19
+            },
+            "end": {
+              "line": 8,
+              "column": 96
+            }
+          },
+          "moduleName": "kitchens-international/templates/story.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("view all stories");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() {
+          return [];
+        },
+        statements: [],
+        locals: [],
+        templates: []
+      };
+    })();
     return {
       meta: {
         "revision": "Ember@2.7.3",
@@ -6069,7 +6370,7 @@ define("kitchens-international/templates/story", ["exports"], function (exports)
             "column": 0
           },
           "end": {
-            "line": 16,
+            "line": 17,
             "column": 0
           }
         },
@@ -6111,14 +6412,18 @@ define("kitchens-international/templates/story", ["exports"], function (exports)
         var el5 = dom.createTextNode("\n                ");
         dom.appendChild(el4, el5);
         var el5 = dom.createElement("p");
-        var el6 = dom.createElement("small");
-        var el7 = dom.createComment("");
-        dom.appendChild(el6, el7);
+        var el6 = dom.createComment("");
         dom.appendChild(el5, el6);
         dom.appendChild(el4, el5);
         var el5 = dom.createTextNode("\n                ");
         dom.appendChild(el4, el5);
         var el5 = dom.createElement("h3");
+        var el6 = dom.createComment("");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n                ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("p");
         var el6 = dom.createComment("");
         dom.appendChild(el5, el6);
         dom.appendChild(el4, el5);
@@ -6149,18 +6454,19 @@ define("kitchens-international/templates/story", ["exports"], function (exports)
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [0]);
         var element1 = dom.childAt(fragment, [2, 1, 1, 1]);
-        var morphs = new Array(6);
+        var morphs = new Array(7);
         morphs[0] = dom.createAttrMorph(element0, 'style');
         morphs[1] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
-        morphs[2] = dom.createMorphAt(dom.childAt(element1, [1, 0]), 0, 0);
+        morphs[2] = dom.createMorphAt(dom.childAt(element1, [1]), 0, 0);
         morphs[3] = dom.createMorphAt(dom.childAt(element1, [3]), 0, 0);
-        morphs[4] = dom.createMorphAt(element1, 5, 5);
+        morphs[4] = dom.createMorphAt(dom.childAt(element1, [5]), 0, 0);
         morphs[5] = dom.createMorphAt(element1, 7, 7);
+        morphs[6] = dom.createMorphAt(element1, 9, 9);
         return morphs;
       },
-      statements: [["attribute", "style", ["subexpr", "background-image", [["get", "model.featuredImage.file.url", ["loc", [null, [1, 62], [1, 90]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [1, 92]]], 0, 0], 0, 0, 0, 0], ["content", "model.title", ["loc", [null, [2, 8], [2, 23]]], 0, 0, 0, 0], ["inline", "moment-format", [["get", "model.publicationDate", ["loc", [null, [8, 42], [8, 63]]], 0, 0, 0, 0], "MMMM DD, YYYY"], [], ["loc", [null, [8, 26], [8, 81]]], 0, 0], ["content", "model.title", ["loc", [null, [9, 20], [9, 35]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content", ["loc", [null, [10, 35], [10, 48]]], 0, 0, 0, 0]], [], ["loc", [null, [10, 16], [10, 50]]], 0, 0], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "model.slug", ["loc", [null, [11, 45], [11, 55]]], 0, 0, 0, 0]], [], [], 0, 0], "title", ["subexpr", "@mut", [["get", "model.title", ["loc", [null, [11, 62], [11, 73]]], 0, 0, 0, 0]], [], [], 0, 0], "class", "mt-5"], ["loc", [null, [11, 16], [11, 88]]], 0, 0]],
+      statements: [["attribute", "style", ["subexpr", "background-image", [["get", "model.featuredImage.file.url", ["loc", [null, [1, 62], [1, 90]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [1, 92]]], 0, 0], 0, 0, 0, 0], ["content", "model.title", ["loc", [null, [2, 8], [2, 23]]], 0, 0, 0, 0], ["block", "link-to", ["stories"], ["class", "btn btn-outline-primary btn-sm"], 0, null, ["loc", [null, [8, 19], [8, 108]]]], ["content", "model.title", ["loc", [null, [9, 20], [9, 35]]], 0, 0, 0, 0], ["inline", "moment-format", [["get", "model.publicationDate", ["loc", [null, [10, 35], [10, 56]]], 0, 0, 0, 0], "MMMM DD, YYYY"], [], ["loc", [null, [10, 19], [10, 74]]], 0, 0], ["inline", "markdown-to-html", [["get", "model.content", ["loc", [null, [11, 35], [11, 48]]], 0, 0, 0, 0]], [], ["loc", [null, [11, 16], [11, 50]]], 0, 0], ["inline", "disqus-comments", [], ["identifier", ["subexpr", "@mut", [["get", "model.slug", ["loc", [null, [12, 45], [12, 55]]], 0, 0, 0, 0]], [], [], 0, 0], "title", ["subexpr", "@mut", [["get", "model.title", ["loc", [null, [12, 62], [12, 73]]], 0, 0, 0, 0]], [], [], 0, 0], "class", "mt-5"], ["loc", [null, [12, 16], [12, 88]]], 0, 0]],
       locals: [],
-      templates: []
+      templates: [child0]
     };
   })());
 });
@@ -6223,7 +6529,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("kitchens-international/app")["default"].create({"name":"kitchens-international","version":"1.0.0+5462095c"});
+  require("kitchens-international/app")["default"].create({"name":"kitchens-international","version":"1.0.0+cc100f3a"});
 }
 
 /* jshint ignore:end */
