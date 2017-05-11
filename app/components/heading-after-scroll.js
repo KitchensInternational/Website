@@ -28,7 +28,7 @@ export default Ember.Component.extend({
         });
     },
     willDestroyElement() {
+        Ember.$('.after-scroll-heading').removeClass('visible').addClass('hidden').text();
         Ember.$(window).off('scroll');
-
     }
 });
