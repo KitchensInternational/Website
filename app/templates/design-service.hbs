@@ -1,298 +1,70 @@
 <div class="introduction">
     <div class="bottom-hugger py-3">
-        {{#heading-after-scroll class="mb-0"}}The art of consideration{{/heading-after-scroll}}
+        {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
     </div>
 </div>
 <div class="container-fluid">
     <div class="row">
         <div class="col">
             <div class="p-5">
-                <h2>Our design service</h2>
+                <h2>{{model.content.name}}</h2>
                 <hr>
             </div>
         </div>
         <div class="col">
             <div class="p-5">
-                <p>Attention to detail defines our kitchens.
-                    Planned with you, defined by purpose, crafted from the best possible materials
-                    and infused with a unique sense of style.</p>
+                {{markdown-to-html model.content.introduction}}
             </div>
         </div>
     </div>
 </div>
+{{#each model.services as |service index|}}
 <div class="background-taupe">
     <div class="container-fluid">
         <div class="row">
+        {{#if (odd index)}}
             <div class="col">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-5">
-                    <h3>Pre Design Brief</h3>
+                    <h3>{{service.heading}}</h3>
                     <hr class="mb-5">
-                    <p>Our Pre Design Brief meeting is the start and probably the most important step
-                        in the process of creating a great kitchen. Once we have been invited to tender,
-                        our skilled designers will get to know all your needs and wishes.
-                        We understand how you use your current kitchen and how the space relates
-                        to the rest of your home. We become aware of your lifestyle and discuss
-                        the aspirations you have for your new kitchen space.</p>
-                    <p>We talk about furniture, appliances, work surfaces, lighting and colour.
-                        We encourage you to be honest, outspoken and imaginative as you like.
-                        Bring magazine clippings, material samples, even the colour of your favourite jumper.</p>
-                    <p>This is your kitchen and we want to make it perfect for you.</p>
+                    {{markdown-to-html service.introduction}}
                 </div>
                 {{/slide-in-wrapper}}
             </div>
             <div class="col">
                 {{#slide-in-wrapper position="right"}}
-                <div class="p-5 text-white background-image" style="background-image: url('/assets/images/ki-about-0001.jpg')">
-                    <h3>Designer</h3>
-                    <hr>
-                    <h5>Responsible for</h5>
-                    <p>The creation of your new kitchen! To understand your every requirement
-                        and ensure your kitchen fulfils your greatest expectations.</p>
+                <div class="p-5 text-white background-image" style="{{background-image service.image.file.url}}">
+                    {{markdown-to-html service.role}}
                 </div>
                 {{/slide-in-wrapper}}
             </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-8 py-5 text-center">
-            <p>Louisa, our designer, was very good at listening to exactly what we wanted.
-                Louisa took everything we had discussed on board and the first design was spot on!</p>
-            <p>- Lara DeRighetti</p>
-        </div>
-    </div>
-</div>
-<div class="background-taupe">
-    <div class="container-fluid">
-        <div class="row">
+        {{else}}
             <div class="col">
                 {{#slide-in-wrapper position="left"}}
-                <div class="p-5 text-white background-image" style="background-image: url('/assets/images/ki-about-0002.jpg')">
-                    <h3>Design<br>Technician</h3>
-                     <hr>
-                    <h5>Responsible for</h5>
-                    <p>Bringing your kitchen design to life. Working with your designer,
-                        Our Design Technicians will create stunning visuals capturing each and
-                        every detail of your new kitchen.</p>
+                <div class="p-5 text-white background-image" style="{{background-image service.image.file.url}}">
+                    {{markdown-to-html service.role}}
                 </div>
                 {{/slide-in-wrapper}}
             </div>
             <div class="col">
                 {{#slide-in-wrapper position="right"}}
                 <div class="p-5">
-                    <h3>Create</h3>
+                    <h3>{{service.heading}}</h3>
                     <hr class="mb-5">
-                    <p>This is where your desires and our skills come together.
-                        Our qualified Designers and Design Technicians will consider in great detail
-                        the information we have gathered. We will then add our professional knowledge
-                        to create a design proposal thatcaptures every aspect of the brief.</p>
-                    <p>You will be invited into our Design Studio to view our proposals.
-                        Our designs are presented in full colour on computer generated software
-                        that captures every last detail of the kitchen space.
-                        So you can get a real feel for the environment we have created.
-                        Budget costs will also be presented, for your approval.</p>
-                    <p>At this stage everything is open for discussion and only when you are completely
-                        comfortable with our proposals will we ask you to commission us for the project.</p>
+                    {{markdown-to-html service.introduction}}
                 </div>
                 {{/slide-in-wrapper}}
             </div>
+        {{/if}}
         </div>
     </div>
 </div>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-8 py-5 text-center">
-            <p>You will be invited into our Design Studio to view our proposals.
-                Our designs are presented in full colour on computer generated software that
-                captures every last detail of the kitchen space.
-                So you can get a real feel for the environment we have created.
-                Budget costs will also be presented, for your approval.
-                At this stage everything is open for discussion and only when you are completely
-                comfortable with our proposals will we ask you to commission us for the project.</p>
-            <p>- Nigel Adams</p>
+            {{markdown-to-html service.quote}}
         </div>
     </div>
 </div>
-<div class="background-taupe">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                {{#slide-in-wrapper position="left"}}
-                <div class="p-5">
-                    <h3>Project Management</h3>
-                    <hr class="mb-5">
-                    <p>Everything has been considered, our appointment as your preferred supplier has been formalised.
-                        Now it’s time to turn your kitchen dreams into an everyday reality.
-                        Your project will be allocated to one of our professional project managers.
-                        At this stage we work towards firming up our initial design proposals
-                        and ironing out every small detail.
-                        This is a process that works at your pace, to make the experience straight forward
-                        and enjoyable. Clear communication is paramount to the smooth running of
-                        a kitchen project and our highly experienced Project Managers
-                        will work with all parties involved, to ensure the project runs smoothly and without fuss.
-                        A post installation check will be completed going over all aspects of the work
-                        and making sure you are entirely satisfied with your brand new kitchen.</p>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col">
-                {{#slide-in-wrapper position="right"}}
-                <div class="p-5 text-white background-image" style="background-image: url('/assets/images/ki-about-0003.jpg')">
-                    <h3>Project Manager</h3>
-                    <hr>
-                    <h5>Responsible for</h5>
-                    <p>The planning and smooth running of your kitchen project.
-                        Delivering the highest quality finish and ensuring you have
-                        a full and clear picture at each stage of the installation through to completion.</p>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-8 py-5 text-center">
-            <p>From concept to completion the job is extremely well managed, all members of their
-                team who worked on the project were exceptional and the level of workmanship was faultless.</p>
-            <p>- Joelle Reid</p>
-        </div>
-    </div>
-</div>
-<div class="background-taupe">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                {{#slide-in-wrapper position="left"}}
-                <div class="p-5 text-white background-image" style="background-image: url('/assets/images/ki-about-0004.jpg')">
-                    <h3>Logistic<br>Manager</h3>
-                    <hr>
-                    <h5>Responsible for</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                        magna aliquam erat volutpat.
-                        Ut wisi enim ad minim veniam, quis nostrud exerci.</p>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col">
-                {{#slide-in-wrapper position="right"}}
-                <div class="p-5">
-                    <h3>Delivery</h3>
-                    <hr class="mb-5">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                        magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-                        quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-                        ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-                        dolor in hendrerit in vulputate velit esse molestie consequat,
-                        vel illum dolore eu feugiat nulla facilisis at vero eros et
-                        accumsan et iusto odio dignissim qui blandit praesent luptatum
-                        zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-8 py-5 text-center">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-                quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-                ut aliquip ex ea.</p>
-            <p>- Commodo Consequat</p>
-        </div>
-    </div>
-</div>
-<div class="background-taupe">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                {{#slide-in-wrapper position="left"}}
-                <div class="p-5">
-                    <h3>Install</h3>
-                    <hr class="mb-5">
-                    <p>Your kitchen furniture and components will be collated and delivered through
-                        our very own distribution department ensuring a quality of care is second to none.
-                        On the agreed installation date, our professionally trained installation team
-                        will arrive in liveried vans ready for work. State of the art modern tooling
-                        combined with good old fashioned craftsmanship guarantees the standard of
-                        workmanship will be to your satisfaction.Our qualified installation team will
-                        follow the schedule of works agreed, which can include some specialised materials
-                        such as corian, glass and engineered stone. They take real pride in their work and
-                        treat your kitchen as if it were their very own.</p>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col">
-                {{#slide-in-wrapper position="right"}}
-                <div class="p-5 text-white background-image" style="background-image: url('/assets/images/ki-about-0005.jpg')">
-                    <h3>Installer</h3>
-                    <hr>
-                    <h5>Responsible for</h5>
-                    <p>Safeguarding the smooth and professional installation of your kitchen.
-                        A responsibility that our installers relish.</p>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-8 py-5 text-center">
-            <p>The quality of work by the installations team is second to none and the project was completed on time and within budget.</p>
-            <p>- Joan Beer</p>
-        </div>
-    </div>
-</div>
-<div class="background-taupe">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                {{#slide-in-wrapper position="left"}}
-                <div class="p-5 text-white background-image" style="background-image: url('/assets/images/ki-about-0006.jpg')">
-                    <h3>Aftercare<br>Manager</h3>
-                    <hr>
-                    <h5>Responsible for</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                        magna aliquam erat volutpat.
-                        Ut wisi enim ad minim veniam, quis nostrud exerci.</p>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col">
-                {{#slide-in-wrapper position="right"}}
-                <div class="p-5">
-                    <h3>Aftercare</h3>
-                    <hr class="mb-5">
-                    <p>Your kitchen is in. You're using it every day. You love it. But that's not the end of the story
-                        as far as we're concerned. Naturally, your kitchen comes with a full guarantee.
-                        But we've gone further than that. At the time of installation we have logged the
-                        full serial reference number of each and every appliance in your kitchen.
-                        This information is then uploaded to our computer and a hard copy is created
-                        and filed in your aftercare manual, this ensuring any subsequent service
-                        requirements can be dealt with efficiently and without fuss.
-                        We want to make sure that your kitchen is everything you hoped it would be,
-                        now and for years to come. Even when its yours, we treat it like its ours.</p>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-8 py-5 text-center">
-            <p>Just had Steven from Aftercare visit and was reminded why I have chosen KI for all of my kitchens to date.
-                From design, choice, installation to after sales care, they are in my opinion the best in the business.</p>
-            <p>- Andrew Fairlie</p>
-        </div>
-    </div>
-</div>
+{{/each}}

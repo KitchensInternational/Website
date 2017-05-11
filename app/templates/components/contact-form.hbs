@@ -4,11 +4,28 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <div class="text-center">
-            <p class="mb-0">Looking to chat now</p>
-            <h3>CALL 0845 074 0022</h3>
-            <p class="mt-4">For information and enquiries, please fill in the form below
-                and we will be delighted to be of assistance.</p>
+            {{#if request-brochure}}
+                <h3 class="mb-3">Request a brochure</h3>
+                <p class="mb">Which brochures would you like?</p>
+            {{else}}
+                <p class="mb-0">Looking to chat now</p>
+                <h3>CALL 0845 074 0022</h3>
+                <p class="mt-4">For information and enquiries, please fill in the form below
+                    and we will be delighted to be of assistance.</p>
+            {{/if}}
             <form method="POST" action="#">
+                {{#if request-brochure}}
+                <div class="mb-3">
+                    {{#each kitchens as |kitchen|}}
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="kitchen" value={{kitchen.name}}>
+                            {{kitchen.name}}
+                        </label>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}}
                 <div class="form-group">
                     <input type="name" class="form-control" placeholder="NAME">
                 </div>
@@ -19,7 +36,11 @@
                     <input type="phone" class="form-control" placeholder="PHONE">
                 </div>
                 <div class="form-group">
-                    <textarea name="message" class="form-control" placeholder="MESSAGE"></textarea>
+                    {{#if request-brochure}}
+                        <textarea name="address" class="form-control" placeholder="ADDRESS"></textarea>
+                    {{else}}
+                        <textarea name="message" class="form-control" placeholder="MESSAGE"></textarea>
+                    {{/if}}
                 </div>
                 <button type="submit" class="btn btn-primary">Send</button>
             </form>

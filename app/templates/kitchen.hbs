@@ -9,7 +9,7 @@
             <div class="col text-center">
                 {{markdown-to-html model.introduction}}
                 <a target="_blank" href="{{model.brochure.file.url}}" class="btn btn-outline-primary mr-2">Download brochure</a>
-                {{#contact-form-button form-id="download-brochure" white-text=false class="ml-2"}}Request a brochure{{/contact-form-button}}
+                {{#contact-form-button form-id="request-brochure" white-text=false class="ml-2"}}Request a brochure{{/contact-form-button}}
             </div>
         </div>
     </div>
@@ -23,4 +23,4 @@
         {{/each}}
     </div>
 </div>
-{{contact-form-modal request-brochure=true id="contact-form"}}
+{{contact-form-modal request-brochure=true kitchens=kitchens id="request-brochure"}}

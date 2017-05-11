@@ -20,8 +20,7 @@
                 <div class="d-flex align-items-center justify-content-center img-overlay" style={{background-image kitchen.featuredImage.file.url}}>
                     <div class="col-7 text-center text-white">
                          <p class="mb-4">{{#link-to 'kitchen' kitchen.slug class="btn btn-outline-secondary"}}{{kitchen.name}}{{/link-to}}</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                         {{markdown-to-html kitchen.excerpt}}
                     </div>
                 </div>
             </div>
