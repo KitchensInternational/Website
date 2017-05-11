@@ -1,5 +1,7 @@
-<div class="introduction text-white" style={{background-image model.featuredImage.file.url}}>
-    <h1>{{model.title}}</h1>
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
+    <div class="bottom-hugger py-3">
+        {{#heading-after-scroll class="mb-0"}}{{model.title}}{{/heading-after-scroll}}
+    </div>
 </div>
 <div class="background-taupe mb-5">
     <div class="container">

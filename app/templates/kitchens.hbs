@@ -1,1 +1,31 @@
-{{outlet}}
+<div class="introduction">
+    <div class="bottom-hugger py-3">
+        {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
+    </div>
+</div>
+<div class="background-taupe mb-3">
+    <div class="container-fluid">
+        <div class="row justify-content-center pt-5 pb-4">
+            <div class="col col-sm-10">
+                {{markdown-to-html model.content.introduction class="text-center"}}
+            </div>
+        </div>
+    </div>
+</div>
+{{#each model.kitchens as |kitchen|}}
+<div class="background-taupe mb-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center justify-content-center img-overlay" style={{background-image kitchen.featuredImage.file.url}}>
+                    <div class="col-7 text-center text-white">
+                         <p class="mb-4">{{#link-to 'kitchen' kitchen.slug class="btn btn-outline-secondary"}}{{kitchen.name}}{{/link-to}}</p>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

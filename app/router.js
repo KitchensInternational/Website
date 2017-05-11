@@ -13,11 +13,15 @@ Router.map(function() {
   this.route('design-service');
   this.route('store', { path: 'store/:slug' });
   this.route('projects', { path: 'projects' });
+  this.route('project', { path: 'projects/:slug' });
   this.route('kitchens', { path: 'kitchens' });
-  this.route('commerical', { path: 'commerical' });
+  this.route('kitchen', { path: 'kitchens/:slug' });
+  this.route('commercials', { path: 'commercial' });
+  this.route('commercial', { path: 'commercial/:slug' });
   this.route('endorsements');
   this.route('events');
-  this.route('event');
+  this.route('event', { path: 'events/:slug' });
+  this.route('contact');
 });
 
 export default Router;

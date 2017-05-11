@@ -1,5 +1,5 @@
 <div class="introduction text-white">
-    <h1>{{model.content.heading}}</h1>
+    {{#heading-after-scroll class="display-1"}}{{model.content.heading}}{{/heading-after-scroll}}
     <button class="btn btn-outline-secondary my-3">{{model.content.callToAction}}</button><br>
     {{fa-icon "chevron-down" size="lg"}}
 </div>
@@ -24,7 +24,7 @@
 <div class="background-taupe mb-5">
     <section class="container-fluid">
         <div class="row mb-5">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-md-6">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-5">
                     <h3>{{model.content.textLeftHeading}}</h3>
@@ -34,26 +34,30 @@
                 </div>
                 {{/slide-in-wrapper}}
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-md-6 d-flex">
                 {{#slide-in-wrapper position="right"}}
-                <img class="img-fluid" src="{{model.content.textLeftImage.file.url}}" alt="{{model.content.textLeftImage.title}}">
+                <div class="img-overlay full-height" style={{background-image model.content.textLeftImage.file.url}}></div>
                 {{/slide-in-wrapper}}
             </div>
         </div>
-        <div class="row d-flex justify-content-center image-overlay mb-5" style={{background-image model.content.imageOverlayTop.file.url}}>
-            <div class="col-10 col-sm-8 text-white text-center py-5">
-                <h3>{{model.content.imageOverlayTopHeading}}</h3>
-                <hr class="hr-white hidden-sm-down">
-                {{markdown-to-html model.content.imageOverlayTopContent}}
-                <a href="{{model.content.imageOverlayTopActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayTopActionTitle}}</a>
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center align-items-center img-overlay" style={{background-image model.content.imageOverlayTop.file.url}}>
+                    <div class="col-10 col-sm-8 text-white text-center py-5">
+                        <h3>{{model.content.imageOverlayTopHeading}}</h3>
+                        <hr class="hr-white hidden-sm-down">
+                        {{markdown-to-html model.content.imageOverlayTopContent}}
+                        <a href="{{model.content.imageOverlayTopActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayTopActionTitle}}</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </div>
-<div class="background-taupe">
+<div class="background-taupe mb-5">
     <section class="container-fluid">
         <div class="row mb-5">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-md-6">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-5">
                     <h3>{{model.content.textRightHeading}}</h3>
@@ -63,18 +67,22 @@
                 </div>
                 {{/slide-in-wrapper}}
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-md-6 d-flex">
                 {{#slide-in-wrapper position="right"}}
-                <img class="img-fluid" src="{{model.content.textRightImage.file.url}}" alt="{{model.content.textRightImage.title}}">
+                <div class="img-overlay full-height" style={{background-image model.content.textRightImage.file.url}}></div>
                 {{/slide-in-wrapper}}
             </div>
         </div>
-        <div class="row justify-content-center image-overlay mb-5" style={{background-image model.content.imageOverlayBottom.file.url}}>
-            <div class="col-10 col-sm-8 text-white text-center py-5">
-                <h3>{{model.content.imageOverlayBottomHeading}}</h3>
-                <hr class="hr-white hidden-sm-down">
-                {{markdown-to-html model.content.imageOverlayBottomContent}}
-                <a href="{{model.content.imageOverlayBottomActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayBottomActionTitle}}</a>
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center align-items-center img-overlay" style={{background-image model.content.imageOverlayBottom.file.url}}>
+                    <div class="col-10 col-sm-8 text-white text-center py-5">
+                        <h3>{{model.content.imageOverlayBottomHeading}}</h3>
+                        <hr class="hr-white hidden-sm-down">
+                        {{markdown-to-html model.content.imageOverlayBottomContent}}
+                        <a href="{{model.content.imageOverlayBottomActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayBottomActionTitle}}</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

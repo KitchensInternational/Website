@@ -4,8 +4,9 @@ export default Ember.Component.extend({
     classNames: ['store-locations'],
     googleMapService: Ember.inject.service('google-map'),
     _center: { lat: 55.9396122, lng: -3.2431527 },
-    _zoom: 16,
+    _zoom: 14,
     _map: null,
+    _marker: null,
     stores: Ember.A(),
     activeStoreSlug: null,
     activeStoreIndex: 0,
@@ -34,7 +35,12 @@ export default Ember.Component.extend({
         }
     }),
     updateMapLocationAfterStoreSelect: Ember.observer('activeStore', function () {
-        this.get('_map').setCenter( this.get('activeStore.location') );
+        this.set('_center', this.get('activeStore.location'));
+    }),
+    updateMapOnCenterChange: Ember.observer('_center', function () {
+        this.get('_map').setCenter( this.get('_center') );
+        this.get('googleMapService').removeMarker( this.get('_marker') );
+        this.get('googleMapService').addMarker( this.get('_map'), this.get('_center') );
     }),
     didInsertElement() {
         this.get('googleMapService').loadMap( this, '_map', '_center', '_zoom' );

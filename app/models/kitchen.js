@@ -5,13 +5,8 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 export default Contentful.extend({
     name: attr('string'),
     slug: attr('string'),
-    location: attr('string'),
     featuredImage: belongsTo('contentful-asset'),
+    introduction: attr('string'),
     images: hasMany('contentful-asset'),
-    brief: attr('string'),
-    consultation: attr('string'),
-    design: attr('string'),
-    install: attr('string'),
-    signOff: attr('string'),
-    commercialProject: attr('boolean'),
+    brochure: belongsTo('contentful-asset'),
 });

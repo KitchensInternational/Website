@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row mb-4">
         {{#each stores as |store index|}}
         <div class="col-6 col-sm-4 col-md-2">
@@ -22,12 +22,10 @@
 </div>
 <div class="map-container">
     <div class="map"></div>
-    <div class="store-location">
-        {{markdown-to-html activeStore.openingHours class="opening-hours text-white"}}
-        <div class="address">
-            {{markdown-to-html activeStore.address class="text-white"}}
-            <p class="text-white">T: {{activeStore.telephone}}</p>
-            {{#link-to 'store' activeStore.slug class="btn btn-secondary btn-sm"}}view store{{/link-to}}
-        </div>
+    <div class="address">
+        {{markdown-to-html activeStore.address class="text-white"}}
+        <p class="text-white">T: {{activeStore.telephone}}</p>
+        {{#link-to 'store' activeStore.slug class="btn btn-outline-secondary btn-sm"}}view store{{/link-to}}
     </div>
+    {{markdown-to-html activeStore.openingHours class="opening-hours text-white"}}
 </div>

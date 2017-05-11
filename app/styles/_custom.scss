@@ -218,7 +218,7 @@ $font-family-serif: Georgia,  "Times New Roman",  Times,  serif;
 $font-family-monospace: Menlo,  Monaco,  Consolas,  "Liberation Mono",  "Courier New",  monospace;
 $font-family-base: Helvetica,  Arial,  sans-serif;
 
-$font-size-base: 1rem; // Assumes the browser default,  typically `16px`
+$font-size-base: 1rem;
 $font-size-lg: 1.25rem;
 $font-size-sm: .8rem;
 $font-size-xs: .75rem;
@@ -229,11 +229,11 @@ $font-weight-bold: 600;
 $font-weight-base: $font-weight-normal;
 $line-height-base: 1.5;
 
-$font-size-h1: 2.5rem;
-$font-size-h2: 2rem;
-$font-size-h3: 1.75rem;
-$font-size-h4: 1.5rem;
-$font-size-h5: 1.3rem;
+$font-size-h1: 1.8rem;
+$font-size-h2: 1.4rem;
+$font-size-h3: 1.25rem;
+$font-size-h4: 1.2rem;
+$font-size-h5: 1.1rem;
 $font-size-h6: 1rem;
 
 $headings-margin-bottom: ($spacer / 2);
@@ -242,12 +242,12 @@ $headings-font-weight: 500;
 $headings-line-height: 1.1;
 $headings-color: inherit;
 
-$display1-size: 6rem;
-$display2-size: 5.5rem;
-$display3-size: 4.5rem;
-$display4-size: 3.5rem;
+$display1-size: 3rem;
+$display2-size: 2.5rem;
+$display3-size: 2rem;
+$display4-size: 1.5rem;
 
-$display1-weight: 300;
+$display1-weight: 500;
 $display2-weight: 300;
 $display3-weight: 300;
 $display4-weight: 300;

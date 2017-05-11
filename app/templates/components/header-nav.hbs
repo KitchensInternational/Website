@@ -1,23 +1,29 @@
-{{#link-to 'home'}}
-    <img class="logo logo-nav" src="/assets/images/ki-logo-white-small.svg" alt="Kitchens International Logo">
-    <img class="logo logo-menu" src="/assets/images/ki-logo-grey-small.svg" alt="Kitchens International Logo">
-{{/link-to}}
-{{#contact-form-button class="mr-3" form-id="contact-form"}}Get in touch{{/contact-form-button}}
-<button {{action "toggleMainMenu"}} class="btn btn-outline-secondary">{{fa-icon "navicon" fixedWidth=true}}</button>
-<nav>
-    <ul class="page-links">
-        <li {{action "toggleMainMenu"}}>{{#link-to 'home'}}Home{{/link-to}}</li>
-        <li {{action "toggleMainMenu"}}>{{#link-to 'kitchens'}}Kitchens{{/link-to}}</li>
-        <li {{action "toggleMainMenu"}}>{{#link-to 'design-service'}}Design Service{{/link-to}}</li>
-        <li {{action "toggleMainMenu"}}>{{#link-to 'projects'}}Projects{{/link-to}}</li>
-        <li {{action "toggleMainMenu"}}>{{#link-to}}Endorsements{{/link-to}}</li>
-        <li {{action "toggleMainMenu"}}>{{#link-to 'stories'}}Stories{{/link-to}}</li>
-        <li {{action "toggleMainMenu"}}>{{#link-to}}Commercial{{/link-to}}</li>
-        <li {{action "toggleMainMenu"}}>{{#link-to}}Contact{{/link-to}}</li>
-        <li>
-            {{social-icons greyIcons=true}}
-        </li>
-        <li><hr></li>
-    </ul>
-</nav>
-{{yield}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            {{#link-to 'home'}}
+                <img class="logo logo-nav" src="/assets/images/ki-logo-white-small.svg" alt="Kitchens International Logo">
+                <img class="logo logo-menu" src="/assets/images/ki-logo-grey-small.svg" alt="Kitchens International Logo">
+            {{/link-to}}
+            {{#contact-form-button class="mr-3" form-id="contact-form"}}Get in touch{{/contact-form-button}}
+            <button {{action "toggleMainMenu"}} class="btn btn-outline-secondary">{{fa-icon "navicon" fixedWidth=true}}</button>
+            <nav>
+                <ul class="page-links">
+                    <li {{action "toggleMainMenu"}}>{{#link-to 'home'}}Home{{/link-to}}</li>
+                    <li {{action "toggleMainMenu"}}>{{#link-to 'kitchens'}}Kitchens{{/link-to}}</li>
+                    <li {{action "toggleMainMenu"}}>{{#link-to 'design-service'}}Design Service{{/link-to}}</li>
+                    <li {{action "toggleMainMenu"}}>{{#link-to 'projects'}}Projects{{/link-to}}</li>
+                    <li {{action "toggleMainMenu"}}>{{#link-to 'endorsements'}}Endorsements{{/link-to}}</li>
+                    <li {{action "toggleMainMenu"}}>{{#link-to 'stories'}}Stories{{/link-to}}</li>
+                    <li {{action "toggleMainMenu"}}>{{#link-to 'commercials'}}Commercial{{/link-to}}</li>
+                    <li {{action "toggleMainMenu"}}>{{#link-to 'contact'}}Contact{{/link-to}}</li>
+                    <li>
+                        {{social-icons greyIcons=true}}
+                    </li>
+                    <li><hr></li>
+                </ul>
+            </nav>
+            {{yield}}
+        </div>
+    </div>
+</div>

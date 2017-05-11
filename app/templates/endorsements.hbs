@@ -1,1 +1,45 @@
-{{outlet}}
+<div class="introduction">
+    <div class="bottom-hugger py-3">
+        {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center pt-5 pb-4">
+        <div class="col col-sm-10">
+            {{markdown-to-html model.content.introduction class="text-center"}}
+        </div>
+    </div>
+    {{#each sortedEndorsements as |endorsement|}}
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center img-overlay mb-4" style={{background-image endorsement.featuredImage.file.url}}>
+                <div class="col text-white text-center">
+                     <h2>{{endorsement.name}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#if endorsement.contentArea1}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea1}}
+        </div>
+        {{/if}}
+        {{#if endorsement.contentArea2}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea2}}
+        </div>
+        {{/if}}
+        {{#if endorsement.contentArea3}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea3}}
+        </div>
+        {{/if}}
+        {{#if endorsement.contentArea4}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea4}}
+        </div>
+        {{/if}}
+    </div>
+    {{/each}}
+</div>

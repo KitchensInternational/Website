@@ -2,6 +2,11 @@
 
 // layout
 
+.container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 $nav-bg: rgba(0, 0, 0, .7);
 
 header {
@@ -9,7 +14,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: $spacer / 2 $spacer;
+    padding: $spacer / 2 0;
     text-align: right;
     z-index: 100;
     background: $nav-bg;
@@ -116,12 +121,6 @@ footer {
     border-width: 0;
 }
 
-$i: 1;
-@while $i < 7 {
-    h#{$i}, .h#{$i} { text-transform: uppercase; }
-    $i: $i + 1;
-}
-
 .text-lg {
     font-size: $font-size-lg;
 }
@@ -137,6 +136,8 @@ $i: 1;
 
 .btn {
     text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: .9rem;
 
     &:hover {
         cursor: pointer;
@@ -199,9 +200,56 @@ card {
     }
 }
 
-.image-overlay {
+@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+    html {
+        font-size: 14px;
+    }
+}
+
+$i: 1;
+@while $i < 7 {
+    h#{$i}, .h#{$i} { text-transform: uppercase; }
+    $i: $i + 1;
+}
+
+h1, .h1 {
+    letter-spacing: 2px;
+}
+
+h2, .h2, h3, .h3 {
+    letter-spacing: 1px;
+}
+
+$n: 1;
+@while $n < 5 {
+    .display-#{$n} {
+        font-family: $headings-font-family;
+        display: block;
+        text-transform: uppercase;
+    }
+    $n: $n + 1;
+}
+
+.display-1 {
+    letter-spacing: 4px;
+}
+
+.display-2 {
+    letter-spacing: 3px;
+}
+
+.display-3, .display-4 {
+    letter-spacing: 2px;
+}
+
+.img-overlay {
     background-position: top center;
     background-size: cover;
+    min-height: 350px;
+
+    &.full-height {
+        min-height: 100%;
+    }
 }
 
 .text-white {
@@ -216,6 +264,12 @@ card {
 
 .slide-in-wrapper {
     overflow: hidden;
+    display: flex;
+    min-width: 100%;
+
+    & > div {
+        min-width: 100%;
+    }
 
     $translate-offset: 40px;
 
@@ -286,7 +340,24 @@ card {
     min-width: 100%;
 }
 
+.hidden {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
 // components
+
+.contact-form-inner {
+
+    .close {
+        display: none;
+    }
+}
 
 .contact-form {
 
@@ -302,6 +373,13 @@ card {
 
         .modal-body {
             padding: 0;
+        }
+    }
+
+    .contact-form-inner {
+
+        .close {
+            display: inline-block;
         }
     }
 }
@@ -325,35 +403,23 @@ card {
         min-height: 300px;
     }
 
-    $store-location-bg: rgba(0, 0, 0, .4);
-
-    .store-location {
+    .opening-hours {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $store-location-bg;
+        top: 40px;
+        right: 100px;
 
-        .opening-hours {
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
+        table {
 
-            table {
-
-                td {
-                    padding: 0 10px;
-                }
+            td {
+                padding: 0 10px;
             }
         }
+    }
 
-        .address {
-            position: absolute;
-            bottom: 80px;
-            right: 40px;
-            text-align: right;
-        }
+    .address {
+        position: absolute;
+        top: 40px;
+        left: 80px;
     }
 }
 
@@ -371,35 +437,70 @@ card {
     }
 }
 
+.img-fluid {
+    min-width: 100%;
+
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+        max-height: 150px;
+    }
+}
+
+.after-scroll-heading {
+    width: 100%;
+    margin-left: -$grid-gutter-width-base / 2;
+    margin-top: $spacer;
+    position: absolute;
+    display: block;
+    text-align: center;
+}
+
 // pages
+
+$intro-bottom-hugger: rgba($gray, .8);
+
+.introduction {
+    background: url("/assets/images/placeholder-wide.png") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    min-height: 400px;
+    height: 70vh;
+    text-align: center;
+    position: relative;
+
+    .bottom-hugger {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: $intro-bottom-hugger;
+        color: $white;
+    }
+}
 
 .home {
 
-    .image-overlay {
-        min-height: 300px;
-    }
-
-    .carousel-home {
-
-        .img-fluid {
-            min-width: 100%;
-
-            @media (max-width: #{map-get($grid-breakpoints, sm)}) {
-                max-height: 150px;
-            }
-        }
-    }
-
     .introduction {
-        background: url("/assets/images/ki-home-0000.jpg") no-repeat center center fixed;
-        background-size: cover;
-        width: 100%;
+        background-image: url("/assets/images/ki-home-0000.jpg");
         height: 700px;
         height: 100vh;
-        text-align: center;
+        padding-top: 45vh;
+    }
+}
 
-        h1 {
-            padding-top: 45vh;
+.design-service {
+
+    .introduction {
+        background-image: url("/assets/images/ki-about-0000.jpg");
+    }
+
+    .background-image {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: 100%;
+
+        hr {
+            margin-bottom: 75%;
         }
     }
 }
@@ -407,15 +508,8 @@ card {
 .stories {
 
     .introduction {
-        background: url("/assets/images/ki-news-0000.jpg") no-repeat center center;
-        background-size: cover;
-        width: 100%;
+        background-image: url("/assets/images/ki-news-0000.jpg");
         height: 300px;
-        text-align: center;
-
-        h1 {
-            padding-top: 150px;
-        }
     }
 
     .blog-control {
@@ -449,16 +543,7 @@ card {
 .story {
 
     .introduction {
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        width: 100%;
         height: 300px;
-        text-align: center;
-
-        h1 {
-            padding-top: 150px;
-        }
     }
 
     article {
@@ -470,70 +555,17 @@ card {
     }
 }
 
-.design-service {
-
-    .introduction {
-        background: url("/assets/images/ki-about-0000.jpg") no-repeat center center;
-        background-size: cover;
-        width: 100%;
-        height: 300px;
-        text-align: center;
-
-        h1 {
-            padding-top: 150px;
-        }
-    }
-
-    .slide-in-wrapper {
-        height: 100%;
-
-        & > div {
-            height: 100%;
-        }
-    }
-
-    .background-image {
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        height: 100%;
-
-        hr {
-            margin-bottom: 75%;
-        }
-    }
-}
-
 .store {
 
     .introduction {
-        background: url("/assets/images/ki-about-0000.jpg") no-repeat center center;
-        background-size: cover;
-        width: 100%;
+        background-image: url("/assets/images/ki-about-0000.jpg");
         height: 300px;
-        text-align: center;
-
-        h1 {
-            padding-top: 150px;
-        }
-    }
-
-    .img-fluid {
-        min-width: 100%;
     }
 }
 
-.projects {
+.contact {
 
     .introduction {
-        background: url("/assets/images/placeholder-wide.png") no-repeat center center;
-        background-size: cover;
-        width: 100%;
         height: 300px;
-        text-align: center;
-
-        h1 {
-            padding-top: 150px;
-        }
     }
 }

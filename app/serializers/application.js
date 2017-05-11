@@ -32,8 +32,8 @@ export default ContentfulSerializer.extend({
 
     _extractIncludes(store, payload) {
         if(payload && payload.hasOwnProperty('includes') && typeof payload.includes !== 'undefined') {
-            let entries = new Array();
-            let assets = new Array();
+            let entries = [],
+                assets = [];
 
             if (payload.includes.Entry) {
                 entries = payload.includes.Entry.map((item) => {

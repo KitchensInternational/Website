@@ -1,0 +1,26 @@
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
+    <div class="bottom-hugger py-3">
+        {{#heading-after-scroll class="mb-0"}}{{model.name}}{{/heading-after-scroll}}
+    </div>
+</div>
+<div class="background-taupe">
+    <div class="container">
+        <div class="row pt-5 pb-5">
+            <div class="col text-center">
+                {{markdown-to-html model.introduction}}
+                <a target="_blank" href="{{model.brochure.file.url}}" class="btn btn-outline-primary mr-2">Download brochure</a>
+                {{#contact-form-button form-id="download-brochure" white-text=false class="ml-2"}}Request a brochure{{/contact-form-button}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        {{#each model.images as |image|}}
+        <div class="col-3 mt-5">
+            <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{contact-form-modal request-brochure=true id="contact-form"}}
