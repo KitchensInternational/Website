@@ -38,9 +38,11 @@ export default Ember.Component.extend({
         this.set('_center', this.get('activeStore.location'));
     }),
     updateMapOnCenterChange: Ember.observer('_center', function () {
-        this.get('_map').setCenter( this.get('_center') );
-        this.get('googleMapService').removeMarker( this.get('_marker') );
-        this.get('googleMapService').addMarker( this.get('_map'), this.get('_center') );
+        if ( this.get('_map') ) {
+            this.get('_map').setCenter( this.get('_center') );
+            this.get('googleMapService').removeMarker( this.get('_marker') );
+            this.get('googleMapService').addMarker( this.get('_map'), this.get('_center') );
+        }
     }),
     didInsertElement() {
         this.get('googleMapService').loadMap( this, '_map', '_center', '_zoom' );

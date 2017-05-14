@@ -62,7 +62,14 @@ define('kitchens-international/tests/components/blog-control', ['exports', 'embe
 
     exports['default'] = _ember['default'].Component.extend({
         tagName: 'nav',
-        classNames: ['blog-control']
+        classNames: ['blog-control'],
+        onFilter: null,
+        currentFilter: null,
+        actions: {
+            triggerFilter: function triggerFilter(filter) {
+                this.sendAction('onFilter', filter);
+            }
+        }
     });
 });
 define('kitchens-international/tests/components/blog-control.jshint', ['exports'], function (exports) {
@@ -507,9 +514,11 @@ define('kitchens-international/tests/components/store-locations', ['exports', 'e
             this.set('_center', this.get('activeStore.location'));
         }),
         updateMapOnCenterChange: _ember['default'].observer('_center', function () {
-            this.get('_map').setCenter(this.get('_center'));
-            this.get('googleMapService').removeMarker(this.get('_marker'));
-            this.get('googleMapService').addMarker(this.get('_map'), this.get('_center'));
+            if (this.get('_map')) {
+                this.get('_map').setCenter(this.get('_center'));
+                this.get('googleMapService').removeMarker(this.get('_marker'));
+                this.get('googleMapService').addMarker(this.get('_map'), this.get('_center'));
+            }
         }),
         didInsertElement: function didInsertElement() {
             this.get('googleMapService').loadMap(this, '_map', '_center', '_zoom');
@@ -599,6 +608,33 @@ define('kitchens-international/tests/controllers/kitchen.jshint', ['exports'], f
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'controllers/kitchen.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/controllers/stories', ['exports', 'ember'], function (exports, _ember) {
+    'use strict';
+
+    exports['default'] = _ember['default'].Controller.extend({
+        queryParams: ['filter', 'page'],
+        filter: null,
+        page: 1,
+        pageCount: 1,
+        actions: {
+            addFilter: function addFilter(filter) {
+                this.set('filter', filter);
+            },
+            changePage: function changePage(page) {
+                this.set('page', page);
+            }
+        }
+    });
+});
+define('kitchens-international/tests/controllers/stories.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | controllers/stories.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'controllers/stories.js should pass jshint.');
   });
 });
 define('kitchens-international/tests/helpers/background-image', ['exports', 'ember'], function (exports, _ember) {
@@ -2443,8 +2479,6 @@ define('kitchens-international/tests/router', ['exports', 'ember', 'kitchens-int
     this.route('commercials', { path: 'commercial' });
     this.route('commercial', { path: 'commercial/:slug' });
     this.route('endorsements');
-    this.route('events');
-    this.route('event', { path: 'events/:slug' });
     this.route('contact');
   });
 
@@ -2686,9 +2720,27 @@ define('kitchens-international/tests/routes/store.jshint', ['exports'], function
 define('kitchens-international/tests/routes/stories', ['exports', 'ember'], function (exports, _ember) {
     'use strict';
 
+    var LIMIT = 10;
+
     exports['default'] = _ember['default'].Route.extend({
-        model: function model() {
-            return this.get('store').query('article', { limit: 10 });
+        queryParams: {
+            filter: { refreshModel: true }
+        },
+        model: function model(queryParams) {
+            var apiParams = {
+                skip: Math.floor((queryParams.page - 1) * LIMIT),
+                limit: LIMIT
+            };
+            if (queryParams.filter) {
+                apiParams["fields.tag"] = queryParams.filter;
+            }
+            return this.get('store').query('article', apiParams);
+        },
+        setupController: function setupController(controller, model) {
+            this._super(controller, model);
+            var meta = model.get('meta');
+            controller.set('page', Math.max(1, Math.ceil((meta.total - meta.skip) / LIMIT)));
+            controller.set('pageCount', Math.max(1, Math.ceil(meta.total / LIMIT)));
         }
     });
 });
@@ -3208,6 +3260,29 @@ define('kitchens-international/tests/unit/controllers/kitchen-test.jshint', ['ex
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/controllers/kitchen-test.js should pass jshint.');
+  });
+});
+define('kitchens-international/tests/unit/controllers/stories-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+  'use strict';
+
+  (0, _emberQunit.moduleFor)('controller:stories', 'Unit | Controller | stories', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var controller = this.subject();
+    assert.ok(controller);
+  });
+});
+define('kitchens-international/tests/unit/controllers/stories-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint | unit/controllers/stories-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/stories-test.js should pass jshint.');
   });
 });
 define('kitchens-international/tests/unit/helpers/background-image-test', ['exports', 'kitchens-international/helpers/background-image', 'qunit'], function (exports, _kitchensInternationalHelpersBackgroundImage, _qunit) {

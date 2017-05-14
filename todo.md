@@ -1,12 +1,7 @@
 
-__fine tune__
-
-stories (blog/news/events) pagination
-stories (blog/news/events) filter control
-add link from event to home page (based on tag filter)
-
 __before go live__
 
+link forms to CRM
 contentful hardcoded links
 google analytics
 hotjar

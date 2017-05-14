@@ -19,8 +19,6 @@ Router.map(function() {
   this.route('commercials', { path: 'commercial' });
   this.route('commercial', { path: 'commercial/:slug' });
   this.route('endorsements');
-  this.route('events');
-  this.route('event', { path: 'events/:slug' });
   this.route('contact');
 });
 

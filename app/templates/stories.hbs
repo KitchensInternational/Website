@@ -6,7 +6,7 @@
 <div class="background-taupe mb-3">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            {{blog-control class="col-11"}}
+            {{blog-control class="col-11" onFilter="addFilter" currentFilter=filter}}
         </div>
     </div>
 </div>
@@ -35,7 +35,7 @@
 {{/each}}
 <div class="container-fluid py-4">
     <div class="row justify-content-center">
-        {{pagination-control}}
+        {{pagination-control currentPage=page pageCount=pageCount onChangePage="changePage"}}
     </div>
     <div class="row justify-content-center">
         {{back-to-top}}

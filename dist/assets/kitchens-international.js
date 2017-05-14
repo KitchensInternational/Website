@@ -54,7 +54,14 @@ define('kitchens-international/components/back-to-top', ['exports', 'ember'], fu
 define('kitchens-international/components/blog-control', ['exports', 'ember'], function (exports, _ember) {
     exports['default'] = _ember['default'].Component.extend({
         tagName: 'nav',
-        classNames: ['blog-control']
+        classNames: ['blog-control'],
+        onFilter: null,
+        currentFilter: null,
+        actions: {
+            triggerFilter: function triggerFilter(filter) {
+                this.sendAction('onFilter', filter);
+            }
+        }
     });
 });
 define('kitchens-international/components/contact-form-button', ['exports', 'ember'], function (exports, _ember) {
@@ -440,9 +447,11 @@ define('kitchens-international/components/store-locations', ['exports', 'ember']
             this.set('_center', this.get('activeStore.location'));
         }),
         updateMapOnCenterChange: _ember['default'].observer('_center', function () {
-            this.get('_map').setCenter(this.get('_center'));
-            this.get('googleMapService').removeMarker(this.get('_marker'));
-            this.get('googleMapService').addMarker(this.get('_map'), this.get('_center'));
+            if (this.get('_map')) {
+                this.get('_map').setCenter(this.get('_center'));
+                this.get('googleMapService').removeMarker(this.get('_marker'));
+                this.get('googleMapService').addMarker(this.get('_map'), this.get('_center'));
+            }
         }),
         didInsertElement: function didInsertElement() {
             this.get('googleMapService').loadMap(this, '_map', '_center', '_zoom');
@@ -479,6 +488,22 @@ define('kitchens-international/controllers/kitchen', ['exports', 'ember'], funct
         kitchens: _ember['default'].computed(function () {
             return this.get('store').findAll('kitchen');
         })
+    });
+});
+define('kitchens-international/controllers/stories', ['exports', 'ember'], function (exports, _ember) {
+    exports['default'] = _ember['default'].Controller.extend({
+        queryParams: ['filter', 'page'],
+        filter: null,
+        page: 1,
+        pageCount: 1,
+        actions: {
+            addFilter: function addFilter(filter) {
+                this.set('filter', filter);
+            },
+            changePage: function changePage(page) {
+                this.set('page', page);
+            }
+        }
     });
 });
 define('kitchens-international/helpers/background-image', ['exports', 'ember'], function (exports, _ember) {
@@ -1081,8 +1106,6 @@ define('kitchens-international/router', ['exports', 'ember', 'kitchens-internati
     this.route('commercials', { path: 'commercial' });
     this.route('commercial', { path: 'commercial/:slug' });
     this.route('endorsements');
-    this.route('events');
-    this.route('event', { path: 'events/:slug' });
     this.route('contact');
   });
 
@@ -1192,9 +1215,28 @@ define('kitchens-international/routes/store', ['exports', 'ember'], function (ex
     });
 });
 define('kitchens-international/routes/stories', ['exports', 'ember'], function (exports, _ember) {
+
+    var LIMIT = 10;
+
     exports['default'] = _ember['default'].Route.extend({
-        model: function model() {
-            return this.get('store').query('article', { limit: 10 });
+        queryParams: {
+            filter: { refreshModel: true }
+        },
+        model: function model(queryParams) {
+            var apiParams = {
+                skip: Math.floor((queryParams.page - 1) * LIMIT),
+                limit: LIMIT
+            };
+            if (queryParams.filter) {
+                apiParams["fields.tag"] = queryParams.filter;
+            }
+            return this.get('store').query('article', apiParams);
+        },
+        setupController: function setupController(controller, model) {
+            this._super(controller, model);
+            var meta = model.get('meta');
+            controller.set('page', Math.max(1, Math.ceil((meta.total - meta.skip) / LIMIT)));
+            controller.set('pageCount', Math.max(1, Math.ceil(meta.total / LIMIT)));
         }
     });
 });
@@ -2086,12 +2128,29 @@ define("kitchens-international/templates/components/blog-control", ["exports"], 
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(1);
+        var element0 = dom.childAt(fragment, [2]);
+        var element1 = dom.childAt(element0, [1]);
+        var element2 = dom.childAt(element1, [2]);
+        var element3 = dom.childAt(element0, [3]);
+        var element4 = dom.childAt(element3, [2]);
+        var element5 = dom.childAt(element0, [5]);
+        var element6 = dom.childAt(element5, [2]);
+        var element7 = dom.childAt(element0, [7]);
+        var element8 = dom.childAt(element7, [2]);
+        var morphs = new Array(9);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        morphs[1] = dom.createElementMorph(element1);
+        morphs[2] = dom.createAttrMorph(element2, 'class');
+        morphs[3] = dom.createElementMorph(element3);
+        morphs[4] = dom.createAttrMorph(element4, 'class');
+        morphs[5] = dom.createElementMorph(element5);
+        morphs[6] = dom.createAttrMorph(element6, 'class');
+        morphs[7] = dom.createElementMorph(element7);
+        morphs[8] = dom.createAttrMorph(element8, 'class');
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["inline", "social-icons", [], ["greyIcons", true, "class", "pull-right"], ["loc", [null, [1, 0], [1, 50]]], 0, 0]],
+      statements: [["inline", "social-icons", [], ["greyIcons", true, "class", "pull-right"], ["loc", [null, [1, 0], [1, 50]]], 0, 0], ["element", "action", ["triggerFilter", "news"], [], ["loc", [null, [3, 8], [3, 41]]], 0, 0], ["attribute", "class", ["concat", [["subexpr", "if", [["subexpr", "eq", [["get", "currentFilter", ["loc", [null, [3, 70], [3, 83]]], 0, 0, 0, 0], "news"], [], ["loc", [null, [3, 66], [3, 91]]], 0, 0], "hr-dark"], [], ["loc", [null, [3, 61], [3, 103]]], 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["element", "action", ["triggerFilter", "press"], [], ["loc", [null, [4, 8], [4, 42]]], 0, 0], ["attribute", "class", ["concat", [["subexpr", "if", [["subexpr", "eq", [["get", "currentFilter", ["loc", [null, [4, 80], [4, 93]]], 0, 0, 0, 0], "press"], [], ["loc", [null, [4, 76], [4, 102]]], 0, 0], "hr-dark"], [], ["loc", [null, [4, 71], [4, 114]]], 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["element", "action", ["triggerFilter", "project"], [], ["loc", [null, [5, 8], [5, 44]]], 0, 0], ["attribute", "class", ["concat", [["subexpr", "if", [["subexpr", "eq", [["get", "currentFilter", ["loc", [null, [5, 84], [5, 97]]], 0, 0, 0, 0], "project"], [], ["loc", [null, [5, 80], [5, 108]]], 0, 0], "hr-dark"], [], ["loc", [null, [5, 75], [5, 120]]], 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["element", "action", ["triggerFilter", "event"], [], ["loc", [null, [6, 8], [6, 42]]], 0, 0], ["attribute", "class", ["concat", [["subexpr", "if", [["subexpr", "eq", [["get", "currentFilter", ["loc", [null, [6, 73], [6, 86]]], 0, 0, 0, 0], "event"], [], ["loc", [null, [6, 69], [6, 95]]], 0, 0], "hr-dark"], [], ["loc", [null, [6, 64], [6, 107]]], 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0]],
       locals: [],
       templates: []
     };
@@ -5767,7 +5826,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
             },
             "end": {
               "line": 96,
-              "column": 55
+              "column": 86
             }
           },
           "moduleName": "kitchens-international/templates/home.hbs"
@@ -5802,7 +5861,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
             },
             "end": {
               "line": 100,
-              "column": 58
+              "column": 66
             }
           },
           "moduleName": "kitchens-international/templates/home.hbs"
@@ -5837,7 +5896,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
             },
             "end": {
               "line": 105,
-              "column": 86
+              "column": 94
             }
           },
           "moduleName": "kitchens-international/templates/home.hbs"
@@ -6564,7 +6623,7 @@ define("kitchens-international/templates/home", ["exports"], function (exports) 
         morphs[39] = dom.createMorphAt(element29, 0, 0);
         return morphs;
       },
-      statements: [["block", "heading-after-scroll", [], ["class", "display-1"], 0, null, ["loc", [null, [2, 4], [2, 97]]]], ["content", "model.content.callToAction", ["loc", [null, [3, 51], [3, 81]]], 0, 0, 0, 0], ["inline", "fa-icon", ["chevron-down"], ["size", "lg"], ["loc", [null, [4, 4], [4, 40]]], 0, 0], ["inline", "markdown-to-html", [["get", "model.content.introduction", ["loc", [null, [9, 31], [9, 57]]], 0, 0, 0, 0]], [], ["loc", [null, [9, 12], [9, 59]]], 0, 0], ["inline", "image-carousel", [], ["id", "carousel", "images", ["subexpr", "@mut", [["get", "model.content.carouselImages", ["loc", [null, [14, 42], [14, 70]]], 0, 0, 0, 0]], [], [], 0, 0], "class", "carousel-home"], ["loc", [null, [14, 4], [14, 94]]], 0, 0], ["content", "model.content.splashHeading", ["loc", [null, [17, 35], [17, 66]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.splashContent", ["loc", [null, [19, 31], [19, 58]]], 0, 0, 0, 0]], ["class", "card-text"], ["loc", [null, [19, 12], [19, 78]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.splashActionLink", ["loc", [null, [20, 23], [20, 53]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.splashActionTitle", ["loc", [null, [20, 89], [20, 124]]], 0, 0, 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 1, null, ["loc", [null, [28, 16], [35, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 2, null, ["loc", [null, [38, 16], [40, 37]]]], ["attribute", "style", ["subexpr", "background-image", [["get", "model.content.imageOverlayTop.file.url", ["loc", [null, [45, 115], [45, 153]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [45, 155]]], 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayTopHeading", ["loc", [null, [47, 28], [47, 68]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.imageOverlayTopContent", ["loc", [null, [49, 43], [49, 79]]], 0, 0, 0, 0]], [], ["loc", [null, [49, 24], [49, 81]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.imageOverlayTopActionLink", ["loc", [null, [50, 35], [50, 74]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayTopActionTitle", ["loc", [null, [50, 112], [50, 156]]], 0, 0, 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 3, null, ["loc", [null, [61, 16], [68, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 4, null, ["loc", [null, [71, 16], [73, 37]]]], ["attribute", "style", ["subexpr", "background-image", [["get", "model.content.imageOverlayBottom.file.url", ["loc", [null, [78, 115], [78, 156]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [78, 158]]], 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayBottomHeading", ["loc", [null, [80, 28], [80, 71]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.imageOverlayBottomContent", ["loc", [null, [82, 43], [82, 82]]], 0, 0, 0, 0]], [], ["loc", [null, [82, 24], [82, 84]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.imageOverlayBottomActionLink", ["loc", [null, [83, 35], [83, 77]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayBottomActionTitle", ["loc", [null, [83, 115], [83, 162]]], 0, 0, 0, 0], ["block", "link-to", ["events"], [], 5, null, ["loc", [null, [96, 28], [96, 67]]]], ["block", "link-to", ["event"], [], 6, null, ["loc", [null, [100, 28], [100, 70]]]], ["block", "link-to", ["event"], ["class", "btn btn-outline-primary"], 7, null, ["loc", [null, [105, 24], [105, 98]]]], ["block", "link-to", ["stories"], [], 8, null, ["loc", [null, [112, 28], [112, 69]]]], ["attribute", "src", ["concat", [["get", "leadArticle.featuredImage.file.url", ["loc", [null, [114, 77], [114, 111]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "alt", ["concat", [["get", "leadArticle.featuredImage.title", ["loc", [null, [114, 122], [114, 153]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["inline", "moment-format", [["get", "leadArticle.publicationDate", ["loc", [null, [115, 70], [115, 97]]], 0, 0, 0, 0], "MM/DD/YYYY"], [], ["loc", [null, [115, 54], [115, 112]]], 0, 0], ["block", "link-to", ["story", ["get", "leadArticle.slug", ["loc", [null, [116, 47], [116, 63]]], 0, 0, 0, 0]], [], 9, null, ["loc", [null, [116, 28], [116, 98]]]], ["content", "leadArticle.excerpt", ["loc", [null, [118, 45], [118, 68]]], 0, 0, 0, 0], ["block", "link-to", ["story", ["get", "leadArticle.slug", ["loc", [null, [119, 43], [119, 59]]], 0, 0, 0, 0]], ["class", "btn btn-outline-primary"], 10, null, ["loc", [null, [119, 24], [119, 114]]]], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [126, 55], [126, 85]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "src", ["concat", [["get", "model.content.houzzImage.file.url", ["loc", [null, [128, 77], [128, 110]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "alt", ["concat", [["get", "model.content.houzzImage.title", ["loc", [null, [128, 121], [128, 151]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [129, 51], [129, 81]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.houzzIntroduction", ["loc", [null, [131, 43], [131, 74]]], 0, 0, 0, 0]], ["class", "card-text"], ["loc", [null, [131, 24], [131, 94]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [132, 51], [132, 81]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.houzzCallToAction", ["loc", [null, [132, 117], [132, 152]]], 0, 0, 0, 0]],
+      statements: [["block", "heading-after-scroll", [], ["class", "display-1"], 0, null, ["loc", [null, [2, 4], [2, 97]]]], ["content", "model.content.callToAction", ["loc", [null, [3, 51], [3, 81]]], 0, 0, 0, 0], ["inline", "fa-icon", ["chevron-down"], ["size", "lg"], ["loc", [null, [4, 4], [4, 40]]], 0, 0], ["inline", "markdown-to-html", [["get", "model.content.introduction", ["loc", [null, [9, 31], [9, 57]]], 0, 0, 0, 0]], [], ["loc", [null, [9, 12], [9, 59]]], 0, 0], ["inline", "image-carousel", [], ["id", "carousel", "images", ["subexpr", "@mut", [["get", "model.content.carouselImages", ["loc", [null, [14, 42], [14, 70]]], 0, 0, 0, 0]], [], [], 0, 0], "class", "carousel-home"], ["loc", [null, [14, 4], [14, 94]]], 0, 0], ["content", "model.content.splashHeading", ["loc", [null, [17, 35], [17, 66]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.splashContent", ["loc", [null, [19, 31], [19, 58]]], 0, 0, 0, 0]], ["class", "card-text"], ["loc", [null, [19, 12], [19, 78]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.splashActionLink", ["loc", [null, [20, 23], [20, 53]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.splashActionTitle", ["loc", [null, [20, 89], [20, 124]]], 0, 0, 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 1, null, ["loc", [null, [28, 16], [35, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 2, null, ["loc", [null, [38, 16], [40, 37]]]], ["attribute", "style", ["subexpr", "background-image", [["get", "model.content.imageOverlayTop.file.url", ["loc", [null, [45, 115], [45, 153]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [45, 155]]], 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayTopHeading", ["loc", [null, [47, 28], [47, 68]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.imageOverlayTopContent", ["loc", [null, [49, 43], [49, 79]]], 0, 0, 0, 0]], [], ["loc", [null, [49, 24], [49, 81]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.imageOverlayTopActionLink", ["loc", [null, [50, 35], [50, 74]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayTopActionTitle", ["loc", [null, [50, 112], [50, 156]]], 0, 0, 0, 0], ["block", "slide-in-wrapper", [], ["position", "left"], 3, null, ["loc", [null, [61, 16], [68, 37]]]], ["block", "slide-in-wrapper", [], ["position", "right"], 4, null, ["loc", [null, [71, 16], [73, 37]]]], ["attribute", "style", ["subexpr", "background-image", [["get", "model.content.imageOverlayBottom.file.url", ["loc", [null, [78, 115], [78, 156]]], 0, 0, 0, 0]], [], ["loc", [null, [null, null], [78, 158]]], 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayBottomHeading", ["loc", [null, [80, 28], [80, 71]]], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.imageOverlayBottomContent", ["loc", [null, [82, 43], [82, 82]]], 0, 0, 0, 0]], [], ["loc", [null, [82, 24], [82, 84]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.imageOverlayBottomActionLink", ["loc", [null, [83, 35], [83, 77]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.imageOverlayBottomActionTitle", ["loc", [null, [83, 115], [83, 162]]], 0, 0, 0, 0], ["block", "link-to", ["stories", ["subexpr", "query-params", [], ["filter", "event"], ["loc", [null, [96, 49], [96, 78]]], 0, 0]], [], 5, null, ["loc", [null, [96, 28], [96, 98]]]], ["block", "link-to", ["story", "event"], [], 6, null, ["loc", [null, [100, 28], [100, 78]]]], ["block", "link-to", ["story", "event"], ["class", "btn btn-outline-primary"], 7, null, ["loc", [null, [105, 24], [105, 106]]]], ["block", "link-to", ["stories"], [], 8, null, ["loc", [null, [112, 28], [112, 69]]]], ["attribute", "src", ["concat", [["get", "leadArticle.featuredImage.file.url", ["loc", [null, [114, 77], [114, 111]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "alt", ["concat", [["get", "leadArticle.featuredImage.title", ["loc", [null, [114, 122], [114, 153]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["inline", "moment-format", [["get", "leadArticle.publicationDate", ["loc", [null, [115, 70], [115, 97]]], 0, 0, 0, 0], "MM/DD/YYYY"], [], ["loc", [null, [115, 54], [115, 112]]], 0, 0], ["block", "link-to", ["story", ["get", "leadArticle.slug", ["loc", [null, [116, 47], [116, 63]]], 0, 0, 0, 0]], [], 9, null, ["loc", [null, [116, 28], [116, 98]]]], ["content", "leadArticle.excerpt", ["loc", [null, [118, 45], [118, 68]]], 0, 0, 0, 0], ["block", "link-to", ["story", ["get", "leadArticle.slug", ["loc", [null, [119, 43], [119, 59]]], 0, 0, 0, 0]], ["class", "btn btn-outline-primary"], 10, null, ["loc", [null, [119, 24], [119, 114]]]], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [126, 55], [126, 85]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "src", ["concat", [["get", "model.content.houzzImage.file.url", ["loc", [null, [128, 77], [128, 110]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "alt", ["concat", [["get", "model.content.houzzImage.title", ["loc", [null, [128, 121], [128, 151]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [129, 51], [129, 81]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["inline", "markdown-to-html", [["get", "model.content.houzzIntroduction", ["loc", [null, [131, 43], [131, 74]]], 0, 0, 0, 0]], ["class", "card-text"], ["loc", [null, [131, 24], [131, 94]]], 0, 0], ["attribute", "href", ["concat", [["get", "model.content.houzzProfileLink", ["loc", [null, [132, 51], [132, 81]]], 0, 0, 0, 0]], 0, 0, 0, 0, 0], 0, 0, 0, 0], ["content", "model.content.houzzCallToAction", ["loc", [null, [132, 117], [132, 152]]], 0, 0, 0, 0]],
       locals: [],
       templates: [child0, child1, child2, child3, child4, child5, child6, child7, child8, child9, child10]
     };
@@ -8909,7 +8968,7 @@ define("kitchens-international/templates/stories", ["exports"], function (export
         morphs[4] = dom.createMorphAt(dom.childAt(element4, [3]), 1, 1);
         return morphs;
       },
-      statements: [["block", "heading-after-scroll", [], ["class", "mb-0"], 0, null, ["loc", [null, [3, 8], [3, 79]]]], ["inline", "blog-control", [], ["class", "col-11"], ["loc", [null, [9, 12], [9, 43]]], 0, 0], ["block", "each", [["get", "model", ["loc", [null, [13, 8], [13, 13]]], 0, 0, 0, 0]], [], 1, null, ["loc", [null, [13, 0], [35, 9]]]], ["content", "pagination-control", ["loc", [null, [38, 8], [38, 30]]], 0, 0, 0, 0], ["content", "back-to-top", ["loc", [null, [41, 8], [41, 23]]], 0, 0, 0, 0]],
+      statements: [["block", "heading-after-scroll", [], ["class", "mb-0"], 0, null, ["loc", [null, [3, 8], [3, 79]]]], ["inline", "blog-control", [], ["class", "col-11", "onFilter", "addFilter", "currentFilter", ["subexpr", "@mut", [["get", "filter", ["loc", [null, [9, 77], [9, 83]]], 0, 0, 0, 0]], [], [], 0, 0]], ["loc", [null, [9, 12], [9, 85]]], 0, 0], ["block", "each", [["get", "model", ["loc", [null, [13, 8], [13, 13]]], 0, 0, 0, 0]], [], 1, null, ["loc", [null, [13, 0], [35, 9]]]], ["inline", "pagination-control", [], ["currentPage", ["subexpr", "@mut", [["get", "page", ["loc", [null, [38, 41], [38, 45]]], 0, 0, 0, 0]], [], [], 0, 0], "pageCount", ["subexpr", "@mut", [["get", "pageCount", ["loc", [null, [38, 56], [38, 65]]], 0, 0, 0, 0]], [], [], 0, 0], "onChangePage", "changePage"], ["loc", [null, [38, 8], [38, 93]]], 0, 0], ["content", "back-to-top", ["loc", [null, [41, 8], [41, 23]]], 0, 0, 0, 0]],
       locals: [],
       templates: [child0, child1]
     };
