@@ -19,30 +19,33 @@
                     {{#each kitchens as |kitchen|}}
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="kitchen" value={{kitchen.name}}>
+                            {{input type="radio" class="form-check-input" name="kitchen" value=selectedKitchen}}
                             {{kitchen.name}}
                         </label>
                     </div>
                     {{/each}}
                 </div>
                 {{/if}}
-                <div class="form-group">
-                    <input type="name" class="form-control" placeholder="NAME">
+                <div class="form-group {{validation 'form-group' name validationErrors.name validationDanger}}">
+                    {{input value=name class=(validation 'form-control' name validationErrors.name validationDanger) placeholder="FULL NAME" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    <p class="form-control-feedback">{{validationErrors.name}}</p>
                 </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="EMAIL">
+                <div class="form-group {{validation 'form-group' email validationErrors.email validationDanger}}">
+                    {{input value=email class=(validation 'form-control' email validationErrors.email validationDanger) placeholder="EMAIL" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    <p class="form-control-feedback">{{validationErrors.email}}</p>
                 </div>
-                <div class="form-group">
-                    <input type="phone" class="form-control" placeholder="PHONE">
+                <div class="form-group {{validation 'form-group' phone validationErrors.phone validationDanger}}">
+                    {{input value=phone class=(validation 'form-control' phone validationErrors.phone validationDanger) placeholder="PHONE" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    <p class="form-control-feedback">{{validationErrors.phone}}</p>
                 </div>
                 <div class="form-group">
                     {{#if request-brochure}}
-                        <textarea name="address" class="form-control" placeholder="ADDRESS"></textarea>
+                        {{textarea value=address class="form-control" placeholder="ADDRESS"}}
                     {{else}}
-                        <textarea name="message" class="form-control" placeholder="MESSAGE"></textarea>
+                        {{textarea value=message class="form-control" placeholder="MESSAGE"}}
                     {{/if}}
                 </div>
-                <button type="submit" class="btn btn-primary">Send</button>
+                <button {{action 'triggerSubmit'}} class="btn btn-primary">Send</button>
             </form>
         </div>
     </div>

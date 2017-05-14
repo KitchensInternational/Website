@@ -109,6 +109,10 @@ footer {
     }
 }
 
+.background-gray {
+    background-color: $gray-dark;
+}
+
 .background-taupe {
     background-color: $taupe;
 }
@@ -144,11 +148,25 @@ footer {
     }
 }
 
+.clickable {
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
 $trans-white: rgba(255, 255, 255, .6);
 
 .btn-outline-secondary {
 
     border-color: $trans-white;
+
+    &.active {
+        background-color: transparent;
+        border-color: $trans-white;
+    }
 
     &:hover {
         color: $gray;
@@ -249,6 +267,7 @@ $n: 1;
 
     &.full-height {
         min-height: 100%;
+        height: 350px;
     }
 }
 

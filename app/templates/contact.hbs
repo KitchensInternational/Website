@@ -10,11 +10,17 @@
         </div>
     </div>
 </div>
+<div class="background-gray mb-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center text-white py-4">
+                {{markdown-to-html model.content.introduction}}
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid mb-5">
     <div class="row">
-        <div class="col-12 text-center py-4">
-            <p>{{model.content.introduction}}</p>
-        </div>
         {{#each model.stores as |store|}}
             <div class="col-4">
                 <div class="d-flex align-items-center img-overlay mb-4" style={{background-image store.featuredImage.file.url}}>
