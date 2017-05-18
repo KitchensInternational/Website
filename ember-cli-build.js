@@ -24,5 +24,7 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/js/dist/carousel.js');
   app.import('bower_components/bootstrap/js/dist/modal.js');
 
+  app.import('bower_components/lightbox2/dist/js/lightbox.min.js');
+
   return app.toTree();
 };

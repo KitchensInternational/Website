@@ -5,6 +5,7 @@
     "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
     "bootstrap": "v4.0.0-alpha.6",
-    "showdown": "^1.6.4"
+    "showdown": "^1.6.4",
+    "lightbox2": "^2.9.0"
   }
 }

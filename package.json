@@ -51,5 +51,6 @@
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.1",
     "showdown": "1.6.4"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import 'lightbox';
 
 // layout
 
@@ -461,6 +462,10 @@ $n: 1;
 
     @media (max-width: #{map-get($grid-breakpoints, sm)}) {
         max-height: 150px;
+    }
+
+    &.full-height {
+        min-height: 100%;
     }
 }
 
