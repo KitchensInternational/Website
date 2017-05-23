@@ -8,7 +8,7 @@
         <div class="row pt-5 pb-5">
             <div class="col text-center">
                 {{markdown-to-html model.introduction}}
-                <a target="_blank" href="{{model.brochure.file.url}}" class="btn btn-outline-primary mr-2">Download brochure</a>
+                {{#brochure-download brochure=model.brochure.file.url kitchen=model.name class="mr-2"}}Download brochure{{/brochure-download}}
                 {{#contact-form-button form-id="request-brochure" white-text=false class="ml-2"}}Request a brochure{{/contact-form-button}}
             </div>
         </div>

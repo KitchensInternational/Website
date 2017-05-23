@@ -50,6 +50,11 @@ export default Ember.Component.extend(formValidation, {
             this.set('validationDanger', true);
             if ( this.get('isValid') ) {
                 alert('WHEN FINISHED THIS WILL SEND THE FORM');
+
+                if ( typeof ga !== 'undefined' ) {
+                    let formType = this.get('request-brochure') ? 'Brochure Request' : 'Standard';
+                    ga('send', 'event', 'Contact Form', 'Submitted', formType, this.get('selectedKitchen'));
+                }
             }
         }
     }

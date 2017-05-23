@@ -10,5 +10,10 @@ export default Ember.Component.extend({
     'data-target': Ember.computed('contact-form', function () {
         return '#' + this.get('form-id');
     }),
-    'form-id': 'contact-form'
+    'form-id': 'contact-form',
+    click() {
+        if ( typeof ga !== 'undefined' ) {
+            ga('send', 'event', 'Contact Form', 'Opened', this.get('form-id'));
+        }
+    }
 });
