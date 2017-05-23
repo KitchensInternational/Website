@@ -5,7 +5,7 @@ function group( value, error, danger ) {
         return danger ? 'has-danger' : 'has-warning';
     }
     if ( value.length > 1 ) {
-        return 'has-success'
+        return 'has-success';
     }
     return '';
 }

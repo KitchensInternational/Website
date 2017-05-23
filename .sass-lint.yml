@@ -1,3 +1,7 @@
+files:
+  ignore:
+    - '_lightbox.scss'
+
 rules:
   extends-before-mixins: 2
   extends-before-declarations: 2
