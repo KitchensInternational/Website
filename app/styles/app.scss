@@ -286,9 +286,11 @@ $n: 1;
     overflow: hidden;
     display: flex;
     min-width: 100%;
+    min-height: 100%;
 
     & > div {
         min-width: 100%;
+        min-height: 100%;
     }
 
     $translate-offset: 40px;
