@@ -22,7 +22,7 @@
 <div class="container-fluid mb-5">
     <div class="row">
         {{#each model.stores as |store|}}
-            <div class="col-4">
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="d-flex align-items-center img-background img-tinted mb-4" style={{background-image store.featuredImage.file.url}}>
                     <div class="col text-center">
                         {{#link-to 'store' store.slug class="btn btn-outline-secondary"}}{{store.town}}{{#if store.name}}, {{store.name}}{{/if}}{{/link-to}}

@@ -8,8 +8,8 @@
         <div class="row pt-5 pb-5">
             <div class="col text-center">
                 {{markdown-to-html model.introduction}}
-                {{#brochure-download brochure=model.brochure.file.url kitchen=model.name class="mr-2"}}Download brochure{{/brochure-download}}
-                {{#contact-form-button form-id="request-brochure" white-text=false class="ml-2"}}Request a brochure{{/contact-form-button}}
+                {{#brochure-download brochure=model.brochure.file.url kitchen=model.name class="mr-2 ml-2 mb-2"}}Download brochure{{/brochure-download}}
+                {{#contact-form-button form-id="request-brochure" white-text=false class="mr-2 ml-2 mb-2"}}Request a brochure{{/contact-form-button}}
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
 <div class="container-fluid">
     <div class="row">
         {{#each model.images as |image|}}
-        <div class="col-3 mt-5">
+        <div class="col-12 col-sm-3 mt-5">
             <a href="{{image.file.url}}" data-lightbox="{{model.name}}" data-title="{{image.title}}" class="img-fluid full-height">
                 <img class="img-fluid full-height" src="{{image.file.url}}" alt="{{image.title}}">
             </a>

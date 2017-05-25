@@ -130,6 +130,12 @@ footer {
     font-size: $font-size-lg;
 }
 
+@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+    .text-center-sm {
+        text-align: center;
+    }
+}
+
 .fa {
     vertical-align: middle;
     line-height: 1.1rem;
@@ -422,6 +428,13 @@ $n: 1;
         }
     }
 
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+
+        .store-title {
+            min-height: 20px;
+        }
+    }
+
     .map-container {
         position: relative;
     }
@@ -466,10 +479,6 @@ $n: 1;
 
 .img-fluid {
     min-width: 100%;
-
-    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
-        max-height: 150px;
-    }
 
     &.full-height {
         min-height: 100%;
@@ -517,6 +526,12 @@ $intro-bottom-hugger: rgba($gray, .8);
         height: 700px;
         height: 100vh;
         padding-top: 45vh;
+    }
+
+    .img-fluid {
+        @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+            max-height: 150px;
+        }
     }
 }
 
@@ -596,5 +611,20 @@ $intro-bottom-hugger: rgba($gray, .8);
 
     .introduction {
         height: 300px;
+    }
+}
+
+.endorsements {
+
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+        .col {
+            flex-basis: initial;
+        }
+    }
+
+    p {
+        img {
+            max-width: 100%;
+        }
     }
 }
