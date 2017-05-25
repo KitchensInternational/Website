@@ -25,19 +25,25 @@
             </div>
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
-                <img class="img-fluid" src="{{object-at model.images 0 'file.url'}}" alt="{{object-at model.images 0 'title'}}">
+                    {{#if (object-at model.images 0)}}
+                    <img class="img-fluid" src="{{object-at model.images 0 'file.url'}}" alt="{{object-at model.images 0 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
         </div>
         <div class="row mb-5">
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
-                <img class="img-fluid full-height" src="{{object-at model.images 1 'file.url'}}" alt="{{object-at model.images 1 'title'}}">
+                    {{#if (object-at model.images 1)}}
+                    <img class="img-fluid full-height" src="{{object-at model.images 1 'file.url'}}" alt="{{object-at model.images 1 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
-                <img class="img-fluid full-height" src="{{object-at model.images 2 'file.url'}}" alt="{{object-at model.images 2 'title'}}">
+                    {{#if (object-at model.images 2)}}
+                    <img class="img-fluid full-height" src="{{object-at model.images 2 'file.url'}}" alt="{{object-at model.images 2 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
         </div>
@@ -48,7 +54,9 @@
         <div class="row mb-5">
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
-                <img class="img-fluid" src="{{object-at model.images 3 'file.url'}}" alt="{{object-at model.images 3 'title'}}">
+                    {{#if (object-at model.images 3)}}
+                    <img class="img-fluid" src="{{object-at model.images 3 'file.url'}}" alt="{{object-at model.images 3 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
             <div class="col-12 col-sm-6">
@@ -64,12 +72,16 @@
         <div class="row mb-5">
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
-                <img class="img-fluid full-height" src="{{object-at model.images 4 'file.url'}}" alt="{{object-at model.images 4 'title'}}">
+                    {{#if (object-at model.images 4)}}
+                    <img class="img-fluid full-height" src="{{object-at model.images 4 'file.url'}}" alt="{{object-at model.images 4 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
-                <img class="img-fluid full-height" src="{{object-at model.images 5 'file.url'}}" alt="{{object-at model.images 5 'title'}}">
+                    {{#if (object-at model.images 5)}}
+                    <img class="img-fluid full-height" src="{{object-at model.images 5 'file.url'}}" alt="{{object-at model.images 5 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
         </div>
@@ -89,19 +101,25 @@
             </div>
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
-                <img class="img-fluid" src="{{object-at model.images 6 'file.url'}}" alt="{{object-at model.images 6 'title'}}">
+                    {{#if (object-at model.images 6)}}
+                    <img class="img-fluid" src="{{object-at model.images 6 'file.url'}}" alt="{{object-at model.images 6 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
         </div>
         <div class="row mb-5">
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
-                <img class="img-fluid full-height" src="{{object-at model.images 7 'file.url'}}" alt="{{object-at model.images 7 'title'}}">
+                    {{#if (object-at model.images 7)}}
+                    <img class="img-fluid full-height" src="{{object-at model.images 7 'file.url'}}" alt="{{object-at model.images 7 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
             <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
-                <img class="img-fluid full-height" src="{{object-at model.images 8 'file.url'}}" alt="{{object-at model.images 8 'title'}}">
+                    {{#if (object-at model.images 8)}}
+                    <img class="img-fluid full-height" src="{{object-at model.images 8 'file.url'}}" alt="{{object-at model.images 8 'title'}}">
+                    {{/if}}
                 {{/slide-in-wrapper}}
             </div>
         </div>
