@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             {{#if (odd index)}}
-            <div class="col-12 col-sm-6 img-overlay" style={{background-image article.featuredImage.file.url}}></div>
+            <div class="col-12 col-sm-6 img-background" style={{background-image article.featuredImage.file.url}}></div>
             {{/if}}
             <div class="col-12 col-sm-6">
                 <div class="p-5">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             {{#unless (odd index)}}
-            <div class="col-12 col-sm-6 img-overlay" style={{background-image article.featuredImage.file.url}}></div>
+            <div class="col-12 col-sm-6 img-background" style={{background-image article.featuredImage.file.url}}></div>
             {{/unless}}
         </div>
     </div>

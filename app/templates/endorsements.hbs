@@ -1,4 +1,4 @@
-<div class="introduction">
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
     <div class="bottom-hugger py-3">
         {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
     </div>
@@ -12,7 +12,7 @@
     {{#each sortedEndorsements as |endorsement|}}
     <div class="row">
         <div class="col-12">
-            <div class="d-flex align-items-center img-overlay mb-4" style={{background-image endorsement.featuredImage.file.url}}>
+            <div class="d-flex align-items-center img-background img-tinted mb-4" style={{background-image endorsement.featuredImage.file.url}}>
                 <div class="col text-white text-center">
                      <h2>{{endorsement.name}}</h2>
                 </div>

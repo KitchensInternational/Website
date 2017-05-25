@@ -261,10 +261,15 @@ $n: 1;
     letter-spacing: 2px;
 }
 
-.img-overlay {
-    background-position: top center;
+.img-background {
+    background-position: center;
     background-size: cover;
     min-height: 350px;
+
+    &.img-tinted {
+        background-color: $gray-lighter;
+        background-blend-mode: multiply;
+    }
 
     &.full-height {
         min-height: 100%;
@@ -485,7 +490,9 @@ $n: 1;
 $intro-bottom-hugger: rgba($gray, .8);
 
 .introduction {
-    background: url("/assets/images/placeholder-wide.png") no-repeat center center;
+    background-image: url("/assets/images/ki-home-0000.jpg"); // default - overriden in templates
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
     width: 100%;
     min-height: 400px;
@@ -514,10 +521,6 @@ $intro-bottom-hugger: rgba($gray, .8);
 }
 
 .design-service {
-
-    .introduction {
-        background-image: url("/assets/images/ki-about-0000.jpg");
-    }
 
     .background-image {
         background-repeat: no-repeat;

@@ -1,4 +1,4 @@
-<div class="introduction">
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
     <div class="bottom-hugger py-3">
         {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
     </div>
@@ -23,7 +23,7 @@
     <div class="row">
         {{#each model.stores as |store|}}
             <div class="col-4">
-                <div class="d-flex align-items-center img-overlay mb-4" style={{background-image store.featuredImage.file.url}}>
+                <div class="d-flex align-items-center img-background img-tinted mb-4" style={{background-image store.featuredImage.file.url}}>
                     <div class="col text-center">
                         {{#link-to 'store' store.slug class="btn btn-outline-secondary"}}{{store.town}}{{#if store.name}}, {{store.name}}{{/if}}{{/link-to}}
                     </div>

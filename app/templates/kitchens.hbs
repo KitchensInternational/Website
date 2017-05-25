@@ -1,4 +1,4 @@
-<div class="introduction">
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
     <div class="bottom-hugger py-3">
         {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
     </div>
@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="d-flex align-items-center justify-content-center img-overlay" style={{background-image kitchen.featuredImage.file.url}}>
+                <div class="d-flex align-items-center justify-content-center img-background img-tinted" style={{background-image kitchen.featuredImage.file.url}}>
                     <div class="col-7 text-center text-white">
                          <p class="mb-4">{{#link-to 'kitchen' kitchen.slug class="btn btn-outline-secondary"}}{{kitchen.name}}{{/link-to}}</p>
                          {{markdown-to-html kitchen.excerpt}}
