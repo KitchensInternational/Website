@@ -6,14 +6,18 @@
 <footer>
     <div class="container-fluid">
         <div class="row">
-            <div class="col col-sm-3">
+            <div class="col-12 col-sm-3 text-center-sm">
                 {{#link-to 'home'}}<img class="footer-logo my-4" src="/assets/images/ki-logo-white-full.svg" alt="Kitchens International Logo">{{/link-to}}
             </div>
-            <div class="col col-sm-6 text-center">
-                {{#contact-form-button class="mt-4" form-id="contact-form"}}Request a consultation{{/contact-form-button}}
-            </div>
-            <div class="col col-sm-3 text-right">
-                {{social-icons class="mb-4 mt-4"}}
+            <div class="col-12 col-sm-9">
+                <div class="row">
+                    <div class="col-12 col-md-8 text-center text-right-md">
+                        {{#contact-form-button class="my-4" form-id="contact-form"}}Request a consultation{{/contact-form-button}}
+                    </div>
+                    <div class="col-12 col-md-4 text-right text-center-sm">
+                        {{social-icons class="my-4"}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

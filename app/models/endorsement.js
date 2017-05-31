@@ -4,7 +4,6 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Contentful.extend({
     name: attr('string'),
-    slug: attr('string'),
     order: attr('number'),
     featuredImage: belongsTo('contentful-asset'),
     contentArea1: attr('string'),

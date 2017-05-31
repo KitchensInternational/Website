@@ -18,12 +18,12 @@
         </div>
     </div>
 </div>
-{{#each model.services as |service index|}}
+{{#each sortedServices as |service index|}}
 <div class="background-taupe">
     <div class="container-fluid">
         <div class="row">
         {{#if (odd index)}}
-            <div class="col">
+            <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-5">
                     <h3>{{service.heading}}</h3>
@@ -32,7 +32,7 @@
                 </div>
                 {{/slide-in-wrapper}}
             </div>
-            <div class="col">
+            <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
                 <div class="p-5 text-white background-image" style={{background-image service.image.file.url}}>
                     {{markdown-to-html service.role}}
@@ -40,14 +40,14 @@
                 {{/slide-in-wrapper}}
             </div>
         {{else}}
-            <div class="col">
+            <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="left"}}
                 <div class="p-5 text-white background-image" style={{background-image service.image.file.url}}>
                     {{markdown-to-html service.role}}
                 </div>
                 {{/slide-in-wrapper}}
             </div>
-            <div class="col">
+            <div class="col-12 col-sm-6">
                 {{#slide-in-wrapper position="right"}}
                 <div class="p-5">
                     <h3>{{service.heading}}</h3>

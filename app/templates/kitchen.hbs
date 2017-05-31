@@ -17,9 +17,9 @@
 <div class="container-fluid">
     <div class="row">
         {{#each model.images as |image|}}
-        <div class="col-12 col-sm-3 mt-5">
-            <a href="{{image.file.url}}" data-lightbox="{{model.name}}" data-title="{{image.title}}" class="img-fluid full-height">
-                <img class="img-fluid full-height" src="{{image.file.url}}" alt="{{image.title}}">
+        <div class="col mt-5">
+            <a href="{{image.file.url}}" data-lightbox="{{model.name}}" data-title="{{image.title}}">
+                <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
             </a>
         </div>
         {{/each}}

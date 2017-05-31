@@ -4,6 +4,7 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Contentful.extend({
     heading: attr('string'),
+    order: attr('number'),
     introduction: attr('string'),
     role: attr('string'),
     quote: attr('string'),

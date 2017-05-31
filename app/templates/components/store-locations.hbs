@@ -8,14 +8,12 @@
                 </h5>
                 <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
             </div>
-            <div class="py-2 hidden-sm-up text-center-sm">
-                {{#link-to 'home'}}
-                    <h5 class="store-title">{{store.town}}<br>
-                        {{#if store.name}}<small>({{store.name}})</small>{{/if}}
-                    </h5>
-                    view store {{fa-icon "caret-right"}}
-                {{/link-to}}
-            </div>
+            {{#link-to 'store' store.slug class="py-2 hidden-sm-up text-center-sm d-block"}}
+                <h5 class="store-title">{{store.town}}<br>
+                    {{#if store.name}}<small>({{store.name}})</small>{{/if}}
+                </h5>
+                <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
+            {{/link-to}}
         </div>
         {{/each}}
     </div>
@@ -27,5 +25,5 @@
         <p class="text-white">T: {{activeStore.telephone}}</p>
         {{#link-to 'store' activeStore.slug class="btn btn-outline-secondary btn-sm"}}view store{{/link-to}}
     </div>
-    {{markdown-to-html activeStore.openingHours class="opening-hours text-white"}}
+    {{markdown-to-html activeStore.openingHours class="opening-hours text-white hidden-sm-down"}}
 </div>
