@@ -3,18 +3,6 @@
 
 // layout
 
-.d-flex {
-    display: -ms-flexbox !important;
-    display: -webkit-flex !important;
-    display: flex !important;
-}
-
-.align-items-center {
-    -ms-flex-align: center !important;
-    -webkit-align-items: center !important;
-    align-items: center !important;
-}
-
 .container-fluid {
     padding-left: 30px;
     padding-right: 30px;
