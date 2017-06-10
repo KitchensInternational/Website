@@ -6,5 +6,9 @@ export default Ember.Route.extend({
             content: this.get('store').queryRecord('page', { 'fields.slug': 'kitchens' }),
             kitchens: this.get('store').findAll('kitchen')
         });
+    },
+    setupController( controller, model ) {
+        this._super(controller, model);
+        controller.set('page', model.content);
     }
 });

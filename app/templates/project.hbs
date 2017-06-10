@@ -4,124 +4,34 @@
     </div>
 </div>
 <div class="container">
-    <div class="row pt-5 pb-4">
-        <div class="col text-center">
-            <h3>Creating the brief</h3>
+    <div class="row justify-content-center pt-5 pb-4">
+        <div class="col-12 col-sm-10 text-center">
+            <h3>The brief</h3>
             {{markdown-to-html model.brief}}
         </div>
     </div>
 </div>
 <div class="background-taupe mb-5">
     <section class="container-fluid">
-        <div class="row mb-5">
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="left"}}
-                <div class="p-5">
-                    <h3>Design consultation</h3>
-                    <hr>
-                    {{markdown-to-html model.consultation}}
-                </div>
-                {{/slide-in-wrapper}}
+        <div class="row">
+            {{#each topTwoImages as |image|}}
+            <div class="col-6 mt-5">
+                <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
             </div>
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="right"}}
-                    {{#if (object-at model.images 0)}}
-                    <img class="img-fluid" src="{{object-at model.images 0 'file.url'}}" alt="{{object-at model.images 0 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
+            {{/each}}
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-sm-10 text-center">
+                <h3>Solution</h3>
+                {{markdown-to-html model.design}}
             </div>
         </div>
-        <div class="row mb-5">
-            <div class="col-12 col-sm-6 mb-5 mb-sm-0">
-                {{#slide-in-wrapper position="left"}}
-                    {{#if (object-at model.images 1)}}
-                    <img class="img-fluid" src="{{object-at model.images 1 'file.url'}}" alt="{{object-at model.images 1 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
+        <div class="row pb-5">
+            {{#each moreImages as |image|}}
+            <div class="col-6 mt-5">
+                <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
             </div>
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="right"}}
-                    {{#if (object-at model.images 2)}}
-                    <img class="img-fluid" src="{{object-at model.images 2 'file.url'}}" alt="{{object-at model.images 2 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-    </section>
-</div>
-<div class="background-taupe mb-5">
-    <section class="container-fluid">
-        <div class="row mb-5">
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="left"}}
-                    {{#if (object-at model.images 3)}}
-                    <img class="img-fluid" src="{{object-at model.images 3 'file.url'}}" alt="{{object-at model.images 3 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="right"}}
-                <div class="p-5">
-                    <h3>Design</h3>
-                    <hr>
-                    {{markdown-to-html model.design}}
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-        <div class="row mb-5">
-            <div class="col-12 col-sm-6 mb-5 mb-sm-0">
-                {{#slide-in-wrapper position="left"}}
-                    {{#if (object-at model.images 4)}}
-                    <img class="img-fluid" src="{{object-at model.images 4 'file.url'}}" alt="{{object-at model.images 4 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="right"}}
-                    {{#if (object-at model.images 5)}}
-                    <img class="img-fluid" src="{{object-at model.images 5 'file.url'}}" alt="{{object-at model.images 5 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-    </section>
-</div>
-<div class="background-taupe mb-5">
-    <section class="container-fluid">
-        <div class="row mb-5">
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="left"}}
-                <div class="p-5">
-                    <h3>Install</h3>
-                    <hr>
-                    {{markdown-to-html model.install}}
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="right"}}
-                    {{#if (object-at model.images 6)}}
-                    <img class="img-fluid" src="{{object-at model.images 6 'file.url'}}" alt="{{object-at model.images 6 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-        <div class="row mb-5">
-            <div class="col-12 col-sm-6 mb-5 mb-sm-0">
-                {{#slide-in-wrapper position="left"}}
-                    {{#if (object-at model.images 7)}}
-                    <img class="img-fluid mb-5 mb-sm-0" src="{{object-at model.images 7 'file.url'}}" alt="{{object-at model.images 7 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col-12 col-sm-6">
-                {{#slide-in-wrapper position="right"}}
-                    {{#if (object-at model.images 8)}}
-                    <img class="img-fluid" src="{{object-at model.images 8 'file.url'}}" alt="{{object-at model.images 8 'title'}}">
-                    {{/if}}
-                {{/slide-in-wrapper}}
-            </div>
+            {{/each}}
         </div>
     </section>
 </div>
@@ -129,6 +39,11 @@
     <div class="row">
         <div class="col text-center">
             {{markdown-to-html model.signOff}}
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col text-center">
+            {{#link-to parentRoute class="btn btn-outline-primary"}}Back to all case studies{{/link-to}}
         </div>
     </div>
 </div>

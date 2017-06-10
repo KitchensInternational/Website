@@ -16,7 +16,7 @@ rules:
   no-warn: 1
   no-debug: 1
   no-ids: 2
-  no-important: 2
+  no-important: 0
   hex-notation:
     - 2
     -
@@ -31,4 +31,4 @@ rules:
   single-line-per-selector: 0
   no-transition-all: 0
   quotes: 0
-  no-important: 0
+  

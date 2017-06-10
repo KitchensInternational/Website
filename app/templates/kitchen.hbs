@@ -17,12 +17,15 @@
 <div class="container-fluid">
     <div class="row">
         {{#each model.images as |image|}}
-        <div class="col mt-5">
-            <a href="{{image.file.url}}" data-lightbox="{{model.name}}" data-title="{{image.title}}">
-                <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
-            </a>
+        <div class="col-6 col-sm-3 mt-5">
+            <a class="d-block img-background img-background-square" style={{background-image image.file.url}} href="{{image.file.url}}" data-lightbox="{{model.name}}" data-title="{{image.title}}"></a>
         </div>
         {{/each}}
+    </div>
+    <div class="row mt-5">
+        <div class="col text-center">
+            {{#link-to 'kitchens' class="btn btn-outline-primary"}}Back to all kitchens{{/link-to}}
+        </div>
     </div>
 </div>
 {{contact-form-modal request-brochure=true kitchens=kitchens id="request-brochure"}}
