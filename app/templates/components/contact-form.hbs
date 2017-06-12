@@ -13,13 +13,13 @@
                 <p class="mt-4">For information and enquiries, please fill in the form below
                     and we will be delighted to be of assistance.</p>
             {{/if}}
-            <form method="POST" action="#">
+            <form method="POST" action="https://formspree.io/{{contactEmail}}">
                 {{#if request-brochure}}
                 <div class="mb-3">
                     {{#each kitchens as |kitchen|}}
                     <div class="form-check">
                         <label class="form-check-label">
-                            {{input type="radio" class="form-check-input" name="kitchen" value=selectedKitchen}}
+                            {{input name="Kitchen" type="radio" value=selectedKitchen class="form-check-input"}}
                             {{kitchen.name}}
                         </label>
                     </div>
@@ -27,24 +27,27 @@
                 </div>
                 {{/if}}
                 <div class="form-group {{validation 'form-group' name validationErrors.name validationDanger}}">
-                    {{input value=name class=(validation 'form-control' name validationErrors.name validationDanger) placeholder="FULL NAME" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    {{input name="Name" value=name class=(validation 'form-control' name validationErrors.name validationDanger) placeholder="FULL NAME" key-press="triggerValidation" focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.name}}</p>
                 </div>
                 <div class="form-group {{validation 'form-group' email validationErrors.email validationDanger}}">
-                    {{input value=email class=(validation 'form-control' email validationErrors.email validationDanger) placeholder="EMAIL" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    {{input name="Email" value=email class=(validation 'form-control' email validationErrors.email validationDanger) placeholder="EMAIL" key-press="triggerValidation" focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.email}}</p>
                 </div>
                 <div class="form-group {{validation 'form-group' phone validationErrors.phone validationDanger}}">
-                    {{input value=phone class=(validation 'form-control' phone validationErrors.phone validationDanger) placeholder="PHONE" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    {{input name="Phone" value=phone class=(validation 'form-control' phone validationErrors.phone validationDanger) placeholder="PHONE" key-press="triggerValidation" focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.phone}}</p>
                 </div>
                 <div class="form-group">
                     {{#if request-brochure}}
-                        {{textarea value=address class="form-control" placeholder="ADDRESS"}}
+                        {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
                     {{else}}
-                        {{textarea value=message class="form-control" placeholder="MESSAGE"}}
+                        {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
                     {{/if}}
                 </div>
+                <input type="text" name="_gotcha" style="display:none" />
+                <input type="hidden" name="_subject" value="New contact form submission!" />
+                <input type="hidden" name="_next" value="//localhost:4200/form-submitted" />
                 <button {{action 'triggerSubmit'}} class="btn btn-primary">Send</button>
             </form>
         </div>

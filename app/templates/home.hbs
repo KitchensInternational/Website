@@ -1,6 +1,5 @@
 <div class="introduction text-white">
-    {{#heading-after-scroll class="display-1"}}{{model.content.heading}}{{/heading-after-scroll}}
-    <button class="btn btn-outline-secondary my-3">{{model.content.callToAction}}</button><br>
+    <a href="{{model.content.callToActionLink}}" class="btn btn-outline-secondary my-3">{{model.content.callToAction}}</a><br>
     {{fa-icon "chevron-down" size="lg"}}
 </div>
 <section class="container-fluid">
@@ -69,7 +68,9 @@
             </div>
             <div class="col-12 col-md-6 d-flex">
                 {{#slide-in-wrapper position="right"}}
-                <div class="img-background full-height" style={{background-image model.content.textRightImage.file.url}}></div>
+                <div class="img-background img-tinted full-height d-flex align-items-end" style={{background-image model.content.textRightImage.file.url}}>
+                    {{markdown-to-html model.content.textRightContentTwo class="text-white text-right p-4"}}
+                </div>
                 {{/slide-in-wrapper}}
             </div>
         </div>
