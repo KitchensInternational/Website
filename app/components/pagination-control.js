@@ -1,17 +1,35 @@
 import Ember from 'ember';
 
+const PAGE_SPAN = 5;
+
 export default Ember.Component.extend({
     tagName: 'nav',
     classNames: ['pagination-control'],
     currentPage: 1,
     pageCount: 1,
-    pages: Ember.computed('pageCount', function () {
-        let pages = [], n = 0, pageCount = this.get('pageCount');
-        for ( n; n < pageCount; n++ ) {
-            pages.push( n+1 );
+
+
+    pages: Ember.computed('currentPage', 'pageCount', function () {
+        let pages = [],
+            page = this.get('currentPage');
+        if ( page >= 3 ) {
+            page = page - 2;
+        } else if ( page === 2 ) {
+            page = 1;
+        }
+        let pageCount = this.get('pageCount'),
+            pageLimit = page + Math.min(PAGE_SPAN, pageCount);
+        if ( pageLimit > pageCount ) {
+            pageLimit = pageCount + 1;
+            page = pageCount - PAGE_SPAN + 1;
+        }
+        for ( page; page < pageLimit; page++ ) {
+            pages.push( page );
         }
         return pages;
     }),
+
+
     canGoBack: Ember.computed('currentPage', function () {
         return this.get('currentPage') > 1;
     }),

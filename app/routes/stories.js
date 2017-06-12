@@ -1,14 +1,16 @@
 import Ember from 'ember';
 
-const LIMIT = 10;
+const LIMIT = 20;
 
 export default Ember.Route.extend({
     queryParams: {
-        filter: { refreshModel: true }
+        filter: { refreshModel: true },
+        page: { refreshModel: true }
     },
     model( queryParams ) {
         let apiParams = {
-            skip: Math.floor((queryParams.page-1)*LIMIT),
+            order: '-fields.publicationDate',
+            skip: Math.floor((queryParams.page-1) * LIMIT),
             limit: LIMIT
         };
         if ( queryParams.filter ) {
@@ -19,7 +21,6 @@ export default Ember.Route.extend({
     setupController(controller, model) {
         this._super(controller, model);
         let meta = model.get('meta');
-        controller.set('page', Math.max(1, Math.ceil((meta.total-meta.skip)/LIMIT)));
-        controller.set('pageCount', Math.max(1, Math.ceil(meta.total/LIMIT)));
+        controller.set( 'pageCount', Math.max(1, Math.floor(meta.total/LIMIT)) );
     }
 });

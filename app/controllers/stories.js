@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
     actions: {
         addFilter( filter ) {
             this.set('filter', filter);
+            this.set('page', 1);
         },
         changePage( page ) {
             this.set('page', page);
