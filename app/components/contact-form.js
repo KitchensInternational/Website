@@ -57,7 +57,7 @@ export default Ember.Component.extend(formValidation, {
                 let message = "Hello\n\nYou have a new message from ";
                     message += this.get('name');
                     message += " (" + this.get('email') + ")\n\n";
-                if ( message.length > 0 ) {
+                if ( this.get('message.length') > 0 ) {
                     message += this.get('message');
                 } else {
                     message += "Please send me a brochure.\n\n";
