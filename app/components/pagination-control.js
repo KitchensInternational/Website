@@ -21,7 +21,7 @@ export default Ember.Component.extend({
             pageLimit = page + Math.min(PAGE_SPAN, pageCount);
         if ( pageLimit > pageCount ) {
             pageLimit = pageCount + 1;
-            page = pageCount - PAGE_SPAN + 1;
+            page = Math.min(1, pageCount - PAGE_SPAN + 1);
         }
         for ( page; page < pageLimit; page++ ) {
             pages.push( page );
