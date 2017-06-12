@@ -4,7 +4,8 @@
     "window",
     "-Promise",
     "google",
-    "ga"
+    "ga",
+    "Email"
   ],
   "browser": true,
   "boss": true,

@@ -11,6 +11,7 @@ export default Ember.Component.extend(formValidation, {
     address: '',
     message: '',
     selectedKitchen: '',
+    statusMessage: '',
     validationDanger: false,
     validate: {
         form: {
@@ -46,16 +47,52 @@ export default Ember.Component.extend(formValidation, {
             this.send('validate_form_action', form);
             this.set('validationDanger', false);
         },
-        triggerSubmit( event ) {
+        triggerSubmit() {
             this.send('triggerValidation');
             this.set('validationDanger', true);
             if ( this.get('isValid') ) {
+
+                this.set('statusMessage', 'Sending...');
+
+                let message = "Hello\n\nYou have a new message from ";
+                    message += this.get('name');
+                    message += " (" + this.get('email') + ")\n\n";
+                if ( message.length > 0 ) {
+                    message += this.get('message');
+                } else {
+                    message += "Please send me a brochure.\n\n";
+                    message += "Address: " + this.get('address') + "\n\n";
+                    message += "Kitchen:" + this.get('selectedKitchen') + "\n\n";
+                }
+
+                Email.send("matt@ignite-yourbrand.com",
+                    this.get('contactEmail'),
+                    "New contact form submission!",
+                    message,
+                    "email-smtp.eu-west-1.amazonaws.com",
+                    "AKIAJ7ND2OHTKPBHEJJQ",
+                    "ArtffMYr4ebRXP6acDyVan5H2bAohe05ySddBcW0YweD");
+
+                this.set('statusMessage', 'Thank you! Message sent.');
+
+                Ember.run.later(this, function () {
+                    this.send('resetForm');
+                }, 500);
+
                 if ( typeof ga !== 'undefined' ) {
                     let formType = this.get('request-brochure') ? 'Brochure Request' : 'Standard';
                     ga('send', 'event', 'Contact Form', 'Submitted', formType, this.get('selectedKitchen'));
                 }
-                this.$().find('form').first().trigger('submit');
             }
+        },
+        resetForm() {
+            this.set('name', '');
+            this.set('email', '');
+            this.set('phone', '');
+            this.set('address', '');
+            this.set('message', '');
+            this.set('selectedKitchen', '');
+            this.set('statusMessage', '');
         }
     }
 });
