@@ -3,12 +3,10 @@
         {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
     </div>
 </div>
-<div class="background-taupe mb-3">
-    <div class="container-fluid">
-        <div class="row justify-content-center pt-5 pb-4">
-            <div class="col col-sm-10">
-                {{markdown-to-html model.content.introduction class="text-center"}}
-            </div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
+            {{markdown-to-html model.content.introduction class="text-center"}}
         </div>
     </div>
 </div>

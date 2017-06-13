@@ -4,21 +4,27 @@
     </div>
 </div>
 <div class="container-fluid">
-    <div class="row justify-content-center pt-5 pb-4">
-        <div class="col col-sm-10">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
             {{markdown-to-html model.content.introduction class="text-center"}}
         </div>
     </div>
-    {{#each sortedEndorsements as |endorsement|}}
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex align-items-center img-background img-tinted mb-4" style={{background-image endorsement.featuredImage.file.url}}>
-                <div class="col text-white text-center">
-                     <h2>{{endorsement.name}}</h2>
+</div>
+{{#each sortedEndorsements as |endorsement|}}
+<div class="background-taupe mb-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center img-background img-tinted" style={{background-image endorsement.featuredImage.file.url}}>
+                    <div class="col text-white text-center">
+                         <h2>{{endorsement.name}}</h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="container-fluid">
     <div class="row mb-5">
         {{#if endorsement.contentArea1}}
         <div class="col">
@@ -41,5 +47,5 @@
         </div>
         {{/if}}
     </div>
-    {{/each}}
 </div>
+{{/each}}

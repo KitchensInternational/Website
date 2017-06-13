@@ -4,7 +4,7 @@
 </div>
 <section class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-10 py-5 text-center text-lg">
+        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
             {{markdown-to-html model.content.introduction}}
         </div>
     </div>
@@ -69,7 +69,7 @@
             <div class="col-12 col-md-6 d-flex">
                 {{#slide-in-wrapper position="right"}}
                 <div class="img-background img-tinted full-height d-flex align-items-end" style={{background-image model.content.textRightImage.file.url}}>
-                    {{markdown-to-html model.content.textRightContentTwo class="text-white text-right p-4"}}
+                    {{markdown-to-html model.content.textRightContentTwo class="text-white p-4"}}
                 </div>
                 {{/slide-in-wrapper}}
             </div>
