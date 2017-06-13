@@ -13,4 +13,11 @@ export default Contentful.extend({
         return this.get('snippet') ? this.get('snippet') : this.get('content').substr(0, 250) + '...';
     }),
     featuredImage: belongsTo('contentful-asset'),
+    featuredImageProxy: Ember.computed('featuredImage', function () {
+        let featuredImage = this.get('featuredImage.file.url');
+        if ( featuredImage ) {
+            return featuredImage;
+        }
+        return '/assets/images/default-featured-image.jpg';
+    })
 });
