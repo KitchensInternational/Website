@@ -21,7 +21,7 @@
                 <div class="p-5">
                     <p><small>{{moment-format article.publicationDate 'MMMM DD, YYYY'}}</small></p>
                     <h3>{{article.title}}</h3>
-                    {{markdown-to-html article.excerpt}}
+                    {{markdown-to-html article.excerpt class="article-snippet"}}
                     {{#link-to 'story' article.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br>
                     <hr>
                 </div>

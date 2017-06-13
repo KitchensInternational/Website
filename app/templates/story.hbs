@@ -11,7 +11,7 @@
                 <h3>{{model.title}}</h3>
                 <p>{{moment-format model.publicationDate 'MMMM DD, YYYY'}}</p>
                 {{markdown-to-html model.content}}
-                {{disqus-comments identifier=model.slug title=model.title class="mt-5"}}
+                {{#disqus-comments identifier=model.slug title=model.title class="mt-5"}}{{/disqus-comments}}
             </article>
         </div>
     </div>

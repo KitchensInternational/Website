@@ -170,7 +170,7 @@ footer {
 .btn {
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: .9rem;
+    font-size: $font-size-sm;
 
     &:hover {
         cursor: pointer;
@@ -200,6 +200,23 @@ $trans-white: rgba(255, 255, 255, .6);
     &:hover {
         color: $gray;
     }
+}
+
+.btn-like-heading {
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: $font-size-sm;
+    display: inline-block;
+    font-weight: $btn-font-weight;
+    line-height: $btn-line-height;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid $trans-white;
+    padding: $btn-padding-y $btn-padding-x;
+    border-radius: 0;
+    transition: all .2s ease-in-out;
 }
 
 hr {
@@ -621,6 +638,22 @@ $intro-bottom-hugger: rgba($gray, .8);
         max-height: 345px;
         overflow: hidden;
     }
+
+    .article-snippet {
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: $spacer auto;
+        }
+
+        iframe {
+            max-width: 100%;
+            display: block;
+            margin: $spacer auto;
+        }
+    }
+
 }
 
 .story {
@@ -634,6 +667,7 @@ $intro-bottom-hugger: rgba($gray, .8);
         img {
             max-width: 100%;
             height: auto;
+            margin: $spacer auto;
         }
     }
 }
