@@ -96,7 +96,7 @@
                     <div class="card-block">
                         <h4>{{#link-to 'stories' (query-params filter='event')}}Events{{/link-to}}</h4>
                         <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.leadEvent.featuredImage.file.url}}" alt="{{model.leadEvent.featuredImage.title}}">
+                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.leadEvent.featuredImageProxy}}" alt="{{model.leadEvent.featuredImage.title}}">
                         <h4 class="card-title"><small class="d-inline-block mb-1">{{moment-format model.leadEvent.publicationDate 'MM/DD/YYYY'}}</small><br>
                             {{#link-to 'story' model.leadEvent.slug}}{{model.leadEvent.title}}{{/link-to}}</h4>
                         <hr>
@@ -110,7 +110,7 @@
                     <div class="card-block">
                         <h4>{{#link-to 'stories'}}Stories{{/link-to}}</h4>
                         <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.leadArticle.featuredImage.file.url}}" alt="{{model.leadArticle.featuredImage.title}}">
+                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.leadArticle.featuredImageProxy}}" alt="{{model.leadArticle.featuredImage.title}}">
                         <h4 class="card-title"><small class="d-inline-block mb-1">{{moment-format model.leadArticle.publicationDate 'MM/DD/YYYY'}}</small><br>
                             {{#link-to 'story' model.leadArticle.slug}}{{model.leadArticle.title}}{{/link-to}}</h4>
                         <hr>
