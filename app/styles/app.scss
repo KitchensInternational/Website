@@ -323,7 +323,7 @@ $n: 1;
     &.img-tinted {
         background-color: $gray-lighter;
         background-blend-mode: multiply;
-        -ms-filter: brightness(70%);
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)";
     }
 
     &.full-height {
