@@ -31,4 +31,4 @@ rules:
   single-line-per-selector: 0
   no-transition-all: 0
   quotes: 0
-  
+  no-vendor-prefixes: 0

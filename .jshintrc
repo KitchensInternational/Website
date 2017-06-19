@@ -5,6 +5,7 @@
     "-Promise",
     "google",
     "ga",
+    "addthis",
     "Email"
   ],
   "browser": true,
