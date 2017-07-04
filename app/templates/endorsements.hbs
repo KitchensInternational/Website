@@ -1,6 +1,16 @@
 <div class="introduction" style={{background-image model.content.featuredImage.file.url}}>
-    <div class="bottom-hugger py-3">
+    <div class="heading">
         {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
+        <hr>
+    </div>
+</div>
+<div class="background-taupe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col py-3 sub-heading">
+                {{markdown-to-html model.content.subHeading}}
+            </div>
+        </div>
     </div>
 </div>
 <div class="container-fluid">
@@ -17,14 +27,14 @@
             <div class="col-12">
                 <div class="d-flex align-items-center img-background img-tinted" style={{background-image endorsement.featuredImage.file.url}}>
                     <div class="col text-white text-center">
-                         <span class="btn-like-heading">{{endorsement.name}}</span>
+                         <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseEndorsement{{endorsement.id}}" aria-expanded="false" aria-controls="collapseEndorsement{{endorsement.id}}">{{endorsement.name}}</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div id="collapseEndorsement{{endorsement.id}}" class="container-fluid collapse">
     <div class="row mb-5">
         {{#if endorsement.contentArea1}}
         <div class="col">

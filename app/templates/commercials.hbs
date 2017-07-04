@@ -1,6 +1,16 @@
 <div class="introduction" style={{background-image model.content.featuredImage.file.url}}>
-    <div class="bottom-hugger py-3">
+    <div class="heading">
         {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
+        <hr>
+    </div>
+</div>
+<div class="background-taupe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col py-3 sub-heading">
+                {{markdown-to-html model.content.subHeading}}
+            </div>
+        </div>
     </div>
 </div>
 <div class="container-fluid">
@@ -11,7 +21,7 @@
     </div>
     <div class="row">
     {{#each model.projects as |project|}}
-        <div class="col-12">
+        <div class="col-12 col-sm-6">
             <div class="d-flex align-items-center img-background img-tinted mb-4" style={{background-image project.featuredImage.file.url}}>
                 <div class="col text-center">
                      {{#link-to 'commercial' project.slug class="btn btn-outline-secondary"}}{{project.name}}{{/link-to}}

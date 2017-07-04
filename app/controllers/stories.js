@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
     filter: null,
     page: 1,
     pageCount: 1,
+    routing: Ember.inject.service('-routing'),
     actions: {
         addFilter( filter ) {
             this.set('filter', filter);
@@ -12,6 +13,9 @@ export default Ember.Controller.extend({
         },
         changePage( page ) {
             this.set('page', page);
+        },
+        goToArticle( slug ) {
+            this.get('routing.router').transitionTo('story', slug);
         }
     }
 });

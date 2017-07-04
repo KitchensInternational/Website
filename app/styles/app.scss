@@ -186,6 +186,14 @@ footer {
     }
 }
 
+.img-background {
+    &.clickable {
+        &:hover {
+            opacity: .9;
+        }
+    }
+}
+
 $trans-white: rgba(255, 255, 255, .6);
 
 .btn-outline-secondary {
@@ -557,7 +565,7 @@ $n: 1;
 
 // pages
 
-$intro-bottom-hugger: rgba($gray, .8);
+$intro-bottom-hugger: rgba($black, .4);
 
 .introduction {
     background-image: url("/assets/images/ki-home-0000.jpg"); // default - overriden in templates
@@ -567,16 +575,33 @@ $intro-bottom-hugger: rgba($gray, .8);
     width: 100%;
     min-height: 400px;
     height: 70vh;
-    text-align: center;
     position: relative;
+}
 
-    .bottom-hugger {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: $intro-bottom-hugger;
-        color: $white;
+.heading {
+    background-color: $intro-bottom-hugger;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: $white;
+    padding-top: 28%;
+    padding-top: 28vh;
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    hr {
+        border-color: $white;
+    }
+}
+
+.sub-heading {
+    text-align: center;
+
+    p {
+        @extend .text-lg;
+        margin-bottom: 0;
     }
 }
 
@@ -615,6 +640,11 @@ $intro-bottom-hugger: rgba($gray, .8);
     .introduction {
         background-image: url("/assets/images/ki-news-0000.jpg");
         height: 300px;
+    }
+
+    .heading {
+        padding-top: 18%;
+        padding-top: 18vh;
     }
 
     .blog-control {
@@ -667,6 +697,11 @@ $intro-bottom-hugger: rgba($gray, .8);
         height: 300px;
     }
 
+    .heading {
+        padding-top: 18%;
+        padding-top: 18vh;
+    }
+
     article {
 
         img {
@@ -683,12 +718,22 @@ $intro-bottom-hugger: rgba($gray, .8);
         background-image: url("/assets/images/ki-about-0000.jpg");
         height: 300px;
     }
+
+    .heading {
+        padding-top: 18%;
+        padding-top: 18vh;
+    }
 }
 
 .contact {
 
     .introduction {
         height: 300px;
+    }
+
+    .heading {
+        padding-top: 18%;
+        padding-top: 18vh;
     }
 }
 
