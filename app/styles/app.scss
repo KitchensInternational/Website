@@ -186,14 +186,6 @@ footer {
     }
 }
 
-.img-background {
-    &.clickable {
-        &:hover {
-            opacity: .9;
-        }
-    }
-}
-
 $trans-white: rgba(255, 255, 255, .6);
 
 .btn-outline-secondary {
@@ -341,6 +333,12 @@ $n: 1;
 
     &.auto-height {
         height: auto;
+    }
+
+    &.clickable {
+        &:hover {
+            opacity: .9;
+        }
     }
 }
 
@@ -600,7 +598,6 @@ $intro-bottom-hugger: rgba($black, .4);
     text-align: center;
 
     p {
-        @extend .text-lg;
         margin-bottom: 0;
     }
 }
