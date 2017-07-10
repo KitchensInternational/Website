@@ -649,7 +649,7 @@ $intro-bottom-hugger: rgba($black, .4);
         }
 
         .home-intro-carousel {
-            background-image: url(/assets/images/home-intro/slide-03.jpg);
+            background-image: url("/assets/images/home-intro/slide-03.jpg");
             background-position: center;
             background-size: cover;
 
@@ -802,6 +802,24 @@ $intro-bottom-hugger: rgba($black, .4);
     p {
         img {
             max-width: 100%;
+        }
+    }
+
+    .our-clients {
+        .col {
+            &:nth-child(2) {
+                background-color: $taupe;
+            }
+
+            .flex-column {
+                height: 100%;
+
+                p {
+                    &:last-child {
+                        margin-top: auto;
+                    }
+                }
+            }
         }
     }
 }

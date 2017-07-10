@@ -34,7 +34,43 @@
         </div>
     </div>
 </div>
-<div id="collapseEndorsement{{endorsement.id}}" class="container-fluid collapse">
+<div id="collapseEndorsement{{endorsement.id}}" class="container-fluid collapse {{endorsement.slug}}">
+{{#if endorsement.isDoubleRow}}
+    <div class="row mb-5">
+        {{#if endorsement.contentArea1}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea1 class="d-flex flex-column"}}
+        </div>
+        {{/if}}
+        {{#if endorsement.contentArea2}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea2 class="d-flex flex-column"}}
+        </div>
+        {{/if}}
+        {{#if endorsement.contentArea3}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea3 class="d-flex flex-column"}}
+        </div>
+        {{/if}}
+    </div>
+    <div class="row mb-5">
+        {{#if endorsement.contentArea4}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea4 class="d-flex flex-column"}}
+        </div>
+        {{/if}}
+        {{#if endorsement.contentArea5}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea5 class="d-flex flex-column"}}
+        </div>
+        {{/if}}
+        {{#if endorsement.contentArea6}}
+        <div class="col">
+            {{markdown-to-html endorsement.contentArea6 class="d-flex flex-column"}}
+        </div>
+        {{/if}}
+    </div>
+{{else}}
     <div class="row mb-5">
         {{#if endorsement.contentArea1}}
         <div class="col">
@@ -57,5 +93,6 @@
         </div>
         {{/if}}
     </div>
+{{/if}}
 </div>
 {{/each}}
