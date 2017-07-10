@@ -8,7 +8,7 @@
 <div class="carousel-inner" role="listbox">
     {{#each images as |image index|}}
     <div class="carousel-item {{if (eq index 0) 'active'}}">
-        <img class="card-img-top img-fluid" src="{{image.file.url}}" alt="{{image.title}}" property="image">
+        <img class="card-img-top" src="{{image.file.url}}" alt="{{image.title}}" property="image">
     </div>
     {{/each}}
 </div>
