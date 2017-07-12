@@ -554,7 +554,11 @@ $n: 1;
         }
 
         .map-container {
-            display: none;
+
+            .address {
+
+                display: none;
+            }
         }
     }
 }
