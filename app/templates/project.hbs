@@ -36,12 +36,14 @@
     </section>
 </div>
 <div class="container mb-5">
+    {{#if model.signOff}}
     <div class="row">
         <div class="col text-center">
             {{markdown-to-html model.signOff}}
         </div>
     </div>
-    <div class="row mt-5">
+    {{/if}}
+    <div class="row {{if model.signOff 'mt-5'}}">
         <div class="col text-center">
             {{#link-to parentRoute class="btn btn-outline-primary"}}Back to all case studies{{/link-to}}
         </div>
