@@ -17,12 +17,7 @@
                 {{#if request-brochure}}
                 <div class="mb-3">
                     {{#each kitchens as |kitchen|}}
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            {{input name="kitchen" type="radio" value=selectedKitchen class="form-check-input"}}
-                            {{kitchen.name}}
-                        </label>
-                    </div>
+                        {{brochure-checkbox kitchen=kitchen onSelect="selectedKitchen"}}
                     {{/each}}
                 </div>
                 {{/if}}

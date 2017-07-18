@@ -15,14 +15,18 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
+        <div class="col-md-6 hidden-sm-down">
             <div class="p-5">
                 <h2>{{model.content.name}}</h2>
                 <hr>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-md-6">
             <div class="p-5 text-lg">
+                <div class="hidden-md-up">
+                    <h2>{{model.content.name}}</h2>
+                    <hr>
+                </div>
                 {{markdown-to-html model.content.introduction}}
             </div>
         </div>

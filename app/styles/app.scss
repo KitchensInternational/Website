@@ -677,6 +677,16 @@ $intro-bottom-hugger: rgba($black, .4);
             }
         }
     }
+
+    .carousel-item.active,
+    .carousel-item-next,
+    .carousel-item-prev {
+        display: block;
+    }
+
+    .card-img-top {
+        width: 100%;
+    }
 }
 
 .design-service {

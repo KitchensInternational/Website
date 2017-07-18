@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    sortedStoriesOrder: ['publicationDate'],
+    sortedStories: Ember.computed.sort('model', 'sortedStories'),
     queryParams: ['filter', 'page'],
     filter: null,
     page: 1,

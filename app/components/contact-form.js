@@ -10,7 +10,7 @@ export default Ember.Component.extend(formValidation, {
     phone: '',
     address: '',
     message: '',
-    selectedKitchen: '',
+    selectedKitchens: Ember.A(),
     statusMessage: '',
     validationDanger: false,
     validate: {
@@ -42,7 +42,7 @@ export default Ember.Component.extend(formValidation, {
                 phone: this.get('phone'),
                 address: this.get('address'),
                 message: this.get('message'),
-                kitchen: this.get('selectedKitchen')
+                kitchens: this.get('selectedKitchens')
             };
             this.send('validate_form_action', form);
             this.set('validationDanger', false);
@@ -62,7 +62,7 @@ export default Ember.Component.extend(formValidation, {
                 } else {
                     message += "Please send me a brochure.\n\n";
                     message += "Address: " + this.get('address') + "\n\n";
-                    message += "Kitchen:" + this.get('selectedKitchen') + "\n\n";
+                    message += "Kitchens:" + this.get('selectedKitchens').join(", ") + "\n\n";
                 }
 
                 Email.send("matt@ignite-yourbrand.com",
@@ -80,8 +80,8 @@ export default Ember.Component.extend(formValidation, {
                 }, 500);
 
                 if ( typeof ga !== 'undefined' ) {
-                    let formType = this.get('request-brochure') ? 'Brochure Request' : 'Standard';
-                    ga('send', 'event', 'Contact Form', 'Submitted', formType, this.get('selectedKitchen'));
+                    let formType = this.get('request-brochure') ? 'Brochure Request' : 'Contact Form';
+                    ga('send', 'event', 'Contact Form', 'Submitted', formType);
                 }
             }
         },
@@ -91,8 +91,14 @@ export default Ember.Component.extend(formValidation, {
             this.set('phone', '');
             this.set('address', '');
             this.set('message', '');
-            this.set('selectedKitchen', '');
+            this.set('selectedKitchens', Ember.A());
             this.set('statusMessage', '');
+            Ember.$('input[type="checkbox"]').attr('checked', false);
+        },
+        selectedKitchen( kitchenName ) {
+            let selectedKitchens = this.get('selectedKitchens');
+            selectedKitchens.push( kitchenName );
+            this.set('selectedKitchens', selectedKitchens);
         }
     }
 });
