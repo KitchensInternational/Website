@@ -10,6 +10,6 @@ function carousel(selector, callback) {
 export default Ember.Component.extend({
     classNames: ['home-intro-carousel'],
     didInsertElement() {
-        carousel( Ember.$('.carousel-slide:eq(1)') );
+        //carousel( Ember.$('.carousel-slide:eq(1)') );
     }
 });
