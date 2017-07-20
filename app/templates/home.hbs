@@ -1,7 +1,9 @@
 <div class="introduction text-white text-center">
-    {{home-intro-carousel}}
-    <div class="call-to-action-copy">
-        <h1 class="show-me-on-video-play">The Art of The Kitchen</h1>
+    <div class="call-to-action-area">
+        {{#fade-in-images}}
+            <h1>The Art of The Kitchen</h1>
+            <img src="/assets/images/ki-main-logo-transparent.png" alt="Kitchens International - The Art of the Kitchen">
+        {{/fade-in-images}}
         <a href="{{model.content.callToActionLink}}" class="btn btn-outline-secondary my-3">{{model.content.callToAction}}</a><br>
         {{fa-icon "chevron-down" size="lg"}}
     </div>
@@ -98,14 +100,13 @@
             <div class="col-12 col-md-4">
                 <div class="card card-no-border">
                     <div class="card-block">
-                        <h4>{{#link-to 'stories' (query-params filter='event')}}Events{{/link-to}}</h4>
+                        <h4>{{#link-to 'stories'}}Events{{/link-to}}</h4>
                         <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.leadEvent.featuredImageProxy}}" alt="{{model.leadEvent.featuredImage.title}}">
-                        <h4 class="card-title"><small class="d-inline-block mb-1">{{moment-format model.leadEvent.publicationDate 'MM/DD/YYYY'}}</small><br>
-                            {{#link-to 'story' model.leadEvent.slug}}{{model.leadEvent.title}}{{/link-to}}</h4>
+                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.eventsImage.file.url}}" alt="{{model.content.eventsImage.title}}">
+                        <h4>{{model.content.eventsSubtitle}}</h4>
                         <hr>
-                        {{markdown-to-html model.leadEvent.excerpt class="card-text"}}
-                        {{#link-to 'story' model.leadEvent.slug class="btn btn-outline-primary"}}Read more{{/link-to}}
+                        {{markdown-to-html model.content.eventsIntroduction class="card-text"}}
+                        {{#link-to 'stories' class="btn btn-outline-primary"}}{{model.content.eventsCallToAction}}{{/link-to}}
                     </div>
                 </div>
             </div>
@@ -126,13 +127,13 @@
             <div class="col-12 col-md-4">
                 <div class="card card-no-border">
                     <div class="card-block">
-                        <h4><a target="_blank" href="{{model.content.houzzProfileLink}}">Houzz</a></h4>
+                        <h4>Social</h4>
                         <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.houzzImage.file.url}}" alt="{{model.content.houzzImage.title}}">
-                        <a target="_blank" href="{{model.content.houzzProfileLink}}"><img class="houzz-logo mb-2" src="/assets/images/houzz-logo.png" alt="Houzz logo link to Kitchens International"></a><br>
+                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.socialImage.file.url}}" alt="{{model.content.socialImage.title}}">
+                        {{social-icons greyIcons=true largeIcons=true}}
+                        <h4>{{model.content.socialSubtitle}}</h4>
                         <hr>
-                        {{markdown-to-html model.content.houzzIntroduction class="card-text"}}
-                        <a target="_blank" href="{{model.content.houzzProfileLink}}" class="btn btn-outline-primary">{{model.content.houzzCallToAction}}</a>
+                        {{markdown-to-html model.content.socialIntroduction class="card-text"}}
                     </div>
                 </div>
             </div>

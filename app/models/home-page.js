@@ -1,6 +1,7 @@
 import Contentful from 'ember-data-contentful/models/contentful';
 import attr from 'ember-data/attr';
 import { belongsTo, hasMany } from 'ember-data/relationships';
+import Ember from 'ember';
 
 export default Contentful.extend({
     name: attr('string'),
@@ -35,8 +36,11 @@ export default Contentful.extend({
     imageOverlayBottomContent: attr('string'),
     imageOverlayBottomActionTitle: attr('string'),
     imageOverlayBottomActionLink: attr('string'),
-    houzzImage: belongsTo('contentful-asset'),
-    houzzProfileLink: attr('string'),
-    houzzIntroduction: attr('string'),
-    houzzCallToAction: attr('string'),
+    socialImage: belongsTo('contentful-asset'),
+    socialSubtitle: attr('string'),
+    socialIntroduction: attr('string'),
+    eventsImage: belongsTo('contentful-asset'),
+    eventsSubtitle: attr('string'),
+    eventsCallToAction: attr('string'),
+    eventsIntroduction: attr('string'),
 });

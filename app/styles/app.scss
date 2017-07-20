@@ -396,12 +396,26 @@ $n: 1;
     font-weight: 200;
 }
 
+$social-icons: 'facebook', 'twitter', 'youtube', 'instagram', 'houzz';
+$social-icon-size: 30px;
+$social-icon-size-lg: 40px;
+
+@mixin social-icons($icons, $icon-size) {
+    @each $icon in $icons {
+        $i: index($icons, $icon) - 1;
+
+        &.social-icon-#{$icon} {
+            background-position: 0 - ($icon-size * $i) 0;
+        }
+    }
+}
+
 .social-icon {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: $social-icon-size;
+    height: $social-icon-size;
     background: url("/assets/images/ki-social-sprite.png") no-repeat 0 0;
-    background-size: 150px 30px;
+    background-size: $social-icon-size * 5 $social-icon-size;
 
     &:hover {
         opacity: .8;
@@ -411,25 +425,16 @@ $n: 1;
         background-image: url("/assets/images/ki-social-sprite-grey.png");
     }
 
-    &.social-icon-facebook {
-        background-position: 0 0;
+    @include social-icons($social-icons, $social-icon-size);
+
+    &.social-icon-lg {
+        width: $social-icon-size-lg;
+        height: $social-icon-size-lg;
+        background-size: $social-icon-size-lg * 5 $social-icon-size-lg;
+
+        @include social-icons($social-icons, $social-icon-size-lg);
     }
 
-    &.social-icon-twitter {
-        background-position: -30px 0;
-    }
-
-    &.social-icon-youtube {
-        background-position: -60px 0;
-    }
-
-    &.social-icon-instagram {
-        background-position: -90px 0;
-    }
-
-    &.social-icon-houzz {
-        background-position: -120px 0;
-    }
 }
 
 .houzz-logo {
@@ -625,46 +630,38 @@ $intro-bottom-hugger: rgba($black, .4);
 .home {
 
     .introduction {
-        background-image: none;
         height: 700px;
         height: 100vh;
         position: relative;
 
-        .call-to-action-copy,
-        .home-intro-carousel {
+        .call-to-action-area {
             width: 100%;
             height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-        }
+            padding-top: 25%;
+            padding-top: 25vh;
 
-        .call-to-action-copy {
-            padding-top: 65vh;
-        }
+            .fade-in-images {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 30%;
+                height: 30vh;
 
-        .show-me-on-video-play {
-            display: none;
-            position: absolute;
-            width: 100%;
-            font-size: 4rem;
-            top: 40%;
-            left: 0;
-        }
+                h1 {
+                    width: 100%;
+                    font-size: 4rem;
+                }
 
-        .home-intro-carousel {
-            background-image: url("/assets/images/home-intro/slide-03.jpg");
-            background-position: center;
-            background-size: cover;
+                img {
+                    max-width: 520px;
+                }
 
-            .carousel-slide {
-                position: absolute;
-                top: 0;
-                left: 0;
-                min-width: 100%;
-                min-height: 100%;
-                background-position: center;
-                background-size: cover;
+                h1, img {
+                    display: none;
+                }
             }
         }
     }
@@ -678,7 +675,12 @@ $intro-bottom-hugger: rgba($black, .4);
         }
     }
 
-    .carousel-item.active,
+    .carousel-item {
+        .active {
+            display: block;
+        }
+    }
+
     .carousel-item-next,
     .carousel-item-prev {
         display: block;

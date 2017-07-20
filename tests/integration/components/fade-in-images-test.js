@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('home-intro-carousel', 'Integration | Component | home intro carousel', {
+moduleForComponent('fade-in-images', 'Integration | Component | fade in images', {
   integration: true
 });
 
@@ -10,15 +10,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{home-intro-carousel}}`);
+  this.render(hbs`{{fade-in-images}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#home-intro-carousel}}
+    {{#fade-in-images}}
       template block text
-    {{/home-intro-carousel}}
+    {{/fade-in-images}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
