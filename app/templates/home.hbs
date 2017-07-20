@@ -100,13 +100,13 @@
             <div class="col-12 col-md-4">
                 <div class="card card-no-border">
                     <div class="card-block">
-                        <h4>{{#link-to 'stories'}}Events{{/link-to}}</h4>
+                        <h4>{{#link-to 'events'}}Events{{/link-to}}</h4>
                         <hr>
                         <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.eventsImage.file.url}}" alt="{{model.content.eventsImage.title}}">
                         <h4>{{model.content.eventsSubtitle}}</h4>
                         <hr>
                         {{markdown-to-html model.content.eventsIntroduction class="card-text"}}
-                        {{#link-to 'stories' class="btn btn-outline-primary"}}{{model.content.eventsCallToAction}}{{/link-to}}
+                        {{#link-to 'events' class="btn btn-outline-primary"}}{{model.content.eventsCallToAction}}{{/link-to}}
                     </div>
                 </div>
             </div>

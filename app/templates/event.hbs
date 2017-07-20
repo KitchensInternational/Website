@@ -1,0 +1,24 @@
+<div class="introduction" style={{background-image model.featuredImageProxy}}>
+    <div class="heading">
+        {{#heading-after-scroll class="mb-0"}}{{model.title}}{{/heading-after-scroll}}
+        <hr>
+    </div>
+</div>
+<div class="background-taupe mb-5">
+    <div class="container">
+        <div class="row">
+            <article class="col py-5">
+                <p>{{#link-to 'events' class="btn btn-outline-primary btn-sm"}}view all events{{/link-to}}</p>
+                <h3>{{model.title}}</h3>
+                <p class="mb-3"><small><strong>
+                    Date: {{moment-format model.eventDate 'MMMM DD, YYYY'}}<br>
+                    Location: {{model.location}}
+                </strong></small></p>
+                {{markdown-to-html model.description}}
+                {{share-button class="pull-right mb-4"}}
+                {{#contact-form-button form-id="book-event" white-text=false class="my-4"}}Book Now{{/contact-form-button}}
+            </article>
+        </div>
+    </div>
+</div>
+{{contact-form-modal bookEvent=model id="book-event"}}

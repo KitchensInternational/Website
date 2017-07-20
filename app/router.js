@@ -11,6 +11,8 @@ Router.map(function() {
   this.route('home', { path: '/' });
   this.route('stories');
   this.route('story', { path: 'stories/:slug' });
+  this.route('events');
+  this.route('event', { path: 'events/:slug' });
   this.route('design-service');
   this.route('store', { path: 'store/:slug' });
   this.route('projects', { path: 'projects' });
@@ -21,7 +23,6 @@ Router.map(function() {
   this.route('commercial', { path: 'commercial/:slug' });
   this.route('endorsements');
   this.route('contact');
-  this.route('events');
 });
 
 export default Router;

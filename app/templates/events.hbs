@@ -1,1 +1,48 @@
-{{outlet}}
+<div class="introduction mb-3">
+    <div class="heading">
+        {{#heading-after-scroll class="mb-0"}}Upcoming events{{/heading-after-scroll}}
+        <hr>
+    </div>
+</div>
+{{#each model as |article index|}}
+<div class="background-taupe mb-3">
+    <div class="container-fluid">
+        <div class="row">
+            {{#if (odd index)}}
+            <div {{action 'goToArticle' article.slug}} class="col-6 hidden-xs-down img-background clickable auto-height" style={{background-image article.featuredImageProxy}}></div>
+            {{/if}}
+            <div class="col-12 col-sm-6">
+                <div class="p-5">
+                    <p><small>{{moment-format article.eventDate 'MMMM DD, YYYY'}}</small></p>
+                    <h3>{{article.title}}</h3>
+                    {{markdown-to-html article.excerpt class="article-snippet"}}
+                    {{#link-to 'event' article.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br>
+                    <hr>
+                </div>
+            </div>
+            {{#unless (odd index)}}
+            <div {{action 'goToArticle' article.slug}} class="col-6 hidden-xs-down img-background clickable auto-height" style={{background-image article.featuredImageProxy}}></div>
+            {{/unless}}
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center py-4">
+            <p><strong>Sorry, no articles to display for the current filters.</strong></p>
+            {{#link-to 'events' (query-params filter='news' page=1) class="btn btn-sm btn-outline-primary"}}Back to all events{{/link-to}}<br>
+        </div>
+    </div>
+</div>
+{{/each}}
+{{#if model}}
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        {{pagination-control currentPage=page pageCount=pageCount onChangePage="changePage"}}
+    </div>
+    <div class="row justify-content-center">
+        {{back-to-top}}
+    </div>
+</div>
+{{/if}}

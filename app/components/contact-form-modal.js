@@ -6,5 +6,7 @@ export default Ember.Component.extend({
     tabindex: '-1',
     role: 'dialog',
     'aria-hidden': 'true',
-    'request-brochure': false
+    requestBrochure: false,
+    bookEvent: false,
+    kitchens: Ember.A()
 });

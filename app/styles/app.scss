@@ -705,7 +705,7 @@ $intro-bottom-hugger: rgba($black, .4);
     }
 }
 
-.stories {
+.stories, .events {
 
     .introduction {
         background-image: url("/assets/images/ki-news-0000.jpg");
@@ -761,7 +761,7 @@ $intro-bottom-hugger: rgba($black, .4);
 
 }
 
-.story {
+.story, .event {
 
     .introduction {
         height: 300px;

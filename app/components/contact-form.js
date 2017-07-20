@@ -3,7 +3,18 @@ import formValidation from 'ember-form-validation/mixins/form-validation';
 
 export default Ember.Component.extend(formValidation, {
     classNames: ['container-fluid', 'contact-form-inner'],
-    'request-brochure': false,
+    requestBrochure: false,
+    kitchens: Ember.A(),
+    bookEvent: false,
+    formType: Ember.computed(function () {
+        if ( this.get('requestBrochure') ) {
+            return 'Brochure Request';
+        }
+        if ( this.get('bookEvent') ) {
+            return 'Book Event';
+        }
+        return 'Contact Form';
+    }),
     contactEmail: 'matt@ignite-yourbrand.com',
     name: '',
     email: '',
@@ -57,12 +68,21 @@ export default Ember.Component.extend(formValidation, {
                 let message = "Hello\n\nYou have a new message from ";
                     message += this.get('name');
                     message += " (" + this.get('email') + ")\n\n";
-                if ( this.get('message.length') > 0 ) {
-                    message += this.get('message');
+
+                if ( this.get('bookEvent') ) {
+
+                    message += "Please book me in to your event: " + this.get('bookEvent.title');
+
                 } else {
-                    message += "Please send me a brochure.\n\n";
-                    message += "Address: " + this.get('address') + "\n\n";
-                    message += "Kitchens:" + this.get('selectedKitchens').join(", ") + "\n\n";
+
+                    if ( this.get('message.length') > 0 ) {
+                        message += this.get('message');
+                    } else {
+                        message += "Please send me a brochure.\n\n";
+                        message += "Address: " + this.get('address') + "\n\n";
+                        message += "Kitchens:" + this.get('selectedKitchens').join(", ") + "\n\n";
+                    }
+
                 }
 
                 Email.send("matt@ignite-yourbrand.com",
@@ -80,7 +100,7 @@ export default Ember.Component.extend(formValidation, {
                 }, 500);
 
                 if ( typeof ga !== 'undefined' ) {
-                    let formType = this.get('request-brochure') ? 'Brochure Request' : 'Contact Form';
+                    let formType = this.get('formType');
                     ga('send', 'event', 'Contact Form', 'Submitted', formType);
                 }
             }

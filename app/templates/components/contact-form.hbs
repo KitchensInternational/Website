@@ -4,9 +4,14 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <div class="text-center">
-            {{#if request-brochure}}
-                <h3 class="mb-3">Request a brochure</h3>
-                <p class="mb">Which brochures would you like?</p>
+            {{#if (or requestBrochure bookEvent)}}
+                {{#if requestBrochure}}
+                    <h3 class="mb-3">Request a brochure</h3>
+                    <p class="mb">Which brochures would you like?</p>
+                {{else}}
+                    <h3 class="mb-3">Book your event</h3>
+                    <p class="mb">{{bookEvent.title}}</p>
+                {{/if}}
             {{else}}
                 <p class="mb-0">Looking to chat now</p>
                 <h3>CALL <a href="callto:+448450740022">0845 074 0022</a></h3>
@@ -14,7 +19,7 @@
                     and we will be delighted to be of assistance.</p>
             {{/if}}
             <form method="POST" action="#">
-                {{#if request-brochure}}
+                {{#if requestBrochure}}
                 <div class="mb-3">
                     {{#each kitchens as |kitchen|}}
                         {{brochure-checkbox kitchen=kitchen onSelect="selectedKitchen"}}
@@ -33,13 +38,15 @@
                     {{input name="phone" value=phone class=(validation 'form-control' phone validationErrors.phone validationDanger) placeholder="PHONE" key-press="triggerValidation" focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.phone}}</p>
                 </div>
+                {{#unless bookEvent}}
                 <div class="form-group">
-                    {{#if request-brochure}}
+                    {{#if requestBrochure}}
                         {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
                     {{else}}
                         {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
                     {{/if}}
                 </div>
+                {{/unless}}
                 {{#unless statusMessage}}
                     <button {{action 'triggerSubmit'}} class="btn btn-primary">Send</button>
                 {{else}}
