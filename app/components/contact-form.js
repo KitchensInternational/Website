@@ -15,7 +15,7 @@ export default Ember.Component.extend(formValidation, {
         }
         return 'Contact Form';
     }),
-    contactEmail: 'matt@ignite-yourbrand.com',
+    contactEmail: 'info@kitchensinternational.co.uk',
     name: '',
     email: '',
     phone: '',
@@ -114,6 +114,7 @@ export default Ember.Component.extend(formValidation, {
             this.set('selectedKitchens', Ember.A());
             this.set('statusMessage', '');
             Ember.$('input[type="checkbox"]').attr('checked', false);
+            this.$().parents('.modal').modal('hide');
         },
         selectedKitchen( kitchenName ) {
             let selectedKitchens = this.get('selectedKitchens');

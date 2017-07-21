@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     queryParams: ['filter', 'page'],
-    filter: null,
+    filter: 'news',
     page: 1,
     pageCount: 1,
     routing: Ember.inject.service('-routing'),

@@ -5,9 +5,9 @@ const SLIDE_DELAY = 400;
 const SLIDE_PAUSE = 1800;
 
 function fadeInElement(elements, index) {
-    $(elements[index]).delay(SLIDE_DELAY).fadeIn(FADE_IN_SPEED, function () {
+    Ember.$(elements[index]).delay(SLIDE_DELAY).fadeIn(FADE_IN_SPEED, function () {
         if ( index < elements.length - 1 ) {
-            $(this).delay(SLIDE_PAUSE).fadeOut(FADE_IN_SPEED, function () {
+            Ember.$(this).delay(SLIDE_PAUSE).fadeOut(FADE_IN_SPEED, function () {
                 index = index + 1;
                 fadeInElement(elements, index);
             });

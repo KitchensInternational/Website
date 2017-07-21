@@ -1,7 +1,7 @@
 {{social-icons greyIcons=true class="pull-right"}}
 <ul>
     <li {{action 'triggerFilter' 'news'}}>News<br><hr class="{{if (eq currentFilter 'news') 'hr-dark'}}"></li>
-    <li {{action 'triggerFilter' 'press'}}>Press / Media<br><hr class="{{if (eq currentFilter 'press') 'hr-dark'}}"></li>
-    <li {{action 'triggerFilter' 'project'}}>Recent Projects<br><hr class="{{if (eq currentFilter 'project') 'hr-dark'}}"></li>
+    {{!-- <li {{action 'triggerFilter' 'press'}}>Press / Media<br><hr class="{{if (eq currentFilter 'press') 'hr-dark'}}"></li> --}}
+    {{!-- <li {{action 'triggerFilter' 'project'}}>Recent Projects<br><hr class="{{if (eq currentFilter 'project') 'hr-dark'}}"></li> --}}
     <li {{action 'triggerFilter' 'event'}}>Events<br><hr class="{{if (eq currentFilter 'event') 'hr-dark'}}"></li>
 </ul>
