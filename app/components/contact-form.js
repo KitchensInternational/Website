@@ -87,7 +87,7 @@ export default Ember.Component.extend(formValidation, {
 
                 }
 
-                Email.send("matt@ignite-yourbrand.com",
+                Email.send("website@kitchensinternational.co.uk",
                     this.get('contactEmail'),
                     "New contact form submission!",
                     message,
