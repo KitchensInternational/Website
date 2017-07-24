@@ -1,11 +1,12 @@
 
-favicon
-
 move stories
+
+SSL
+
 page titles for SEO
 SEO sitemap
 SEO redirects
-SSL
+site extensions google
 
 http://www.kitchensinternational.co.uk/poggenpohl.html
 http://www.kitchensinternational.co.uk/leicht.html

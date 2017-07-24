@@ -39,14 +39,18 @@
                     <p class="form-control-feedback">{{validationErrors.phone}}</p>
                 </div>
                 {{#unless bookEvent}}
-                <div class="form-group">
                     {{#if requestBrochure}}
-                        {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
+                        <div class="form-group">
+                            {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
+                        </div>
                     {{else}}
-                        {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
-                        {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
+                        <div class="form-group">
+                            {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
+                        </div>
+                        <div class="form-group">
+                            {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
+                        </div>
                     {{/if}}
-                </div>
                 {{/unless}}
                 {{#unless statusMessage}}
                     <button {{action 'triggerSubmit'}} class="btn btn-primary">Send</button>
