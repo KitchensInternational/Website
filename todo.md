@@ -1,13 +1,11 @@
 
-contentful hardcoded links
+favicon
 
 move stories
 page titles for SEO
 SEO sitemap
 SEO redirects
 SSL
-
-setup hotjar tracking
 
 http://www.kitchensinternational.co.uk/poggenpohl.html
 http://www.kitchensinternational.co.uk/leicht.html
