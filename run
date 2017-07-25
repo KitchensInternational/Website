@@ -11,24 +11,14 @@ if [ -z "$APP_ENV" ]; then
     APP_ENV="prod"
 fi
 
-# if [ $APP_ENV == "dev" ]; then
-#     docker run --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-#         -v /Users/matthewdavies/Sites/kitchens-international/:/var/www/html \
-#         -v /var/www/letsencrypt-well-known:/var/www/letsencrypt-well-known \
-#         kitchens
-# else
-#     docker run -d --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-#         -v /home/ubuntu/kitchens/:/var/www/html \
-#         -v /var/www/letsencrypt-well-known:/var/www/letsencrypt-well-known \
-#         kitchens
-# fi
-
 if [ $APP_ENV == "dev" ]; then
-    docker run --name kitchens -p 0.0.0.0:80:80 \
+    docker run --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
         -v /Users/matthewdavies/Sites/kitchens-international/:/var/www/html \
+        -v /var/www/letsencrypt:/var/www/letsencrypt \
         kitchens
 else
-    docker run -d --name kitchens -p 0.0.0.0:80:80 \
-        -v /home/ubuntu/ki/:/var/www/html \
+    docker run -d --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
+        -v /home/ubuntu/kitchens/:/var/www/html \
+        -v /var/www/letsencrypt:/var/www/letsencrypt \
         kitchens
 fi

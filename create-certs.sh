@@ -17,4 +17,4 @@ docker run -it --rm --name letsencrypt \
         -d www.kitchensinternational.co.uk \
         -m kitchensinternational@langarth.com
 
-docker kill --signal=HUP kitchensinternational
+docker kill --signal=HUP kitchens

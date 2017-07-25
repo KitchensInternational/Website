@@ -8,4 +8,4 @@ docker run -it --rm --name letsencrypt \
         quay.io/letsencrypt/letsencrypt \
         renew
 
-docker kill --signal=HUP kitchensinternational
+docker kill --signal=HUP kitchens
