@@ -1,8 +1,6 @@
 
 move stories
 
-SSL
-
 page titles for SEO
 SEO sitemap
 SEO redirects
