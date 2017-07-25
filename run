@@ -18,7 +18,7 @@ if [ $APP_ENV == "dev" ]; then
         kitchens
 else
     docker run -d --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-        -v /home/ubuntu/kitchens/:/var/www/html \
+        -v /home/ubuntu/ki/:/var/www/html \
         -v /var/www/letsencrypt:/var/www/letsencrypt \
         kitchens
 fi
