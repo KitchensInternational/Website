@@ -15,10 +15,12 @@ if [ $APP_ENV == "dev" ]; then
     docker run --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
         -v /Users/matthewdavies/Sites/kitchens-international/:/var/www/html \
         -v /var/www/letsencrypt:/var/www/letsencrypt \
+        -v /etc/letsencrypt/:/etc/letsencrypt/ \
         kitchens
 else
     docker run -d --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
         -v /home/ubuntu/ki/:/var/www/html \
         -v /var/www/letsencrypt:/var/www/letsencrypt \
+        -v /etc/letsencrypt/:/etc/letsencrypt/ \
         kitchens
 fi
