@@ -108,6 +108,12 @@ footer {
     .fa {
         margin: 0 $spacer / 4;
     }
+
+    .kbsa-logo {
+        width: 100%;
+        max-width: 100px;
+        margin-bottom: $spacer * 3;
+    }
 }
 
 .background-gray {

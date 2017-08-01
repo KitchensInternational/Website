@@ -16,5 +16,5 @@ npm-debug.log
 testem.log
 .DS_Store
 
-/dist/blog/
-/public/blog/
+dist/blog/
+public/blog/
