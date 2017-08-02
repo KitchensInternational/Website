@@ -1,27 +1,43 @@
-<div class="introduction mb-3">
+<div class="introduction">
     <div class="heading">
-        {{#heading-after-scroll class="mb-0"}}The Art of Connection{{/heading-after-scroll}}
+        {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
         <hr>
     </div>
 </div>
-{{#each model as |article index|}}
+<div class="background-taupe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col py-3 sub-heading">
+                {{markdown-to-html model.content.subHeading}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
+            {{markdown-to-html model.content.introduction}}
+        </div>
+    </div>
+</div>
+{{#each model.events as |event index|}}
 <div class="background-taupe mb-3">
     <div class="container-fluid">
         <div class="row">
             {{#if (odd index)}}
-            <div {{action 'goToArticle' article.slug}} class="col-6 hidden-xs-down img-background clickable auto-height" style={{background-image article.featuredImageProxy}}></div>
+            <div {{action 'goToArticle' event.slug}} class="col-6 hidden-xs-down img-background clickable auto-height" style={{background-image event.featuredImageProxy}}></div>
             {{/if}}
             <div class="col-12 col-sm-6">
                 <div class="p-5">
-                    <p><small>{{moment-format article.eventDate 'MMMM DD, YYYY'}}</small></p>
-                    <h3>{{article.title}}</h3>
-                    {{markdown-to-html article.excerpt class="article-snippet"}}
-                    {{#link-to 'event' article.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br>
+                    <p><small>{{moment-format event.eventDate 'MMMM DD, YYYY'}}</small></p>
+                    <h3>{{event.title}}</h3>
+                    {{markdown-to-html event.excerpt class="article-snippet"}}
+                    {{#link-to 'event' event.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br>
                     <hr>
                 </div>
             </div>
             {{#unless (odd index)}}
-            <div {{action 'goToArticle' article.slug}} class="col-6 hidden-xs-down img-background clickable auto-height" style={{background-image article.featuredImageProxy}}></div>
+            <div {{action 'goToArticle' event.slug}} class="col-6 hidden-xs-down img-background clickable auto-height" style={{background-image event.featuredImageProxy}}></div>
             {{/unless}}
         </div>
     </div>

@@ -1,7 +1,23 @@
 <div class="introduction">
     <div class="heading">
-        {{#heading-after-scroll class="mb-0"}}The Art of Communication{{/heading-after-scroll}}
+        {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
         <hr>
+    </div>
+</div>
+<div class="background-taupe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col py-3 sub-heading">
+                {{markdown-to-html model.content.subHeading}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
+            {{markdown-to-html model.content.introduction}}
+        </div>
     </div>
 </div>
 <div class="background-taupe mb-3">
@@ -11,7 +27,7 @@
         </div>
     </div>
 </div>
-{{#each model as |article index|}}
+{{#each model.articles as |article index|}}
 <div class="background-taupe mb-3">
     <div class="container-fluid">
         <div class="row">

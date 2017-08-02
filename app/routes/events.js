@@ -12,11 +12,14 @@ export default Ember.Route.extend({
             skip: Math.floor((queryParams.page-1) * LIMIT),
             limit: LIMIT
         };
-        return this.get('store').query('event', apiParams);
+        return Ember.RSVP.hash({
+            content: this.get('store').queryRecord('page', { 'fields.slug': 'events' }),
+            events: this.get('store').query('event', apiParams)
+        });
     },
     setupController(controller, model) {
         this._super(controller, model);
-        let meta = model.get('meta');
+        let meta = model.events.get('meta');
         controller.set( 'pageCount', Math.max(1, Math.floor(meta.total/LIMIT)) );
     }
 });

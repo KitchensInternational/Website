@@ -16,11 +16,14 @@ export default Ember.Route.extend({
         if ( queryParams.filter ) {
             apiParams["fields.tag"] = queryParams.filter;
         }
-        return this.get('store').query('article', apiParams);
+        return Ember.RSVP.hash({
+            content: this.get('store').queryRecord('page', { 'fields.slug': 'stories' }),
+            articles: this.get('store').query('article', apiParams)
+        });
     },
     setupController(controller, model) {
         this._super(controller, model);
-        let meta = model.get('meta');
+        let meta = model.articles.get('meta');
         controller.set( 'pageCount', Math.max(1, Math.floor(meta.total/LIMIT)) );
     }
 });
