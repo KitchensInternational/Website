@@ -13,9 +13,6 @@ export default Ember.Route.extend({
             skip: Math.floor((queryParams.page-1) * LIMIT),
             limit: LIMIT
         };
-        if ( queryParams.filter ) {
-            apiParams["fields.tag"] = queryParams.filter;
-        }
         return Ember.RSVP.hash({
             content: this.get('store').queryRecord('page', { 'fields.slug': 'stories' }),
             articles: this.get('store').query('article', apiParams)

@@ -31,6 +31,7 @@
         {{markdown-to-html activeStore.address class="text-white"}}
         <p class="text-white">T: {{activeStore.telephone}}</p>
         {{#link-to 'store' activeStore.slug class="btn btn-outline-secondary btn-sm"}}view store{{/link-to}}
+        <a target="_blank" href="{{activeStore.directionsUrl}}" class="btn btn-outline-secondary btn-sm">get directions</a>
     </div>
     {{markdown-to-html activeStore.openingHours class="opening-hours text-white hidden-sm-down"}}
 </div>

@@ -6,6 +6,7 @@ export default Contentful.extend({
     name: attr('string'),
     slug: attr('string'),
     location: attr('string'),
+    ranking: attr('number', { defaultValue: 1 }),
     featuredImage: belongsTo('contentful-asset'),
     images: hasMany('contentful-asset'),
     brief: attr('string'),

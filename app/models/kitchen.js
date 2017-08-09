@@ -9,5 +9,6 @@ export default Contentful.extend({
     excerpt: attr('string'),
     introduction: attr('string'),
     images: hasMany('contentful-asset'),
-    brochure: belongsTo('contentful-asset')
+    brochure: belongsTo('contentful-asset'),
+    order: attr('number')
 });

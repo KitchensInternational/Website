@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="row">
-    {{#each model.projects as |project|}}
+    {{#each sortedProjects as |project|}}
         <div class="col-12 col-sm-6">
             <div class="d-flex align-items-center img-background img-tinted mb-4" style={{background-image project.featuredImage.file.url}}>
                 <div class="col text-center">
