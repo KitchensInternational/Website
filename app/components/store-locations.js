@@ -50,6 +50,13 @@ export default Ember.Component.extend({
     actions: {
         selectStore( index ) {
             this.set('activeStoreIndex', index);
+        },
+        clickPhoneNumber( town, name ) {
+            let label = town;
+            if ( name ) {
+                label = label + ' - ' + name;
+            }
+            ga('send', 'event', 'Click Phone Number', 'Store', label);
         }
     }
 });

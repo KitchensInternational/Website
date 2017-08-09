@@ -122,6 +122,9 @@ export default Ember.Component.extend(formValidation, {
             let selectedKitchens = this.get('selectedKitchens');
             selectedKitchens.push( kitchenName );
             this.set('selectedKitchens', selectedKitchens);
+        },
+        clickPhoneNumber() {
+            ga('send', 'event', 'Click Phone Number', 'Main');
         }
     }
 });

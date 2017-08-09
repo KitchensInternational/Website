@@ -29,7 +29,7 @@
     <div class="map"></div>
     <div class="address">
         {{markdown-to-html activeStore.address class="text-white"}}
-        <p class="text-white">T: {{activeStore.telephone}}</p>
+        <p class="text-white">T: <a {{action 'clickPhoneNumber' store.town store.name}} href="callto:{{activeStore.telephone}}">{{activeStore.telephone}}</a></p>
         {{#link-to 'store' activeStore.slug class="btn btn-outline-secondary btn-sm"}}view store{{/link-to}}
         <a target="_blank" href="{{activeStore.directionsUrl}}" class="btn btn-outline-secondary btn-sm">get directions</a>
     </div>
