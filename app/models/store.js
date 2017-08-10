@@ -9,6 +9,10 @@ export default Contentful.extend({
     slug: attr('string'),
     address: attr('string'),
     telephone: attr('string'),
+    calltoNumber: Ember.computed('telephone', function () {
+        let telephone = this.get('telephone');
+        return telephone.replace(/ /g, '').replace(/^0/, '+44');
+    }),
     openingHours: attr('string'),
     location: attr('json'),
     directionsUrl: Ember.computed('location', function () {
