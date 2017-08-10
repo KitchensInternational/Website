@@ -9,18 +9,12 @@
     <div class="row mb-4">
         {{#each stores as |store index|}}
         <div class="col-6 col-sm-4 col-md-2">
-            <div {{action "selectStore" index}} class="py-2 hidden-xs-down select-store">
+            <div {{action "selectStore" index}} class="py-2 text-center-sm select-store">
                 <h5 class="store-title">{{store.town}}<br>
                     {{#if store.name}}<small>({{store.name}})</small>{{/if}}
                 </h5>
                 <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
             </div>
-            {{#link-to 'store' store.slug class="py-2 hidden-sm-up text-center-sm d-block"}}
-                <h5 class="store-title">{{store.town}}<br>
-                    {{#if store.name}}<small>({{store.name}})</small>{{/if}}
-                </h5>
-                <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
-            {{/link-to}}
         </div>
         {{/each}}
     </div>
@@ -29,7 +23,7 @@
     <div class="map"></div>
     <div class="address">
         {{markdown-to-html activeStore.address class="text-white"}}
-        <p class="text-white">T: <a {{action 'clickPhoneNumber' activeStore.town activeStore.name}} href="callto:{{activeStore.calltoNumber}}">{{activeStore.telephone}}</a></p>
+        <p class="text-white">T: <a {{action 'clickPhoneNumber' activeStore.town activeStore.name}} href="tel:{{activeStore.calltoNumber}}">{{activeStore.telephone}}</a></p>
         {{#link-to 'store' activeStore.slug class="btn btn-outline-secondary btn-sm"}}view store{{/link-to}}
         <a target="_blank" href="{{activeStore.directionsUrl}}" class="btn btn-outline-secondary btn-sm">get directions</a>
     </div>

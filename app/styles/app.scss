@@ -673,17 +673,8 @@ $intro-bottom-hugger: rgba($black, .4);
         }
     }
 
-    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
-        .carousel-home {
-
-            .img-fluid {
-                max-height: 150px;
-            }
-        }
-    }
-
     .carousel-item {
-        .active {
+        &.active {
             display: block;
         }
     }
@@ -693,9 +684,13 @@ $intro-bottom-hugger: rgba($black, .4);
         display: block;
     }
 
-    .card-img-top {
-        width: 100%;
+    .carousel-home {
+        .card-img-top {
+            min-width: auto;
+            width: 100%;
+        }
     }
+
 }
 
 .design-service {
