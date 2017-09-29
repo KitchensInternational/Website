@@ -14,7 +14,9 @@ export function initialize() {
                 title = model.get('title') + ' | ' + BASE_TITLE;
             }
 
-            Ember.$(document).attr('title', title);
+            if ( typeof Ember.$ === 'function' && typeof document !== 'undefined' ) {
+                Ember.$(document).attr('title', title);
+            }
 		},
 
 		enter: function() {
@@ -25,7 +27,9 @@ export function initialize() {
 		setupController: function(controller, model) {
 			this._super(...arguments);
 			this.setPageTitle(model);
-            Ember.$(window).scrollTop(0);
+            if ( typeof Ember.$ === 'function' && typeof window !== 'undefined' ) {
+                Ember.$(window).scrollTop(0);
+            }
 		}
 
 	});

@@ -1,26 +1,14 @@
 #!/bin/bash
 
-docker stop $(docker ps -q)
+export COMPOSE_PROJECT_NAME=ki
 
-docker kill kitchens
-docker rm kitchens
+docker-compose build
 
-docker build -t kitchens .
+docker-compose stop
+docker-compose kill
+docker-compose rm -f
 
-if [ -z "$APP_ENV" ]; then
-    APP_ENV="prod"
-fi
+docker-compose create
+docker-compose start
 
-if [ $APP_ENV == "dev" ]; then
-    docker run --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-        -v /Users/matthewdavies/Sites/kitchens-international/:/var/www/html \
-        -v /var/www/letsencrypt:/var/www/letsencrypt \
-        -v /etc/letsencrypt/:/etc/letsencrypt/ \
-        kitchens
-else
-    docker run -d --name kitchens -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-        -v /home/ubuntu/ki/:/var/www/html \
-        -v /var/www/letsencrypt:/var/www/letsencrypt \
-        -v /etc/letsencrypt/:/etc/letsencrypt/ \
-        kitchens
-fi
+docker ps

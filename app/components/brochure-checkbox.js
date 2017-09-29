@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     classNames: ['form-check'],
-    kitchen: Ember.K(),
+    kitchen: null,
     isChecked: false,
     onSelect: null,
     actions: {

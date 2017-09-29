@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+
+  apache:
+    build:
+      context: .
+      dockerfile: Dockerfile-apache
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/www/letsencrypt:/var/www/letsencrypt
+      - /etc/letsencrypt/:/etc/letsencrypt/
+    links:
+      - ember-app
+
+  ember-app:
+    build:
+      context: .
+      dockerfile: Dockerfile-ember
+    expose:
+      - 3000

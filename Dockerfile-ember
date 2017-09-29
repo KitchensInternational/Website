@@ -1,0 +1,70 @@
+## Stage 1: node_modules and bower_components. then build the app ##
+
+FROM node:8.4.0-alpine
+
+WORKDIR /app
+
+# stuff for the build later
+RUN apk add --no-cache \
+        git \
+        automake \
+        alpine-sdk  \
+        nasm  \
+        autoconf  \
+        build-base \
+        zlib \
+        zlib-dev \
+        libpng \
+        libpng-dev\
+        libwebp \
+        libwebp-dev \
+        libjpeg-turbo \
+        libjpeg-turbo-dev
+
+# install yarn & bower
+RUN \
+  curl -o- -L https://yarnpkg.com/install.sh | /bin/sh -s -- --version 0.23.2 && \
+  export PATH="$HOME/.yarn/bin:$PATH" && \
+  yarn global add \
+    bower \
+    node-gyp \
+    node-sass
+
+COPY package.json /app
+COPY .bowerrc /app
+COPY bower.json /app
+
+# setup bower_components and node_modules
+RUN \
+  cd /app && \
+  yarn install --ignore-optional && \
+  bower install --allow-root
+
+COPY . /app
+
+# Build app & install production dependencies
+RUN \
+  cd /app && \
+  ./node_modules/.bin/ember build --environment=production && \
+  cd /app && rm -rf node_modules && \
+  yarn install --ignore-optional --production && \
+  cd /app/dist && yarn install --production
+
+
+
+## Stage 2: assemble our production container ##
+
+FROM node:8.4.0-alpine
+
+WORKDIR /app
+
+COPY --from=0 /app/dist /app/dist
+COPY --from=0 /app/node_modules /app/node_modules
+COPY --from=0 /app/fastboot-server.js /app/fastboot-server.js
+
+#COPY package.json /app
+
+
+EXPOSE 3000
+
+CMD ["node", "/app/fastboot-server.js"]

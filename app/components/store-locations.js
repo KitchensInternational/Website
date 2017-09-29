@@ -18,7 +18,7 @@ export default Ember.Component.extend({
             index = index >= 0 && index <= count ? index : 0;
             return stores.objectAt(index);
         }
-        return Ember.K();
+        return null;
     }),
     setActiveStore: Ember.observer('stores', 'activeStoreSlug', function () {
         let storeSlug = this.get('activeStoreSlug');
