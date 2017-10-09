@@ -6,7 +6,7 @@ export default Ember.Component.extend({
     tagName: 'h1',
     classNames: ['move-to-heading-after-scroll'],
     didInsertElement() {
-        Ember.$('header').first().prepend('<span class="display-4 after-scroll-heading text-white hidden-md-down hidden">remove me please</span>');
+        Ember.$('header').first().prepend('<span class="display-4 after-scroll-heading text-white hidden-md-down hidden"></span>');
         Ember.run.once(this, function () {
             let componentElement = this.$(),
                 headingPositionTop = componentElement.offset().top;
