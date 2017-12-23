@@ -842,3 +842,76 @@ $intro-bottom-hugger: rgba($black, .4);
         }
     }
 }
+
+.sales {
+    h1, h2 {font-weight: 700;}
+    .oswald-dark, .font-oswald p {
+        font-family: "oswaldextralight", Helvetica, Arial, sans-serif;
+        color: #3e3d3d;
+        font-weight: 600;
+    }
+
+    .lts {
+        letter-spacing: 1.2px;
+    }
+
+    .red-span {
+        span {
+            color: #ff0000;
+        }
+    }
+
+    .carousel-item {
+        &.active {
+            display: block;
+        }
+    }
+
+    .carousel-item-next,
+    .carousel-item-prev {
+        display: block;
+    }
+
+    .carousel-sales {
+        .card-img-top {
+            min-width: auto;
+            width: 100%;
+            min-height: 600px;
+        }
+    }
+
+    .heading {
+        display: none;
+    }
+
+    .end-text {
+        line-height: 3rem;
+    }
+    .sub-heading-bckg {
+        background: #ff0000;
+    }
+    .background-taupe.dark-inset {
+        background: $black;
+        opacity: .6;
+        position: relative;
+        top: 43%;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .sub-heading {
+        p {
+            font-size: 36px;
+            font-weight: bold;
+            font-family: $headings-font-family;
+            color: $white;
+        }
+    }
+
+    .img-background {
+        &.full-height {
+            min-height: 600px;
+        }
+    }
+}

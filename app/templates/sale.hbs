@@ -1,0 +1,31 @@
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
+    <div class="heading">
+        {{#heading-after-scroll class="mb-0"}}{{model.name}}{{/heading-after-scroll}}
+    </div>
+</div>
+<div class="background-taupe">
+    <div class="container">
+        <div class="row pt-5 pb-5">
+            <div class="col text-center">
+                {{markdown-to-html model.introduction}}
+                {{#brochure-download brochure=model.brochure.file.url sale=model.name class="mr-2 ml-2 mt-3"}}Download brochure{{/brochure-download}}
+                {{#contact-form-button form-id="request-brochure" white-text=false class="mr-2 ml-2 mt-3"}}Request a brochure{{/contact-form-button}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        {{#each model.images as |image|}}
+        <div class="col-6 col-md-4 col-lg-3 mt-5">
+            <a class="d-block img-background img-background-square" style={{background-image image.file.url}} href="{{image.file.url}}" data-lightbox="{{model.name}}" data-title="{{image.title}}"></a>
+        </div>
+        {{/each}}
+    </div>
+    <div class="row mt-5">
+        <div class="col text-center">
+            {{#link-to 'sales' class="btn btn-outline-primary"}}Back to all sales{{/link-to}}
+        </div>
+    </div>
+</div>
+{{contact-form-modal requestBrochure=true sales=sales id="request-brochure"}}

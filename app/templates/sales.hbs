@@ -1,0 +1,126 @@
+<div class="introduction" style={{background-image model.content.featuredImage.file.url}}>
+    <div class="heading">
+        {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
+        <hr>
+    </div>
+</div>
+<div class="background-taupe sub-heading-bckg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col py-3 sub-heading">
+                {{markdown-to-html model.content.heading}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
+            {{markdown-to-html model.content.introduction class="text-center oswald-dark lts"}}
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card mb-5">
+                {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-sales"}}
+                <div class="background-taupe sub-heading-bckg">
+                    <div class="row">
+                        <div class="col py-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-block d-flex justify-content-center">
+                    <div class="col col-sm-12 text-center text-lg py-3">
+                        {{markdown-to-html model.content.splashContent class="card-text red-span font-oswald"}}
+                        <a href="{{model.content.splashActionLink}}" class="btn btn-outline-primary my-3">{{model.content.splashActionTitle}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="d-flex align-items-center img-background full-height img-tinted" style={{background-image model.content.featuredSaleImage.file.url}}>
+            </div>
+        </div>
+    </div>
+    <div class="background-taupe sub-heading-bckg">
+        <div class="row">
+            <div class="col py-2">
+            </div>
+        </div>
+    </div>
+    <div class="background-taupe oswald-dark mb-5">
+        <div class="row justify-content-center">
+            <div class="col col-sm-12 my-3 text-center text-lg">
+                {{markdown-to-html model.content.featuredSaleContent class="card-text font-oswald red-span mt-3"}}
+                {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Request design consultation{{/contact-form-button}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#each sortedSales as |sale|}}
+            <div class="col-12 col-sm-6">
+                <div class="d-flex align-items-center img-background img-tinted" style={{background-image sale.featuredImage.file.url}}>
+                    <div class="background-taupe dark-inset">
+                        <div class="py-2 text-center">
+                            {{#link-to 'sale' sale.slug class="btn btn-outline-secondary"}}{{sale.name}}{{/link-to}}
+                        </div>
+                    </div>
+                </div>
+                <div class="background-taupe sub-heading-bckg">
+                    <div class="row">
+                        <div class="col py-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="background-taupe oswald-dark mb-5">
+        <div class="row justify-content-center">
+            <div class="col col-sm-12 my-3 text-center text-lg">
+                {{markdown-to-html model.content.appliancePackContent class="card-text font-oswald red-span mt-3"}}
+                {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Request design consultation{{/contact-form-button}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="d-flex align-items-center img-background full-height img-tinted" style={{background-image model.content.featuredSaleImageTwo.file.url}}>
+            </div>
+        </div>
+    </div>
+    <div class="background-taupe sub-heading-bckg">
+        <div class="row">
+            <div class="col py-2">
+            </div>
+        </div>
+    </div>
+    <div class="background-taupe oswald-dark mb-5">
+        <div class="row justify-content-center">
+            <div class="col col-sm-12 my-3 text-center text-lg">
+                {{markdown-to-html model.content.featuredSaleContentTwo class="card-text font-oswald red-span mt-3"}}
+                {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Request design consultation{{/contact-form-button}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="oswald-dark col col-sm-12 py-5 my-3 text-center text-lg end-text">
+            <h2>{{ markdown-to-html model.content.textBottomHeading }}</h2>
+            {{markdown-to-html model.content.textBottomContent class="card-text font-oswald mt-3"}}
+            {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Get in touch{{/contact-form-button}}
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+</div>
