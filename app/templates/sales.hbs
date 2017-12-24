@@ -65,7 +65,7 @@
     <div class="row">
     {{#each sortedSales as |sale index|}}
         {{#if (or (eq index 0) (eq index 1)) }}
-            <div class="col-6 col-sm-6">
+            <div class="col-6 col-sm-6 mb-4">
                 <div class="d-flex align-items-center img-background img-tinted" style={{background-image sale.featuredImage.file.url}}>
                     <div class="background-taupe dark-inset">
                         <div class="py-2 text-center">
@@ -86,7 +86,7 @@
     <div class="row">
     {{#each sortedSales as |sale index|}}
         {{#if (or (eq index 0) (eq index 1)) }}
-            <div id="collapseSale{{sale.id}}" class="col-12 collapse {{sale.slug}} mt-5">
+            <div id="collapseSale{{sale.id}}" class="container-fluid collapse {{sale.slug}} mt-5">
                 <h1>{{sale.name}}</h1>
                 <hr>
                 <div class="row mb-5">
@@ -152,7 +152,7 @@
     <div class="row">
     {{#each sortedSales as |sale index|}}
         {{#if (or (eq index 2) (eq index 3)) }}
-            <div id="collapseSale{{sale.id}}" class="col-12 collapse {{sale.slug}} mt-5">
+            <div id="collapseSale{{sale.id}}" class="container-fluid collapse {{sale.slug}} mt-5">
                 <h1>{{sale.name}}</h1>
                 <hr>
                 <div class="row mb-5">
