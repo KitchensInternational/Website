@@ -21,6 +21,8 @@ Router.map(function() {
   this.route('kitchen', { path: 'kitchens/:slug' });
   this.route('sales', { path: 'januarysale' });
   this.route('sale', { path: 'januarysale/:slug' });
+  this.route('ex-display-sales', { path: 'ex-display-sale' });
+  this.route('ex-display-sale', { path: 'ex-display-sale/:slug' });
   this.route('commercials', { path: 'commercial' });
   this.route('commercial', { path: 'commercial/:slug' });
   this.route('endorsements');

@@ -1,0 +1,82 @@
+<div class="introduction" style={{background-image model.content.featuredImage.file.url}}>
+</div>
+<div class="background-taupe heading-bckg">
+    <div class="col py-3 heading">
+        {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
+    </div>
+</div>
+        <!--<div class="background-taupe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col py-3 sub-heading">
+                {{markdown-to-html model.content.subHeading}}
+            </div>
+        </div>
+    </div>
+</div>-->
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 py-5 my-3 text-center">
+            {{markdown-to-html model.content.introduction}}
+        </div>
+    </div>
+</div>
+{{#each model.articles as |article index|}}
+<div class="mb-3 articles">
+    <div class="container">
+        <div class="row">
+            {{#unless (odd index)}}
+            <div class="col-6 hidden-xs-down img-background auto-height" style={{background-image article.featuredImageProxy}}></div>
+            {{/unless}}
+            <div class="col-12 col-sm-6 red-bottom background-taupe text-center">
+                <div class="p-5">
+                    <h1>{{ article.heading }}</h1>
+                    <p><hr class="hr-dark"></p>
+                    <p>{{ article.subheading }}</p>
+                    <h3 class="py-3">RRP: £{{ article.price }}</h3>
+                    <h2 class="sale-price font-weight-bold">SALE: £{{ article.price }}</h2>
+                    {{#link-to 'ex-display-sale' article.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br>
+                </div>
+            </div>
+            {{#if (odd index)}}
+            <div {{action 'goToArticle' article.slug}} class="col-6 hidden-xs-down img-background auto-height" style={{background-image article.featuredImageProxy}}></div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+{{else}}
+<!--<div class="container">
+    <div class="row">
+        <div class="col text-center py-4">
+            <p><strong>Sorry, no articles to display for the current filters.</strong></p>
+            {{#link-to 'stories' (query-params filter='news' page=1) class="btn btn-sm btn-outline-primary"}}Back to all stories{{/link-to}}<br>
+        </div>
+    </div>
+</div>-->
+{{/each}}
+{{#if model}}
+<!--<div class="container py-4">
+    <div class="row justify-content-center">
+        {{pagination-control currentPage=page pageCount=pageCount onChangePage="changePage"}}
+    </div>
+    <div class="row justify-content-center">
+        {{back-to-top}}
+    </div>
+</div>-->
+<div class="container py-4 footer-text">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 py-3 text-center text-lg font-oswald">
+            <p class="h2 font-weight-bold">We've been creative with our offers, so you can be creative with your kitchen.</p>
+            <p class="h3 my-4 font-weight-bold">Call us or pop into one of our nearest studios to find the best deal for you.</p>
+            <p class="h3 font-weight-bold">For further information, fill out the form below or Call us on: 0845 070 0022</p>
+        </div>
+
+        <div class="col-12 col-md-8 text-center text-right-md">
+            {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Get in touch{{/contact-form-button}}
+        </div>
+    </div>
+</div>
+    <!--We've been creative with our offers, so you can be creative with your kitchen.
+Call us or pop into one of our nearest studios to find the best deal for you.
+For further information, fill out the form below or Call us on: 0845 070 0022-->
+{{/if}}

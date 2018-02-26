@@ -942,3 +942,29 @@ $intro-bottom-hugger: rgba($black, .4);
         }
     }
 }
+.ex-display-sales {
+    .heading {
+        background-color: $sales-red;
+        h1 {
+            font-weight: bold;
+            font-size: 3.2rem;
+        }
+    }
+    .red-bottom {
+        -webkit-box-shadow: inset 0px -10px 0px 0px rgba(255,0,0,1);
+        -moz-box-shadow: inset 0px -10px 0px 0px rgba(255,0,0,1);
+        box-shadow: inset 0px -10px 0px 0px rgba(255,0,0,1);
+    }
+
+    .articles {
+        .sale-price {
+            color: $sales-red;
+        }
+    }
+    .footer-text {
+        .h2 {font-size: 1.6rem}
+        p {
+            text-transform: none;
+        }
+    }
+}
