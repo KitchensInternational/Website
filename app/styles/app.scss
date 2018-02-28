@@ -215,6 +215,9 @@ $sales-red: #ff0000;
             background-color: $sales-red;
             color: $white;
         }
+        &:focus {
+            box-shadow: none;
+        }
     }
 }
 
@@ -966,5 +969,11 @@ $intro-bottom-hugger: rgba($black, .4);
         p {
             text-transform: none;
         }
+    }
+}
+
+.ex-display-sale {
+    .sale-price {
+        color: $sales-red;
     }
 }

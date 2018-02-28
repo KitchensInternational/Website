@@ -4,22 +4,25 @@
         <hr>
     </div>
 </div>
-<div class="background-taupe">
-    <div class="container">
-        <div class="row pt-5 pb-5">
-            <div class="col text-center">
-                <p>{{#link-to 'ex-display-sales' class="btn btn-outline-primary btn-sm mb-2"}}Back to Ex-Display Sale{{/link-to}}</p>
-                {{markdown-to-html model.description}}
-            </div>
+<div class="container">
+    <div class="row pt-5 pb-5">
+        <div class="col text-center">
+            <p>{{#link-to 'ex-display-sales' class="btn btn-outline-primary btn-sm mb-2"}}Back to Ex-Display Sale{{/link-to}}</p>
+            {{markdown-to-html model.description}}
+            <h3 class="py-3">RRP: £{{ model.price }}</h3>
+            <h2 class="sale-price font-weight-bold">SALE: £{{ model.salePrice }}</h2>
         </div>
-        {{#each model.images as |image index| }}
-            <div class="row my-2">
-                <div class="col-sm-12">
-                    <div class="d-flex align-items-center img-background full-height img-tinted" style={{background-image image.file.url}}>
-                    </div>
+    </div>
+</div>
+<div class="background-taupe mb-5">
+    <div class="container-fluid">
+        <div class="row">
+            {{#each model.images as |image index| }}
+                <div class="col-12 col-sm-4 mb-5 mb-sm-0">
+                    <img src="{{image.file.url}}" class="img-fluid" />
                 </div>
-            </div>
-        {{/each}}
+                {{/each}}
+        </div>
     </div>
 </div>
 <!---->

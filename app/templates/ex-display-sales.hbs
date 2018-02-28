@@ -34,7 +34,7 @@
                     <p><hr class="hr-dark"></p>
                     <p>{{ article.subheading }}</p>
                     <h3 class="py-3">RRP: £{{ article.price }}</h3>
-                    <h2 class="sale-price font-weight-bold">SALE: £{{ article.price }}</h2>
+                    <h2 class="sale-price font-weight-bold">SALE: £{{ article.salePrice }}</h2>
                     {{#link-to 'ex-display-sale' article.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br>
                 </div>
             </div>
