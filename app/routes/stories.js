@@ -7,6 +7,9 @@ export default Ember.Route.extend({
         filter: { refreshModel: true },
         page: { refreshModel: true }
     },
+    titleToken: function(model) {
+        return model.content.get('titleText');
+    },
     model( queryParams ) {
         let apiParams = {
             order: '-fields.publicationDate',

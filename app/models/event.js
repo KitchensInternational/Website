@@ -5,6 +5,7 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Contentful.extend({
     title: attr('string'),
+    titleText: attr('string'),
     slug: attr('string'),
     eventDate: attr('date'),
     bookingDate: attr('date'),

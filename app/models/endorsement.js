@@ -5,7 +5,7 @@ import Ember from 'ember';
 
 export default Contentful.extend({
     name: attr('string'),
-
+    titleText: attr('string'),
     slug: Ember.computed('name', function () {
         return this.get('name').toLowerCase().replace(/ /, '-');
     }),

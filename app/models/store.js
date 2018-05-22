@@ -5,6 +5,7 @@ import Ember from 'ember';
 
 export default Contentful.extend({
     town: attr('string'),
+    titleText: attr('string'),
     name: attr('string'),
     slug: attr('string'),
     address: attr('string'),

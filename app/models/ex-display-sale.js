@@ -5,6 +5,7 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Contentful.extend({
     name: attr('string'),
+    titleText: attr('string'),
     slug: attr('string'),
     publicationDate: attr('date'),
     heading: attr('string'),

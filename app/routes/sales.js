@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    titleToken: function(model) {
+        return model.content.get('titleText');
+    },
     model() {
         return Ember.RSVP.hash({
             content: this.get('store').queryRecord('salesPage', { 'fields.slug': 'januarysale' }),
