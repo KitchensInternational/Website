@@ -22,6 +22,7 @@ export default Ember.Component.extend(formValidation, {
     address: '',
     message: '',
     selectedKitchens: Ember.A(),
+    receiveInfoVal: 'No',
     statusMessage: '',
     validationDanger: false,
     validate: {
@@ -87,6 +88,8 @@ export default Ember.Component.extend(formValidation, {
 
                 }
 
+                message += "Recieve information: " + this.get('receiveInfoVal') + "\n\n";
+
                 Email.send("info@kitchensinternational.co.uk",
                     this.get('contactEmail'),
                     "New contact form submission!",
@@ -114,6 +117,7 @@ export default Ember.Component.extend(formValidation, {
             this.set('address', '');
             this.set('message', '');
             this.set('selectedKitchens', Ember.A());
+            this.set('reveiveInfo', false);
             this.set('statusMessage', '');
             Ember.$('input[type="checkbox"]').attr('checked', false);
             this.$().parents('.modal').modal('hide');
@@ -122,6 +126,11 @@ export default Ember.Component.extend(formValidation, {
             let selectedKitchens = this.get('selectedKitchens');
             selectedKitchens.push( kitchenName );
             this.set('selectedKitchens', selectedKitchens);
+        },
+        receiveInfo(val) {
+            let receive = val ? 'Yes' : 'No';
+            this.set('receiveInfoVal', receive);
+            console.log(receive);
         },
         clickPhoneNumber() {
             ga('send', 'event', 'Click Phone Number', 'Main');
