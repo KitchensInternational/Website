@@ -112,7 +112,18 @@ footer {
     .kbsa-logo {
         width: 100%;
         max-width: 100px;
-        margin-bottom: $spacer * 3;
+        margin-bottom: $spacer;
+    }
+    .social-wrap {
+        span {
+            color: $white;
+            font-size: $font-size-sm;
+
+            @media (min-width: #{map-get($grid-breakpoints, xl)}) {
+                float: left;
+                margin-top: $spacer * 2;
+            }
+        }
     }
 }
 

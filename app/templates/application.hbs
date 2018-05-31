@@ -6,17 +6,20 @@
 
 <footer>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-sm-3 text-center-sm">
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-4 text-center-md">
                 {{#link-to 'home'}}<img class="footer-logo my-4" src="/assets/images/ki-logo-white-full.svg" alt="Kitchens International Logo">{{/link-to}}
             </div>
-            <div class="col-12 col-sm-9">
-                <div class="row">
-                    <div class="col-12 col-md-8 text-center text-right-md">
-                        {{#contact-form-button class="my-4" form-id="contact-form"}}Request a consultation{{/contact-form-button}}
-                    </div>
-                    <div class="col-12 col-md-4 text-right text-center-sm">
+            <div class="col-12 col-md-4 text-center">
+                {{#contact-form-button class="my-4" form-id="contact-form"}}Request a consultation{{/contact-form-button}}
+            </div>
+            <div class="col-12 col-md-4 my-4">
+                <div class="row d-flex align-items-center">
+                    <div class="social-wrap col-12 col-lg-8 text-right text-center-md pt-4">
+                        <span>Privacy policy</span>
                         {{social-icons class="my-4"}}
+                    </div>
+                    <div class="col-12 col-lg-4 text-center-md text-right pt-4">
                         <img class="kbsa-logo" src="/assets/images/KBSA_Logo_CMYK-01.png" alt="KBSA Logo">
                     </div>
                 </div>
