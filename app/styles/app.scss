@@ -112,17 +112,23 @@ footer {
     .kbsa-logo {
         width: 100%;
         max-width: 100px;
-        margin-bottom: $spacer;
+    }
+    .iq-logo {
+        width: 100%;
+        max-width: 60px;
+        margin-bottom: $spacer * 2;
     }
     .social-wrap {
         span {
             color: $white;
             font-size: $font-size-sm;
+            margin-top: $spacer * 2;
+            float: left;
 
-            @media (min-width: #{map-get($grid-breakpoints, xl)}) {
+/*            @media (min-width: #{map-get($grid-breakpoints, md)}) {
                 float: left;
                 margin-top: $spacer * 2;
-            }
+            }*/
         }
     }
 }

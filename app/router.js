@@ -27,6 +27,7 @@ Router.map(function() {
   this.route('commercial', { path: 'commercial/:slug' });
   this.route('endorsements');
   this.route('contact');
+  this.route('privacy-policy');
 });
 
 export default Router;
