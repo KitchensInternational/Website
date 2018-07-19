@@ -20,5 +20,8 @@ export default Contentful.extend({
             return featuredImage;
         }
         return '/assets/images/default-featured-image.jpg';
-    })
+    }),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });

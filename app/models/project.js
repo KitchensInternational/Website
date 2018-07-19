@@ -16,4 +16,7 @@ export default Contentful.extend({
     install: attr('string'),
     signOff: attr('string'),
     commercialProject: attr('boolean'),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });

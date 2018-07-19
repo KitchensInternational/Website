@@ -22,4 +22,7 @@ export default Contentful.extend({
     salePrice: attr('string'),
     images: hasMany('contentful-asset'),
     description: attr('string'),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });

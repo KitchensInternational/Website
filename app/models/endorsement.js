@@ -33,6 +33,9 @@ export default Contentful.extend({
             }
         }
         return count > 4 ? true : false;
-    })
+    }),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 
 });

@@ -10,5 +10,8 @@ export default Contentful.extend({
     heading: attr('string'),
     subHeading: attr('string'),
     introduction: attr('string'),
-    featuredImage: belongsTo('contentful-asset')
+    featuredImage: belongsTo('contentful-asset'),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });

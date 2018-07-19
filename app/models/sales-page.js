@@ -26,5 +26,8 @@ export default Contentful.extend({
     textBottomHeading: attr('string'),
     textBottomContent: attr('string'),
     textBottomActionTitle: attr('string'),
-    textBottomActionLink: attr('string')
+    textBottomActionLink: attr('string'),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });

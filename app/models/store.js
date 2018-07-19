@@ -22,5 +22,8 @@ export default Contentful.extend({
     }),
     description: attr('string'),
     featuredImage: belongsTo('contentful-asset'),
-    images: hasMany('contentful-asset')
+    images: hasMany('contentful-asset'),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });

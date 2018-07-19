@@ -16,5 +16,8 @@ export default Contentful.extend({
     appliancePackContent3: attr('string'),
     appliancePackContent4: attr('string'),
     appliancePackContent5: attr('string'),
-    saleInfo: attr('string')
+    saleInfo: attr('string'),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });

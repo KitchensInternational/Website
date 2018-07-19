@@ -11,5 +11,8 @@ export default Contentful.extend({
     introduction: attr('string'),
     images: hasMany('contentful-asset'),
     brochure: belongsTo('contentful-asset'),
-    order: attr('number')
+    order: attr('number'),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });

@@ -43,4 +43,7 @@ export default Contentful.extend({
     eventsSubtitle: attr('string'),
     eventsCallToAction: attr('string'),
     eventsIntroduction: attr('string'),
+    metaTitle: attr('string'),
+    metaDescription: attr('string'),
+    metaImage: belongsTo('contentful-asset')
 });
