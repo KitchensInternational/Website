@@ -1,6 +1,6 @@
 @import 'bootstrap';
 @import 'lightbox';
-
+$bronze: #d7ad90;
 // layout
 
 .container-fluid {
@@ -556,7 +556,7 @@ $social-icon-size-lg: 40px;
         /*background: #f35429;*/
         box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
     }
-  
+
     // Box focus
     &:focus + label:before {
         box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
@@ -567,7 +567,7 @@ $social-icon-size-lg: 40px;
         /*background: #f35429;*/
         background: #ffffff;
     }
-  
+
     // Disabled state label.
     &:disabled + label {
         color: #b8b8b8;
@@ -589,7 +589,7 @@ $social-icon-size-lg: 40px;
         background: #666;
         width: 2px;
         height: 2px;
-        box-shadow: 
+        box-shadow:
             2px 0 0 #666,
             4px 0 0 #666,
             4px -2px 0 #666,
@@ -948,97 +948,104 @@ $intro-bottom-hugger: rgba($black, .4);
     }
 }
 
-.sales {
-    h1, h2 {font-weight: 700;}
-    .oswald-dark, .font-oswald p {
-        font-family: "oswaldextralight", Helvetica, Arial, sans-serif;
-        color: #3e3d3d;
-        font-weight: 600;
-    }
+// .sales {
+//     h1, h2 {font-weight: 700;}
+//     .oswald-dark, .font-oswald p {
+//         font-family: "oswaldextralight", Helvetica, Arial, sans-serif;
+//         color: #3e3d3d;
+//         font-weight: 600;
+//     }
 
-    .lts {
-        letter-spacing: 1.2px;
-    }
+//     .lts {
+//         letter-spacing: 1.2px;
+//     }
 
-    .red-span {
-        span {
-            color: $sales-red;
-        }
-    }
+//     .red-span {
+//         span {
+//             color: $sales-red;
+//         }
+//     }
 
-    .carousel-item {
-        &.active {
-            display: block;
-        }
-    }
+//     .carousel-item {
+//         &.active {
+//             display: block;
+//         }
+//     }
 
-    .carousel-item-next,
-    .carousel-item-prev {
-        display: block;
-    }
+//     .carousel-item-next,
+//     .carousel-item-prev {
+//         display: block;
+//     }
 
-    .carousel-sales {
-        .card-img-top {
-            min-width: auto;
-            width: 100%;
-            //min-height: 450px;
+//     .carousel-sales {
+//         .card-img-top {
+//             min-width: auto;
+//             width: 100%;
+//             //min-height: 450px;
 
-            //@media (max-width: #{map-get($grid-breakpoints, sm)}) {
-                //min-height: auto;
-            //}
-        }
-    }
+//             //@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+//                 //min-height: auto;
+//             //}
+//         }
+//     }
 
-    .heading {
-        display: none;
-    }
+//     .heading {
+//         display: none;
+//     }
 
-    .end-text {
-        line-height: 3rem;
-    }
-    .sub-heading-bckg {
-        background: $sales-red;
-    }
-    .background-taupe.dark-inset {
-        background: $black;
-        opacity: .6;
-        position: relative;
-        top: 43%;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-    }
+//     .end-text {
+//         line-height: 3rem;
+//     }
+//     .sub-heading-bckg {
+//         background: $sales-red;
+//     }
+//     .background-taupe.dark-inset {
+//         background: $black;
+//         opacity: .6;
+//         position: relative;
+//         top: 43%;
+//         left: 0;
+//         bottom: 0;
+//         width: 100%;
+//     }
 
-    .sub-heading {
-        p {
-            font-size: 36px;
-            font-weight: bold;
-            font-family: $headings-font-family;
-            color: $white;
-        }
-    }
+//     .sub-heading {
+//         p {
+//             font-size: 36px;
+//             font-weight: bold;
+//             font-family: $headings-font-family;
+//             color: $white;
+//         }
+//     }
 
-    .img-background {
-        &.full-height {
-            min-height: 600px;
-        }
-    }
+//     .img-background {
+//         &.full-height {
+//             min-height: 600px;
+//         }
+//     }
 
-    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
-        .col {
-            flex-basis: initial;
-        }
-    }
+//     @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+//         .col {
+//             flex-basis: initial;
+//         }
+//     }
 
-    p {
+//     p {
+//         img {
+//             max-width: 100%;
+//             max-height: 300px;
+//         }
+//     }
+// }
+.ex-display-sales {
+    .appliance-pack {
         img {
             max-width: 100%;
-            max-height: 300px;
+            width: 100%;
         }
     }
-}
-.ex-display-sales {
     .heading {
+        border-top: 10px solid rgba(255,0,0,1);;
         background-color: $sales-red;
         h1 {
             font-weight: bold;
@@ -1063,9 +1070,100 @@ $intro-bottom-hugger: rgba($black, .4);
         }
     }
 }
+.ex-display-sales {
+    .red-span {
+        span {
+            color: $sales-red;
+        }
+    }
+    .title {
+        font-size: 1.6rem;
+        span {
+            color: $sales-red;
+        }
+    }
+    p {
+        font-size: 1rem;
+    }
+}
+
+.ex-display-sales .background-taupe.dark-inset {
+    background: #000;
+    opacity: .6;
+    position: relative;
+    top: 43%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
 
 .ex-display-sale {
     .sale-price {
         color: $sales-red;
     }
+}
+
+.bronze-bottom {
+    border-bottom: 8px solid $bronze;
+}
+
+
+.sales {
+    .appliance-pack {
+        img {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+    .heading {
+        border-top: 10px solid rgba(255,0,0,1);;
+        background-color: $bronze;
+        h1 {
+            font-weight: bold;
+            font-size: 3.2rem;
+        }
+    }
+    .red-bottom {
+        -webkit-box-shadow: inset 0px -10px 0px 0px rgba(255,0,0,1);
+        -moz-box-shadow: inset 0px -10px 0px 0px rgba(255,0,0,1);
+        box-shadow: inset 0px -10px 0px 0px rgba(255,0,0,1);
+    }
+
+    .articles {
+        .sale-price {
+            color: $bronze
+        }
+    }
+    .footer-text {
+        .h2 {font-size: 1.6rem}
+        p {
+            text-transform: none;
+        }
+    }
+}
+.ex-display-sales {
+    .red-span {
+        span {
+            color: $bronze
+        }
+    }
+    .title {
+        font-size: 1.6rem;
+        span {
+            color: $bronze
+        }
+    }
+    p {
+        font-size: 1rem;
+    }
+}
+
+.ex-display-sales .background-taupe.dark-inset {
+    background: #000;
+    opacity: .6;
+    position: relative;
+    top: 43%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
