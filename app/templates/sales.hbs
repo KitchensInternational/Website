@@ -1,138 +1,93 @@
-<!-- <div class="introduction" style={{background-image model.content.featuredImage.file.url}}>
-    <div class="heading">
+<div class="ex-display-sales">
+
+<div class="introduction" style={{background-image model.content.featuredImage.file.url}}>
+</div>
+<div class="background-taupe heading-bckg">
+    <div class="col py-3 heading">
         {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
-        <hr>
     </div>
 </div>
-<div class="background-taupe sub-heading-bckg">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col py-3 sub-heading">
-                {{markdown-to-html model.content.heading}}
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
-            {{markdown-to-html model.content.introduction class="text-center oswald-dark lts"}}
+        <div class="col col-sm-10 py-5 my-3 text-center">
+            {{model.content.introSubHeading}}
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="row">
+
+
+{{#each featuredSalesOrdered as |feature index|}}
+<div class="mb-3 special-discount">
+    <div class="container">
+         <div class="row">
         <div class="col-sm-12">
-            <div class="card mb-5">
-                {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-sales"}}
-                <div class="background-taupe sub-heading-bckg">
-                    <div class="row">
-                        <div class="col py-1">
-                        </div>
-                    </div>
-                </div>
-                <div class="card-block d-flex justify-content-center">
-                    <div class="col col-sm-12 text-center text-lg py-3">
-                        {{markdown-to-html model.content.splashContent class="card-text red-span font-oswald"}}
-                        {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}{{model.content.splashActionTitle}}{{/contact-form-button}}
-                    </div>
-                </div>
+            <div  class="bronze-bottom  d-flex align-items-center img-background full-height img-tinted bronze-bottom" style={{background-image feature.featuredSaleImage.file.url}}>
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="d-flex align-items-center img-background full-height img-tinted" style={{background-image model.content.featuredSaleImage.file.url}}>
-            </div>
-        </div>
-    </div>
-    <div class="background-taupe sub-heading-bckg">
-        <div class="row">
-            <div class="col py-1">
-            </div>
-        </div>
-    </div>
-    <div class="background-taupe oswald-dark mb-5">
+    <div class="background-taupe oswald-dark mb-5 red-span">
+        <h3 class="text-center title pt-4 pb-2">{{{ feature.featuredSaleTitle}}}</h3>
+        <p class="text-center mb-0"><hr class="hr-dark"></p>
         <div class="row justify-content-center">
             <div class="col col-sm-12 my-3 text-center text-lg">
-                {{markdown-to-html model.content.featuredSaleContent class="card-text font-oswald red-span mt-3"}}
+                {{markdown-to-html feature.featuredSaleContent}}
                 {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Request design consultation{{/contact-form-button}}
             </div>
         </div>
     </div>
-    <div class="row">
-    {{#each sortedSales as |sale index|}}
-        {{#if (or (eq index 0) (eq index 1)) }}
-            <div class="col-6 col-sm-6 mb-4">
-                <div class="d-flex align-items-center img-background img-tinted" style={{background-image sale.featuredImage.file.url}}>
-                    <div class="background-taupe dark-inset">
-                        <div class="py-2 text-center">
-                            <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="background-taupe sub-heading-bckg">
-                    <div class="row">
-                        <div class="col py-1">
-                        </div>
-                    </div>
+    </div>
+</div>
+{{/each}}
+
+
+
+{{#each model.articles as |article index|}}
+<div class="mb-3 articles">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col d-flex">
+            {{#unless (odd index)}}
+            <div class="col-6 hidden-xs-down img-background auto-height" style={{background-image article.featuredImageProxy}}></div>
+            {{/unless}}
+            <div class="col-12 col-sm-6 bronze-bottom background-taupe text-center">
+                <div class="p-5">
+                    <h1>{{ article.heading }}</h1>
+                    <p><hr class="hr-dark"></p>
+                    <p>{{ article.subheading }}</p>
+                    <h3 class="pt-2 pb-1">RRP: £{{ article.price }}</h3>
+                    <h2 class="sale-price font-weight-bold">SALE: £{{ article.salePrice }}</h2>
+                    {{#link-to 'ex-display-sale' article.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br>
                 </div>
             </div>
-        {{/if}}
-    {{/each}}
-    </div>
-    <div class="row">
-    {{#each sortedSales as |sale index|}}
-        {{#if (or (eq index 0) (eq index 1)) }}
-            <div id="collapseSale{{sale.id}}" class="container-fluid collapse {{sale.slug}} mt-5">
-                <h1>{{sale.name}}</h1>
-                <hr>
-                <div class="row mb-5">
-                    {{#if sale.appliancePackContent1}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent1 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.appliancePackContent2}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent2 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.appliancePackContent3}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent3 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.appliancePackContent4}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent4 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.appliancePackContent5}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent5 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.saleInfo}}
-                        <div class="col-12 background-taupe mt-3 mb-5">
-                            <div class="col py-2 text-center">
-                                <h1>{{sale.name}}:</h1>
-                                {{markdown-to-html sale.saleInfo class="d-flex flex-column oswald-dark red-span"}}
-                            </div>
-                        </div>
-                    {{/if}}
-                </div>
+            {{#if (odd index)}}
+            <div {{action 'goToArticle' article.slug}} class="col-6 hidden-xs-down img-background auto-height" style={{background-image article.featuredImageProxy}}></div>
+            {{/if}}
             </div>
-        {{/if}}
-    {{/each}}
+        </div>
     </div>
+</div>
+{{else}}
+{{/each}}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col col-sm-12 ">
+            <div class="background-taupe py-5 my-3 text-center">
+                <h3 class="title red-span">{{{model.content.subHeadingTitle}}}</h3>
+                {{markdown-to-html model.content.introduction}}
+                {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Request design consultation{{/contact-form-button}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
     <div class="row">
-    {{#each sortedSales as |sale index|}}
+    {{#each model.sales as |sale index|}}
         {{#if (or (eq index 2) (eq index 3)) }}
             <div class="col-6 col-sm-6">
-                <div class="d-flex align-items-center img-background img-tinted" style={{background-image sale.featuredImage.file.url}}>
+                <div class="d-flex align-items-center img-background img-tinted bronze-bottom" style={{background-image sale.featuredImage.file.url}}>
                     <div class="background-taupe dark-inset">
                         <div class="py-2 text-center">
                             <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
@@ -141,71 +96,74 @@
                 </div>
                 <div class="background-taupe sub-heading-bckg">
                     <div class="row">
-                        <div class="col py-1">
-                        </div>
                     </div>
                 </div>
             </div>
         {{/if}}
     {{/each}}
     </div>
-    <div class="row">
-    {{#each sortedSales as |sale index|}}
-        {{#if (or (eq index 2) (eq index 3)) }}
-            <div id="collapseSale{{sale.id}}" class="container-fluid collapse {{sale.slug}} mt-5">
-                <h1>{{sale.name}}</h1>
-                <hr>
-                <div class="row mb-5">
-                    {{#if sale.appliancePackContent1}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent1 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.appliancePackContent2}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent2 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.appliancePackContent3}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent3 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.appliancePackContent4}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent4 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.appliancePackContent5}}
-                        <div class="col">
-                            {{markdown-to-html sale.appliancePackContent5 class="d-flex flex-column oswald-dark text-center"}}
-                        </div>
-                    {{/if}}
-                    {{#if sale.saleInfo}}
-                        <div class="col-12 background-taupe mt-3 mb-5">
-                            <div class="col py-2 text-center">
-                                <h1>{{sale.name}}:</h1>
-                                {{markdown-to-html sale.saleInfo class="d-flex flex-column oswald-dark red-span"}}
-                            </div>
-                        </div>
-                    {{/if}}
-                </div>
-            </div>
-        {{/if}}
-    {{/each}}
-    </div>
+</div>
 
-    <div class="background-taupe oswald-dark mb-5">
+<div class="container">
+    <div class="row">
+        {{#each model.sales as |sale index|}}
+            {{#if (or (eq index 2) (eq index 3)) }}
+
+                <div id="collapseSale{{sale.id}}" class="container-fluid collapse {{sale.slug}} mt-5">
+                    <h1>{{sale.name}}</h1>
+                    <hr>
+                    <div class="row mb-5">
+                        {{#if sale.appliancePackContent1}}
+                            <div class="col">
+                                {{markdown-to-html sale.appliancePackContent1 class="d-flex flex-column oswald-dark text-center"}}
+                            </div>
+                        {{/if}}
+                        {{#if sale.appliancePackContent2}}
+                            <div class="col">
+                                {{markdown-to-html sale.appliancePackContent2 class="d-flex flex-column oswald-dark text-center"}}
+                            </div>
+                        {{/if}}
+                        {{#if sale.appliancePackContent3}}
+                            <div class="col">
+                                {{markdown-to-html sale.appliancePackContent3 class="d-flex flex-column oswald-dark text-center"}}
+                            </div>
+                        {{/if}}
+                        {{#if sale.appliancePackContent4}}
+                            <div class="col">
+                                {{markdown-to-html sale.appliancePackContent4 class="d-flex flex-column oswald-dark text-center"}}
+                            </div>
+                        {{/if}}
+                        {{#if sale.appliancePackContent5}}
+                            <div class="col">
+                                {{markdown-to-html sale.appliancePackContent5 class="d-flex flex-column oswald-dark text-center"}}
+                            </div>
+                        {{/if}}
+                        {{#if sale.saleInfo}}
+                            <div class="col-12 background-taupe mt-3 mb-5">
+                                <div class="col py-2 text-center">
+                                    <h1>{{sale.name}}:</h1>
+                                    {{markdown-to-html sale.saleInfo class="d-flex flex-column oswald-dark red-span"}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/if}}
+        {{/each}}
+    </div>
+</div>
+<div class="container">
+<div class="background-taupe oswald-dark mb-5">
         <div class="row justify-content-center">
-            <div class="col col-sm-12 my-3 text-center text-lg">
-                {{markdown-to-html model.content.appliancePackContent class="card-text font-oswald red-span mt-3"}}
+            <div class="col my-3 text-center text-lg">
+                {{markdown-to-html model.sale.appliancePackContent class="card-text font-oswald red-span mt-3"}}
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
-            <div class="d-flex align-items-center img-background full-height img-tinted" style={{background-image model.content.featuredSaleImageTwo.file.url}}>
+            <div class="d-flex align-items-center img-background full-height img-tinted bronze-bottom" style={{background-image model.sale.featuredSaleImageTwo.file.url}}>
             </div>
         </div>
     </div>
@@ -218,22 +176,18 @@
     <div class="background-taupe oswald-dark mb-5">
         <div class="row justify-content-center">
             <div class="col col-sm-12 my-3 text-center text-lg">
-                {{markdown-to-html model.content.featuredSaleContentTwo class="card-text font-oswald red-span mt-3"}}
-                {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Request design consultation{{/contact-form-button}}
+                {{markdown-to-html model.sale.featuredSaleContentTwo class="card-text font-oswald red-span mt-3"}}
+                {{!-- {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Request design consultation{{/contact-form-button}} --}}
             </div>
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div class="oswald-dark col col-sm-12 py-5 my-3 text-center text-lg end-text">
-            <h2>{{ markdown-to-html model.content.textBottomHeading }}</h2>
-            {{markdown-to-html model.content.textBottomContent class="card-text font-oswald mt-3"}}
+            <h2>{{ markdown-to-html model.sale.textBottomHeading }}</h2>
+            {{markdown-to-html model.sale.textBottomContent class="card-text font-oswald mt-3"}}
             {{#contact-form-button form-id="contact-form" white-text=false class="my-3"}}Get in touch{{/contact-form-button}}
         </div>
     </div>
-
-    <script>
-
-    </script>
 </div>
- -->
+</div>

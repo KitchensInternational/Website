@@ -19,7 +19,7 @@ Router.map(function() {
   this.route('project', { path: 'projects/:slug' });
   this.route('kitchens', { path: 'kitchens' });
   this.route('kitchen', { path: 'kitchens/:slug' });
-  this.route('sales', { path: 'januarysale' });
+  this.route('sales', { path: 'summer-sale' });
   this.route('sale', { path: 'januarysale/:slug' });
   this.route('ex-display-sales', { path: 'ex-display-sale' });
   this.route('ex-display-sale', { path: 'ex-display-sale/:slug' });
