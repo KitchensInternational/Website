@@ -1,0 +1,121 @@
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
+    <div class="heading">
+        {{#heading-after-scroll class="mb-0 font-weight-medium"}}{{model.name}}{{/heading-after-scroll}}
+        <hr>
+    </div>
+</div>
+{{!-- BRIEF START --}}
+<div class="container">
+    <div class="row justify-content-center pt-5 pb-4">
+        <div class="col-12 col-sm-11 text-center light-font">
+            {{markdown-to-html model.introText}}
+            <h4 class="text-center light-font">{{markdown-to-html model.briefHeadline}}</h4>
+            <p>{{markdown-to-html model.brief}}</p>
+        </div>
+    </div>
+</div>
+{{!-- BRIEF END --}}
+
+{{!-- SOLUTION START --}}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="d-flex align-items-center img-background full-height" style={{background-image model.solutionImage.file.url}}></div>
+        </div>
+    </div>
+    {{#if model.solutionHeadline}}
+    <div class="background-taupe solution sub-heading-bckg">
+        <div class="row">
+            <div class="col-md-10 py-1 offset-md-1 mt-2 text-center mt-3 mb-3">
+                <h4 class="text-center mt-2 light-font p-2">{{markdown-to-html model.solutionHeadline}}</h4>
+                <p class="p-2 light-font">{{markdown-to-html model.solutionText}}</p>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</div>
+{{!-- SOLUTION END --}}
+
+{{!-- QUOTE START --}}
+{{#if model.quote1Content}}
+<div class="container mt-5">
+    <div class="background-taupe quote">
+        <div class="row h-100">
+            <div class='col-12 col-md-6'>
+                <div class="img-background clickable" style={{background-image model.quote1Image.file.url}}></div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="p-3 light-font text-center middle-container">
+                    {{!-- <h3>{{event.title}}</h3> --}}
+                    {{markdown-to-html model.quote1Content class="article-snippet"}}
+                    {{!-- {{#link-to 'event' event.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{!-- QUOTE END --}}
+<div class="mb-5">
+    <section class="container">
+        <div class="row">
+        {{#each topTwoImages as |image|}}
+            <div class="col-12 col-sm-6 mt-5">
+                {{!-- <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}"> --}}
+                <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
+            </div>
+        {{/each}}
+        </div>
+        <div class="row">
+            {{#each middleImages as |image|}}
+            <div class="col-12 col-md-12 mt-5">
+                <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
+                {{!-- <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}"> --}}
+            </div>
+            {{/each}}
+        </div>
+        <div class="row">
+        {{#each downTwoImage as |image|}}
+            <div class="col-12 col-sm-6 mt-5">
+                {{!-- <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}"> --}}
+                <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
+            </div>
+        {{/each}}
+        </div>
+    </section>
+</div>
+
+
+{{!-- QUOTE 2 START --}}
+{{#if model.quote2Content}}
+<div class="container mt-5">
+    <div class="background-taupe quote">
+        <div class="row h-100">
+            <div class='col-12 col-md-6'>
+                <div class="img-background clickable" style={{background-image model.quote2Image.file.url}}></div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="p-3 light-font text-center middle-container">
+                    {{!-- <h3>{{event.title}}</h3> --}}
+                    {{markdown-to-html model.quote2Content class="article-snippet"}}
+                    {{!-- {{#link-to 'event' event.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{!-- QUOTE END --}}
+
+
+<div class="container mb-5 mt-5">
+    <div class="row {{if model.signOff 'mt-5'}}">
+        <div class="col text-center">
+            {{!-- {{#contact-form-button class="my-4 btn btn-outline-primary my-4 button-on-gray" form-id="contact-form"}}GET IN TOUCH{{/contact-form-button}} --}}
+            {{#link-to parentRoute class="btn btn-outline-primary"}}Back to all commercial interiors{{/link-to}}
+        </div>
+    </div>
+</div>
+{{!-- {{contact-form-modal id="contact-form"}} --}}

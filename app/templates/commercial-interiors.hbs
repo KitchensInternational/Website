@@ -1,0 +1,62 @@
+<div class="introduction text-white text-center">
+    <div class="call-to-action-area">
+        {{#fade-in-images}}
+            <img src="/assets/images/commercial-interiors.png" alt="Kitchens Interiors - The Art of the Interiors">
+            <h1>The Art of Interiors</h1>
+        {{/fade-in-images}}
+
+        <div onclick={{action "scrollDown"}}>
+            <a onclick={{action "scrollDown"}} href="#" class="btn btn-outline-secondary my-4">{{model.content.callToAction}}
+            </a>
+            <br/>
+            {{fa-icon  "chevron-down" size="lg"}}
+        </div>
+        
+    </div>
+</div>
+<div class="container home-container">
+    <div class="card mb-5">
+        {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-home"}}
+        <div class="card-block d-flex justify-content-center">
+            <div class="col col-sm-10 text-center py-3">
+                <h3 class="card-title font-weight-bold mb-0">{{model.content.splashHeading}}</h3>
+                <hr>
+                {{markdown-to-html model.content.splashContent class="card-text"}}
+                {{#contact-form-button class="btn btn-outline-primary my-4 button-on-gray" form-id="contact-form"}}{{model.content.splashActionTitle}}{{/contact-form-button}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        {{#each model.commercialInteriors as |interior|}}
+            <div class="col-12 col-md-12 commercial-interior-component">
+                <div class="d-flex align-items-center img-background img-tinted mb-4" style={{background-image interior.featuredImage.file.url}}>
+                    <div class="col text-center">
+                        {{#link-to 'commercial-interior' interior.slug class="btn btn-outline-secondary"}}{{interior.slug}}{{/link-to}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="container mb-5 btn-wrapper pb-3 pt-3">
+    <div class="row {{if model.signOff 'mt-5'}}">
+        <div class="col text-center">
+            {{#contact-form-button class="btn btn-outline-primary" form-id="contact-form"}}Get in touch{{/contact-form-button}}
+            {{!-- {{#link-to parentRoute class="btn btn-outline-primary"}}Back to all case studies{{/link-to}} --}}
+        </div>
+    </div>
+</div>
+
+
+{{!-- 
+<section class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
+            {{markdown-to-html model.content.introduction}}
+        </div>
+    </div>
+</section>
+ --}}

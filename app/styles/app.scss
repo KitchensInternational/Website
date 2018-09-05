@@ -1,5 +1,31 @@
 @import 'bootstrap';
 @import 'lightbox';
+
+
+@font-face {
+    font-family: 'oswaldlight';
+    src: url('/fonts/oswald-light-webfont.woff2') format('woff2'),
+    url('/fonts/oswald-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'oswaldmedium';
+    src: url('/fonts/oswald-medium-webfont.woff2') format('woff2'),
+    url('/fonts/oswald-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.medium-font{
+    font-family: 'oswaldmedium';
+}
+
+.light-font{
+    font-family: 'oswaldlight';
+}
+
 $bronze: #d7ad90;
 // layout
 
@@ -498,6 +524,10 @@ $social-icon-size-lg: 40px;
     .close {
         display: none;
     }
+}
+
+.body{
+    font-size: 1.1rem;
 }
 
 .contact-form {
@@ -1166,4 +1196,177 @@ $intro-bottom-hugger: rgba($black, .4);
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+.home-container {
+    margin-top: 5rem;
+}
+.font-weight-bold {
+    font-family: 'oswaldextrabold', Helvetica, Arial, sans-serif;
+}
+.font-weight-medium {
+    font-family: 'oswaldmedium', Helvetica, Arial, sans-serif;
+
+}
+.button-on-gray {
+    color: #666;
+    background-image: none;
+    background-color: transparent;
+    border-color: #666;
+    &:hover {
+        color: #fff;
+        background-color: #666;
+        border-color: #666;
+    }
+}
+
+
+.commercial-interior{
+
+    .img-background{
+        height: 100%;
+    }
+
+    p{
+        color: #333;
+    }
+
+    .background-taupe{
+        background-color: #e8e8dc;
+    }
+
+    .heading h1{
+        font-family: 'oswaldlight'!important;
+        font-weight: bold;
+    }
+
+    .quote{
+        @media (min-width: #{map-get($grid-breakpoints, sm)}) {
+            height: 400px;
+        }
+
+        .img-background{
+            @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+                height: 300px;
+            }
+        }
+    }
+
+    .img-background.full-height{
+        min-height: 400px;
+    }
+}
+
+.middle-container{
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+    height: 100%;
+}
+
+.commercial-interiors{
+    color: #333;
+
+    .introduction{
+        background-image: url("/assets/images/interiors-header.jpg"); // default - overriden in templates
+    }
+
+    .card{
+        background-color: #e8e8dc;
+        border-color: #e8e8dc;
+    }
+
+
+    // .btn-wrapper{
+    .btn-outline-primary, .button-on-gray {
+        color: #333;
+        background-image: none;
+        background-color: transparent;
+        border-color: #333;
+        font-weight: 500;
+        padding: 0.5rem 1.7rem;
+
+        &:hover{
+            background: #333;
+            color: #fff;
+        }
+    }
+    // }
+
+    .introduction {
+        height: 700px;
+        height: 100vh;
+        position: relative;
+
+        .call-to-action-area {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-top: 25%;
+            padding-top: 25vh;
+
+            .fade-in-images {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 30%;
+                height: 30vh;
+
+                h1 {
+                    width: 100%;
+                    font-size: 4rem;
+                }
+
+                img {
+                    width: 80%;
+                    max-width: 520px;
+                }
+
+                h1, img {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .home-container{
+        font-family: 'oswaldlight';
+
+        h3{
+            font-family: 'oswaldextralight';
+        }
+
+        button{
+            font-family: 'oswaldlight';
+        }
+    }
+
+    .commercial-interior-component{
+        font-family: 'oswaldlight';
+
+        .img-background{
+            height: 400px;
+        }
+    }
+
+
+    .carousel-item {
+        &.active {
+            display: block;
+        }
+    }
+
+    .carousel-item-next,
+    .carousel-item-prev {
+        display: block;
+    }
+
+    .carousel-home {
+        .card-img-top {
+            min-width: auto;
+            width: 100%;
+        }
+    }
 }
