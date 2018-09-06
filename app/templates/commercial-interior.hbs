@@ -58,7 +58,7 @@
 
 {{!-- QUOTE END --}}
 
-<div class="mb-new">
+{{!-- <div class="mb-new"> --}}
     <section class="container">
         <div class="row">
         {{#each topTwoImages as |image|}}
@@ -68,45 +68,55 @@
             </div>
         {{/each}}
         </div>
-    
-        {{!-- QUOTE 2 START --}}
-        <div class="container mt-new">
-            <div class="background-taupe quote">
-                <div class="row h-100">
-                    <div class='col-12 col-md-6'>
-                        <div class="img-background clickable" style={{background-image model.quote2Image.file.url}}></div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="p-3 light-font text-center middle-container">
-                            {{!-- <h3>{{event.title}}</h3> --}}
-                            {{markdown-to-html model.quote2Content class="article-snippet"}}
-                            {{!-- {{#link-to 'event' event.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br> --}}
-                        </div>
-                    </div>
+    </section>
+{{!-- </div> --}}
+
+{{!-- QUOTE 2 START --}}
+{{#if model.quote2Content}}
+<div class="container mt-new">
+    <div class="background-taupe quote">
+        <div class="row h-100">
+            <div class='col-12 col-md-6'>
+                <div class="img-background clickable" style={{background-image model.quote2Image.file.url}}></div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="p-3 light-font text-center middle-container">
+                    {{!-- <h3>{{event.title}}</h3> --}}
+                    {{markdown-to-html model.quote2Content class="article-snippet"}}
+                    {{!-- {{#link-to 'event' event.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br> --}}
                 </div>
             </div>
         </div>
-        {{!-- QUOTE 2 END --}}
-
-        <div class="row">
-            {{#each middleImages as |image|}}
-            <div class="col-12 col-md-12 mt-new">
-                <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
-                {{!-- <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}"> --}}
-            </div>
-            {{/each}}
-        </div>
-        <div class="row">
-        {{#each downTwoImage as |image|}}
-            <div class="col-12 col-sm-6 mt-new">
-                <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
-            </div>
-        {{/each}}
-        </div>
-    </section>
+    </div>
 </div>
+{{/if}}
+
+<section class="container">
+    <div class="row">
+        {{#each middleImages as |image|}}
+        <div class="col-12 col-md-12 mt-new">
+            <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
+            {{!-- <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}"> --}}
+        </div>
+        {{/each}}
+    </div>
+</section>
 
 
+<section class="container">
+    <div class="row">
+    {{#each downTwoImage as |image|}}
+        <div class="col-12 col-sm-6 mt-new">
+            <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
+        </div>
+    {{/each}}
+    </div>
+</section>
+
+
+
+
+{{!-- QUOTE END --}}
 
 
 <div class="container mb-5 mt-5">
