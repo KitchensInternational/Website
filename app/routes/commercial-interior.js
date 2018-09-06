@@ -10,6 +10,7 @@ export default Ember.Route.extend({
     },
     setupController( controller, model ) {
         this._super(controller, model);
+        // controller.set('parentRoute', 'commercial-interiors#' + model.get('slug'));
         controller.set('parentRoute', 'commercial-interiors');
     },
     headData: Ember.inject.service(),

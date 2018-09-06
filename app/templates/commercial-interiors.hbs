@@ -30,7 +30,7 @@
 <div class="container">
     <div class="row">
         {{#each model.commercialInteriors as |interior|}}
-            <div class="col-12 col-md-12 commercial-interior-component">
+            <div id='{{interior.slug}}' class="col-12 col-md-12 commercial-interior-component">
                 <div class="d-flex align-items-center img-background img-tinted mb-4" style={{background-image interior.featuredImage.file.url}}>
                     <div class="col text-center">
                         {{#link-to 'commercial-interior' interior.slug class="btn btn-outline-secondary"}}{{interior.slug}}{{/link-to}}

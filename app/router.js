@@ -24,16 +24,20 @@ Router.map(function() {
   this.route('ex-display-sales', { path: 'ex-display-sale' });
   this.route('ex-display-sale', { path: 'ex-display-sale/:slug' });
 
-  
+
   this.route('commercials', { path: 'contracts' });
   this.route('commercial', { path: 'contracts/:slug' });
 
   this.route('commercial-interiors', { path: 'commercial-interiors' });
+  this.route('commercial-interiors', { path: 'commercial-interiors#*wildcard' });
+
   this.route('commercial-interior', { path: 'commercial-interiors/:slug' });
 
   this.route('endorsements');
   this.route('contact');
   this.route('privacy-policy');
 });
+
+console.log("ROUTER", Router);
 
 export default Router;
