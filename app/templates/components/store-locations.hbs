@@ -1,4 +1,5 @@
-<div class="container">
+{{!-- {{#if (eq displaySpecific false) }} --}}
+<div class="container hide-cities">
     <div class="row">
         <div class="col">
             <div class="store-hard-rule">
@@ -8,23 +9,24 @@
     </div>
     <div class="row mb-4">
         {{#each stores as |store index|}}
-        <div class="col-6 col-sm-4 col-md">
-            <div {{action "selectStore" index}} class="py-2 text-center-sm select-store">
-                <h5 class="store-title">{{store.town}}<br>
-                    {{#if store.name}}<small>({{store.name}})</small>{{/if}}
-                </h5>
-                <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
-            </div>
-        </div>
+                <div class="col-6 col-sm-4 col-md">
+                    <div {{action "selectStore" index}} class="py-2 text-center-sm select-store">
+                        <h5 class="store-title">{{store.town}}<br>
+                            {{#if store.name}}<small>({{store.name}})</small>{{/if}}
+                        </h5>
+                        <hr class="{{if (eq activeStoreIndex index) 'hr-dark'}}">
+                    </div>
+                </div>
         {{/each}}
     </div>
 </div>
+{{!-- {{/if}} --}}
 <div class="map-container">
     <div class="map"></div>
     <div class="address">
         {{markdown-to-html activeStore.address class="text-white"}}
         <p class="text-white">T: <a {{action 'clickPhoneNumber' activeStore.town activeStore.name}} href="tel:{{activeStore.calltoNumber}}">{{activeStore.telephone}}</a></p>
-        {{#link-to 'store' activeStore.slug class="btn btn-outline-secondary btn-sm"}}view store{{/link-to}}
+            {{#link-to 'store' activeStore.slug class="btn btn-outline-secondary btn-sm hide-cities"}}view store{{/link-to}}
         <a target="_blank" href="{{activeStore.directionsUrl}}" class="btn btn-outline-secondary btn-sm">get directions</a>
     </div>
     {{markdown-to-html activeStore.openingHours class="opening-hours text-white hidden-sm-down"}}

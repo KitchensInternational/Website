@@ -38,6 +38,5 @@ Router.map(function() {
   this.route('privacy-policy');
 });
 
-console.log("ROUTER", Router);
 
 export default Router;

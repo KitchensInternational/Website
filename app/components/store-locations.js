@@ -1,12 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    routing: Ember.inject.service('-routing'),
     classNames: ['store-locations'],
     googleMapService: Ember.inject.service('google-map'),
     _center: { lat: 55.9396122, lng: -3.2431527 },
     _zoom: 14,
     _map: null,
     _marker: null,
+    displaySpecific: false,
     stores: Ember.A(),
     activeStoreSlug: null,
     activeStoreIndex: 0,
@@ -46,6 +48,13 @@ export default Ember.Component.extend({
     }),
     didInsertElement() {
         this.get('googleMapService').loadMap( this, '_map', '_center', '_zoom' );
+        if(Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors') {
+            this.set('displaySpecific', true);
+            this.set('activeStoreIndex', 1);
+        } else {
+            this.set('activeStoreIndex', 0);
+            this.set('displaySpecific', false);
+        }
     },
     actions: {
         selectStore( index ) {

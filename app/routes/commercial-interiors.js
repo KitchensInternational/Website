@@ -9,7 +9,6 @@ export default Ember.Route.extend({
         return Ember.RSVP.hash({
             content: this.get('store').queryRecord( 'commercialInteriorsHome', { 'fields.slug': 'commercial-interiors' } ),
             commercialInteriors: this.get('store').query('commercialInterior', { 'order': 'fields.ranking' })
-            // projects: this.get('store').findAll('commercialInterior')
         });
     },
     setupController( controller, model ) {
@@ -18,7 +17,6 @@ export default Ember.Route.extend({
     },
     headData: Ember.inject.service(),
     afterModel(model) {
-
         set(this, 'headData.title', model.content.get('metaTitle'));
         set(this, 'headData.description', model.content.get('metaDescription'));
         if(model.content.get('metaImage').content) {

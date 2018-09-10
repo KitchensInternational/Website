@@ -12,6 +12,11 @@ export default Ember.Component.extend({
     }),
     'form-id': 'contact-form',
     click() {
+        if(document.location.pathname == '/commercial-interiors') {
+            // Ember.$('#contactFormNumber').html('07768 636 565');
+            // Ember.$('#contactFormNumber').attr('href', 'tel:+4407768 636 565');
+        }
+        console.log(document.location.pathname);
         if ( typeof ga !== 'undefined' ) {
             ga('send', 'event', 'Contact Form', 'Opened', this.get('form-id'));
         }

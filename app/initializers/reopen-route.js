@@ -5,7 +5,9 @@ export function initialize() {
     const BASE_TITLE = 'Kitchens International';
 
     Ember.Route.reopen({
-
+        notifyGoogleAnalytics: function() {
+            console.log('ojsic');
+        }.on('didTransition'),
 		setPageTitle: function(model) {
 
             let title = BASE_TITLE;
@@ -20,7 +22,8 @@ export function initialize() {
 		},
 
 		enter: function() {
-			this._super(...arguments);
+            this._super(...arguments);
+
 			this.setPageTitle();
 		},
 

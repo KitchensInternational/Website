@@ -15,6 +15,7 @@ export default Ember.Component.extend(formValidation, {
         }
         return 'Contact Form';
     }),
+    contactPhone: '0845 074 0022',
     contactEmail: 'info@kitchensinternational.co.uk',
     name: '',
     email: '',
@@ -46,6 +47,14 @@ export default Ember.Component.extend(formValidation, {
     isValid: Ember.computed('validationErrorExists', function () {
         return !this.get('validationErrorExists');
     }),
+    init() {
+        this._super(...arguments);
+        if(Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors') {
+            this.set('contactPhone', '07768 636 565');
+        } else {
+            this.set('contactPhone', '0845 074 0022');
+        }
+    },
     actions: {
         triggerValidation() {
             let form = {
