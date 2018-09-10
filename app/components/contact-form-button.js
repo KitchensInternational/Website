@@ -13,8 +13,13 @@ export default Ember.Component.extend({
     'form-id': 'contact-form',
     click() {
         if(document.location.pathname == '/commercial-interiors') {
-            // Ember.$('#contactFormNumber').html('07768 636 565');
-            // Ember.$('#contactFormNumber').attr('href', 'tel:+4407768 636 565');
+            console.log('cao cao');
+            Ember.$('#contactFormNumber').html('07768 636 565');
+            Ember.$('#contactFormNumber').attr('href', 'tel:+4407768636565');
+        } else {
+            Ember.$('#contactFormNumber').html('0845 074 0022');
+            Ember.$('#contactFormNumber').attr('href', 'tel:+44008450740022');
+
         }
         console.log(document.location.pathname);
         if ( typeof ga !== 'undefined' ) {
