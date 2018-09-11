@@ -14,7 +14,7 @@
 
     </div>
 </div>
-<div class="container home-container">
+<div class="home-container">
     <div class="card mb-5">
         {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-home"}}
         <div class="card-block d-flex justify-content-center">
@@ -27,7 +27,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="">
     <div class="row">
         {{#each model.commercialInteriors as |interior|}}
             <div id='{{interior.slug}}' class="col-12 col-md-12 commercial-interior-component">
