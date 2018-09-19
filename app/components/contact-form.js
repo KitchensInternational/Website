@@ -97,11 +97,11 @@ export default Ember.Component.extend(formValidation, {
 
                 }
 
-                message += "Recieve information: " + this.get('receiveInfoVal') + "\n\n";
-
+                message += "Receieve information: " + this.get('receiveInfoVal') + "\n\n";
+                var tempTitle = Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors' ? 'New commercial interiors contact form submission' : 'New contact form submission!';
                 Email.send("info@kitchensinternational.co.uk",
                     this.get('contactEmail'),
-                    "New contact form submission!",
+                    tempTitle,
                     message,
                     "email-smtp.eu-west-1.amazonaws.com",
                     "AKIAJ7ND2OHTKPBHEJJQ",
