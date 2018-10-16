@@ -14,7 +14,7 @@ Router.map(function() {
   this.route('events');
   this.route('event', { path: 'events/:slug' });
   this.route('design-service');
-  this.route('store', { path: 'store/:slug' });
+  this.route('store', { path: 'showroom/:slug' });
   this.route('projects', { path: 'projects' });
   this.route('project', { path: 'projects/:slug' });
   this.route('kitchens', { path: 'kitchens' });
