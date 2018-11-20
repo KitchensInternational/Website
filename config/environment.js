@@ -1,24 +1,24 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'kitchens-international',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
     contentful: {
-        space: 'nma019atkcmp',
-        accessToken: '65dd74a5495e2c30dbfd87b0eeb98942eada50d4e8b721f3dfc2885ab8493537',
-        previewAccessToken: '38f04962024d568a5983861e7cb3ae999eeed095d8b8f28867e70730c84aa3ad',
-        usePreviewApi: false
+      space: 'nma019atkcmp',
+      accessToken: '65dd74a5495e2c30dbfd87b0eeb98942eada50d4e8b721f3dfc2885ab8493537',
+      previewAccessToken: '38f04962024d568a5983861e7cb3ae999eeed095d8b8f28867e70730c84aa3ad',
+      usePreviewApi: false
     },
     disqus: {
-        shortname: 'kitchens-international'
+      shortname: 'kitchens-international'
     },
     showdown: {
-        simplifiedAutoLink: true,
-        tables: true,
-        simpleLineBreaks: true
+      simplifiedAutoLink: true,
+      tables: true,
+      simpleLineBreaks: true
     },
     EmberENV: {
       FEATURES: {
@@ -40,6 +40,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.contentful.usePreviewApi = true;
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-8205907-1'
+    };
   }
 
   if (environment === 'test') {
@@ -54,9 +57,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-      ENV.googleAnalytics = {
-        webPropertyId: 'UA-8205907-1'
-      };
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-8205907-1'
+    };
   }
 
   return ENV;

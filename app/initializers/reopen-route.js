@@ -2,40 +2,38 @@ import Ember from 'ember';
 
 export function initialize() {
 
-    const BASE_TITLE = 'Kitchens International';
+  const BASE_TITLE = 'Kitchens International';
 
-    Ember.Route.reopen({
-        notifyGoogleAnalytics: function() {
-            console.log('ojsic');
-        }.on('didTransition'),
-		setPageTitle: function(model) {
+  Ember.Route.reopen({
+    notifyGoogleAnalytics: function () {}.on('didTransition'),
+    setPageTitle: function (model) {
 
-            let title = BASE_TITLE;
+      let title = BASE_TITLE;
 
-            if ( typeof model !== 'undefined' && model && typeof model.get !== 'undefined' && typeof model.get('title') !== 'undefined' ) {
-                title = model.get('title') + ' | ' + BASE_TITLE;
-            }
+      if (typeof model !== 'undefined' && model && typeof model.get !== 'undefined' && typeof model.get('title') !== 'undefined') {
+        title = model.get('title') + ' | ' + BASE_TITLE;
+      }
 
-            if ( typeof Ember.$ === 'function' && typeof document !== 'undefined' ) {
-                Ember.$(document).attr('title', title);
-            }
-		},
+      if (typeof Ember.$ === 'function' && typeof document !== 'undefined') {
+        Ember.$(document).attr('title', title);
+      }
+    },
 
-		enter: function() {
-            this._super(...arguments);
+    enter: function () {
+      this._super(...arguments);
 
-			this.setPageTitle();
-		},
+      this.setPageTitle();
+    },
 
-		setupController: function(controller, model) {
-			this._super(...arguments);
-			this.setPageTitle(model);
-            if ( typeof Ember.$ === 'function' && typeof window !== 'undefined' ) {
-                Ember.$(window).scrollTop(0);
-            }
-		}
+    setupController: function (controller, model) {
+      this._super(...arguments);
+      this.setPageTitle(model);
+      if (typeof Ember.$ === 'function' && typeof window !== 'undefined') {
+        Ember.$(window).scrollTop(0);
+      }
+    }
 
-	});
+  });
 
 }
 

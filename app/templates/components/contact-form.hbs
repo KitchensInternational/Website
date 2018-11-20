@@ -1,67 +1,92 @@
 <div class="row justify-content-center">
+
     <div class="col col-sm-9 py-3">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+
+        {{#unless (eq statusMessage 'downloadDisplay')}}
         <div class="text-center">
-            {{#if (or requestBrochure bookEvent)}}
-                {{#if requestBrochure}}
-                    <h3 class="mb-3">Request a brochure</h3>
-                    <p class="mb">Which brochures would you like?</p>
-                {{else}}
-                    <h3 class="mb-3">Book your event</h3>
-                    <p class="mb">{{bookEvent.title}}</p>
-                {{/if}}
+            {{!-- {{if (eq statusMessage 'downloadDisplay')}} --}}
+
+            {{#if (tripleor requestBrochure bookEvent downloadBrochure)}}
+            {{#if requestBrochure}}
+            <h3 class="mb-3">Request a printed brochure</h3>
+            <p class="mb">Which brochures would you like us to post to you?</p>
+            {{/if}}
+            {{#if downloadBrochure}}
+            <h3 class="mb-3">Download a digital brochure</h3>
+            <p class="mb">Which brochures would you like to download?</p>
+            {{/if}}
+            {{#if bookEvent }}
+            <h3 class="mb-3">Book your event</h3>
+            <p class="mb">{{bookEvent.title}}</p>
+            {{/if}}
             {{else}}
-                <p class="mb-0">Looking to chat now</p>
-                <h3>CALL <a {{action 'clickPhoneNumber'}} id="contactFormNumber" href="tel:+44{{contactPhone}}">{{contactPhone}}</a></h3>
-                <p class="mt-4">For information and enquiries, please fill in the form below
-                    and we will be delighted to be of assistance.</p>
+            <p class="mb-0">Looking to chat now</p>
+            <h3>CALL <a {{action 'clickPhoneNumber'}} id="contactFormNumber" href="tel:+44{{contactPhone}}">{{contactPhone}}</a></h3>
+            <p class="mt-4">For information and enquiries, please fill in the form below
+                and we will be delighted to be of assistance.</p>
             {{/if}}
             <form method="POST" action="#">
-                {{#if requestBrochure}}
+                {{#if ( or requestBrochure downloadBrochure)}}
                 <div class="mb-3">
                     {{#each kitchens as |kitchen|}}
-                        {{brochure-checkbox kitchen=kitchen onSelect="selectedKitchen"}}
+                    {{brochure-checkbox kitchen=kitchen onSelect="selectedKitchen"}}
                     {{/each}}
                 </div>
                 {{/if}}
                 <div class="form-group {{validation 'form-group' name validationErrors.name validationDanger}}">
-                    {{input name="name" value=name class=(validation 'form-control' name validationErrors.name validationDanger) placeholder="FULL NAME" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    {{input name="name" value=name class=(validation 'form-control' name validationErrors.name
+                    validationDanger) placeholder="FULL NAME" key-press="triggerValidation"
+                    focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.name}}</p>
                 </div>
                 <div class="form-group {{validation 'form-group' email validationErrors.email validationDanger}}">
-                    {{input name="email" value=email class=(validation 'form-control' email validationErrors.email validationDanger) placeholder="EMAIL" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    {{input name="email" value=email class=(validation 'form-control' email validationErrors.email
+                    validationDanger) placeholder="EMAIL" key-press="triggerValidation" focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.email}}</p>
                 </div>
                 <div class="form-group {{validation 'form-group' phone validationErrors.phone validationDanger}}">
-                    {{input name="phone" value=phone class=(validation 'form-control' phone validationErrors.phone validationDanger) placeholder="PHONE" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    {{input name="phone" value=phone class=(validation 'form-control' phone validationErrors.phone
+                    validationDanger) placeholder="PHONE" key-press="triggerValidation" focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.phone}}</p>
                 </div>
                 {{#unless bookEvent}}
-                    {{#if requestBrochure}}
-                        <div class="form-group">
-                            {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
-                        </div>
-                    {{else}}
-                        <div class="form-group">
-                            {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
-                        </div>
-                        <div class="form-group">
-                            {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
-                        </div>
-                    {{/if}}
+                {{#if requestBrochure}}
+                <div class="form-group">
+                    {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
+                </div>
+                {{else}}
+                <div class="form-group">
+                    {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
+                </div>
+                <div class="form-group">
+                    {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
+                </div>
+                {{/if}}
                 {{/unless}}
                 <div class="mb-3">
-                    <p>If you would like to receive information about our upcoming events and promotions please check the box below</p>
+                    <p>If you would like to receive information about our upcoming events and promotions please check
+                        the box below</p>
                     {{opt-in-checkbox onCheck="receiveInfo"}}
                 </div>
                 {{#unless statusMessage}}
-                    <button {{action 'triggerSubmit'}} class="btn btn-primary">Send</button>
+                <button {{action 'triggerSubmit'}} class="btn btn-primary">Send</button>
                 {{else}}
-                    <p>{{statusMessage}}</p>
+                <p>{{statusMessage}}</p>
                 {{/unless}}
+
             </form>
+
         </div>
+        {{else}}
+        <h2 class="text-center" class="mb-5">Download desired brochures</h2>
+        {{#each selectedPdfs as |pdf|}}
+        <p>{{pdf.name}} - <a target="_blank" style="text-decoration: underline;" href="{{pdf.brochure.file.url}}">Click here to download it</a></p>
+        {{/each}}
+        {{/unless}}
+
+
     </div>
 </div>
