@@ -12,11 +12,11 @@
             {{#if (tripleor requestBrochure bookEvent downloadBrochure)}}
             {{#if requestBrochure}}
             <h3 class="mb-3">Request a printed brochure</h3>
-            <p class="mb">Which brochures would you like us to post to you?</p>
+            <p class="mb">Which brochures would you like?</p>
             {{/if}}
             {{#if downloadBrochure}}
             <h3 class="mb-3">Download a digital brochure</h3>
-            <p class="mb">Which brochures would you like to download?</p>
+            <p class="mb">Which brochures would you like?</p>
             {{/if}}
             {{#if bookEvent }}
             <h3 class="mb-3">Book your event</h3>
@@ -29,12 +29,22 @@
                 and we will be delighted to be of assistance.</p>
             {{/if}}
             <form method="POST" action="#">
-                {{#if ( or requestBrochure downloadBrochure)}}
+                {{#if requestBrochure}}
                 <div class="mb-3">
                     {{#each kitchens as |kitchen|}}
                     {{brochure-checkbox kitchen=kitchen onSelect="selectedKitchen"}}
                     {{/each}}
                 </div>
+                {{/if}}
+                {{#if downloadBrochure}}
+                <div class="mb-3">
+                    {{#each kitchens as |kitchen|}}
+                    <p style="margin-bottom: 0.5rem">{{kitchen.name}}</p>
+                    {{/each}}
+                </div>
+                {{/if}}
+                {{#if downloadBrochure}}
+                <p class="mb">Please enter your details below to allow download</p>
                 {{/if}}
                 <div class="form-group {{validation 'form-group' name validationErrors.name validationDanger}}">
                     {{input name="name" value=name class=(validation 'form-control' name validationErrors.name
@@ -81,10 +91,14 @@
 
         </div>
         {{else}}
-        <h2 class="text-center" class="mb-5">Download desired brochures</h2>
-        {{#each selectedPdfs as |pdf|}}
-        <p>{{pdf.name}} - <a target="_blank" style="text-decoration: underline;" href="{{pdf.brochure.file.url}}">Click here to download it</a></p>
-        {{/each}}
+        <h2 class="text-center" class="mb-3">Thank you</h2>
+        <p class="text-center mb-1" class="mb-5">Click to download</p>
+        <div class="d-flex align-items-center flex-column">
+            {{#each kitchens as |pdf|}}
+            <p class="d-flex justify-content-between align-items-center w-50">{{pdf.name}} <a target="_blank" class="btn btn-primary btn-smaller" href="{{pdf.brochure.file.url}}">Download</a></p>
+            {{/each}}
+        </div>
+
         {{/unless}}
 
 

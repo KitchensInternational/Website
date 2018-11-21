@@ -127,6 +127,16 @@ export default Ember.Component.extend(formValidation, {
           }
         } else {
           let pdfs = this.get('selectedPdfs');
+          Email.send("info@kitchensinternational.co.uk",
+            this.get('contactEmail'),
+            tempTitle,
+            message,
+            "email-smtp.eu-west-1.amazonaws.com",
+            "AKIAJ7ND2OHTKPBHEJJQ",
+            "ArtffMYr4ebRXP6acDyVan5H2bAohe05ySddBcW0YweD");
+
+          this.set('statusMessage', 'Thank you! Message sent.');
+
           this.set('statusMessage', 'downloadDisplay')
           if (typeof ga !== 'undefined') {
             ga('send', 'event', 'Option used', 'Test 1A - Email Brochure Download');
