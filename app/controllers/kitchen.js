@@ -11,6 +11,6 @@ export default Ember.Controller.extend({
       let option = options[rand] == 'request' ? 'Test 1B - Email Brochure Download' : 'Test 1A - Current Brochure Download'
       ga('send', 'event', 'Option displayed', option, option);
     }
-    return false
+    return options[rand] == 'download';
   })
 });
