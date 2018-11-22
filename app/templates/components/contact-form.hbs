@@ -16,7 +16,6 @@
             {{/if}}
             {{#if downloadBrochure}}
             <h3 class="mb-3">Download a digital brochure</h3>
-            <p class="mb">Which brochures would you like?</p>
             {{/if}}
             {{#if bookEvent }}
             <h3 class="mb-3">Book your event</h3>
@@ -36,15 +35,11 @@
                     {{/each}}
                 </div>
                 {{/if}}
+
                 {{#if downloadBrochure}}
-                <div class="mb-3">
-                    {{#each kitchens as |kitchen|}}
-                    <p style="margin-bottom: 0.5rem">{{kitchen.name}}</p>
-                    {{/each}}
-                </div>
-                {{/if}}
-                {{#if downloadBrochure}}
-                <p class="mb">Please enter your details below to allow download</p>
+                <p class="mb">Please complete the form below to download the following brochures:</p>
+                <p class="mb-5">{{#each kitchens as |kitchen index|}}{{#if (not index 0)}},
+                    {{/if}}{{kitchen.name}}{{/each}}</p>
                 {{/if}}
                 <div class="form-group {{validation 'form-group' name validationErrors.name validationDanger}}">
                     {{input name="name" value=name class=(validation 'form-control' name validationErrors.name
@@ -54,12 +49,14 @@
                 </div>
                 <div class="form-group {{validation 'form-group' email validationErrors.email validationDanger}}">
                     {{input name="email" value=email class=(validation 'form-control' email validationErrors.email
-                    validationDanger) placeholder="EMAIL" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    validationDanger) placeholder="EMAIL" key-press="triggerValidation"
+                    focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.email}}</p>
                 </div>
                 <div class="form-group {{validation 'form-group' phone validationErrors.phone validationDanger}}">
                     {{input name="phone" value=phone class=(validation 'form-control' phone validationErrors.phone
-                    validationDanger) placeholder="PHONE" key-press="triggerValidation" focus-out="triggerValidation"}}
+                    validationDanger) placeholder="PHONE" key-press="triggerValidation"
+                    focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.phone}}</p>
                 </div>
                 {{#unless bookEvent}}
@@ -71,13 +68,16 @@
                 <div class="form-group">
                     {{textarea name="address" value=address class="form-control" placeholder="ADDRESS"}}
                 </div>
+                {{#if (not downloadBrochure true)}}
                 <div class="form-group">
                     {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
                 </div>
                 {{/if}}
+                {{/if}}
                 {{/unless}}
                 <div class="mb-3">
-                    <p>If you would like to receive information about our upcoming events and promotions please check
+                    <p>If you would like to receive information about our upcoming events and promotions please
+                        check
                         the box below</p>
                     {{opt-in-checkbox onCheck="receiveInfo"}}
                 </div>

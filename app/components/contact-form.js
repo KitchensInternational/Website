@@ -41,7 +41,7 @@ export default Ember.Component.extend(formValidation, {
         message: 'Please enter a valid email address',
       },
       phone: {
-        required: true,
+        required: false,
         message: 'Please enter a your phone number',
       }
     }
@@ -127,6 +127,12 @@ export default Ember.Component.extend(formValidation, {
           }
         } else {
           let pdfs = this.get('selectedPdfs');
+          let message = "Hello\n\nthe following person has downloaded a brochure\n\n";
+          message += this.get('name');
+          message += " (" + this.get('email') + ")\n\n";
+          message += "Phone: " + this.get('phone') + "\n\n";
+
+          tempTitle = 'Brochure download'
           Email.send("info@kitchensinternational.co.uk",
             this.get('contactEmail'),
             tempTitle,
