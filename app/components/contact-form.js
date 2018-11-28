@@ -132,6 +132,7 @@ export default Ember.Component.extend(formValidation, {
           message += " (" + this.get('email') + ")\n\n";
           message += "Phone: " + this.get('phone') + "\n\n";
           message += "Address: " + this.get('address') + "\n\n";
+          message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
 
           tempTitle = 'Brochure download'
           Email.send("info@kitchensinternational.co.uk",
