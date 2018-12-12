@@ -7,7 +7,7 @@ const Router = Ember.Router.extend(googlePageview, {
   rootURL: config.rootURL
 });
 
-Router.map(function() {
+Router.map(function () {
   this.route('home', { path: '/' });
   this.route('stories');
   this.route('story', { path: 'stories/:slug' });
@@ -19,7 +19,8 @@ Router.map(function() {
   this.route('project', { path: 'projects/:slug' });
   this.route('kitchens', { path: 'kitchens' });
   this.route('kitchen', { path: 'kitchens/:slug' });
-  this.route('sales', { path: 'summer-sale' });
+  // this.route('sales', { path: 'summer-sale' });
+  this.route('sales', { path: 'january-sale' });
   this.route('sale', { path: 'januarysale/:slug' });
   this.route('ex-display-sales', { path: 'ex-display-sale' });
   this.route('ex-display-sale', { path: 'ex-display-sale/:slug' });

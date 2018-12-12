@@ -1189,9 +1189,9 @@ $intro-bottom-hugger: rgba($black, .4);
   }
 
   .heading {
-    border-top: 10px solid rgba(255, 0, 0, 1);
-    ;
-    background-color: $bronze;
+    border-top: none;
+
+    background-color: rgba(0, 0, 0, .7);
 
     h1 {
       font-weight: bold;
@@ -1225,7 +1225,7 @@ $intro-bottom-hugger: rgba($black, .4);
 .ex-display-sales {
   .red-span {
     span {
-      color: $bronze
+      color: $red
     }
   }
 
@@ -1233,7 +1233,7 @@ $intro-bottom-hugger: rgba($black, .4);
     font-size: 1.6rem;
 
     span {
-      color: $bronze
+      color: $red
     }
   }
 
@@ -1443,4 +1443,89 @@ $intro-bottom-hugger: rgba($black, .4);
 
 .btn-smaller {
   padding: 0.25rem 1rem
+}
+.sales {
+.heading {
+  border-bottom: 5px solid $red;
+  padding-top: 0;
+  .btn {
+    position: absolute;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  hr {
+    display: none;
+  }
+  .holder {
+    display: inline-block;
+    // border: 1px solid #FFF;
+    #januarysalespannowonspan {
+      padding: 2em;
+      padding-bottom: 0;
+      padding-top: .5em;
+    }
+    h1 {
+      position: relative;
+      border-top: 1px solid #FFF;
+      &:after {
+        z-index: 99;
+        content: '';
+        height: 2.6em;
+        width: 2px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #FFF;
+      }
+      &:before {
+        z-index: 99;
+        content: '';
+        height: 2.6em;
+        width: 2px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #FFF;
+      }
+      span {
+        position: relative;
+        color: $red;
+        display: block;
+        &:after {
+          z-index: 99;
+          content: '';
+          height: 2px;
+          width: 2em;
+          position: absolute;
+          right: -2em;
+          top: 50%;
+          background: #FFF;
+          transform: translateY(-50%);
+
+        }
+        &:before {
+          z-index: 99;
+          content: '';
+          height: 2px;
+          width: 2em;
+          position: absolute;
+          left: -2em;
+          top: 50%;
+          background: #FFF;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
+.sales {
+  .heading {
+    hr {
+      display: none;
+    }
+  }
+}
+
+
 }

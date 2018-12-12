@@ -9,11 +9,12 @@ export default Ember.Controller.extend({
     sortedSales: Ember.computed.sort('model.sales', 'sortedSalesOrder'),
     featuredSalesOrder: ['createdAt:asc'],
     featuredSalesOrdered: Ember.computed.sort('model.featured', 'featuredSalesOrder'),
+    notFeaturedSalesOrdered: Ember.computed.sort('model.notFeatured', 'notFeaturedSalesOrdered'),
     actions: {
-        changePage( page ) {
+        changePage(page) {
             this.set('page', page);
         },
-        goToArticle( slug ) {
+        goToArticle(slug) {
             this.get('routing.router').transitionTo('ex-display-sale', slug);
         }
     }
