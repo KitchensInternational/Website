@@ -4,7 +4,6 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-
         {{#unless (eq statusMessage 'downloadDisplay')}}
         <div class="text-center">
             {{!-- {{if (eq statusMessage 'downloadDisplay')}} --}}
@@ -72,6 +71,22 @@
                 <div class="form-group">
                     {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
                 </div>
+                {{#if sale}}
+                <div class="form-group d-flex align-items-center justify-content-start flex-column">
+                    {{!-- {{select name="message" value=message class="form-control" placeholder="MESSAGE"}} --}}
+                    <p>
+                        How did you hear about us?
+                    </p>
+                    <select name="heard" onchange={{action "setSelection" value="target.value"}}>
+                        <option disabled selected>Please select one of the options</option>
+                        <option value="Google/Web Search" >Google/Web Search</option>
+                        <option value="Social Media" >Social Media</option>
+                        <option value="Press Advertising" >Press Advertising</option>
+                        <option value="Recommendation/Word of Mouth" >Recommendation/Word of Mouth</option>
+                        <option value="Showrooms" >Showrooms</option>
+                    </select>
+                </div>
+                {{/if}}
                 {{/if}}
                 {{/if}}
                 {{/unless}}

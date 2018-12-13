@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   'aria-hidden': 'true',
   requestBrochure: false,
   downloadBrochure: false,
+  sale: false,
   bookEvent: false,
   kitchens: Ember.A()
 });

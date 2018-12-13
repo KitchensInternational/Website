@@ -5,6 +5,7 @@ export default Ember.Component.extend(formValidation, {
   classNames: ['container-fluid', 'contact-form-inner'],
   requestBrochure: false,
   downloadBrochure: false,
+  sale: false,
   kitchens: Ember.A(),
   bookEvent: false,
   formType: Ember.computed(function () {
@@ -23,6 +24,7 @@ export default Ember.Component.extend(formValidation, {
   phone: '',
   address: '',
   message: '',
+  heard: '',
   selectedKitchens: Ember.A(),
   selectedPdfs: Ember.A(),
   receiveInfoVal: 'No',
@@ -58,12 +60,16 @@ export default Ember.Component.extend(formValidation, {
     }
   },
   actions: {
+    setSelection: function (selected) {
+      this.set('heard', selected)
+    },
     triggerValidation() {
       let form = {
         name: this.get('name'),
         email: this.get('email'),
         phone: this.get('phone'),
         address: this.get('address'),
+        heard: this.get('heard'),
         message: this.get('message'),
         kitchens: this.get('selectedKitchens')
       };
@@ -71,6 +77,8 @@ export default Ember.Component.extend(formValidation, {
       this.set('validationDanger', false);
     },
     triggerSubmit() {
+      // console.log("test", this.get('heard'))
+      // return;
       this.send('triggerValidation');
       this.set('validationDanger', true);
       if (this.get('isValid')) {
@@ -96,6 +104,9 @@ export default Ember.Component.extend(formValidation, {
           if (this.get('message.length') > 0) {
             message += "Message: " + this.get('message') + "\n\n";
             message += "Address: " + this.get('address') + "\n\n";
+            if (this.get('sale')) {
+              message += "How did you hear about us: " + this.get('heard') + "\n\n";
+            }
           } else {
             message += "Please send me a brochure.\n\n";
             message += "Address: " + this.get('address') + "\n\n";
@@ -106,6 +117,9 @@ export default Ember.Component.extend(formValidation, {
 
         message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
         var tempTitle = Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors' ? 'New commercial interiors contact form submission' : 'New contact form submission!';
+        if (this.get('sale')) {
+          tempTitle = 'New January Sale contact form submission'
+        }
         if (!this.get('downloadBrochure')) {
           Email.send("info@kitchensinternational.co.uk",
             this.get('contactEmail'),
