@@ -1179,6 +1179,10 @@ $intro-bottom-hugger: rgba($black, .4);
   border-bottom: 8px solid $bronze;
 }
 
+.red-bottom {
+  border-bottom: 8px solid #ff0000;
+}
+
 
 .sales {
   .introduction {
@@ -1224,7 +1228,7 @@ $intro-bottom-hugger: rgba($black, .4);
     }
   }
 }
-
+$red: #ff0000;
 .ex-display-sales {
   .red-span {
     span {
@@ -1453,7 +1457,7 @@ $intro-bottom-hugger: rgba($black, .4);
   padding-top: 0;
   .btn {
     position: absolute;
-    bottom: 2em;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
   }

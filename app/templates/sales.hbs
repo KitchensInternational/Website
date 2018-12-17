@@ -49,7 +49,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="bronze-bottom  d-flex align-items-center img-background full-height img-tinted bronze-bottom"
+                    <div class="red-bottom  d-flex align-items-center img-background full-height img-tinted red-bottom"
                         style={{background-image feature.featuredSaleImage.file.url}}>
                     </div>
                 </div>
@@ -75,16 +75,16 @@
 
 
 
-    <div class="container">
+    <div class="container" id="myGroup">
 
         <div class="row">
             {{#each model.sales as |sale index|}}
             {{#if (or (eq index 2) (eq index 3)) }}
             <div class="col-6 col-sm-6">
-                <div class="d-flex align-items-center img-background img-tinted bronze-bottom" style={{background-image sale.featuredImage.file.url}}>
+                <div class="d-flex align-items-center img-background img-tinted red-bottom" style={{background-image sale.featuredImage.file.url}}>
                     <div class="background-taupe dark-inset">
                         <div class="py-2 text-center">
-                            <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
+                            <button class="btn btn-outline-secondary" type="button" data-parent="#myGroup" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
             {{#each model.sales as |sale index|}}
             {{#if (or (eq index 2) (eq index 3)) }}
 
-            <div id="collapseSale{{sale.id}}" class="container-fluid collapse {{sale.slug}} mt-5">
+            <div id="collapseSale{{sale.id}}" data-parent="#myGroup" class="container-fluid collapse {{sale.slug}} mt-5">
                 <h1>{{sale.name}}</h1>
                 <hr>
                 <div class="row mb-5">
@@ -156,7 +156,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="bronze-bottom  d-flex align-items-center img-background full-height img-tinted bronze-bottom"
+                    <div class="red-bottom  d-flex align-items-center img-background full-height img-tinted red-bottom"
                         style={{background-image feature.featuredSaleImage.file.url}}>
                     </div>
                 </div>
@@ -183,7 +183,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <div class="d-flex align-items-center img-background full-height img-tinted bronze-bottom" style={{background-image model.sale.featuredSaleImageTwo.file.url}}>
+                <div class="d-flex align-items-center img-background full-height img-tinted red-bottom" style={{background-image model.sale.featuredSaleImageTwo.file.url}}>
                 </div>
             </div>
         </div>
