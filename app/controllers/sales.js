@@ -16,6 +16,9 @@ export default Ember.Controller.extend({
         },
         goToArticle(slug) {
             this.get('routing.router').transitionTo('ex-display-sale', slug);
+        },
+        scrollDown() {
+            Ember.$('html, body').animate({ scrollTop: window.innerHeight }, 800);
         }
     }
 });

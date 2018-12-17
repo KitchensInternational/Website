@@ -1181,6 +1181,9 @@ $intro-bottom-hugger: rgba($black, .4);
 
 
 .sales {
+  .introduction {
+    height: 100vh;
+  }
   .appliance-pack {
     img {
       max-width: 100%;
