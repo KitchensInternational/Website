@@ -35,7 +35,8 @@
                     <div class="card-block d-flex justify-content-center">
                         <div class="col col-sm-12 text-center text-lg py-3">
                             {{markdown-to-html model.content.splashContent class="card-text red-span font-oswald"}}
-                            <a href="{{model.content.splashActionLink}}" class="btn btn-outline-primary my-3">{{model.content.splashActionTitle}}</a>
+                            {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request design
+                            consultation{{/contact-form-button}}
                         </div>
                     </div>
                 </div>
@@ -53,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="background-taupe oswald-dark mb-5 red-span">
+            <div class="background-taupe oswald-dark pl-5 pr-5 mb-5 red-span">
                 <h3 class="text-center title pt-4 pb-2">{{{ feature.featuredSaleTitle}}}</h3>
                 <p class="text-center mb-0">
                     {{!--
@@ -160,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div class="background-taupe oswald-dark mb-5 red-span">
+            <div class="background-taupe oswald-dark mb-5 red-span pl-5 pr-5">
                 <h3 class="text-center title pt-4 pb-2">{{{ feature.featuredSaleTitle}}}</h3>
                 <p class="text-center mb-0">
                     {{!--
