@@ -21,9 +21,7 @@ export default Ember.Controller.extend({
             Ember.$('html, body').animate({ scrollTop: window.innerHeight }, 800);
         },
         toggle() {
-            // Ember.$('.panel-title a').collapse();
-
-            // Ember.$('html, body').animate({ scrollTop: window.innerHeight }, 800);
+            Ember.$('.collapse').collapse('hide');
         }
     }
 });

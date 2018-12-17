@@ -84,7 +84,7 @@
                 <div class="d-flex align-items-center img-background img-tinted red-bottom" style={{background-image sale.featuredImage.file.url}}>
                     <div class="background-taupe dark-inset">
                         <div class="py-2 text-center">
-                            <button class="btn btn-outline-secondary" type="button" data-parent="#myGroup" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
+                            <button onclick={{action "toggle"}} class="btn btn-outline-secondary" type="button" data-parent="#myGroup" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
                         </div>
                     </div>
                 </div>

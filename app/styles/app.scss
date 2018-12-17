@@ -1536,3 +1536,9 @@ $red: #ff0000;
 
 
 }
+@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+  .sales .heading .holder {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
