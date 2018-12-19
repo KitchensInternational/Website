@@ -1542,4 +1542,12 @@ $red: #ff0000;
     width: 90%;
     padding-right: 1rem;
   }
+  .card-img-top {
+    min-width: auto;
+    width: 100%;
+    max-height: 300px;
+    img {
+      max-height: 300px;
+    }
+  }
 }
