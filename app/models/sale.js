@@ -1,12 +1,13 @@
 import Contentful from 'ember-data-contentful/models/contentful';
 import attr from 'ember-data/attr';
-import { belongsTo} from 'ember-data/relationships';
+import { belongsTo } from 'ember-data/relationships';
 import Ember from 'ember';
 
 export default Contentful.extend({
     name: attr('string'),
     titleText: attr('string'),
     slug: Ember.computed('name', function () {
+        console.log('sluuuugggg', this.get('name'));
         return this.get('name').toLowerCase().replace(/ /, '-');
     }),
     order: attr('number'),

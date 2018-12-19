@@ -79,8 +79,7 @@
 
         <div class="row">
             {{#each model.sales as |sale index|}}
-            {{#if (or (eq index 2) (eq index 3)) }}
-            <div class="col-6 col-sm-6">
+            <div class="col-6 col-sm-6 mb-4">
                 <div class="d-flex align-items-center img-background img-tinted red-bottom" style={{background-image sale.featuredImage.file.url}}>
                     <div class="background-taupe dark-inset">
                         <div class="py-2 text-center">
@@ -93,7 +92,6 @@
                     </div>
                 </div>
             </div>
-            {{/if}}
             {{/each}}
         </div>
     </div>
@@ -101,7 +99,6 @@
     <div class="container mb-5">
         <div class="row">
             {{#each model.sales as |sale index|}}
-            {{#if (or (eq index 2) (eq index 3)) }}
 
             <div id="collapseSale{{sale.id}}" data-parent="#myGroup" class="container-fluid collapse {{sale.slug}} mt-5">
                 <h1>{{sale.name}}</h1>
@@ -147,7 +144,6 @@
                     {{/if}}
                 </div>
             </div>
-            {{/if}}
             {{/each}}
         </div>
     </div>
