@@ -1551,3 +1551,34 @@ $red: #ff0000;
     }
   }
 }
+@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+  .sales .heading .holder #januarysalespannowonspan {
+    padding: 1em;
+  }
+  .sales .heading .holder h1 span{
+    &:after {
+      z-index: 99;
+      content: '';
+      height: 2px;
+      width: 1em;
+      position: absolute;
+      right: -1em;
+      top: 50%;
+      background: #FFF;
+      transform: translateY(-50%);
+
+    }
+    &:before {
+      z-index: 99;
+      content: '';
+      height: 2px;
+      width: 1em;
+      position: absolute;
+      left: -1em;
+      top: 50%;
+      background: #FFF;
+      transform: translateY(-50%);
+    }
+  }
+}
+
