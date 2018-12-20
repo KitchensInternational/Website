@@ -290,6 +290,14 @@
             {{/each}}
         </div>
     </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col my-3 text-center text-lg col-12 ">
+                {{markdown-to-html model.sale.appliancePackContent class="card-text pt-2 pb-2 font-oswald red-span
+                background-taupe mt-3"}}
+            </div>
+        </div>
+    </div>
     {{#each model.notFeatured as |feature index|}}
     <div class="mb-3 special-discount">
         <div class="container">
