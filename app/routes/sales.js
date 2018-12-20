@@ -20,8 +20,25 @@ export default Ember.Route.extend({
         return Ember.RSVP.hash({
             featured: this.get('store').query('featuredsale', { 'fields.featured': true }),
             notFeatured: this.get('store').query('featuredsale', { 'fields.featured': false }),
-            sales: this.get('store').query('sale', { order: 'fields.order' }),
-            // sales: this.get('store').findAll('sale'),
+            // sales: this.get('store').query('sale', { 'fields.order': 1, 'fields.test': 2 }),
+            sales: this.get('store').query('sale', { 'order': 'fields.order', }).then(function (list) {
+                let first = list.filter(element => {
+                    return element.get('order') == 1 || element.get('order') == 2;
+                });
+                let second = list.filter(element => {
+                    return element.get('order') == 3 || element.get('order') == 4;
+                });
+                let third = list.filter(element => {
+                    return element.get('order') == 5 || element.get('order') == 6;
+                });
+                return {
+                    first: first,
+                    second: second,
+                    third: third
+
+                };
+            }),
+
             sale: this.get('store').queryRecord('salesPage', { 'fields.slug': 'januarysale' }),
             content: this.get('store').queryRecord('salesPage', { 'fields.slug': 'januarysale' }),
             articles: this.get('store').query('exDisplaySale', apiParams)

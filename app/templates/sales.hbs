@@ -76,9 +76,8 @@
 
 
     <div class="container" id="myGroup">
-
         <div class="row">
-            {{#each model.sales as |sale index|}}
+            {{#each model.sales.first as |sale index|}}
             <div class="col-6 col-sm-6 mb-4">
                 <div class="d-flex align-items-center img-background img-tinted red-bottom" style={{background-image sale.featuredImage.file.url}}>
                     <div class="background-taupe dark-inset">
@@ -98,7 +97,151 @@
 
     <div class="container mb-5">
         <div class="row">
-            {{#each model.sales as |sale index|}}
+            {{#each model.sales.first as |sale index|}}
+
+            <div id="collapseSale{{sale.id}}" data-parent="#myGroup" class="container-fluid collapse {{sale.slug}} mt-5">
+                <h1>{{sale.name}}</h1>
+                <hr>
+                <div class="row mb-5">
+                    {{#if sale.appliancePackContent1}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent1 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent2}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent2 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent3}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent3 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent4}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent4 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent5}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent5 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.saleInfo}}
+                    <div class="col-12 background-taupe mt-3 mb-5">
+                        <div class="col py-2 text-center">
+                            <h1>{{sale.name}}:</h1>
+                            {{markdown-to-html sale.saleInfo class="d-flex flex-column oswald-dark red-span"}}
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="container" id="myGroup">
+        <div class="row">
+            {{#each model.sales.second as |sale index|}}
+            <div class="col-6 col-sm-6 mb-4">
+                <div class="d-flex align-items-center img-background img-tinted red-bottom" style={{background-image sale.featuredImage.file.url}}>
+                    <div class="background-taupe dark-inset">
+                        <div class="py-2 text-center">
+                            <button onclick={{action "toggle"}} class="btn btn-outline-secondary" type="button" data-parent="#myGroup" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="background-taupe sub-heading-bckg">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row">
+            {{#each model.sales.second as |sale index|}}
+
+            <div id="collapseSale{{sale.id}}" data-parent="#myGroup" class="container-fluid collapse {{sale.slug}} mt-5">
+                <h1>{{sale.name}}</h1>
+                <hr>
+                <div class="row mb-5">
+                    {{#if sale.appliancePackContent1}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent1 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent2}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent2 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent3}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent3 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent4}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent4 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent5}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent5 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.saleInfo}}
+                    <div class="col-12 background-taupe mt-3 mb-5">
+                        <div class="col py-2 text-center">
+                            <h1>{{sale.name}}:</h1>
+                            {{markdown-to-html sale.saleInfo class="d-flex flex-column oswald-dark red-span"}}
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="container" id="myGroup">
+        <div class="row">
+            {{#each model.sales.third as |sale index|}}
+            <div class="col-6 col-sm-6 mb-4">
+                <div class="d-flex align-items-center img-background img-tinted red-bottom" style={{background-image sale.featuredImage.file.url}}>
+                    <div class="background-taupe dark-inset">
+                        <div class="py-2 text-center">
+                            <button onclick={{action "toggle"}} class="btn btn-outline-secondary" type="button" data-parent="#myGroup" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="background-taupe sub-heading-bckg">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row">
+            {{#each model.sales.third as |sale index|}}
 
             <div id="collapseSale{{sale.id}}" data-parent="#myGroup" class="container-fluid collapse {{sale.slug}} mt-5">
                 <h1>{{sale.name}}</h1>
