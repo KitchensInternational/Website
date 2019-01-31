@@ -5,9 +5,9 @@
             <img class="logo logo-nav" src="/assets/images/ki-logo-white-small.svg" alt="Kitchens International Logo">
             <img class="logo logo-menu" src="/assets/images/ki-logo-grey-small.svg" alt="Kitchens International Logo">
             {{/link-to}}
-            <a href="/januarysale">
+            {{!-- <a href="/januarysale">
                 <button class="btn btn-outline-secondary red" data-ember-action="">January Sale</button>
-            </a>
+            </a> --}}
             {{#contact-form-button class="mr-3" form-id="contact-form"}}Get in touch{{/contact-form-button}}
             <button {{action "toggleMainMenu"}} class="btn btn-outline-secondary">{{fa-icon "navicon" fixedWidth=true}}</button>
             <nav>
@@ -24,7 +24,7 @@
                     <li {{action "toggleMainMenu"}}>{{#link-to 'commercial-interiors'}}Commercial Interiors{{/link-to}}</li>
 
                     <li {{action "toggleMainMenu"}}>{{#link-to 'contact'}}Contact{{/link-to}}</li>
-                    <li><a href="/januarysale">January Sale</a></li>
+                    {{!-- <li><a href="/januarysale">January Sale</a></li> --}}
                     <li>
                         {{social-icons greyIcons=true}}
                     </li>
