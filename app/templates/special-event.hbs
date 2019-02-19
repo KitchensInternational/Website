@@ -1,0 +1,78 @@
+<div class="introduction d-flex align-items-center justify-content-center"
+    style={{background-image model.content.featuredImage.file.url}}>
+    <div class="heading d-flex align-items-center justify-content-center flex-column">
+        <div class="holder">
+            {{#heading-after-scroll class="mb-0"}}{{ markdown-to-html
+                model.content.name}}{{/heading-after-scroll}}
+        </div>
+        <hr>
+        <a onclick={{action "scrollDown"}} class="btn btn-outline-secondary my-4" href='#'>Join the celebrations</a>
+    </div>
+
+</div>
+
+<div class="mt-4">
+    <section class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 mt-5">
+                <img class="img-fluid" src="{{model.content.topImage.file.url}}" alt="{{model.content.topImage.title}}">
+            </div>{{!-- {{/each}} --}}
+            </div>
+            <div class="row pb-5">
+                {{#each model.content.images as |image|}}
+                <div class="col-md-4 mt-3">
+                    <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
+                </div>
+                    {{/each}}
+                </div>
+    </section>
+</div>
+
+
+<div class="mt-4 mb-3">
+    <section class="container">
+        <div class="row">
+            <div class="background-taupe col-md-12 text-center pt-3 pb-3 pl-5 pr-5">
+                <div class="years mb-2">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <span class="medium-font">25<span class="medium-font small">YEARS</span></span>
+                    </div>
+                </div>
+                <p>{{markdown-to-html model.content.content}}</p>
+                {{#contact-form-button class="btn btn-outline-primary my-4 button-on-gray" form-id="contact-form"}}Sign
+                up for
+                events{{/contact-form-button}}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        {{#each model.kitchens as |kitchen|}}
+        <div class="col-md-4 mt-3">
+            <div class="position-relative">
+                <a class="d-block img-background img-background img-background-cover" style={{background-image kitchen.images.firstObject.file.url}} href="{{kitchen.images.firstObject.file.url}}" data-lightbox="{{kitchen.name}}" data-title="<span class='btn-vote' onclick={{action "scrollDown"}}>Vote here</span>">
+            </a>
+                {{#vote-button class="vote-here" name=kitchen.name}}vote{{/vote-button}}
+            </div>
+
+            {{#each kitchen.images as |image index|}}
+
+            {{#if (eq index 0)}}
+
+            {{else}}
+            <a class="d-none img-background img-background-cover" style={{background-image image.file.url}} href="{{image.file.url}}" data-lightbox="{{kitchen.name}}" data-title="<span onclick={{action "scrollDown"}}>Vote here</span>">
+            </a>
+            {{/if}}
+            {{/each}}
+            <div class="pl-1 pr-1">
+                <p class="text-center mt-1">{{markdown-to-html kitchen.description}}</p>
+                <p class="text-center mt-1">{{markdown-to-html kitchen.author}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

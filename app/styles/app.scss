@@ -405,6 +405,9 @@ $n: 1;
     min-height: 0;
   }
 
+  &.img-background-cover {
+    height: 250px;
+  }
   &.img-tinted {
     background-color: $gray-lighter;
     background-blend-mode: multiply;
@@ -1582,3 +1585,32 @@ $red: #ff0000;
   }
 }
 
+
+.years {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;;
+  border: 2px solid #666;
+  span {
+    display: block;
+  }
+  .small {
+  }
+}
+
+.vote-here{
+  padding:  .5rem 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    color: white;
+    transition: .3s all;
+    &.disabled {
+      display: none;
+    }
+    &:hover {
+      background: #000;
+      cursor: pointer;
+    }
+}

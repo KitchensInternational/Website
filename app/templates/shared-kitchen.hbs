@@ -1,0 +1,50 @@
+<div class="introduction d-flex align-items-center justify-content-center"
+    style={{background-image model.featuredImage.file.url}}>
+    <div class="heading d-flex align-items-center justify-content-center flex-column">
+        <div class="holder">
+            {{#heading-after-scroll class="mb-0"}}{{ markdown-to-html
+                model.name}}{{/heading-after-scroll}}
+        </div>
+        <hr>
+        <a onclick={{action "scrollDown"}} class="btn btn-outline-secondary my-4" href='#'>Join the celebrations</a>
+    </div>
+
+</div>
+
+<div class="mt-4">
+    <section class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 mt-5">
+                <img class="img-fluid" src="{{model.topImage.file.url}}" alt="{{model.topImage.title}}">
+            </div>{{!-- {{/each}} --}}
+            </div>
+            <div class="row pb-5">
+                {{#each model.images as |image|}}
+                <div class="col-md-4 mt-3">
+                    <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
+                </div>
+                    {{/each}}
+                </div>
+    </section>
+</div>
+
+<div class="mt-4">
+    <section class="container">
+        <div class="row">
+            <div class="background-taupe col-md-12 text-center pt-3 pb-3 pl-5 pr-5">
+                <div class="years mb-2">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <span class="medium-font">25<span class="medium-font small">YEARS</span></span>
+                    </div>
+                </div>
+                <p>{{markdown-to-html model.content}}</p>
+                {{#contact-form-button class="btn btn-outline-primary my-4 button-on-gray" form-id="contact-form"}}Sign
+                up for
+                events{{/contact-form-button}}
+            </div>
+        </div>
+    </section>
+</div>
+
+<h1>kujne</h1>
+{{kitchens}}

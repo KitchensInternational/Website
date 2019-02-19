@@ -18,6 +18,7 @@ Router.map(function () {
   this.route('projects', { path: 'projects' });
   this.route('project', { path: 'projects/:slug' });
   this.route('kitchens', { path: 'kitchens' });
+  this.route('special-event', { path: '/:slug' });
   this.route('kitchen', { path: 'kitchens/:slug' });
   // this.route('sales', { path: 'summer-sale' });
   // this.route('sales', { path: 'januarysale' });
