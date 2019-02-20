@@ -56,10 +56,7 @@
 
         </div>
     </div>
-    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates magnam tenetur,
-        obcaecati alias at, earum
-        consectetur, provident sint distinctio nam optio facilis voluptate ab quas velit! Provident fuga ratione
-        perspiciatis.</p>
+    <p class="text-center">{{model.content.sharedKitchenText}}</p>
     {{#share-kitchen-button class="btn btn-outline-primary my-4 button-on-gray" form-id="share-kitchen-form"}}Share your
     kitchen{{/share-kitchen-button}}
 
@@ -69,17 +66,18 @@
         {{#each model.kitchens as |kitchen|}}
         <div class="col-md-4 mt-3">
             <div class="position-relative">
-                <a class="d-block img-background img-background img-background-cover" style={{background-image kitchen.images.firstObject.file.url}} href="{{kitchen.images.firstObject.file.url}}" data-lightbox="{{kitchen.name}}" data-title="<span class='btn-vote' onclick={{action "scrollDown"}}>Vote here</span>">
+                <a class="d-block position-relative img-background img-background img-background-cover" style={{background-image kitchen.imagesArr.firstObject}} href="{{kitchen.imagesArr.firstObject}}" data-lightbox="{{kitchen.name}}" data-title="<span class='btn-vote' onclick={{action "scrollDown"}}>Vote here</span>">
+            {{#vote-button class="vote-here" name=kitchen.name}} {{fa-icon  "heart" size="lg"}}
+                vote {{kitchen.votes}}{{/vote-button}}
             </a>
-                {{#vote-button class="vote-here" name=kitchen.name}}vote{{/vote-button}}
-            </div>
 
-            {{#each kitchen.images as |image index|}}
+            </div>
+            {{#each kitchen.imagesArr as |image index|}}
 
             {{#if (eq index 0)}}
 
             {{else}}
-            <a class="d-none img-background img-background-cover" style={{background-image image.file.url}} href="{{image.file.url}}" data-lightbox="{{kitchen.name}}" data-title="<span onclick={{action "scrollDown"}}>Vote here</span>">
+            <a class="d-none position-relative img-background img-background-cover" style={{image}} href="{{image}}" data-lightbox="{{kitchen.name}}" data-title="<span onclick={{action "scrollDown"}}>Vote here</span>">
             </a>
             {{/if}}
             {{/each}}

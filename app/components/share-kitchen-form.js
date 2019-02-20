@@ -1,5 +1,7 @@
 import Ember from 'ember';
 import formValidation from 'ember-form-validation/mixins/form-validation';
+import $ from "jquery";
+
 
 export default Ember.Component.extend(formValidation, {
     classNames: ['container-fluid', 'contact-form-inner'],
@@ -11,7 +13,7 @@ export default Ember.Component.extend(formValidation, {
     phone: '',
     address: '',
     message: '',
-    files: null,
+    files: [],
     filesError: false,
     heard: '',
     selectedKitchens: Ember.A(),
@@ -19,6 +21,7 @@ export default Ember.Component.extend(formValidation, {
     receiveInfoVal: 'No',
     statusMessage: '',
     validationDanger: false,
+    client: null,
     validate: {
         form: {
             name: {
@@ -45,8 +48,45 @@ export default Ember.Component.extend(formValidation, {
 
     },
     actions: {
+        createKitchenEntry(images) {
+            var client = window.contentfulManagement.createClient({
+                accessToken: 'CFPAT-9c245c5a91670d11a9889eb603e48cdb3c00bd94c9ac2d55aff9cbc28f4eb18f'
+            });
+            client.getSpace('nma019atkcmp')
+                .then((space) => space.getEnvironment('master'))
+                .then((environment) => environment.createEntry('shared-kitchen', {
+                    fields: {
+                        name: {
+                            'en-GB': this.get('name')
+                        },
+                        title: {
+                            'en-GB': this.get('name')
+                        },
+                        description: {
+                            'en-GB': this.get('description')
+                        },
+                        email: {
+                            'en-GB': this.get('email')
+                        },
+                        author: {
+                            'en-GB': this.get('name')
+                        },
+                        approved: {
+                            'en-GB': false
+                        },
+                        images: {
+                            'en-GB': images
+                        }
+                    }
+                }))
+                .then((entry) => {
+                    entry.publish();
+                })
+                .catch(console.error)
+        },
         upload(e) {
             let files = e.srcElement.files;
+
             if (!files) {
                 this.set('filesError', true);
                 console.log('files not present');
@@ -54,7 +94,32 @@ export default Ember.Component.extend(formValidation, {
                 this.set('filesError', false);
                 this.set('files', files);
             }
-            console.log('this.files', e.srcElement.files);
+
+            // var data = {
+            //     files: files,
+            //     uploadedImages: files
+            // };
+
+            // var client = window.contentfulManagement.createClient({
+            //     accessToken: 'CFPAT-9c245c5a91670d11a9889eb603e48cdb3c00bd94c9ac2d55aff9cbc28f4eb18f'
+            // });
+            // // client.getSpace('nma019atkcmp')
+            // //     .then((space) => space.getEnvironment('master'))
+            // //     .then((environment) => {
+            // //         console.log('env', environment)
+            // //     })
+            // //     .catch(err => {
+            // //         console.log('errr', err);
+            // // });
+            // client.getSpace('nma019atkcmp')
+            //     .then((space) => space.getEnvironment('master'))
+            //     .then((environment) => environment.createUpload({ file: files[0] }))
+            //     .then((asset) => {
+            //         console.log('toPlainObject', asset.toPlainObject())
+            //     })
+            //     .catch(err => {
+            //         console.log('errr', err);
+            //     })
         },
         setSelection: function (selected) {
             this.set('heard', selected)
@@ -85,71 +150,32 @@ export default Ember.Component.extend(formValidation, {
             this.send('triggerValidation');
             this.send('validateFiles');
             this.set('validationDanger', true);
-            console.log('this', this.get('isValid'));
-            return;
             if (this.get('isValid')) {
-
-
-                this.set('statusMessage', 'Sending...');
-
-
-                let message = "Hello\n\nYou have a new sign-up from ";
-                message += this.get('name');
-                message += " (" + this.get('email') + ")\n\n";
-                message += "Phone: " + this.get('phone') + "\n\n";
-                message += "Address: " + this.get('address') + "\n\n";
-
-
-                message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
-                var tempTitle = Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors' ? 'New commercial interiors contact form submission' : 'New sign up form submission!';
-                if (this.get('sale')) {
-                    tempTitle = 'New January Sale contact form submission'
+                let files = this.get('files');
+                var formData = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    console.log(files[i]);
+                    formData.append('uploadedImages[]', files[i]);
                 }
-                if (!this.get('downloadBrochure')) {
-                    Email.send("info@kitchensinternational.co.uk",
-                        this.get('contactEmail'),
-                        tempTitle,
-                        message,
-                        "email-smtp.eu-west-1.amazonaws.com",
-                        "AKIAJ7ND2OHTKPBHEJJQ",
-                        "ArtffMYr4ebRXP6acDyVan5H2bAohe05ySddBcW0YweD");
+                let self = this;
 
-                    this.set('statusMessage', 'Thank you! Message sent.');
-
-                    Ember.run.later(this, function () {
-                        this.send('resetForm');
-                    }, 500);
-
-                    if (typeof ga !== 'undefined') {
-                        let formType = this.get('formType');
-                        ga('send', 'event', 'Contact Form', 'Submitted', formType);
+                $.ajax({
+                    contentType: false,
+                    processData: false,
+                    type: "POST",
+                    url: 'http://upload.rbln7.com/uploadFiles',
+                    data: formData,
+                    success: function (data) {
+                        let images = [];
+                        let files = data.uploadedFileNames;
+                        for (var i = 0; i < files.length; i++) {
+                            console.log(files[i]);
+                            images.push(files[i].url);
+                        }
+                        self.send('createKitchenEntry', images)
+                        console.log('data nova radi', data);
                     }
-                } else {
-                    let pdfs = this.get('selectedPdfs');
-                    let message = "Hello\n\nthe following person has downloaded a brochure\n\n";
-                    message += this.get('name');
-                    message += " (" + this.get('email') + ")\n\n";
-                    message += "Phone: " + this.get('phone') + "\n\n";
-                    message += "Address: " + this.get('address') + "\n\n";
-                    message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
-
-                    tempTitle = 'Brochure download'
-                    Email.send("info@kitchensinternational.co.uk",
-                        this.get('contactEmail'),
-                        tempTitle,
-                        message,
-                        "email-smtp.eu-west-1.amazonaws.com",
-                        "AKIAJ7ND2OHTKPBHEJJQ",
-                        "ArtffMYr4ebRXP6acDyVan5H2bAohe05ySddBcW0YweD");
-
-                    this.set('statusMessage', 'Thank you! Message sent.');
-
-                    this.set('statusMessage', 'downloadDisplay')
-                    if (typeof ga !== 'undefined') {
-                        ga('send', 'event', 'Option used', 'Test 1A - Email Brochure Download');
-                    }
-                }
-
+                })
             }
         },
         resetForm() {

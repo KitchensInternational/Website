@@ -1602,10 +1602,11 @@ $red: #ff0000;
   padding:  .5rem 1rem;
     background: rgba(0, 0, 0, 0.7);
     position: absolute;
-    right: 1rem;
-    top: 0;
+    left: 0;
+    bottom: 0;
     color: white;
     transition: .3s all;
+    z-index: 999;
     &.disabled {
       display: none;
     }
@@ -1613,6 +1614,9 @@ $red: #ff0000;
       background: #000;
       cursor: pointer;
     }
+}
+.position-relative {
+  position: relative;
 }
 
 .upload-btn-wrapper {

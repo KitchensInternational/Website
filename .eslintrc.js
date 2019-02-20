@@ -15,6 +15,6 @@ module.exports = {
     "Email": true
   },
   rules: {
-      "no-console": 0
+    "no-console": 0
   }
 };

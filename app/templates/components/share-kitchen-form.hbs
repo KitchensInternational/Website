@@ -28,6 +28,7 @@
                     <div class="upload-btn-wrapper">
                         <button class="btn">Upload files</button>
                         <input multiple="true" id="files" name="files" onchange={{action "upload"}} accept="image/png,image/jpeg,application/pdf" type="file"/>
+                       {{#if (not files.length 0) }} <span>{{files.length}} files selected</span>{{/if}}
                         {{#if filesError}}<p class="form-control-feedback">Please select files!</p>{{/if}}
 
                     </div>

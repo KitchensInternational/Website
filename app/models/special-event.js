@@ -7,6 +7,7 @@ export default Contentful.extend({
     slug: attr('string'),
     metaTitle: attr('string'),
     content: attr('string'),
+    sharedKitchenText: attr('string'),
     images: hasMany('contentful-asset'),
     metaDescription: attr('string'),
     metaImage: belongsTo('contentful-asset'),

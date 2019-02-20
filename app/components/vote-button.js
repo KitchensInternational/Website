@@ -14,6 +14,16 @@ export default Ember.Component.extend({
     click() {
         let name = this.get('name');
         let votedKitchens = JSON.parse(localStorage.getItem('voted'));
+        var client = window.contentfulManagement.createClient({
+            accessToken: 'CFPAT-9c245c5a91670d11a9889eb603e48cdb3c00bd94c9ac2d55aff9cbc28f4eb18f'
+        });
+        client.getSpace('nma019atkcmp')
+            .then((space) => space.getEnvironment('master'))
+            .then((environment) => environment.getEntries(data => {
+                console.log('data', data);
+            }
+            ))
+            .catch(console.error)
         if (!votedKitchens) {
             votedKitchens = [name];
             localStorage.setItem('voted', JSON.stringify(votedKitchens))
