@@ -1,6 +1,6 @@
 ## Stage 1: node_modules and bower_components. then build the app ##
 
-FROM node:8.4.0-alpine
+FROM node:8.15.0-alpine
 
 WORKDIR /app
 
