@@ -3,7 +3,7 @@ const { set } = Ember;
 
 export default Ember.Route.extend({
     titleToken: function (model) {
-        return model.get('titleText');
+        return '';
     },
     model(params) {
         console.log()
