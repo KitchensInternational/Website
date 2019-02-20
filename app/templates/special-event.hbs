@@ -68,13 +68,26 @@
         <div class="row">
             {{#each model.kitchens as |kitchen|}}
             <div class="col-md-4 mt-3">
+                {{#if (eq kitchen.isGallery true)}}
                 <div class="position-relative">
-                    <a class="d-block position-relative img-background img-background img-background-cover" style={{background-image kitchen.imagesArr.firstObject}} href="{{kitchen.imagesArr.firstObject}}" data-lightbox="{{kitchen.name}}" data-title="<span class='btn-vote' onclick={{action "scrollDown"}}>Vote here</span>">
-            {{#vote-button class="vote-here" name=kitchen.name}} {{fa-icon  "heart" size="lg"}}
-                vote {{kitchen.votes}}{{/vote-button}}
-            </a>
-
+                    <a class="d-block img-background img-background img-background-cover" style={{background-image kitchen.gallery.firstObject.file.url}} href="{{kitchen.gallery.firstObject.file.url}}" data-lightbox="{{kitchen.name}}" data-title="<span class='btn-vote' onclick={{action "scrollDown"}}>Vote here</span>"></a>
+                    {{#vote-button class="vote-here" kitchen=kitchen name=kitchen.name}} {{fa-icon  "heart" size="lg"}}
+                    vote <span id="vote-{{kitchen.type}}">{{kitchen.votes}}</span>{{/vote-button}}
                 </div>
+                {{else}}
+                <div class="position-relative">
+                    <div class="position-relative">
+                        <a class="d-block position-relative img-background img-background img-background-cover" style={{background-image kitchen.imagesArr.firstObject}} href="{{kitchen.imagesArr.firstObject}}" data-lightbox="{{kitchen.name}}" data-title="<span class='btn-vote' onclick={{action "scrollDown"}}>Vote here</span>"></a>
+
+                        {{#vote-button class="vote-here" kitchen=kitchen name=kitchen.name}}
+                        {{fa-icon  "heart" size="lg"}}
+                        vote <span id="vote-{{kitchen.type}}">{{kitchen.votes}}</span>{{/vote-button}}
+                    </div>
+                </div>
+                {{/if}}
+
+
+                {{#if (eq kitchen.isGallery true)}}
                 {{#each kitchen.imagesArr as |image index|}}
 
                 {{#if (eq index 0)}}
@@ -84,6 +97,8 @@
             </a>
                 {{/if}}
                 {{/each}}
+                {{else}}
+                {{/if}}
                 <div class="pl-1 pr-1">
                     <p class="text-center mt-1">{{markdown-to-html kitchen.description}}</p>
                     <p class="text-center mt-1">{{markdown-to-html kitchen.author}}</p>

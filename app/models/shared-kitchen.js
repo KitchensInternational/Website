@@ -9,6 +9,16 @@ export default Contentful.extend({
     author: attr('string'),
     images: attr('string'),
     votes: attr('number'),
+    gallery: hasMany('contentful-asset'),
+    isGallery: attr('boolean'),
+    type: Ember.computed('name', function () {
+        if (this.get('name')) {
+            return this.get('name').replace(/ /g, '-')
+                .replace(/[^\w-]+/g, '')
+        } else {
+            return 'id';
+        }
+    }),
     imagesArr: Ember.computed('images', function () {
         if (this.get('images')) {
             return this.get('images').split(',');
@@ -16,6 +26,7 @@ export default Contentful.extend({
             return [];
         }
     }),
+    approved: attr('boolean'),
     imagesText: attr('string'),
     description: attr('string')
 

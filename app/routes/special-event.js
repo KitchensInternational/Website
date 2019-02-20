@@ -9,7 +9,7 @@ export default Ember.Route.extend({
         console.log()
         return Ember.RSVP.hash({
             content: this.get('store').queryRecord('special-event', { 'fields.slug': params.slug }),
-            kitchens: this.get('store').findAll('shared-kitchen', { 'fields.approved': true })
+            kitchens: this.get('store').query('shared-kitchen', { 'fields.approved': true })
         });
     },
 
