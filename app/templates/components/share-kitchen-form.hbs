@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+
+    <div class="col col-sm-9 py-3">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="text-center">
+            <h3 class="mb-3">Share your kitchen</h3>
+            <p class="mb">Please complete the form below and upload pictures
+                of your kitchen for a chance to be featured on our website.</p>
+            <form method="POST" action="#">
+                <div class="form-group {{validation 'form-group' name validationErrors.name validationDanger}}">
+                    {{input name="name" value=name class=(validation 'form-control' name validationErrors.name
+                    validationDanger) placeholder="FULL NAME" key-press="triggerValidation"
+                    focus-out="triggerValidation"}}
+                    <p class="form-control-feedback">{{validationErrors.name}}</p>
+                </div>
+                <div class="form-group {{validation 'form-group' email validationErrors.email validationDanger}}">
+                    {{input name="email" value=email class=(validation 'form-control' email validationErrors.email
+                    validationDanger) placeholder="EMAIL" key-press="triggerValidation"
+                    focus-out="triggerValidation"}}
+                    <p class="form-control-feedback">{{validationErrors.email}}</p>
+                </div>
+                <div class="form-group">
+                    {{textarea name="description" value=description class="form-control" placeholder="DESCRIPTION"}}
+                </div>
+                <div class="form-group">
+                    <div class="upload-btn-wrapper">
+                        <button class="btn">Upload files</button>
+                        <input multiple="true" id="files" name="files" onchange={{action "upload"}} accept="image/png,image/jpeg,application/pdf" type="file"/>
+                        {{#if filesError}}<p class="form-control-feedback">Please select files!</p>{{/if}}
+
+                    </div>
+
+                </div>
+                <div class="mb-3">
+                    <p>If you would like to receive information about our upcoming events and promotions please
+                        check
+                        the box below</p>
+                    {{opt-in-checkbox onCheck="receiveInfo"}}
+                </div>
+                {{#unless statusMessage}}
+                <button {{action 'triggerSubmit'}} class="btn btn-primary">Send</button>
+                {{else}}
+                <p>{{statusMessage}}</p>
+                {{/unless}}
+            </form>
+
+        </div>
+
+
+
+    </div>
+</div>

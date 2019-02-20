@@ -1614,3 +1614,32 @@ $red: #ff0000;
       cursor: pointer;
     }
 }
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  .btn {
+    // border: 2px solid gray;
+    color: black;
+    background-color:rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    width: 100%;
+    transition: .3s all;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.45);
+    }
+  }
+}
+
+
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}

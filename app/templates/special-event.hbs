@@ -39,16 +39,31 @@
                     </div>
                 </div>
                 <p>{{markdown-to-html model.content.content}}</p>
-                {{#contact-form-button class="btn btn-outline-primary my-4 button-on-gray" form-id="contact-form"}}Sign
+                {{#sign-up-button class="btn btn-outline-primary my-4 button-on-gray" form-id="sign-up-form"}}Sign
                 up for
-                events{{/contact-form-button}}
+                events{{/sign-up-button}}
             </div>
         </div>
     </section>
 </div>
 
 
+<div class="container mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-2 text-center">
+            <img src="/assets/images/myki.png" class="img-fluid" alt="Kitchens International - The Art of the Kitchen">
+            <hr>
 
+        </div>
+    </div>
+    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates magnam tenetur,
+        obcaecati alias at, earum
+        consectetur, provident sint distinctio nam optio facilis voluptate ab quas velit! Provident fuga ratione
+        perspiciatis.</p>
+    {{#share-kitchen-button class="btn btn-outline-primary my-4 button-on-gray" form-id="share-kitchen-form"}}Share your
+    kitchen{{/share-kitchen-button}}
+
+</div>
 <div class="container mt-5">
     <div class="row">
         {{#each model.kitchens as |kitchen|}}
@@ -76,3 +91,7 @@
         {{/each}}
     </div>
 </div>
+
+
+{{sign-up-modal id="sign-up-form"}}
+{{share-kitchen-modal id="share-kitchen-form"}}
