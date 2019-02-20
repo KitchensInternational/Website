@@ -152,7 +152,7 @@ export default Ember.Component.extend(formValidation, {
             this.set('validationDanger', true);
             if (this.get('isValid')) {
                 let files = this.get('files');
-                var formData = new FormData();
+                var formData = [];
                 for (var i = 0; i < files.length; i++) {
                     console.log(files[i]);
                     formData.append('uploadedImages[]', files[i]);
