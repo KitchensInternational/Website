@@ -1602,6 +1602,7 @@ $red: #ff0000;
   padding:  .5rem 1rem;
     background: rgba(0, 0, 0, 0.7);
     position: absolute;
+    border-top-right-radius: 5px;
     left: 0;
     bottom: 0;
     color: white;
@@ -1646,4 +1647,23 @@ $red: #ff0000;
   left: 0;
   top: 0;
   opacity: 0;
+}
+
+.introduction {
+  &.full {
+    height: 100vh !important;
+  }
+}
+
+.holder {
+  .iq-logo {
+    max-width: 100%;
+  }
+}
+
+.my-kitchen {
+  @media (max-width: #{map-get($grid-breakpoints, md)}) {
+    max-width: 200px;
+    min-width: auto;
+  }
 }

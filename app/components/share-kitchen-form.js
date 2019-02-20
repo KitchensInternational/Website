@@ -5,7 +5,6 @@ import $ from "jquery";
 
 export default Ember.Component.extend(formValidation, {
     classNames: ['container-fluid', 'contact-form-inner'],
-
     contactPhone: '0845 074 0022',
     contactEmail: 'info@kitchensinternational.co.uk',
     name: '',
