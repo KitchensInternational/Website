@@ -19,8 +19,7 @@
   "author": "Matthew Davies (matt@weareignite.group)",
   "license": "Private",
   "dependencies": {
-    "fastboot-app-server": "1.0.1",
-    "contentful-management": "^5.5.0"
+    "fastboot-app-server": "1.0.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "2.6.0",
