@@ -25,7 +25,6 @@ export default Ember.Component.extend(formValidation, {
         form: {
             name: {
                 required: true,
-                format: 'fullname',
                 message: 'Please enter your full name',
             },
             email: {

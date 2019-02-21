@@ -2,7 +2,7 @@
     style={{background-image model.content.featuredImage.file.url}}>
     <div class="heading d-flex align-items-center justify-content-center flex-column">
         <div class="holder">
-            <img class="iq-logo mb-5" src="/assets/images/25.png" alt="IQ-logo">
+            <img class="iq-logo animate-logo mb-5" src="/assets/images/25.png" alt="IQ-logo">
 
             {{!-- {{#heading-after-scroll class="mb-0"}}{{ markdown-to-html
                 model.content.name}}{{/heading-after-scroll}} --}}
@@ -72,7 +72,7 @@
                 <div class="position-relative">
                     <a class="d-block img-background img-background img-background-cover" style={{background-image kitchen.gallery.firstObject.file.url}} href="{{kitchen.gallery.firstObject.file.url}}" data-lightbox="{{kitchen.name}}" data-title="<span class='btn-vote' onclick={{action "scrollDown"}}>Vote here</span>"></a>
                     {{#vote-button class="vote-here" kitchen=kitchen name=kitchen.name}} {{fa-icon  "heart" size="lg"}}
-                    vote <span id="vote-{{kitchen.type}}">{{kitchen.votes}}</span>{{/vote-button}}
+                    <span id="vote-{{kitchen.type}}">{{kitchen.votes}}</span>{{/vote-button}}
                 </div>
                 {{else}}
                 <div class="position-relative">
@@ -81,7 +81,7 @@
 
                         {{#vote-button class="vote-here" kitchen=kitchen name=kitchen.name}}
                         {{fa-icon  "heart" size="lg"}}
-                        vote <span id="vote-{{kitchen.type}}">{{kitchen.votes}}</span>{{/vote-button}}
+                        <span id="vote-{{kitchen.type}}">{{kitchen.votes}}</span>{{/vote-button}}
                     </div>
                 </div>
                 {{/if}}
