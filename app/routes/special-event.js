@@ -6,14 +6,18 @@ export default Ember.Route.extend({
         return '';
     },
     model(params) {
-        console.log()
+
         return Ember.RSVP.hash({
             content: this.get('store').queryRecord('special-event', { 'fields.slug': params.slug }),
             kitchens: this.get('store').query('shared-kitchen', { 'fields.approved': true })
         });
     },
 
+
     setupController(controller, model) {
+        Ember.run.scheduleOnce('afterRender', function () {
+            Ember.$(".animate-logo").addClass('fade-in');
+        });
         this._super(controller, model);
     },
     headData: Ember.inject.service(),

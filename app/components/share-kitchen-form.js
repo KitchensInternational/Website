@@ -142,7 +142,7 @@ export default Ember.Component.extend(formValidation, {
                     contentType: false,
                     processData: false,
                     type: "POST",
-                    url: 'http://upload.rbln7.com/uploadFiles',
+                    url: 'https://upload.rbln7.com/uploadFiles',
                     data: formData,
                     success: function (data) {
                         let images = [];
