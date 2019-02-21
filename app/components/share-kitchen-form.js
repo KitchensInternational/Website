@@ -40,7 +40,7 @@ export default Ember.Component.extend(formValidation, {
         }
     },
     isValid: Ember.computed('validationErrorExists', function () {
-        return !this.get('validationErrorExists') || !this.get('filesError');
+        return !this.get('validationErrorExists') && !this.get('filesError');
     }),
     init() {
         this._super(...arguments);
@@ -51,6 +51,7 @@ export default Ember.Component.extend(formValidation, {
             var client = window.contentfulManagement.createClient({
                 accessToken: 'CFPAT-9c245c5a91670d11a9889eb603e48cdb3c00bd94c9ac2d55aff9cbc28f4eb18f'
             });
+            let self = this;
             client.getSpace('nma019atkcmp')
                 .then((space) => space.getEnvironment('master'))
                 .then((environment) => environment.createEntry('shared-kitchen', {
@@ -80,6 +81,10 @@ export default Ember.Component.extend(formValidation, {
                 }))
                 .then((entry) => {
                     entry.publish();
+                    self.set('statusMessage', 'Thank you! Kitchen will be displayed after approval.');
+                    setTimeout(() => {
+                        self.send('resetForm');
+                    }, 3000);
                 })
                 .catch(console.error)
         },
@@ -94,38 +99,13 @@ export default Ember.Component.extend(formValidation, {
                 this.set('files', files);
             }
 
-            // var data = {
-            //     files: files,
-            //     uploadedImages: files
-            // };
-
-            // var client = window.contentfulManagement.createClient({
-            //     accessToken: 'CFPAT-9c245c5a91670d11a9889eb603e48cdb3c00bd94c9ac2d55aff9cbc28f4eb18f'
-            // });
-            // // client.getSpace('nma019atkcmp')
-            // //     .then((space) => space.getEnvironment('master'))
-            // //     .then((environment) => {
-            // //         console.log('env', environment)
-            // //     })
-            // //     .catch(err => {
-            // //         console.log('errr', err);
-            // // });
-            // client.getSpace('nma019atkcmp')
-            //     .then((space) => space.getEnvironment('master'))
-            //     .then((environment) => environment.createUpload({ file: files[0] }))
-            //     .then((asset) => {
-            //         console.log('toPlainObject', asset.toPlainObject())
-            //     })
-            //     .catch(err => {
-            //         console.log('errr', err);
-            //     })
         },
         setSelection: function (selected) {
             this.set('heard', selected)
         },
         validateFiles() {
             let files = this.get('files');
-            if (!files) {
+            if (files.length < 1) {
                 this.set('filesError', true);
             } else {
                 this.set('filesError', false);
@@ -150,6 +130,7 @@ export default Ember.Component.extend(formValidation, {
             this.send('validateFiles');
             this.set('validationDanger', true);
             if (this.get('isValid')) {
+                this.set('statusMessage', 'Sending...');
                 let files = this.get('files');
                 var formData = new FormData();
                 for (var i = 0; i < files.length; i++) {
@@ -186,6 +167,7 @@ export default Ember.Component.extend(formValidation, {
             this.set('selectedKitchens', Ember.A());
             this.set('reveiveInfo', false);
             this.set('statusMessage', '');
+            this.set('files', []);
             Ember.$('input[type="checkbox"]').attr('checked', false);
             this.$().parents('.modal').modal('hide');
         },
