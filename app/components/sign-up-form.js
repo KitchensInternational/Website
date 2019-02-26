@@ -78,7 +78,7 @@ export default Ember.Component.extend(formValidation, {
 
 
                 message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
-                var tempTitle = Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors' ? 'New commercial interiors contact form submission' : 'New sign up form submission!';
+                var tempTitle = Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors' ? 'New commercial interiors contact form submission' : 'New 25 year event sign up form submission!';
                 if (this.get('sale')) {
                     tempTitle = 'New January Sale contact form submission'
                 }
