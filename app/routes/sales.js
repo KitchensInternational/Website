@@ -46,6 +46,9 @@ export default Ember.Route.extend({
     },
     setupController(controller, model) {
         this._super(controller, model);
+        Ember.run.scheduleOnce('afterRender', function () {
+            Ember.$(".animate-logo").addClass('fade-in');
+        });
         let meta = model.articles.get('meta');
         controller.set('pageCount', Math.max(1, Math.floor(meta.total / LIMIT)));
     },

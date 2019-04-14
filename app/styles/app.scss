@@ -1469,6 +1469,7 @@ $red: #ff0000;
   }
   .holder {
     display: inline-block;
+    width: 100%;
     // border: 1px solid #FFF;
     #januarysalespannowonspan {
       padding: 2em;
@@ -1476,56 +1477,15 @@ $red: #ff0000;
       padding-top: .5em;
     }
     h1 {
+      width: 100%;
+      padding: 1rem;
+      background: $red;
       position: relative;
-      border-top: 1px solid #FFF;
-      &:after {
-        z-index: 99;
-        content: '';
-        height: 2.6em;
-        width: 2px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        background: #FFF;
+      p {
+        margin: 0;
       }
-      &:before {
-        z-index: 99;
-        content: '';
-        height: 2.6em;
-        width: 2px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: #FFF;
-      }
-      span {
-        position: relative;
-        color: $red;
-        display: block;
-        &:after {
-          z-index: 99;
-          content: '';
-          height: 2px;
-          width: 2em;
-          position: absolute;
-          right: -2em;
-          top: 50%;
-          background: #FFF;
-          transform: translateY(-50%);
 
-        }
-        &:before {
-          z-index: 99;
-          content: '';
-          height: 2px;
-          width: 2em;
-          position: absolute;
-          left: -2em;
-          top: 50%;
-          background: #FFF;
-          transform: translateY(-50%);
-        }
-      }
+
     }
   }
 }
@@ -1557,31 +1517,7 @@ $red: #ff0000;
 @media (max-width: #{map-get($grid-breakpoints, sm)}) {
   .sales .heading .holder #januarysalespannowonspan {
     padding: 1em;
-  }
-  .sales .heading .holder h1 span{
-    &:after {
-      z-index: 99;
-      content: '';
-      height: 2px;
-      width: 1em;
-      position: absolute;
-      right: -1em;
-      top: 50%;
-      background: #FFF;
-      transform: translateY(-50%);
 
-    }
-    &:before {
-      z-index: 99;
-      content: '';
-      height: 2px;
-      width: 1em;
-      position: absolute;
-      left: -1em;
-      top: 50%;
-      background: #FFF;
-      transform: translateY(-50%);
-    }
   }
 }
 
