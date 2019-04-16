@@ -1,9 +1,8 @@
-<div class="introduction full d-flex align-items-center justify-content-center"
+<div class="introduction full d-flex align-items-center justify-content-center mb-4"
     style={{background-image model.content.featuredImage.file.url}}>
     <div class="heading d-flex align-items-center justify-content-center flex-column">
         <div class="holder ">
             <img class="iq-logo animate-logo  mb-5" src="/assets/images/25.png" alt="IQ-logo">
-
             {{#heading-after-scroll class="mb-0"}}{{ markdown-to-html
                 model.content.heading}}{{/heading-after-scroll}}
         </div>
@@ -15,20 +14,31 @@
 
     <div class="mt-4 mb-3">
         <section class="container">
-            <div class="row">
-                <div class="background-taupe col-md-12 text-center pt-3 pb-3 pl-5 pr-5">
+            <div class="row ml-0 mr-0">
+                <div class="background-taupe col-md-12 text-center pt-3 pb-3 red-bottom">
                     <div class="years mb-2">
                         <div class="d-flex align-items-center justify-content-center h-100">
                             <span class="medium-font">25<span class="medium-font small">YEARS</span></span>
                         </div>
                     </div>
+                    <h3 class="card-title font-weight-bold mb-0">{{ markdown-to-html
+                model.content.heading}}</h3>
+                    <hr>
                     <p>{{markdown-to-html model.content.introduction}}</p>
-                    {{#sign-up-button class="btn btn-outline-primary my-4 button-on-gray" form-id="sign-up-form"}}Sign
-                    up for
-                    events{{/sign-up-button}}
+                    {{#sign-up-button class="btn btn-outline-primary my-4 button-on-gray" form-id="sign-up-form"}}Register
+                    for early bird offers{{/sign-up-button}}
                 </div>
             </div>
         </section>
+    </div>
+    <div class="container">
+        <div class="row">
+            {{#each model.content.carouselImages as |image|}}
+            <div class="col-md-4 col-md-4 col-lg-4 mt-5">
+                <a class="d-block img-background img-background-cover red-bottom" style={{background-image image.file.url}} href="{{image.file.url}}" data-lightbox="{{model.content.name}}" data-title="{{image.title}}"></a>
+            </div>
+            {{/each}}
+        </div>
     </div>
 
 
