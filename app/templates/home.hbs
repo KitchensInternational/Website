@@ -1,142 +1,151 @@
 <div class="introduction text-white text-center">
     <div class="call-to-action-area">
         {{#fade-in-images}}
-            <img src="/assets/images/ki-main-logo-transparent.png" alt="Kitchens International - The Art of the Kitchen">
-            <h1>The Art of Kitchen</h1>
+        <img src="/assets/images/ki-main-logo-transparent.png" alt="Kitchens International - The Art of the Kitchen">
+        <h1>The Art of Kitchen<br>
+            <p class="h5"><span class="d-block w-100"> UK KITCHEN RETAILER OF THE YEAR 2019</span>
+                <span> UK KITCHEN SHOWROOM OF THE YEAR 2019</span></p>
+        </h1>
         {{/fade-in-images}}
         <a href="{{model.content.callToActionLink}}" class="btn btn-outline-secondary my-4">{{model.content.callToAction}}</a><br>
         {{fa-icon "chevron-down" size="lg"}}
     </div>
-</div>
-<section class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
-            {{markdown-to-html model.content.introduction}}
-        </div>
     </div>
-</section>
-<div class="card mb-5">
-    {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-home"}}
-    <div class="card-block d-flex justify-content-center">
-        <div class="col col-sm-8 text-center py-3">
-            <h3 class="card-title">{{model.content.splashHeading}}</h3>
-            <hr>
-            {{markdown-to-html model.content.splashContent class="card-text"}}
-            <a href="{{model.content.splashActionLink}}" class="btn btn-outline-primary">{{model.content.splashActionTitle}}</a>
-        </div>
-    </div>
-</div>
-<div class="background-taupe mb-5">
     <section class="container-fluid">
-        <div class="row mb-5">
-            <div class="col-12 col-md-6">
-                {{#slide-in-wrapper position="left"}}
-                <div class="p-5">
-                    <h3>{{model.content.textLeftHeading}}</h3>
-                    <hr>
-                    {{markdown-to-html model.content.textLeftContent}}
-                    <a href="{{model.content.textLeftActionLink}}" class="btn btn-outline-primary">{{model.content.textLeftActionTitle}}</a>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col-12 col-md-6 d-flex">
-                {{#slide-in-wrapper position="right"}}
-                <div class="img-background full-height" style={{background-image model.content.textLeftImage.file.url}}></div>
-                {{/slide-in-wrapper}}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="d-flex justify-content-center align-items-center img-background img-tinted" style={{background-image model.content.imageOverlayTop.file.url}}>
-                    <div class="col-10 col-sm-8 text-white text-center py-5">
-                        <h3>{{model.content.imageOverlayTopHeading}}</h3>
-                        <hr class="hr-white hidden-sm-down">
-                        {{markdown-to-html model.content.imageOverlayTopContent}}
-                        <a href="{{model.content.imageOverlayTopActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayTopActionTitle}}</a>
-                    </div>
-                </div>
+        <div class="row justify-content-center">
+            <div class="col col-sm-10 col-md-8 py-5 my-3 text-center text-lg">
+                {{markdown-to-html model.content.introduction}}
             </div>
         </div>
     </section>
-</div>
-<div class="background-taupe mb-5">
-    <section class="container-fluid">
-        <div class="row mb-5">
-            <div class="col-12 col-md-6">
-                {{#slide-in-wrapper position="left"}}
-                <div class="p-5">
-                    <h3>{{model.content.textRightHeading}}</h3>
-                    <hr>
-                    {{markdown-to-html model.content.textRightContent}}
-                    <a href="{{model.content.textRightActionLink}}" class="btn btn-outline-primary">{{model.content.textRightActionTitle}}</a>
-                </div>
-                {{/slide-in-wrapper}}
-            </div>
-            <div class="col-12 col-md-6 d-flex">
-                {{#slide-in-wrapper position="right"}}
-                <div class="img-background img-tinted full-height d-flex align-items-end" style={{background-image model.content.textRightImage.file.url}}>
-                    {{markdown-to-html model.content.textRightContentTwo class="text-white p-4"}}
-                </div>
-                {{/slide-in-wrapper}}
+    <div class="card mb-5">
+        {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-home"}}
+        <div class="card-block d-flex justify-content-center">
+            <div class="col col-sm-8 text-center py-3">
+                <h3 class="card-title">{{model.content.splashHeading}}</h3>
+                <hr>
+                {{markdown-to-html model.content.splashContent class="card-text"}}
+                <a href="{{model.content.splashActionLink}}" class="btn btn-outline-primary">{{model.content.splashActionTitle}}</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="d-flex justify-content-center align-items-center img-background img-tinted" style={{background-image model.content.imageOverlayBottom.file.url}}>
-                    <div class="col-10 col-sm-8 text-white text-center py-5">
-                        <h3>{{model.content.imageOverlayBottomHeading}}</h3>
-                        <hr class="hr-white hidden-sm-down">
-                        {{markdown-to-html model.content.imageOverlayBottomContent}}
-                        <a href="{{model.content.imageOverlayBottomActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayBottomActionTitle}}</a>
+    </div>
+    <div class="background-taupe mb-5">
+        <section class="container-fluid">
+            <div class="row mb-5">
+                <div class="col-12 col-md-6">
+                    {{#slide-in-wrapper position="left"}}
+                    <div class="p-5">
+                        <h3>{{model.content.textLeftHeading}}</h3>
+                        <hr>
+                        {{markdown-to-html model.content.textLeftContent}}
+                        <a href="{{model.content.textLeftActionLink}}" class="btn btn-outline-primary">{{model.content.textLeftActionTitle}}</a>
+                    </div>
+                    {{/slide-in-wrapper}}
+                </div>
+                <div class="col-12 col-md-6 d-flex">
+                    {{#slide-in-wrapper position="right"}}
+                    <div class="img-background full-height"
+                        style={{background-image model.content.textLeftImage.file.url}}></div>
+                    {{/slide-in-wrapper}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center align-items-center img-background img-tinted"
+                        style={{background-image model.content.imageOverlayTop.file.url}}>
+                        <div class="col-10 col-sm-8 text-white text-center py-5">
+                            <h3>{{model.content.imageOverlayTopHeading}}</h3>
+                            <hr class="hr-white hidden-sm-down">
+                            {{markdown-to-html model.content.imageOverlayTopContent}}
+                            <a href="{{model.content.imageOverlayTopActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayTopActionTitle}}</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
-<div class="background-taupe">
-    <section class="container-fluid">
-        <div class="row mb-5">
-            <div class="col-12 col-md-4">
-                <div class="card card-no-border">
-                    <div class="card-block">
-                        <h4>{{#link-to 'events'}}Events{{/link-to}}</h4>
+        </section>
+    </div>
+    <div class="background-taupe mb-5">
+        <section class="container-fluid">
+            <div class="row mb-5">
+                <div class="col-12 col-md-6">
+                    {{#slide-in-wrapper position="left"}}
+                    <div class="p-5">
+                        <h3>{{model.content.textRightHeading}}</h3>
                         <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.eventsImage.file.url}}" alt="{{model.content.eventsImage.title}}">
-                        <h4>{{model.content.eventsSubtitle}}</h4>
-                        <hr>
-                        {{markdown-to-html model.content.eventsIntroduction class="card-text"}}
-                        {{#link-to 'events' class="btn btn-outline-primary"}}{{model.content.eventsCallToAction}}{{/link-to}}
+                        {{markdown-to-html model.content.textRightContent}}
+                        <a href="{{model.content.textRightActionLink}}" class="btn btn-outline-primary">{{model.content.textRightActionTitle}}</a>
+                    </div>
+                    {{/slide-in-wrapper}}
+                </div>
+                <div class="col-12 col-md-6 d-flex">
+                    {{#slide-in-wrapper position="right"}}
+                    <div class="img-background img-tinted full-height d-flex align-items-end"
+                        style={{background-image model.content.textRightImage.file.url}}>
+                        {{markdown-to-html model.content.textRightContentTwo class="text-white p-4"}}
+                    </div>
+                    {{/slide-in-wrapper}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center align-items-center img-background img-tinted"
+                        style={{background-image model.content.imageOverlayBottom.file.url}}>
+                        <div class="col-10 col-sm-8 text-white text-center py-5">
+                            <h3>{{model.content.imageOverlayBottomHeading}}</h3>
+                            <hr class="hr-white hidden-sm-down">
+                            {{markdown-to-html model.content.imageOverlayBottomContent}}
+                            <a href="{{model.content.imageOverlayBottomActionLink}}" class="btn btn-outline-secondary">{{model.content.imageOverlayBottomActionTitle}}</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 background-white">
-                <div class="card card-no-border background-white">
-                    <div class="card-block">
-                        <h4>{{#link-to 'stories'}}Stories{{/link-to}}</h4>
-                        <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.leadArticle.featuredImageProxy}}" alt="{{model.leadArticle.featuredImage.title}}">
-                        <h4 class="card-title"><small class="d-inline-block mb-1">{{moment-format model.leadArticle.publicationDate 'MM/DD/YYYY'}}</small><br>
+        </section>
+    </div>
+    <div class="background-taupe">
+        <section class="container-fluid">
+            <div class="row mb-5">
+                <div class="col-12 col-md-4">
+                    <div class="card card-no-border">
+                        <div class="card-block">
+                            <h4>{{#link-to 'events'}}Events{{/link-to}}</h4>
+                            <hr>
+                            <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.eventsImage.file.url}}" alt="{{model.content.eventsImage.title}}">
+                            <h4>{{model.content.eventsSubtitle}}</h4>
+                            <hr>
+                            {{markdown-to-html model.content.eventsIntroduction class="card-text"}}
+                            {{#link-to 'events' class="btn btn-outline-primary"}}{{model.content.eventsCallToAction}}{{/link-to}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 background-white">
+                    <div class="card card-no-border background-white">
+                        <div class="card-block">
+                            <h4>{{#link-to 'stories'}}Stories{{/link-to}}</h4>
+                            <hr>
+                            <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.leadArticle.featuredImageProxy}}" alt="{{model.leadArticle.featuredImage.title}}">
+                            <h4 class="card-title">
+                                <small class="d-inline-block mb-1">{{moment-format model.leadArticle.publicationDate 'MM/DD/YYYY'}}</small><br>
                             {{#link-to 'story' model.leadArticle.slug}}{{model.leadArticle.title}}{{/link-to}}</h4>
-                        <hr>
-                        {{markdown-to-html model.leadArticle.excerpt class="card-text"}}
-                        {{#link-to 'story' model.leadArticle.slug class="btn btn-outline-primary"}}Read more{{/link-to}}
+                                <hr>
+                                {{markdown-to-html model.leadArticle.excerpt class="card-text"}}
+                                {{#link-to 'story' model.leadArticle.slug class="btn btn-outline-primary"}}Read
+                                more{{/link-to}}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="card card-no-border">
-                    <div class="card-block">
-                        <h4>Social</h4>
-                        <hr>
-                        <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.socialImage.file.url}}" alt="{{model.content.socialImage.title}}">
+                <div class="col-12 col-md-4">
+                    <div class="card card-no-border">
+                        <div class="card-block">
+                            <h4>Social</h4>
+                            <hr>
+                            <img class="card-img-top img-fluid mt-2 mb-3" src="{{model.content.socialImage.file.url}}" alt="{{model.content.socialImage.title}}">
                         {{social-icons greyIcons=true largeIcons=true}}
-                        <h4>{{model.content.socialSubtitle}}</h4>
-                        <hr>
-                        {{markdown-to-html model.content.socialIntroduction class="card-text"}}
+                            <h4>{{model.content.socialSubtitle}}</h4>
+                            <hr>
+                            {{markdown-to-html model.content.socialIntroduction class="card-text"}}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>

@@ -552,7 +552,7 @@ $social-icon-size-lg: 40px;
 .contact-form-inner {
 
   .close {
-    display: none;
+    display: block;
   }
 }
 
@@ -1460,9 +1460,13 @@ $red: #ff0000;
   padding-top: 0;
   .btn {
     position: absolute;
-    bottom: 20%;
+    bottom: 17%;
     left: 50%;
     transform: translateX(-50%);
+    @media (max-width: #{map-get($grid-breakpoints, md)}) {
+      bottom: 12%;
+
+    }
   }
   hr {
     display: none;
@@ -1500,7 +1504,7 @@ $red: #ff0000;
 
 }
 @media (max-width: #{map-get($grid-breakpoints, md)}) {
-  .sales .heading .holder {
+  .sales .heading .holder .inner-holder {
     padding-left: 1rem;
     width: 90%;
     padding-right: 1rem;

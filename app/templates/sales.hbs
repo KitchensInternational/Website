@@ -2,10 +2,12 @@
     style={{background-image model.content.featuredImage.file.url}}>
     <div class="heading d-flex align-items-center justify-content-center flex-column">
         <div class="holder ">
-            <img class="iq-logo animate-logo  mb-5" src="/assets/images/25.png" alt="IQ-logo">
-            {{#heading-after-scroll class="mb-0"}}{{ markdown-to-html
+            <div class="inner-holder">
+                <img class="iq-logo animate-logo  mb-5" src="/assets/images/25.png" alt="IQ-logo">
+            </div>
+                {{#heading-after-scroll class="mb-0"}}{{ markdown-to-html
                 model.content.heading}}{{/heading-after-scroll}}
-        </div>
+            </div>
             <a onclick={{action "scrollDown"}} class="btn btn-outline-secondary mt-5 my-4" href='#'>EARLY BIRD OFFERS</a>
         </div>
 
