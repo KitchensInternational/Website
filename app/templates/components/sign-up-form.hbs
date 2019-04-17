@@ -6,8 +6,7 @@
         </button>
         <div class="text-center">
             <h3 class="mb-3">Sign up for events</h3>
-            <p class="mb">Please complete the form below if interested
-                in attending one of our upcoming 25th anniversary events.</p>
+            <p class="mb">{{headline}}</p>
             <form method="POST" action="#">
                 <div class="form-group {{validation 'form-group' name validationErrors.name validationDanger}}">
                     {{input name="name" value=name class=(validation 'form-control' name validationErrors.name

@@ -16,6 +16,7 @@ export default Ember.Component.extend(formValidation, {
     selectedPdfs: Ember.A(),
     receiveInfoVal: 'No',
     statusMessage: '',
+    headline: 'Please complete the form below if interested in attending one of our upcoming 25th anniversary events.',
     validationDanger: false,
     validate: {
         form: {
@@ -40,6 +41,10 @@ export default Ember.Component.extend(formValidation, {
     }),
     init() {
         this._super(...arguments);
+        if (window.location.pathname == '/anniversary-sale') {
+            this.set('headline', 'Please complete the form below to be informed when our 25th Anniversary Sale goes live and receive exclusive early bird offers')
+        }
+        console.log('thisss', window.location.pathname);
 
     },
     actions: {
