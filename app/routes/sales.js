@@ -39,8 +39,8 @@ export default Ember.Route.extend({
                 };
             }),
 
-            sale: this.get('store').queryRecord('salesPage', { 'fields.slug': 'anniversary-sale' }),
-            content: this.get('store').queryRecord('salesPage', { 'fields.slug': 'anniversary-sale' }),
+            sale: this.get('store').queryRecord('salesPage', { 'fields.slug': 'sale' }),
+            content: this.get('store').queryRecord('salesPage', { 'fields.slug': 'sale' }),
             articles: this.get('store').query('exDisplaySale', apiParams)
         });
     },

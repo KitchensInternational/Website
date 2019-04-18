@@ -16,6 +16,7 @@ export default Ember.Component.extend(formValidation, {
     selectedPdfs: Ember.A(),
     receiveInfoVal: 'No',
     statusMessage: '',
+    mainHeadline: 'Sign up for events',
     headline: 'Please complete the form below if interested in attending one of our upcoming 25th anniversary events.',
     validationDanger: false,
     validate: {
@@ -41,10 +42,10 @@ export default Ember.Component.extend(formValidation, {
     }),
     init() {
         this._super(...arguments);
-        if (window.location.pathname == '/anniversary-sale') {
+        if (window.location.pathname == '/sale') {
             this.set('headline', 'Please complete the form below to be informed when our 25th Anniversary Sale goes live and receive exclusive early bird offers')
+            this.set('mainHeadline', 'Anniversary Sale')
         }
-        console.log('thisss', window.location.pathname);
 
     },
     actions: {
@@ -84,7 +85,7 @@ export default Ember.Component.extend(formValidation, {
 
                 message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
                 var tempTitle = Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors' ? 'New commercial interiors contact form submission' : 'New 25 year event sign up form submission!';
-                tempTitle = window.location.pathname == "/anniversary-sale" ? 'New sale/early bird promotion submission' : tempTitle;
+                tempTitle = window.location.pathname == "/sale" ? 'New sale/early bird promotion submission' : tempTitle;
 
                 if (!this.get('downloadBrochure')) {
                     Email.send("info@kitchensinternational.co.uk",
