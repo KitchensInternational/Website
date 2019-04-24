@@ -1666,3 +1666,9 @@ $red: #ff0000;
     opacity:1;
   }
 }
+
+.red-span {
+  span {
+    color: $red
+  }
+}

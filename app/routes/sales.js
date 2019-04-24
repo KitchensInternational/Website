@@ -18,7 +18,7 @@ export default Ember.Route.extend({
             limit: LIMIT
         };
         return Ember.RSVP.hash({
-            featured: this.get('store').query('featuredsale', { 'fields.featured': true }),
+            featured: this.get('store').query('featuredsale', { 'fields.featured': true }).sortBy('fields.order'),
             notFeatured: this.get('store').query('featuredsale', { 'fields.featured': false }),
             // sales: this.get('store').query('sale', { 'fields.order': 1, 'fields.test': 2 }),
             sales: this.get('store').query('sale', { 'order': 'fields.order', }).then(function (list) {
@@ -35,7 +35,6 @@ export default Ember.Route.extend({
                     first: first,
                     second: second,
                     third: third
-
                 };
             }),
 

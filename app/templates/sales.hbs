@@ -14,7 +14,7 @@
     </div>
 
 
-    <div class="mt-4 mb-3">
+    <div class="mt-4 mb-5">
         <section class="container">
             <div class="row ml-0 mr-0">
                 <div class="background-taupe col-md-12 text-center pt-3 pb-3 red-bottom">
@@ -27,24 +27,171 @@
                 model.content.heading}}</h3>
                     <hr>
                     <p>{{markdown-to-html model.content.introduction}}</p>
-                    {{#sign-up-button class="btn btn-outline-primary my-4 button-on-gray" form-id="sign-up-form"}}Register
-                    for early bird offers{{/sign-up-button}}
+                    {{#sign-up-button class="btn btn-outline-primary my-4 button-on-gray" form-id="sign-up-form"}}REQUEST
+                    DESIGN CONSULTATION{{/sign-up-button}}
                 </div>
             </div>
         </section>
     </div>
+
+
     <div class="container">
         <div class="row">
-            {{#each model.content.carouselImages as |image|}}
-            <div class="col-md-4 col-md-4 col-lg-4 mt-5">
-                <a class="d-block img-background img-background-cover red-bottom" style={{background-image image.file.url}} href="{{image.file.url}}" data-lightbox="{{model.content.name}}" data-title="{{image.title}}"></a>
+            <div class="col-sm-12">
+                <div class="card mb-5">
+                    {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-sales"}}
+                    <div class="background-taupe sub-heading-bckg">
+                        <div class="row">
+                            <div class="col py-2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block d-flex justify-content-center">
+                        <div class="col col-sm-12 text-center text-lg py-3">
+                            {{markdown-to-html model.content.splashContent class="card-text red-span font-oswald"}}
+                            {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request design
+                            consultation{{/contact-form-button}}
+                        </div>
+                    </div>
+                </div>
             </div>
-            {{/each}}
         </div>
     </div>
 
 
+    {{#each featuredSalesOrdered as |feature index|}}
+    <div class="mb-3 special-discount">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="red-bottom  d-flex align-items-center img-background full-height img-tinted red-bottom"
+                        style={{background-image feature.featuredSaleImage.file.url}}>
+                    </div>
+                </div>
+            </div>
+            <div class="background-taupe oswald-dark pl-5 pr-5 mb-5 red-span">
+                <h3 class="text-center title pt-4 pb-2">{{{ feature.featuredSaleTitle}}}</h3>
+                <p class="text-center mb-0">
+                    {{!--
+                    <hr class="hr-dark"> --}}
+                </p>
+                <div class="row justify-content-center">
+                    <div class="col col-sm-12 my-3 text-center text-lg">
+                        {{markdown-to-html feature.featuredSaleContent}}
+                        {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request design
+                        consultation{{/contact-form-button}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
 
+    <div class="container" id="myGroup">
+        <div class="row">
+            {{#each model.sales.first as |sale index|}}
+            <div class="col-6 col-sm-6 mb-0">
+                <div class="d-flex align-items-center img-background img-tinted red-bottom"
+                    style={{background-image sale.featuredImage.file.url}}>
+                    <div class="background-taupe dark-inset">
+                        <div class="py-2 text-center">
+                            <button onclick={{action "toggle"}} class="btn btn-outline-secondary" type="button" data-parent="#myGroup" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="background-taupe sub-heading-bckg">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {{#each model.sales.first as |sale index|}}
 
+            <div id="collapseSale{{sale.id}}" data-parent="#myGroup"
+                class="container-fluid collapse {{sale.slug}} mt-5">
+                <h1>{{sale.name}}</h1>
+                <hr>
+                <div class="row mb-5">
+                    {{#if sale.appliancePackContent1}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent1 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent2}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent2 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent3}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent3 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent4}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent4 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.appliancePackContent5}}
+                    <div class="col">
+                        {{markdown-to-html sale.appliancePackContent5 class="d-flex flex-column oswald-dark
+                        text-center"}}
+                    </div>
+                    {{/if}}
+                    {{#if sale.saleInfo}}
+                    <div class="col-12 background-taupe mt-3 mb-5">
+                        <div class="col py-2 text-center">
+                            <h1>{{sale.name}}:</h1>
+                            {{markdown-to-html sale.saleInfo class="d-flex flex-column oswald-dark red-span"}}
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <section class="container mb-5">
+        <div class="row ml-0 mr-0">
+            <div class="background-taupe col-md-12 text-center pt-3 pb-3">
+                <p>{{markdown-to-html model.content.appliancePackContent}}</p>
+            </div>
+        </div>
+    </section>
+    {{#each model.notFeatured as |feature index|}}
+    <div class="mb-3 special-discount">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="red-bottom  d-flex align-items-center img-background full-height img-tinted red-bottom"
+                        style={{background-image feature.featuredSaleImage.file.url}}>
+                    </div>
+                </div>
+            </div>
+            <div class="background-taupe oswald-dark mb-5 red-span pl-5 pr-5">
+                <h3 class="text-center title pt-4 pb-2">{{{ feature.featuredSaleTitle}}}</h3>
+                <p class="text-center mb-0">
+                    {{!--
+                    <hr class="hr-dark"> --}}
+                </p>
+                <div class="row justify-content-center">
+                    <div class="col col-sm-12 my-3 text-center text-lg">
+                        {{markdown-to-html feature.featuredSaleContent}}
+                        {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request design
+                        consultation{{/contact-form-button}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
     {{sign-up-modal id="sign-up-form"}}
     {{share-kitchen-modal id="share-kitchen-form"}}
