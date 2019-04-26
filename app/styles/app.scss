@@ -1672,3 +1672,29 @@ $red: #ff0000;
     color: $red
   }
 }
+.l-0 {
+  letter-spacing: 0;
+}
+
+.appliance-button {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, .5);
+  padding: 1rem;
+  border: 0;
+  &:hover {
+    border: 0;
+    background: rgba(0, 0, 0, .9);
+  }
+}
+
+.bold-title {
+  h1 {
+    letter-spacing: 0;
+    font-family: 'oswaldextrabold', Helvetica, Arial, sans-serif;
+
+  }
+}

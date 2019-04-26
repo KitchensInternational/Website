@@ -26,20 +26,18 @@
                     <h3 class="card-title font-weight-bold mb-0">{{ markdown-to-html
                 model.content.heading}}</h3>
                     <hr>
-                    <p>{{markdown-to-html model.content.introduction}}</p>
+                    <p class="pl-4 pr-4 col-md-10 offset-md-1">{{markdown-to-html model.content.introduction}}</p>
                     {{#sign-up-button class="btn btn-outline-primary my-4 button-on-gray" form-id="sign-up-form"}}REQUEST
                     DESIGN CONSULTATION{{/sign-up-button}}
                 </div>
             </div>
         </section>
     </div>
-
-
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card mb-5">
-                    {{image-carousel id="carousel" images=model.content.carouselImages class="carousel-sales"}}
+                    {{image-carousel id="carousel" showControls=false images=model.content.carouselImages class="carousel-sales"}}
                     <div class="background-taupe sub-heading-bckg">
                         <div class="row">
                             <div class="col py-2">
@@ -48,8 +46,9 @@
                     </div>
                     <div class="card-block d-flex justify-content-center">
                         <div class="col col-sm-12 text-center text-lg py-3">
-                            {{markdown-to-html model.content.splashContent class="card-text red-span font-oswald"}}
-                            {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request design
+                            {{markdown-to-html model.content.splashContent class="card-text red-span font-oswald bold-title"}}
+                            {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request
+                            design
                             consultation{{/contact-form-button}}
                         </div>
                     </div>
@@ -70,7 +69,7 @@
                 </div>
             </div>
             <div class="background-taupe oswald-dark pl-5 pr-5 mb-5 red-span">
-                <h3 class="text-center title pt-4 pb-2">{{{ feature.featuredSaleTitle}}}</h3>
+                <h3 class="text-center title pt-4 pb-2 font-weight-bold l-0">{{{ feature.featuredSaleTitle}}}</h3>
                 <p class="text-center mb-0">
                     {{!--
                     <hr class="hr-dark"> --}}
@@ -78,7 +77,8 @@
                 <div class="row justify-content-center">
                     <div class="col col-sm-12 my-3 text-center text-lg">
                         {{markdown-to-html feature.featuredSaleContent}}
-                        {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request design
+                        {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request
+                        design
                         consultation{{/contact-form-button}}
                     </div>
                 </div>
@@ -91,11 +91,11 @@
         <div class="row">
             {{#each model.sales.first as |sale index|}}
             <div class="col-6 col-sm-6 mb-0">
-                <div class="d-flex align-items-center img-background img-tinted red-bottom"
+                <div class="d-flex align-items-center img-background img-tinted red-bottom position-relative"
                     style={{background-image sale.featuredImage.file.url}}>
                     <div class="background-taupe dark-inset">
                         <div class="py-2 text-center">
-                            <button onclick={{action "toggle"}} class="btn btn-outline-secondary" type="button" data-parent="#myGroup" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
+                            <button onclick={{action "toggle"}} class="btn btn-outline-secondary appliance-button" type="button" data-parent="#myGroup" data-toggle="collapse" data-target="#collapseSale{{sale.id}}" aria-expanded="false" aria-controls="collapseSale{{sale.id}}">{{sale.name}}</button>
                         </div>
                     </div>
                 </div>
@@ -161,12 +161,14 @@
     </div>
     <section class="container mb-5">
         <div class="row ml-0 mr-0">
-            <div class="background-taupe col-md-12 text-center pt-3 pb-3">
+            <div class="background-taupe col-md-12 text-center pt-3 pb-3 bold-title">
                 <p>{{markdown-to-html model.content.appliancePackContent}}</p>
+                {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Find out
+                more{{/contact-form-button}}
             </div>
         </div>
     </section>
-    {{#each model.notFeatured as |feature index|}}
+    {{#each notFeaturedSalesOrdered as |feature index|}}
     <div class="mb-3 special-discount">
         <div class="container">
             <div class="row">
@@ -177,15 +179,16 @@
                 </div>
             </div>
             <div class="background-taupe oswald-dark mb-5 red-span pl-5 pr-5">
-                <h3 class="text-center title pt-4 pb-2">{{{ feature.featuredSaleTitle}}}</h3>
+                <h3 class="text-center title pt-4 pb-0 font-weight-bold l-0">{{{ feature.featuredSaleTitle}}}</h3>
                 <p class="text-center mb-0">
                     {{!--
                     <hr class="hr-dark"> --}}
                 </p>
                 <div class="row justify-content-center">
-                    <div class="col col-sm-12 my-3 text-center text-lg">
+                    <div class="col col-sm-12 my-0 text-center text-lg">
                         {{markdown-to-html feature.featuredSaleContent}}
-                        {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request design
+                        {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Request
+                        design
                         consultation{{/contact-form-button}}
                     </div>
                 </div>
@@ -193,5 +196,19 @@
         </div>
     </div>
     {{/each}}
-    {{sign-up-modal id="sign-up-form"}}
-    {{share-kitchen-modal id="share-kitchen-form"}}
+    <div class="container text-center mt-4">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="font-weight-bold l-0">We've been creative with our offers, so you can be creative with your
+                kitchen.
+            </h4>
+            <p class="mb-2 mt-1">
+                Call us or pop into one of our nearest studios to find the best deal for you. For further information,
+                fill
+                out the form below or Call us on: 0845 070 0022
+            </p>
+        </div>
+        {{#contact-form-button form-id="contact-sale" white-text=false class="my-3"}}Get in
+        touch{{/contact-form-button}}
+    </div>
+
+    {{contact-form-modal id="contact-sale"}}

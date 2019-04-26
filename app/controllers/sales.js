@@ -8,8 +8,9 @@ export default Ember.Controller.extend({
     sortedSalesOrder: ['order'],
     sortedSales: Ember.computed.sort('model.sales', 'sortedSalesOrder'),
     featuredSalesOrder: ['createdAt:asc'],
+    notFeatured: ['order:desc'],
     featuredSalesOrdered: Ember.computed.sort('model.featured', 'featuredSalesOrder'),
-    notFeaturedSalesOrdered: Ember.computed.sort('model.notFeatured', 'notFeaturedSalesOrdered'),
+    notFeaturedSalesOrdered: Ember.computed.sort('model.notFeatured', 'notFeatured'),
     actions: {
         changePage(page) {
             this.set('page', page);
