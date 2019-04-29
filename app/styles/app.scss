@@ -11,6 +11,14 @@
 }
 
 @font-face {
+  font-family: 'oswaldregular';
+  src: url('/fonts/oswald-regular-webfont.woff2') format('woff2'),
+    url('/fonts/oswald-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'oswaldmedium';
   src: url('/fonts/oswald-medium-webfont.woff2') format('woff2'),
     url('/fonts/oswald-medium-webfont.woff') format('woff');
@@ -1274,6 +1282,10 @@ $red: #ff0000;
   font-family: 'oswaldmedium', Helvetica, Arial, sans-serif;
 
 }
+.font-weight-regular {
+  font-family: 'oswaldregular', Helvetica, Arial, sans-serif;
+
+}
 
 .button-on-gray {
   color: #666;
@@ -1694,7 +1706,7 @@ $red: #ff0000;
 .bold-title {
   h1 {
     letter-spacing: 0;
-    font-family: 'oswaldmedium', Helvetica, Arial, sans-serif;
+    font-family: 'oswaldregular', Helvetica, Arial, sans-serif;
 
   }
 }
