@@ -427,6 +427,14 @@ $n: 1;
     height: 100%;
   }
 
+  &.extra-height {
+    min-height: 700px;
+    height: 100%;
+    @media (max-width: #{map-get($grid-breakpoints, md)}) {
+      min-height: 400px;
+    }
+  }
+
   &.auto-height {
     height: auto;
   }
