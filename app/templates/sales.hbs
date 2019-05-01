@@ -8,7 +8,7 @@
                 {{#heading-after-scroll class="mb-0"}}{{ markdown-to-html
                 model.content.heading}}{{/heading-after-scroll}}
             </div>
-            <a onclick={{action "scrollDown"}} class="btn btn-outline-secondary mt-5 my-4" href='#'>EARLY BIRD OFFERS</a>
+            <a onclick={{action "scrollDown"}} class="btn btn-outline-secondary mt-5 my-4" href='#'>Take me to the offers</a>
         </div>
 
     </div>
@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card mb-5">
-                    {{image-carousel id="carousel" showControls=false images=model.content.carouselImages class="carousel-sales"}}
+                    {{image-carousel id="carousel" showControls=true images=model.content.carouselImages class="carousel-sales"}}
                     <div class="background-taupe sub-heading-bckg">
                         <div class="row">
                             <div class="col py-2">

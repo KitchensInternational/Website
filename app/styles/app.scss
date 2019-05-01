@@ -1204,6 +1204,9 @@ $intro-bottom-hugger: rgba($black, .4);
 
 
 .sales {
+  .card-img-top {
+    max-height: 750px !important;
+  }
   .introduction {
     height: 100vh;
   }
