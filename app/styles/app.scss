@@ -1206,6 +1206,9 @@ $intro-bottom-hugger: rgba($black, .4);
 .sales {
   .card-img-top {
     max-height: 750px !important;
+    @media (max-width: #{map-get($grid-breakpoints, sm)}) {
+      max-height: 300px !important;
+    }
   }
   .introduction {
     height: 100vh;
