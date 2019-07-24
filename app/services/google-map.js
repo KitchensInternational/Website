@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const MAP_URL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyD-HH-O67ZZPb6WvurUD0GWdyRmadOc2TQ';
+const MAP_URL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA3kwseTmVs0kxzyS3w0bfjds8X8BPG7t8';
 const GEOCODE_URL = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDUZixElLb9RuEaiQCcFj7DE_XvVo_HQGM&address=';
 
 export default Ember.Service.extend({
