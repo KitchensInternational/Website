@@ -5,9 +5,9 @@
             <img class="logo logo-nav" src="/assets/images/ki-logo-white-small.svg" alt="Kitchens International Logo">
             <img class="logo logo-menu" src="/assets/images/ki-logo-grey-small.svg" alt="Kitchens International Logo">
             {{/link-to}}
-            {{!-- <a href="/sale">
-                <button class="btn btn-outline-secondary red" data-ember-action="">Anniversary Sale</button>
-            </a> --}}
+            <a href="/ex-display-sale">
+                <button class="btn btn-outline-secondary red" data-ember-action="">Ex-Display Sale</button>
+            </a>
             {{#contact-form-button class="mr-3" form-id="contact-form"}}Get in touch{{/contact-form-button}}
             <button {{action "toggleMainMenu"}} class="btn btn-outline-secondary">{{fa-icon "navicon" fixedWidth=true}}</button>
             <nav>
@@ -26,7 +26,7 @@
 
                     <li {{action "toggleMainMenu"}}>{{#link-to 'contact'}}Contact{{/link-to}}</li>
                     <li><a href="/25years">25th Anniversary Celebrations</a></li>
-                    {{!-- <li><a href="/sale">Anniversary Sale</a></li> --}}
+                    <li><a href="/ex-display-sale">Ex-Display Sale</a></li>
                     <li>
                         {{social-icons greyIcons=true}}
                     </li>
