@@ -86,7 +86,7 @@ export default Ember.Component.extend(formValidation, {
                 message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
                 var tempTitle = Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors' ? 'New commercial interiors contact form submission' : 'New 25 year event sign up form submission!';
                 tempTitle = window.location.pathname == "/sale" ? 'New sale/early bird promotion submission' : tempTitle;
-
+                message += "From which page it was sent: " + window.location.href + "\n\n";
                 if (!this.get('downloadBrochure')) {
                     Email.send("info@kitchensinternational.co.uk",
                         this.get('contactEmail'),
@@ -114,7 +114,8 @@ export default Ember.Component.extend(formValidation, {
                     message += "Phone: " + this.get('phone') + "\n\n";
                     message += "Address: " + this.get('address') + "\n\n";
                     message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
-
+                    message += "From which page it was sent: " + window.location.href + "\n\n";
+                    
                     tempTitle = 'Brochure download'
                     Email.send("info@kitchensinternational.co.uk",
                         this.get('contactEmail'),

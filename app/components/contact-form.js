@@ -116,6 +116,7 @@ export default Ember.Component.extend(formValidation, {
         }
 
         message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
+        message += "From which page it was sent: " + window.location.href + "\n\n";
         var tempTitle = Ember.getOwner(this).lookup('controller:application').get('currentRouteName') == 'commercial-interiors' ? 'New commercial interiors contact form submission' : 'New contact form submission!';
         if (this.get('sale')) {
           tempTitle = 'New January Sale contact form submission'
@@ -149,6 +150,7 @@ export default Ember.Component.extend(formValidation, {
           message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
 
           tempTitle = 'Brochure download'
+          message += "From which page it was sent: " + window.location.href + "\n\n";
           Email.send("info@kitchensinternational.co.uk",
             this.get('contactEmail'),
             tempTitle,
