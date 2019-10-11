@@ -58,6 +58,37 @@
                     focus-out="triggerValidation"}}
                     <p class="form-control-feedback">{{validationErrors.phone}}</p>
                 </div>
+                {{#if bookEvent}}
+                    {{#if bookEvent.arrayOfPeople}}
+                    <div class="form-group d-flex align-items-center justify-content-start flex-column">
+                    <p>
+                        How many people will be with you?
+                    </p>
+                    <select name="numOfPeople" onchange={{action "setPeople" value="target.value"}}>
+                        <option disabled selected>Please select one of the options</option>
+                        {{#each bookEvent.arrayOfPeople as |el|}}
+                            <option value="{{el}}" >{{el}}</option>
+                        {{/each}}
+                    </select>
+                
+                    </div>
+                    {{/if}}
+
+                    {{#if bookEvent.arrayOfTime}}
+                    <div class="form-group d-flex align-items-center justify-content-start flex-column">
+                    <p>
+                        What time would you like to reserve?
+                    </p>
+                    <select name="time" onchange={{action "setTime" value="target.value"}}>
+                        <option disabled selected>Please select one of the options</option>
+                        {{#each bookEvent.arrayOfTime as |el|}}
+                            <option value="{{el}}" >{{el}}</option>
+                        {{/each}}
+                    </select>
+                
+                    </div>
+                    {{/if}}
+                {{/if}}
                 {{#unless bookEvent}}
                 {{#if requestBrochure}}
                 <div class="form-group">
@@ -71,6 +102,7 @@
                 <div class="form-group">
                     {{textarea name="message" value=message class="form-control" placeholder="MESSAGE"}}
                 </div>
+                
                 {{#if sale}}
                 <div class="form-group d-flex align-items-center justify-content-start flex-column">
                     {{!-- {{select name="message" value=message class="form-control" placeholder="MESSAGE"}} --}}

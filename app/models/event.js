@@ -7,6 +7,16 @@ export default Contentful.extend({
     title: attr('string'),
     titleText: attr('string'),
     slug: attr('string'),
+    times: attr('string'),
+    maximumNumberOfPeople: attr('number'),
+    arrayOfPeople: Ember.computed('maximumNumberOfPeople', function () {
+        let num = this.get('maximumNumberOfPeople');
+        return num ?  Array.from(Array(num).keys()) : null;
+    }),
+    arrayOfTime: Ember.computed('times', function () {
+        let num = this.get('times');
+        return num ? num.split(',') : null
+    }),
     eventDate: attr('date'),
     bookingDate: attr('date'),
     location: attr('string'),

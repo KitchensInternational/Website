@@ -25,6 +25,8 @@ export default Ember.Component.extend(formValidation, {
   address: '',
   message: '',
   heard: '',
+  numOfPeople: '',
+  time: '',
   selectedKitchens: Ember.A(),
   selectedPdfs: Ember.A(),
   receiveInfoVal: 'No',
@@ -63,6 +65,12 @@ export default Ember.Component.extend(formValidation, {
     setSelection: function (selected) {
       this.set('heard', selected)
     },
+    setPeople: function (selected) {
+      this.set('numOfPeople', selected)
+    },
+    setTime: function (selected) {
+      this.set('time', selected)
+    },
     triggerValidation() {
       let form = {
         name: this.get('name'),
@@ -77,8 +85,7 @@ export default Ember.Component.extend(formValidation, {
       this.set('validationDanger', false);
     },
     triggerSubmit() {
-      // console.log("test", this.get('heard'))
-      // return;
+     
       this.send('triggerValidation');
       this.set('validationDanger', true);
       if (this.get('isValid')) {
@@ -121,6 +128,13 @@ export default Ember.Component.extend(formValidation, {
         if (this.get('sale')) {
           tempTitle = 'New January Sale contact form submission'
         }
+        if (this.get('numOfPeople')) {
+          message += "Additional number of people: " + this.get('numOfPeople') + "\n\n";;
+        }
+        if (this.get('time')) {
+          message += "Time: " + this.get('time') + "\n\n";;
+        }
+
         if (!this.get('downloadBrochure')) {
           Email.send("info@kitchensinternational.co.uk",
             this.get('contactEmail'),
