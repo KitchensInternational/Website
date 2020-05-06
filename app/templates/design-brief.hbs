@@ -1,0 +1,524 @@
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
+    <div class="heading">
+        <h1>ONLINE DESIGN BRIEF</h1>
+        <hr>
+    </div>
+</div>
+<div class="background-taupe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col py-3 sub-heading">
+                Design | Visualising inspiring and life changing concepts
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-block d-flex justify-content-center">
+    <div class="col col-sm-8 text-center py-3">
+        <h3 class="card-title">WELCOME TO THE KI ONLINE DESIGN BRIEF</h3>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+    </div>
+</div>
+<div class="container">   
+        
+    <form class="text-center">
+        {{!-- CONTACT INFORMATION --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    CONTACT INFORMATION
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 py-3">
+                <div class="form-group">
+                    <label for="name">NAME:</label>
+                    <input type="text" id="name" class="form-control ember-text-field ember-view">
+                </div>
+                <div class="form-group">
+                    <label for="address">ADDRESS:</label>
+                    <input type="text" id="address" class="form-control ember-text-field ember-view">
+                </div>
+                <div class="form-group">
+                    <label for="postcode">POSTCODE:</label>
+                    <input type="text" id="postcode" class="form-control ember-text-field ember-view">
+                </div>
+                <div class="form-group">
+                    <label for="phone">PHONE NUMBER:</label>
+                    <input type="text" id="phone" class="form-control ember-text-field ember-view">
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL ADDRESS:</label>
+                    <input type="email" id="email" class="form-control ember-text-field ember-view">
+                </div>
+            </div>
+        </div>
+
+        {{!-- PROJECT CONTACT DETAILS --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    PROJECT CONTACT DETAILS
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <p class="col-12 px-5 py-3">Please provide the name and contact details for any additional parties involved in your project.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 pb-3">
+                <div class="form-group">
+                    <label for="architect">ARCHITECT:</label>
+                    <input type="text" id="architect" class="form-control ember-text-field ember-view">
+                </div>
+                <div class="form-group">
+                    <label for="builder">BUILDER/CONTRACTOR:</label>
+                    <input type="text" id="builder" class="form-control ember-text-field ember-view">
+                </div>
+                <div class="form-group">
+                    <label for="interior-designer">INTERIOR DESIGNER:</label>
+                    <input type="text" id="interior-designer" class="form-control ember-text-field ember-view">
+                </div>
+            </div>
+        </div>
+
+
+        {{!-- THE KITCHEN --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    THE KITCHEN
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 py-3">
+                <div class="form-group">
+                    <label for="what-do-you-like">What do you like about your current kitchen? What works well? What would you keep?</label>
+                    <textarea type="text" id="what-do-you-like" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="builder">What do you dislike about your current kitchen? What annoys you? What would you change?</label>
+                    <textarea type="text" id="what-do-you-dislike" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="describe">Describe your new kitchen? What’s important to you? Dp you have a wish list?</label>
+                    <textarea type="text" id="describe" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="example">Have you seen anything that you like? Do you have a style in mind?</label>
+                    <textarea type="text" id="example" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        {{!-- APPLIANCES --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    APPLIANCES
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-12 px-5 pt-3">What appliances would you like to include in your new kitchen?</p>
+        </div>
+        <div class="row text-left pb-3">
+            <div class="col-3">
+                <input type="checkbox" id="oven" class="opt-in-checkbox">
+                <label for="oven">Oven</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="cooker-hood" class="opt-in-checkbox">
+                <label for="cooker-hood">Cooker Hood</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="freezer" class="opt-in-checkbox">
+                <label for="freezer">Freezer</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="waste-disposal" class="opt-in-checkbox">
+                <label for="waste-disposal">Waste Disposal</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="steam" class="opt-in-checkbox">
+                <label for="steam">Steam - Combi Oven</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="coffee" class="opt-in-checkbox">
+                <label for="coffee">Coffee Machine</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="washing" class="opt-in-checkbox">
+                <label for="washing">Washing Machine</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="wine" class="opt-in-checkbox">
+                <label for="wine">Wine Storage</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="microwave" class="opt-in-checkbox">
+                <label for="microwave">Microwave - Combi Oven</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="dish" class="opt-in-checkbox">
+                <label for="dish">Dishwasher</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="dryer" class="opt-in-checkbox">
+                <label for="dryer">Tumble Dryer</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="tap" class="opt-in-checkbox">
+                <label for="tap">Tap</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="hob" class="opt-in-checkbox">
+                <label for="hob">Hob</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="fridge" class="opt-in-checkbox">
+                <label for="fridge">Fridge</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="boiling" class="opt-in-checkbox">
+                <label for="boiling">Boiling/Filtered Water Tap</label>
+            </div>
+            <div class="col-3">
+                <input type="checkbox" id="sink" class="opt-in-checkbox">
+                <label for="sink">Sink</label>
+            </div>
+        </div>
+
+        {{!-- WINE STORAGE --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    WINE STORAGE
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-12 px-5 pt-3">Do you store wine in your kitchen?</p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="d-inline mr-3">
+                    <input type="radio" id="wine-yes" name="wine" class="opt-in-checkbox">
+                    <label for="wine-yes">Yes</label>
+                </div>
+                <div class="d-inline">
+                    <input type="radio" id="wine-no" name="wine" class="opt-in-checkbox">
+                    <label for="wine-no">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10 px-3">
+                <div class="form-group">
+                    <label for="bottle-count">If yes, how many bottles of wine are stored in your kitchen?</label>
+                    <input type="text" id="bottle-count" class="form-control ember-text-field ember-view">
+                </div>
+                <div class="form-group">
+                    <label for="bottle-price">If yes, what is the average cost per bottle of wine stored in your kitchen?</label>
+                    <input type="text" id="bottle-price" class="form-control ember-text-field ember-view">
+                </div>
+            </div>
+        </div>
+
+        {{!-- SINKS & WORKTOPS --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    SINKS &amp; WORKTOPS
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10 py-3">
+                <div class="form-group">
+                    <label for="sink-count">How many sinks do you require? (e.g main sink, prep sink, drinks area)</label>
+                    <input type="text" id="sink-count" class="form-control ember-text-field ember-view">
+                </div>
+                <div class="form-group">
+                    <label for="sink-material">What is your preferred sink material?</label>
+                    <input type="text" id="sink-material" class="form-control ember-text-field ember-view">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-12">What worktops would you like to include in your kitchen?</p>
+            <div class="col">
+                <div class="d-inline mr-5">
+                    <input type="radio" id="silestone" name="sinks" class="opt-in-checkbox">
+                    <label for="silestone">Silestone</label>
+                </div>
+                <div class="d-inline mr-5">
+                    <input type="radio" id="dekton" name="sinks" class="opt-in-checkbox">
+                    <label for="dekton">Dekton</label>
+                </div>
+                <div class="d-inline mr-5">
+                    <input type="radio" id="granite" name="sinks" class="opt-in-checkbox">
+                    <label for="granite">Granite</label>
+                </div>
+                <div class="d-inline mr-5">
+                    <input type="radio" id="corian" name="sinks" class="opt-in-checkbox">
+                    <label for="corian">Corian</label>
+                </div>
+                <div class="d-inline">
+                    <input type="radio" id="laminate" name="sinks" class="opt-in-checkbox">
+                    <label for="laminate">Laminate</label>
+                </div>
+            </div>
+        </div>
+
+        {{!-- INSTALLATION --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    INSTALLATION
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <p class="col-12">Please select the level of installation you require for your new kitchen</p>
+            <div class="col">
+                <div class="d-inline mr-5">
+                    <input type="radio" id="supply-only" name="installation" class="opt-in-checkbox">
+                    <label for="supply-only">Supply Only</label>
+                </div>
+                <div class="d-inline mr-5">
+                    <input type="radio" id="dry-fit" name="installation" class="opt-in-checkbox">
+                    <label for="dry-fit">Dry Fit (Joinery only)</label>
+                </div>
+                <div class="d-inline">
+                    <input type="radio" id="full" name="installation" class="opt-in-checkbox">
+                    <label for="full">Prep & Full Install (Prep, Joinery, Plumbing & Electrical)</label>
+                </div>
+            </div>
+        </div>
+
+        {{!-- BUDGET/COST --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    BUDGET/COST
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <p class="col-12">What is the financial investment you are looking to make in your new kitchen?</p>
+        </div>
+        <div class="row text-left px-5">
+            <div class="col-3 pl-5">
+                <input type="checkbox" id="15K" class="opt-in-checkbox">
+                <label for="15K">£15K-£20K</label>
+            </div>
+            <div class="col-3 pl-5">
+                <input type="checkbox" id="20K" class="opt-in-checkbox">
+                <label for="20K">£20K-£25K</label>
+            </div>
+            <div class="col-3 pl-5">
+                <input type="checkbox" id="25K" class="opt-in-checkbox">
+                <label for="25K">£25K-£30K</label>
+            </div>
+            <div class="col-3 pl-5">
+                <input type="checkbox" id="30K" class="opt-in-checkbox">
+                <label for="30K">£30K-£35K</label>
+            </div>
+            <div class="col-3 pl-5">
+                <input type="checkbox" id="40K" class="opt-in-checkbox">
+                <label for="40K">£40K-£50K</label>
+            </div>
+            <div class="col-3 pl-5">
+                <input type="checkbox" id="50K" class="opt-in-checkbox">
+                <label for="50K">£50K-£60K</label>
+            </div>
+            <div class="col-3 pl-5">
+                <input type="checkbox" id="60K" class="opt-in-checkbox">
+                <label for="60K">£60K+</label>
+            </div>
+        </div>
+
+        {{!-- THE PROPERTY --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    THE PROPERTY
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="describe-property">What do you like about your current kitchen? What works well? What would you keep?</label>
+                    <textarea type="text" id="describe-property" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+            </div>
+            <div class="col-12">
+                <p class="mb-1">Describe your project</p>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="d-inline mr-5">
+                    <input type="radio" id="new-build" name="describe-project" class="opt-in-checkbox">
+                    <label for="new-build">New Build</label>
+                </div>
+                <div class="d-inline mr-5">
+                    <input type="radio" id="rennovation" name="describe-project" class="opt-in-checkbox">
+                    <label for="rennovation">Rennovation</label>
+                </div>
+                <div class="d-inline">
+                    <input type="radio" id="extension" name="describe-project" class="opt-in-checkbox">
+                    <label for="extension">Extension</label>
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <p class="mb-1">Is the property listed?</p>
+                <div class="d-inline mr-5">
+                    <input type="radio" id="listed-yes" name="listed-property" class="opt-in-checkbox">
+                    <label for="listed-yes">Yes</label>
+                </div>
+                <div class="d-inline">
+                    <input type="radio" id="listed-no" name="listed-property" class="opt-in-checkbox">
+                    <label for="listed-no">No</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <p class="mb-1">Do you have planning permission or a building warrant?</p>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="d-inline mr-5">
+                    <input type="radio" id="permission-yes" name="permission" class="opt-in-checkbox">
+                    <label for="permission-yes">Yes</label>
+                </div>
+                <div class="d-inline mr-5">
+                    <input type="radio" id="permission-no" name="permission" class="opt-in-checkbox">
+                    <label for="permission-no">No</label>
+                </div>
+                <div class="d-inline">
+                    <input type="radio" id="permission-not-sure" name="permission" class="opt-in-checkbox">
+                    <label for="permission-not-sure">Not sure</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="completion-date">What is your expected completion date?</label>
+                    <input type="text" id="completion-date" class="form-control ember-text-field ember-view">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="build-time">What is your build time?</label>
+                    <input type="text" id="build-time" class="form-control ember-text-field ember-view">
+                </div>
+            </div>
+        </div>
+
+        {{!-- ABOUT YOU --}}
+        <div class="row">
+            <div class="col-md-12 background-taupe my-3">
+                <div class="col py-3 sub-heading">
+                    ABOUT YOU
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10 py-3">
+                <div class="form-group">
+                    <label for="users-count">How many people will use the new kitchen?</label>
+                    <textarea type="text" id="users-count" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="same-time-cooks">Will more than one person cook at the same time?</label>
+                    <textarea type="text" id="same-time-cooks" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="requirements">Describe the requirements of the new kitchen (e.g. cooking, dining, entertaining etc)</label>
+                    <textarea type="text" id="requirements" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <p class="mb-1">Do you entertain at home?</p>
+                    <div class="d-inline mr-5">
+                        <input type="radio" id="entertain-yes" name="home-entertain" class="opt-in-checkbox">
+                        <label for="entertain-yes">Yes</label>
+                    </div>
+                    <div class="d-inline">
+                        <input type="radio" id="entertain-no" name="home-entertain" class="opt-in-checkbox">
+                        <label for="entertain-no">No</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p class="mb-1">Do you dine in kitchen?</p>
+                    <div class="d-inline mr-5">
+                        <input type="radio" id="dine-yes" name="dine" class="opt-in-checkbox">
+                        <label for="dine-yes">Yes</label>
+                    </div>
+                    <div class="d-inline">
+                        <input type="radio" id="dine-no" name="dine" class="opt-in-checkbox">
+                        <label for="dine-no">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="time-spent">How much time will you spend in your kitchen?</label>
+                    <textarea type="text" id="time-spent" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cooking-type">What type of cooking do you do? (Grilling, boiling, baking etc)</label>
+                    <textarea type="text" id="cooking-type" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="weekday-meals">Describe weekday meals (i.e one person cooking, one seated)</label>
+                    <textarea type="text" id="weekday-meals" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="weekend-meals">Describe weekend meals (i.e one person cooking, one seated)</label>
+                    <textarea type="text" id="weekend-meals" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="often-shop">How often do you shop?</label>
+                    <textarea type="text" id="often-shop" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fresh-produce">What fresh produce do you store? Do you bulk buy produce?</label>
+                    <textarea type="text" id="fresh-produce" class="form-control ember-text-field ember-view"></textarea>
+                </div>
+                <div class="mb-3">
+                    <p class="mb-1">Do you freeze a lot of produce?</p>
+                    <div class="d-inline mr-5">
+                        <input type="radio" id="freeze-products-yes" name="freeze-products" class="opt-in-checkbox">
+                        <label for="freeze-products-yes">Yes</label>
+                    </div>
+                    <div class="d-inline">
+                        <input type="radio" id="freeze-products-no" name="freeze-products" class="opt-in-checkbox">
+                        <label for="freeze-products-no">No</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <p class="mb-1">Do you recycle materials?</p>
+                    <div class="d-inline mr-5">
+                        <input type="radio" id="recycle-yes" name="recycle" class="opt-in-checkbox">
+                        <label for="recycle-yes">Yes</label>
+                    </div>
+                    <div class="d-inline">
+                        <input type="radio" id="recycle-no" name="recycle" class="opt-in-checkbox">
+                        <label for="recycle-no">No</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-primary">UPLOAD IMAGES/ARCHITECTS PLANS</button>
+            </div>
+        </div>
+        <p class="my-3 pt-5">Thank you for taking the time to complete our Online Design Brief. By clicking the submit button below, a copy of your brief will be sent to a member of our Design team from your nearest available showroom and one of our Designers will be in touch shortly to discuss your project in more detail.</p>
+        <button class="btn btn-outline-primary">SUBMIT DESIGN BRIEF</button>
+    </form>
+</div>
+
