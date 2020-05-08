@@ -1741,3 +1741,12 @@ $red: #ff0000;
     font-size: 2.4rem;
   }
 }
+
+.design-portal-box {
+  border-bottom: 5px solid rgb(102, 102, 102);
+
+  &__link {
+    text-decoration: underline;
+    font-weight: 400;
+  }
+}
