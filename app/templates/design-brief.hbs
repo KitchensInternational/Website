@@ -44,15 +44,15 @@
                 </div>
                 <div class="form-group">
                     <label for="postcode">POSTCODE:</label>
-                    {{input type="text" id="postcode" name=postcode class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="postcode" value=postcode class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="phone">PHONE NUMBER:</label>
-                    {{input type="text" id="phone" name=phone class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="phone" value=phone class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="email">EMAIL ADDRESS:</label>
-                    {{input type="email" id="email" name=email class="form-control ember-text-field ember-view"}}
+                    {{input type="email" id="email" value=email class="form-control ember-text-field ember-view"}}
                 </div>
             </div>
         </div>
@@ -74,15 +74,15 @@
             <div class="col-md-10 pb-3">
                 <div class="form-group">
                     <label for="architect">ARCHITECT:</label>
-                    {{input type="text" id="architect" name=architect class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="architect" value=architect class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="builder">BUILDER/CONTRACTOR:</label>
-                    {{input type="text" id="builder" name=builder class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="builder" value=builder class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="interior-designer">INTERIOR DESIGNER:</label>
-                    {{input type="text" id="interior-designer" name=interiorDesigner class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="interior-designer" value=interiorDesigner class="form-control ember-text-field ember-view"}}
                 </div>
             </div>
         </div>
@@ -101,19 +101,19 @@
             <div class="col-md-10 py-3">
                 <div class="form-group">
                     <label for="what-do-you-like">What do you like about your current kitchen? What works well? What would you keep?</label>
-                    {{textarea type="text" id="what-do-you-like" name=whatDoYouLike class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="what-do-you-like" value=whatDoYouLike class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="builder">What do you dislike about your current kitchen? What annoys you? What would you change?</label>
-                    {{textarea type="text" id="what-do-you-dislike" name=whatDoYouDislike class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="what-do-you-dislike" value=whatDoYouDislike class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="describe">Describe your new kitchen? What’s important to you? Dp you have a wish list?</label>
-                    {{textarea type="text" id="describe" name=describe class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="describe" value=describe class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="example">Have you seen anything that you like? Do you have a style in mind?</label>
-                    {{textarea type="text" id="example" name=example class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="example" value=example class="form-control ember-text-field ember-view"}}
                 </div>
             </div>
         </div>
@@ -131,68 +131,68 @@
             <p class="col-12 px-5 pt-3">What appliances would you like to include in your new kitchen?</p>
         </div>
         <div class="row text-left pb-3">
-            <div class="col-3">
-                {{input type="checkbox" id="oven" name=oven class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="oven" checked=oven class="opt-in-checkbox"}}
                 <label for="oven">Oven</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="cooker-hood" name=cookerHood  class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="cooker-hood" checked=cookerHood  class="opt-in-checkbox"}}
                 <label for="cooker-hood">Cooker Hood</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="freezer" name=freezer class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="freezer" checked=freezer class="opt-in-checkbox"}}
                 <label for="freezer">Freezer</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="waste-disposal" name=wasteDisposal class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="waste-disposal" checked=wasteDisposal class="opt-in-checkbox"}}
                 <label for="waste-disposal">Waste Disposal</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="steam" name=steam class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="steam" checked=steam class="opt-in-checkbox"}}
                 <label for="steam">Steam - Combi Oven</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="coffee" name=coffee class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="coffee" checked=coffee class="opt-in-checkbox"}}
                 <label for="coffee">Coffee Machine</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="washing" name=washing class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="washing" checked=washing class="opt-in-checkbox"}}
                 <label for="washing">Washing Machine</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="wine" name=wine class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="wine" checked=wine class="opt-in-checkbox"}}
                 <label for="wine">Wine Storage</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="microwave" name=microwave class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="microwave" checked=microwave class="opt-in-checkbox"}}
                 <label for="microwave">Microwave - Combi Oven</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="dish" name=dish class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="dish" checked=dish class="opt-in-checkbox"}}
                 <label for="dish">Dishwasher</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="dryer" name=dryer class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="dryer" checked=dryer class="opt-in-checkbox"}}
                 <label for="dryer">Tumble Dryer</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="tap" name=tap class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="tap" checked=tap class="opt-in-checkbox"}}
                 <label for="tap">Tap</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="hob" name=hob class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="hob" checked=hob class="opt-in-checkbox"}}
                 <label for="hob">Hob</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="fridge" name=fridge class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="fridge" checked=fridge class="opt-in-checkbox"}}
                 <label for="fridge">Fridge</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="boiling" name=boiling class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="boiling" checked=boiling class="opt-in-checkbox"}}
                 <label for="boiling">Boiling/Filtered Water Tap</label>
             </div>
-            <div class="col-3">
-                {{input type="checkbox" id="sink" name=sink class="opt-in-checkbox"}}
+            <div class="col-md-3">
+                {{input type="checkbox" id="sink" checked=sink class="opt-in-checkbox"}}
                 <label for="sink">Sink</label>
             </div>
         </div>
@@ -210,12 +210,12 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="d-inline mr-3">
-                    {{input type="radio" id="wine-yes" name=wineBool class="opt-in-checkbox"}}
+                <div class="d-md-inline mr-md-3">
+                    {{input type="radio" id="wine-yes" checked=wineBool class="opt-in-checkbox"}}
                     <label for="wine-yes">Yes</label>
                 </div>
-                <div class="d-inline">
-                    {{input type="radio" id="wine-no" name=wineBool class="opt-in-checkbox"}}
+                <div class="d-md-inline">
+                    {{input type="radio" id="wine-no" checked=wineBool class="opt-in-checkbox"}}
                     <label for="wine-no">No</label>
                 </div>
             </div>
@@ -224,11 +224,11 @@
             <div class="col-md-10 px-3">
                 <div class="form-group">
                     <label for="bottle-count">If yes, how many bottles of wine are stored in your kitchen?</label>
-                    {{input type="text" id="bottle-count" name=bottleCount class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="bottle-count" value=bottleCount class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="bottle-price">If yes, what is the average cost per bottle of wine stored in your kitchen?</label>
-                    {{input type="text" id="bottle-price" name=bottleCount class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="bottle-price" value=bottlePrice class="form-control ember-text-field ember-view"}}
                 </div>
             </div>
         </div>
@@ -245,35 +245,35 @@
             <div class="col-md-10 py-3">
                 <div class="form-group">
                     <label for="sink-count">How many sinks do you require? (e.g main sink, prep sink, drinks area)</label>
-                    {{input type="text" id="sink-count" name=sinkCount class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="sink-count" value=sinkCount class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="sink-material">What is your preferred sink material?</label>
-                    {{input type="text" id="sink-material" name=sinkMaterial class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="sink-material" value=sinkMaterial class="form-control ember-text-field ember-view"}}
                 </div>
             </div>
         </div>
         <div class="row">
             <p class="col-12">What worktops would you like to include in your kitchen?</p>
             <div class="col">
-                <div class="d-inline mr-5">
-                    {{input type="radio" id="silestone" name=sinks class="opt-in-checkbox"}}
+                <div class="d-md-inline mr-md-5">
+                    {{input type="radio" id="silestone" name=sinks value=silestone class="opt-in-checkbox"}}
                     <label for="silestone">Silestone</label>
                 </div>
-                <div class="d-inline mr-5">
-                    {{input type="radio" id="dekton" name=sinks class="opt-in-checkbox"}}
+                <div class="d-md-inline mr-md-5">
+                    {{input type="radio" id="dekton" name=sinks value=dekton class="opt-in-checkbox"}}
                     <label for="dekton">Dekton</label>
                 </div>
-                <div class="d-inline mr-5">
-                    {{input type="radio" id="granite" name=sinks class="opt-in-checkbox"}}
+                <div class="d-md-inline mr-md-5">
+                    {{input type="radio" id="granite" name=sinks value=granite class="opt-in-checkbox"}}
                     <label for="granite">Granite</label>
                 </div>
-                <div class="d-inline mr-5">
-                    {{input type="radio" id="corian" name=sinks class="opt-in-checkbox"}}
+                <div class="d-md-inline mr-md-5">
+                    {{input type="radio" id="corian" name=sinks value=corian class="opt-in-checkbox"}}
                     <label for="corian">Corian</label>
                 </div>
-                <div class="d-inline">
-                    {{input type="radio" id="laminate" name=sinks class="opt-in-checkbox"}}
+                <div class="d-md-inline">
+                    {{input type="radio" id="laminate" name=sinks value=laminate class="opt-in-checkbox"}}
                     <label for="laminate">Laminate</label>
                 </div>
             </div>
@@ -290,15 +290,15 @@
         <div class="row justify-content-center">
             <p class="col-12">Please select the level of installation you require for your new kitchen</p>
             <div class="col">
-                <div class="d-inline mr-5">
+                <div class="d-md-inline mr-md-5">
                     {{input type="radio" id="supply-only" name=installation class="opt-in-checkbox"}}
                     <label for="supply-only">Supply Only</label>
                 </div>
-                <div class="d-inline mr-5">
+                <div class="d-md-inline mr-md-5">
                     {{input type="radio" id="dry-fit" name=installation class="opt-in-checkbox"}}
                     <label for="dry-fit">Dry Fit (Joinery only)</label>
                 </div>
-                <div class="d-inline">
+                <div class="d-md-inline">
                     {{input type="radio" id="full" name=installation class="opt-in-checkbox"}}
                     <label for="full">Prep & Full Install (Prep, Joinery, Plumbing & Electrical)</label>
                 </div>
@@ -317,31 +317,31 @@
             <p class="col-12">What is the financial investment you are looking to make in your new kitchen?</p>
         </div>
         <div class="row text-left px-5">
-            <div class="col-3 pl-5">
+            <div class="col-md-3 pl-5">
                 {{input type="radio" name=cost id="15K" class="opt-in-checkbox"}}
                 <label for="15K">£15K-£20K</label>
             </div>
-            <div class="col-3 pl-5">
+            <div class="col-md-3 pl-5">
                 {{input type="radio" name=cost id="20K" class="opt-in-checkbox"}}
                 <label for="20K">£20K-£25K</label>
             </div>
-            <div class="col-3 pl-5">
+            <div class="col-md-3 pl-5">
                 {{input type="radio" name=cost id="25K" class="opt-in-checkbox"}}
                 <label for="25K">£25K-£30K</label>
             </div>
-            <div class="col-3 pl-5">
+            <div class="col-md-3 pl-5">
                 {{input type="radio" name=cost id="30K" class="opt-in-checkbox"}}
                 <label for="30K">£30K-£35K</label>
             </div>
-            <div class="col-3 pl-5">
+            <div class="col-md-3 pl-5">
                 {{input type="radio" name=cost id="40K" class="opt-in-checkbox"}}
                 <label for="40K">£40K-£50K</label>
             </div>
-            <div class="col-3 pl-5">
+            <div class="col-md-3 pl-5">
                 {{input type="radio" name=cost id="50K" class="opt-in-checkbox"}}
                 <label for="50K">£50K-£60K</label>
             </div>
-            <div class="col-3 pl-5">
+            <div class="col-md-3 pl-5">
                 {{input type="radio" name=cost id="60K" class="opt-in-checkbox"}}
                 <label for="60K">£60K+</label>
             </div>
@@ -359,33 +359,33 @@
             <div class="col-md-10">
                 <div class="form-group">
                     <label for="describe-property">What do you like about your current kitchen? What works well? What would you keep?</label>
-                    {{textarea type="text" id="describe-property" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="describe-property" value=descProp class="form-control ember-text-field ember-view"}}
                 </div>
             </div>
             <div class="col-md-10">
                 <p class="mb-1">Describe your project</p>
             </div>
             <div class="col-md-10 mb-3">
-                <div class="d-inline mr-5">
+                <div class="d-md-inline mr-md-5">
                     {{input type="radio" id="new-build" name=describeProject class="opt-in-checkbox"}}
                     <label for="new-build">New Build</label>
                 </div>
-                <div class="d-inline mr-5">
+                <div class="d-md-inline mr-md-5">
                     {{input type="radio" id="rennovation" name=describeProject class="opt-in-checkbox"}}
                     <label for="rennovation">Rennovation</label>
                 </div>
-                <div class="d-inline">
+                <div class="d-md-inline">
                     {{input type="radio" id="extension" name=describeProject class="opt-in-checkbox"}}
                     <label for="extension">Extension</label>
                 </div>
             </div>
             <div class="col-12 mb-3">
                 <p class="mb-1">Is the property listed?</p>
-                <div class="d-inline mr-5">
+                <div class="d-md-inline mr-md-5">
                     {{input type="radio" id="listed-yes" name=listedProperty class="opt-in-checkbox"}}
                     <label for="listed-yes">Yes</label>
                 </div>
-                <div class="d-inline">
+                <div class="d-md-inline">
                     {{input type="radio" id="listed-no" name=listedProperty class="opt-in-checkbox"}}
                     <label for="listed-no">No</label>
                 </div>
@@ -394,15 +394,15 @@
                 <p class="mb-1">Do you have planning permission or a building warrant?</p>
             </div>
             <div class="col-12 mb-3">
-                <div class="d-inline mr-5">
+                <div class="d-md-inline mr-md-5">
                     {{input type="radio" id="permission-yes" name=permission class="opt-in-checkbox"}}
                     <label for="permission-yes">Yes</label>
                 </div>
-                <div class="d-inline mr-5">
+                <div class="d-md-inline mr-md-5">
                     {{input type="radio" id="permission-no" name=permission class="opt-in-checkbox"}}
                     <label for="permission-no">No</label>
                 </div>
-                <div class="d-inline">
+                <div class="d-md-inline">
                     {{input type="radio" id="permission-not-sure" name=permission class="opt-in-checkbox"}}
                     <label for="permission-not-sure">Not sure</label>
                 </div>
@@ -410,13 +410,13 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="completion-date">What is your expected completion date?</label>
-                    {{input type="text" id="completion-date" class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="completion-date" value=completionDate class="form-control ember-text-field ember-view"}}
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
                     <label for="build-time">What is your build time?</label>
-                    {{input type="text" id="build-time" class="form-control ember-text-field ember-view"}}
+                    {{input type="text" id="build-time" value=buildTime class="form-control ember-text-field ember-view"}}
                 </div>
             </div>
         </div>
@@ -433,82 +433,82 @@
             <div class="col-md-10 py-3">
                 <div class="form-group">
                     <label for="users-count">How many people will use the new kitchen?</label>
-                    {{textarea type="text" id="users-count" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="users-count" value=usersCount class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="same-time-cooks">Will more than one person cook at the same time?</label>
-                    {{textarea type="text" id="same-time-cooks" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="same-time-cooks" value=sameTimeCooks class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="requirements">Describe the requirements of the new kitchen (e.g. cooking, dining, entertaining etc)</label>
-                    {{textarea type="text" id="requirements" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="requirements" value=requirements class="form-control ember-text-field ember-view"}}
                 </div>
 
                 <div class="mb-3">
                     <p class="mb-1">Do you entertain at home?</p>
-                    <div class="d-inline mr-5">
+                    <div class="d-md-inline mr-md-5">
                         {{input type="radio" id="entertain-yes" name=homeEntertain class="opt-in-checkbox"}}
                         <label for="entertain-yes">Yes</label>
                     </div>
-                    <div class="d-inline">
+                    <div class="d-md-inline">
                         {{input type="radio" id="entertain-no" name=homeEntertain class="opt-in-checkbox"}}
                         <label for="entertain-no">No</label>
                     </div>
                 </div>
                 <div class="mb-3">
                     <p class="mb-1">Do you dine in kitchen?</p>
-                    <div class="d-inline mr-5">
+                    <div class="d-md-inline mr-md-5">
                         {{input type="radio" id="dine-yes" name=dine class="opt-in-checkbox"}}
                         <label for="dine-yes">Yes</label>
                     </div>
-                    <div class="d-inline">
+                    <div class="d-md-inline">
                         {{input type="radio" id="dine-no" name=dine class="opt-in-checkbox"}}
                         <label for="dine-no">No</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="time-spent">How much time will you spend in your kitchen?</label>
-                    {{textarea type="text" id="time-spent" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="time-spent" value=timeSpent class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="cooking-type">What type of cooking do you do? (Grilling, boiling, baking etc)</label>
-                    {{textarea type="text" id="cooking-type" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="cooking-type" value=cookingType class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="weekday-meals">Describe weekday meals (i.e one person cooking, one seated)</label>
-                    {{textarea type="text" id="weekday-meals" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="weekday-meals" value=weekdayMeals class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="weekend-meals">Describe weekend meals (i.e one person cooking, one seated)</label>
-                    {{textarea type="text" id="weekend-meals" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="weekend-meals" value=weekendMeals class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="often-shop">How often do you shop?</label>
-                    {{textarea type="text" id="often-shop" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="often-shop" value=oftenShop class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="form-group">
                     <label for="fresh-produce">What fresh produce do you store? Do you bulk buy produce?</label>
-                    {{textarea type="text" id="fresh-produce" class="form-control ember-text-field ember-view"}}
+                    {{textarea type="text" id="fresh-produce" value=freshProduce class="form-control ember-text-field ember-view"}}
                 </div>
                 <div class="mb-3">
                     <p class="mb-1">Do you freeze a lot of produce?</p>
-                    <div class="d-inline mr-5">
+                    <div class="d-md-inline mr-md-5">
                         {{input type="radio" id="freeze-products-yes" name=freezeProducts class="opt-in-checkbox"}}
                         <label for="freeze-products-yes">Yes</label>
                     </div>
-                    <div class="d-inline">
+                    <div class="d-md-inline">
                         {{input type="radio" id="freeze-products-no" name=freezeProducts class="opt-in-checkbox"}}
                         <label for="freeze-products-no">No</label>
                     </div>
                 </div>
                 <div class="mb-3">
                     <p class="mb-1">Do you recycle materials?</p>
-                    <div class="d-inline mr-5">
-                        {{input type="radio" id="recycle-yes" name=recycle class="opt-in-checkbox"}}
+                    <div class="d-md-inline mr-md-5">
+                        {{input type="radio" id="recycle-yes" name="recycle" checked=recycle class="opt-in-checkbox"}}
                         <label for="recycle-yes">Yes</label>
                     </div>
-                    <div class="d-inline">
-                        {{input type="radio" id="recycle-no" name=recycle class="opt-in-checkbox"}}
+                    <div class="d-md-inline">
+                        {{input type="radio" id="recycle-no" name="recycle" checked=!recycle class="opt-in-checkbox"}}
                         <label for="recycle-no">No</label>
                     </div>
                 </div>
