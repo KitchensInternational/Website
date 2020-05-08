@@ -119,7 +119,6 @@ export default Ember.Component.extend(formValidation, {
             message += "Address: " + this.get('address') + "\n\n";
             message += "Kitchens:" + this.get('selectedKitchens').join(", ") + "\n\n";
           }
-
         }
 
         message += "Receive information: " + this.get('receiveInfoVal') + "\n\n";
@@ -129,10 +128,10 @@ export default Ember.Component.extend(formValidation, {
           tempTitle = 'New January Sale contact form submission'
         }
         if (this.get('numOfPeople')) {
-          message += "Additional number of people: " + this.get('numOfPeople') + "\n\n";;
+          message += "Additional number of people: " + this.get('numOfPeople') + "\n\n";
         }
         if (this.get('time')) {
-          message += "Time: " + this.get('time') + "\n\n";;
+          message += "Time: " + this.get('time') + "\n\n";
         }
 
         if (!this.get('downloadBrochure')) {
@@ -155,7 +154,7 @@ export default Ember.Component.extend(formValidation, {
             ga('send', 'event', 'Contact Form', 'Submitted', formType);
           }
         } else {
-          let pdfs = this.get('selectedPdfs');
+          // let pdfs = this.get('selectedPdfs');
           let message = "Hello\n\nthe following person has downloaded a brochure\n\n";
           message += this.get('name');
           message += " (" + this.get('email') + ")\n\n";

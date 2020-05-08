@@ -25,7 +25,8 @@ Router.map(function () {
   // this.route('sale', { path: 'januarysale/:slug' });
   this.route('ex-display-sales', { path: 'ex-display-sale' });
   this.route('ex-display-sale', { path: 'ex-display-sale/:slug' });
-  this.route('design-brief')
+  this.route('design-brief');
+  this.route('design-portal');
 
   this.route('commercials', { path: 'contracts' });
   this.route('commercial', { path: 'contracts/:slug' });
