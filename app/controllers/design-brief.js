@@ -5,8 +5,8 @@ export default Ember.Controller.extend({
         submitBrief: function() {
             console.log('Bravo Neci ima nade za tebe');
             console.log(this.get('name'));
-            
-            Email.send("nemanja@darwindigital.com",
+
+            Email.send("blagojevicnemanja14@yahoo.com",
             this.get('name'),
             'testTitle',
             'testMessage',
