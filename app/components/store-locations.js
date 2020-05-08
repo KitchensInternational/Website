@@ -49,7 +49,7 @@ export default Ember.Component.extend({
     didInsertElement() {
         this.get('googleMapService').loadMap( this, '_map', '_center', '_zoom' );
         let route = Ember.getOwner(this).lookup('controller:application').get('currentRouteName');
-        console.log('rouuuute', route)
+        // console.log('rouuuute', route)
         if(route == 'commercial-interiors' || route == 'commercial-interior') {
             this.set('displaySpecific', true);
             this.set('activeStoreIndex', 1);

@@ -201,7 +201,7 @@ export default Ember.Component.extend(formValidation, {
     receiveInfo(val) {
       let receive = val ? 'Yes' : 'No';
       this.set('receiveInfoVal', receive);
-      console.log(receive);
+      // console.log(receive);
     },
     clickPhoneNumber() {
       ga('send', 'event', 'Click Phone Number', 'Main');

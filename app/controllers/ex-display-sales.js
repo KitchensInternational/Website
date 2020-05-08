@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
             this.set('page', page);
         },
         goToArticle( slug ) {
-            console.log(slug);
+            // console.log(slug);
             this.get('routing.router').transitionTo('ex-display-sale', slug);
         }
     }

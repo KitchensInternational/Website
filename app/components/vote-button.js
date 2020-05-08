@@ -39,12 +39,12 @@ export default Ember.Component.extend({
                         };
                     }
                     entry.fields.votes['en-GB'] = votes;
-                    console.log('entry', entry);
+                    // console.log('entry', entry);
                     return entry.update();
                 }).then((entry) => {
                     let strn = '#vote-' + entry.fields.name['en-GB'].replace(/ /g, '-')
                         .replace(/[^\w-]+/g, '')
-                    console.log('ojsa macko', $(strn));
+                    // console.log('ojsa macko', $(strn));
                     $(strn).html(entry.fields.votes['en-GB']);
                     return entry.publish();
                 })
@@ -68,12 +68,12 @@ export default Ember.Component.extend({
                             };
                         }
                         entry.fields.votes['en-GB'] = votes;
-                        console.log('entry', entry);
+                        // console.log('entry', entry);
                         return entry.update();
                     }).then((entry) => {
                         let strn = '#vote-' + entry.fields.name['en-GB'].replace(/ /g, '-')
                             .replace(/[^\w-]+/g, '')
-                        console.log('ojsa macko', $(strn));
+                        // console.log('ojsa macko', $(strn));
                         $(strn).html(entry.fields.votes['en-GB']);
                         return entry.publish();
                     })

@@ -19,7 +19,7 @@ export default Ember.Route.extend({
         };
         return Ember.RSVP.hash({
             featured: this.get('store').query('featuredsale', { 'fields.featured': true }).then(items => {
-                console.log('items', items.toArray());
+                // console.log('items', items.toArray());
                 return items.sortBy('fields.title');
             }),
             notFeatured: this.get('store').query('featuredsale', { 'fields.featured': false }),
@@ -56,7 +56,7 @@ export default Ember.Route.extend({
     },
     headData: Ember.inject.service(),
     afterModel(model) {
-        console.log('modeeel', model.sales);
+        // console.log('modeeel', model.sales);
         set(this, 'headData.title', model.content.get('metaTitle'));
         set(this, 'headData.description', model.content.get('metaDescription'));
         if (model.content.get('metaImage').content) {

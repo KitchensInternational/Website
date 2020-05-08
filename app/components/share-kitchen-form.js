@@ -92,7 +92,7 @@ export default Ember.Component.extend(formValidation, {
 
             if (!files) {
                 this.set('filesError', true);
-                console.log('files not present');
+                // console.log('files not present');
             } else {
                 this.set('filesError', false);
                 this.set('files', files);
@@ -133,7 +133,7 @@ export default Ember.Component.extend(formValidation, {
                 let files = this.get('files');
                 var formData = new FormData();
                 for (var i = 0; i < files.length; i++) {
-                    console.log(files[i]);
+                    // console.log(files[i]);
                     formData.append('uploadedImages[]', files[i]);
                 }
                 let self = this;
@@ -148,11 +148,11 @@ export default Ember.Component.extend(formValidation, {
                         let images = [];
                         let files = data.uploadedFileNames;
                         for (var i = 0; i < files.length; i++) {
-                            console.log(files[i]);
+                            // console.log(files[i]);
                             images.push(files[i].url);
                         }
                         self.send('createKitchenEntry', images)
-                        console.log('data nova radi', data);
+                        // console.log('data nova radi', data);
                     }
                 })
             }
@@ -181,7 +181,7 @@ export default Ember.Component.extend(formValidation, {
         receiveInfo(val) {
             let receive = val ? 'Yes' : 'No';
             this.set('receiveInfoVal', receive);
-            console.log(receive);
+            // console.log(receive);
         },
         clickPhoneNumber() {
             ga('send', 'event', 'Click Phone Number', 'Main');

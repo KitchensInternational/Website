@@ -19,7 +19,7 @@ export default Ember.Component.extend({
     classNames: ['fade-in-images'],
     didInsertElement() {
         let elements = this.$('*').slice(0, 2);
-        console.log('elements', elements);
+        // console.log('elements', elements);
         fadeInElement(elements, 0);
     }
 });

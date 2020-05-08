@@ -7,7 +7,7 @@ export default Contentful.extend({
     name: attr('string'),
     titleText: attr('string'),
     slug: Ember.computed('name', function () {
-        console.log('sluuuugggg', this.get('name'));
+        // console.log('sluuuugggg', this.get('name'));
         return this.get('name').toLowerCase().replace(/ /, '-');
     }),
     order: attr('number'),
