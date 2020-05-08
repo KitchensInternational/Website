@@ -85,14 +85,11 @@ export default Ember.Component.extend(formValidation, {
       this.set('validationDanger', false);
     },
     triggerSubmit() {
-     
       this.send('triggerValidation');
       this.set('validationDanger', true);
       if (this.get('isValid')) {
-
         if (this.get('downloadBrochure')) {
           this.set('statusMessage', 'Downloading...');
-
         } else {
           this.set('statusMessage', 'Sending...');
         }
@@ -179,7 +176,6 @@ export default Ember.Component.extend(formValidation, {
             ga('send', 'event', 'Option used', 'Test 1A - Email Brochure Download');
           }
         }
-
       }
     },
     resetForm() {
